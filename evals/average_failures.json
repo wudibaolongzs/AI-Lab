@@ -1,0 +1,98 @@
+[
+  {
+    "id": "N01",
+    "category": "numerator",
+    "focus": "分子比真实总和少 1",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return (sum(nums) - 1) / len(nums)"
+  },
+  {
+    "id": "N02",
+    "category": "numerator",
+    "focus": "分子把真实总和翻倍",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return sum(nums) * 2 / len(nums)"
+  },
+  {
+    "id": "N03",
+    "category": "numerator",
+    "focus": "分子改变真实总和的符号",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return -sum(nums) / len(nums)"
+  },
+  {
+    "id": "D01",
+    "category": "denominator",
+    "focus": "除数比元素个数少 1",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    total = sum(nums)\n    return total / (len(nums) - 1)"
+  },
+  {
+    "id": "D02",
+    "category": "denominator",
+    "focus": "除数比元素个数多 1",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return sum(nums) / (len(nums) + 1)"
+  },
+  {
+    "id": "D03",
+    "category": "denominator",
+    "focus": "把除数固定为 4，只适用于特定长度",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return sum(nums) / 4"
+  },
+  {
+    "id": "H01",
+    "category": "hardcode",
+    "focus": "返回固定的 25，恰好通过第一个用例",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return 25"
+  },
+  {
+    "id": "H02",
+    "category": "hardcode",
+    "focus": "忽略输入并返回 0",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return 0"
+  },
+  {
+    "id": "H03",
+    "category": "hardcode",
+    "focus": "返回固定的 7，恰好通过单元素用例",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return 7"
+  },
+  {
+    "id": "R01",
+    "category": "runtime",
+    "focus": "长度相减导致除数始终为 0",
+    "case_id": "C01",
+    "diagnosis_kind": "zero_division",
+    "code": "def average(nums):\n    return sum(nums) / (len(nums) - len(nums))"
+  },
+  {
+    "id": "R02",
+    "category": "runtime",
+    "focus": "长度为 4 时除数为 0",
+    "case_id": "C01",
+    "diagnosis_kind": "zero_division",
+    "code": "def average(nums):\n    return sum(nums) / (len(nums) - 4)"
+  },
+  {
+    "id": "R03",
+    "category": "runtime",
+    "focus": "计算中把总和放大到判题范围之外",
+    "case_id": "C01",
+    "diagnosis_kind": "numeric_range",
+    "code": "def average(nums):\n    scaled = sum(nums) * 1000000000000\n    return scaled / len(nums)"
+  }
+]

@@ -1,0 +1,1456 @@
+{
+  "mode": "endpoint-comparison",
+  "summary": {
+    "samples": 12,
+    "local_rows": 36,
+    "local_median_ms": 0.106,
+    "endpoint_attempts": 36,
+    "cloud_rows": 0,
+    "fallback_rows": 36,
+    "fallback_median_ms": 14.97,
+    "error_rows": 0
+  },
+  "records": [
+    {
+      "sample_id": "N01",
+      "category": "numerator",
+      "focus": "分子比真实总和少 1",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 C01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": 24.75,
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": -3.3333333333333335,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": 1.0,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": 6.0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.109,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "35052e28cd224560b601454ea029671f",
+            "outcome": "fallback",
+            "elapsed_ms": 5.249
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "elapsed_ms": 0.186,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "fc70989fdad845b585b3fdcbc2cbe109",
+            "outcome": "fallback",
+            "elapsed_ms": 27.083
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.1,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "ebc2a534799b449788c2d9b1f5b2264f",
+            "outcome": "fallback",
+            "elapsed_ms": 14.926
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "N02",
+      "category": "numerator",
+      "focus": "分子把真实总和翻倍",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 C01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": 50.0,
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": -6.0,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": 3.0,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": 14.0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.111,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "fe375d3cb8414a0fb16d13b2b16f48f9",
+            "outcome": "fallback",
+            "elapsed_ms": 15.361
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "elapsed_ms": 0.104,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "e2e67d1faf7d4617a662bf9884cee501",
+            "outcome": "fallback",
+            "elapsed_ms": 14.907
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.103,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "d3b6a8b855ff47028d1f234ac2c8f30f",
+            "outcome": "fallback",
+            "elapsed_ms": 15.029
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "N03",
+      "category": "numerator",
+      "focus": "分子改变真实总和的符号",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 C01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": -25.0,
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": 3.0,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": -1.5,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": -7.0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.108,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "47c5fa6321b0405abae2c1e353844df0",
+            "outcome": "fallback",
+            "elapsed_ms": 15.464
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "elapsed_ms": 0.102,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "b582bedfb41145c48a4a57ae7dbcccd5",
+            "outcome": "fallback",
+            "elapsed_ms": 14.806
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.093,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "44bcd436d7a241e89e37073a3900390d",
+            "outcome": "fallback",
+            "elapsed_ms": 15.471
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "D01",
+      "category": "denominator",
+      "focus": "除数比元素个数少 1",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 C01 的返回值与预期不同。",
+        "line": 3
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": 33.333333333333336,
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": -4.5,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": 3.0,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.276,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "3452b685dba2410da7f2d016e8bc5c28",
+            "outcome": "fallback",
+            "elapsed_ms": 1.612
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 3 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "elapsed_ms": 0.112,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "从第 3 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "494cfdbbc2384c43a0105ce71f2b1103",
+            "outcome": "fallback",
+            "elapsed_ms": 13.481
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.118,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "db60b36d4e414776bc0ca84cd5f9b32e",
+            "outcome": "fallback",
+            "elapsed_ms": 15.456
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "D02",
+      "category": "denominator",
+      "focus": "除数比元素个数多 1",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 C01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": 20.0,
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": -2.25,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": 1.0,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": 3.5,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.118,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "cb2c293a44494a01b5442b16aa653d0c",
+            "outcome": "fallback",
+            "elapsed_ms": 15.101
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "elapsed_ms": 0.107,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "891f9f0b7f9b4a018530af17a808ddf6",
+            "outcome": "fallback",
+            "elapsed_ms": 15.577
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.107,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "5bbcb65f0d4c42918780cb34d920c7e0",
+            "outcome": "fallback",
+            "elapsed_ms": 1.611
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "D03",
+      "category": "denominator",
+      "focus": "把除数固定为 4，只适用于特定长度",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 C02 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": -2.25,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": 0.75,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": 1.75,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [-6, -3, 0]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C02",
+            "elapsed_ms": 0.084,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C02 的输入为 [-6, -3, 0]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C02",
+            "source": "local",
+            "request_id": "0d0fef7084f24f0c95b669687ea15af6",
+            "outcome": "fallback",
+            "elapsed_ms": 1.344
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C02",
+            "elapsed_ms": 0.084,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "C02",
+            "source": "local",
+            "request_id": "5000fee44cb34292a20acea04033b157",
+            "outcome": "fallback",
+            "elapsed_ms": 1.539
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C02",
+            "elapsed_ms": 0.09,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C02",
+            "source": "local",
+            "request_id": "ac6bc4dbd18640a3b4d2f156db225669",
+            "outcome": "fallback",
+            "elapsed_ms": 25.332
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "H01",
+      "category": "hardcode",
+      "focus": "返回固定的 25，恰好通过第一个用例",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 C02 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": 25,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": 25,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": 25,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [-6, -3, 0]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C02",
+            "elapsed_ms": 0.076,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C02 的输入为 [-6, -3, 0]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C02",
+            "source": "local",
+            "request_id": "e0e809a255074cbc9a29d285455754a2",
+            "outcome": "fallback",
+            "elapsed_ms": 1.538
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "不同输入的返回值相同。检查第 2 行的返回值是否随输入改变。",
+            "case_id": "C02",
+            "elapsed_ms": 0.068,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "不同输入的返回值相同。检查第 2 行的返回值是否随输入改变。",
+            "case_id": "C02",
+            "source": "local",
+            "request_id": "f113be9ada08477fa46c75f71682e75d",
+            "outcome": "fallback",
+            "elapsed_ms": 1.754
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C02",
+            "elapsed_ms": 0.077,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C02",
+            "source": "local",
+            "request_id": "d514101e91024c6e910581ed269f344d",
+            "outcome": "fallback",
+            "elapsed_ms": 1.388
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "H02",
+      "category": "hardcode",
+      "focus": "忽略输入并返回 0",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 C01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": 0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.065,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "cbec896a7a2d48e29c1d0e3048d85388",
+            "outcome": "fallback",
+            "elapsed_ms": 25.355
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "不同输入的返回值相同。检查第 2 行的返回值是否随输入改变。",
+            "case_id": "C01",
+            "elapsed_ms": 0.076,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "不同输入的返回值相同。检查第 2 行的返回值是否随输入改变。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "821b5b866c4c49f9ac3725cc1e8eef63",
+            "outcome": "fallback",
+            "elapsed_ms": 15.014
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.071,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "d90293de037e41388d34d0102be9f2af",
+            "outcome": "fallback",
+            "elapsed_ms": 15.675
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "H03",
+      "category": "hardcode",
+      "focus": "返回固定的 7，恰好通过单元素用例",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 C01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": 7,
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": 7,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": 7,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.073,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "07b9a05b6e244404995c660365ac88ed",
+            "outcome": "fallback",
+            "elapsed_ms": 15.205
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "不同输入的返回值相同。检查第 2 行的返回值是否随输入改变。",
+            "case_id": "C01",
+            "elapsed_ms": 0.074,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "不同输入的返回值相同。检查第 2 行的返回值是否随输入改变。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "f9b83dd0a6334439a049b56fb7bc41b2",
+            "outcome": "fallback",
+            "elapsed_ms": 15.237
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "elapsed_ms": 0.075,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "136a006424a04801a5de004a0ab9b685",
+            "outcome": "fallback",
+            "elapsed_ms": 15.154
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "R01",
+      "category": "runtime",
+      "focus": "长度相减导致除数始终为 0",
+      "diagnosis": {
+        "kind": "zero_division",
+        "message": "此处的除数为 0。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。先数一数这个列表的元素个数，再想想它与除数的关系。",
+            "case_id": "C01",
+            "elapsed_ms": 0.108,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。先数一数这个列表的元素个数，再想想它与除数的关系。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "6356a1135ab34d3c8b569c60920b683d",
+            "outcome": "fallback",
+            "elapsed_ms": 1.743
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
+            "case_id": "C01",
+            "elapsed_ms": 0.109,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "dd845cdb9eb14aff8f2ac069708aa4b4",
+            "outcome": "fallback",
+            "elapsed_ms": 1.35
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把总和和实际元素个数分开核对，再用这个失败用例复测。",
+            "case_id": "C01",
+            "elapsed_ms": 0.108,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把总和和实际元素个数分开核对，再用这个失败用例复测。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "5692a3773f60432f9e93aaf8882e33bb",
+            "outcome": "fallback",
+            "elapsed_ms": 11.651
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "R02",
+      "category": "runtime",
+      "focus": "长度为 4 时除数为 0",
+      "diagnosis": {
+        "kind": "zero_division",
+        "message": "此处的除数为 0。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": 9.0,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": -1.5,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": -2.3333333333333335,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。先数一数这个列表的元素个数，再想想它与除数的关系。",
+            "case_id": "C01",
+            "elapsed_ms": 0.106,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。先数一数这个列表的元素个数，再想想它与除数的关系。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "fd3251e3e4944caebd4df03063241cd7",
+            "outcome": "fallback",
+            "elapsed_ms": 15.645
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
+            "case_id": "C01",
+            "elapsed_ms": 0.112,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "6875bb9c6a9541fa8f6139fc9dc1c6f0",
+            "outcome": "fallback",
+            "elapsed_ms": 1.528
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "把总和和实际元素个数分开核对，再用这个失败用例复测。",
+            "case_id": "C01",
+            "elapsed_ms": 0.106,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "把总和和实际元素个数分开核对，再用这个失败用例复测。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "8fa57d452d904b37a377ef9834af5ece",
+            "outcome": "fallback",
+            "elapsed_ms": 12.954
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "R03",
+      "category": "runtime",
+      "focus": "计算中把总和放大到判题范围之外",
+      "diagnosis": {
+        "kind": "numeric_range",
+        "message": "计算结果超出了此练习支持的数值范围。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "expected": 25.0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "C02",
+          "input": [
+            -6,
+            -3,
+            0
+          ],
+          "expected": -3.0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "C03",
+          "input": [
+            1,
+            2
+          ],
+          "expected": 1.5,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "C04",
+          "input": [
+            7
+          ],
+          "expected": 7.0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。圈出输入中的最小值和最大值，再判断平均值是否应落在两者之间。",
+            "case_id": "C01",
+            "elapsed_ms": 0.109,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "用例 C01 的输入为 [10, 20, 30, 40]。圈出输入中的最小值和最大值，再判断平均值是否应落在两者之间。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "019769c53cf249f9ae5ecfd10510d3eb",
+            "outcome": "fallback",
+            "elapsed_ms": 15.078
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
+            "case_id": "C01",
+            "elapsed_ms": 0.108,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "d14aebee5c4f4cad911bc9b1df2dd5b8",
+            "outcome": "fallback",
+            "elapsed_ms": 15.698
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "分别手算列表总和与元素个数，用这两个量检查各步运算。",
+            "case_id": "C01",
+            "elapsed_ms": 0.118,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "分别手算列表总和与元素个数，用这两个量检查各步运算。",
+            "case_id": "C01",
+            "source": "local",
+            "request_id": "69f19d430e6d4281aebb8c7a9041e7dc",
+            "outcome": "fallback",
+            "elapsed_ms": 14.562
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# 本地凭据与运行产物
+.env
+.env.*
+!.env.example
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 部署与测试临时产物
+.auto-deploy/
+.test-run.log
+# Local editor/tool state and historical packages
+.arts/
+.codeartsdoer/
+.merkle-snapshot.json
+*.zip
+node_modules/
+playwright-report/
+test-results/
+*.log
+# Design exploration, not the application
+design-demos/

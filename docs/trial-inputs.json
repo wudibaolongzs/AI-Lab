@@ -1,0 +1,5 @@
+{
+  "exercise_title": "计算列表平均值",
+  "evidence_json": "{\"cases\": [{\"id\": \"C01\", \"input\": [10, 20, 30, 40], \"expected\": 25.0, \"actual\": 33.333333333333336, \"status\": \"failed\"}, {\"id\": \"C02\", \"input\": [-6, -3, 0], \"expected\": -3.0, \"actual\": -4.5, \"status\": \"failed\"}, {\"id\": \"C03\", \"input\": [1, 2], \"expected\": 1.5, \"actual\": 3.0, \"status\": \"failed\"}, {\"id\": \"C04\", \"input\": [7], \"expected\": 7.0, \"actual\": null, \"status\": \"error\", \"error\": \"此处的除数为 0。\"}], \"diagnosis\": {\"kind\": \"wrong_result\", \"message\": \"用例 C01 的返回值与预期不同。\", \"line\": 3}}",
+  "hint_level": 1
+}

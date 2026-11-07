@@ -1,0 +1,218 @@
+[
+  {
+    "id": "N01",
+    "category": "numerator",
+    "focus": "分子比真实总和少 1",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return (sum(nums) - 1) / len(nums)",
+    "exercise": "average"
+  },
+  {
+    "id": "N02",
+    "category": "numerator",
+    "focus": "分子把真实总和翻倍",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return sum(nums) * 2 / len(nums)",
+    "exercise": "average"
+  },
+  {
+    "id": "N03",
+    "category": "numerator",
+    "focus": "分子改变真实总和的符号",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return -sum(nums) / len(nums)",
+    "exercise": "average"
+  },
+  {
+    "id": "D01",
+    "category": "denominator",
+    "focus": "除数比元素个数少 1",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    total = sum(nums)\n    return total / (len(nums) - 1)",
+    "exercise": "average"
+  },
+  {
+    "id": "D02",
+    "category": "denominator",
+    "focus": "除数比元素个数多 1",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return sum(nums) / (len(nums) + 1)",
+    "exercise": "average"
+  },
+  {
+    "id": "D03",
+    "category": "denominator",
+    "focus": "把除数固定为 4，只适用于特定长度",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return sum(nums) / 4",
+    "exercise": "average"
+  },
+  {
+    "id": "H01",
+    "category": "hardcode",
+    "focus": "返回固定的 25，恰好通过第一个用例",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return 25",
+    "exercise": "average"
+  },
+  {
+    "id": "H02",
+    "category": "hardcode",
+    "focus": "忽略输入并返回 0",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return 0",
+    "exercise": "average"
+  },
+  {
+    "id": "H03",
+    "category": "hardcode",
+    "focus": "返回固定的 7，恰好通过单元素用例",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average(nums):\n    return 7",
+    "exercise": "average"
+  },
+  {
+    "id": "R01",
+    "category": "runtime",
+    "focus": "长度相减导致除数始终为 0",
+    "case_id": "C01",
+    "diagnosis_kind": "zero_division",
+    "code": "def average(nums):\n    return sum(nums) / (len(nums) - len(nums))",
+    "exercise": "average"
+  },
+  {
+    "id": "R02",
+    "category": "runtime",
+    "focus": "长度为 4 时除数为 0",
+    "case_id": "C01",
+    "diagnosis_kind": "zero_division",
+    "code": "def average(nums):\n    return sum(nums) / (len(nums) - 4)",
+    "exercise": "average"
+  },
+  {
+    "id": "R03",
+    "category": "runtime",
+    "focus": "计算中把总和放大到判题范围之外",
+    "case_id": "C01",
+    "diagnosis_kind": "numeric_range",
+    "code": "def average(nums):\n    scaled = sum(nums) * 1000000000000\n    return scaled / len(nums)",
+    "exercise": "average"
+  },
+  {
+    "id": "SU1",
+    "exercise": "sum",
+    "category": "quantity",
+    "case_id": "S01",
+    "diagnosis_kind": "wrong_result",
+    "focus": "把元素个数当成了相加结果",
+    "code": "def list_sum(nums):\n    return len(nums)\n"
+  },
+  {
+    "id": "SU2",
+    "exercise": "sum",
+    "category": "offset",
+    "case_id": "S01",
+    "diagnosis_kind": "wrong_result",
+    "focus": "相加结果比真实总和少 1",
+    "code": "def list_sum(nums):\n    return sum(nums) - 1\n"
+  },
+  {
+    "id": "SU3",
+    "exercise": "sum",
+    "category": "offset",
+    "case_id": "S03",
+    "diagnosis_kind": "wrong_result",
+    "focus": "用元素个数补偏，空列表时错位",
+    "code": "def list_sum(nums):\n    return sum(nums) + len(nums) - 3\n"
+  },
+  {
+    "id": "SU4",
+    "exercise": "sum",
+    "category": "hardcode",
+    "case_id": "S02",
+    "diagnosis_kind": "wrong_result",
+    "focus": "返回固定的 10，恰好通过第一个用例",
+    "code": "def list_sum(nums):\n    return 10\n"
+  },
+  {
+    "id": "SU5",
+    "exercise": "sum",
+    "category": "runtime",
+    "case_id": "S03",
+    "diagnosis_kind": "zero_division",
+    "focus": "把求和写成先除后乘，空列表除数为 0",
+    "code": "def list_sum(nums):\n    return sum(nums) / len(nums) * len(nums)\n"
+  },
+  {
+    "id": "SU6",
+    "exercise": "sum",
+    "category": "scale",
+    "case_id": "S01",
+    "diagnosis_kind": "numeric_range",
+    "focus": "计算中把相加结果放大到判题范围之外",
+    "code": "def list_sum(nums):\n    return sum(nums) * 500000000000\n"
+  },
+  {
+    "id": "CO1",
+    "exercise": "count",
+    "category": "quantity",
+    "case_id": "N01",
+    "diagnosis_kind": "wrong_result",
+    "focus": "把元素数值相加当成了元素个数",
+    "code": "def list_count(nums):\n    return sum(nums)\n"
+  },
+  {
+    "id": "CO2",
+    "exercise": "count",
+    "category": "offset",
+    "case_id": "N01",
+    "diagnosis_kind": "wrong_result",
+    "focus": "元素个数被翻倍",
+    "code": "def list_count(nums):\n    return len(nums) * 2\n"
+  },
+  {
+    "id": "CO3",
+    "exercise": "count",
+    "category": "hardcode",
+    "case_id": "N03",
+    "diagnosis_kind": "wrong_result",
+    "focus": "返回固定的 3，恰好通过两个三元素用例",
+    "code": "def list_count(nums):\n    return 3\n"
+  },
+  {
+    "id": "CO4",
+    "exercise": "count",
+    "category": "runtime",
+    "case_id": "N03",
+    "diagnosis_kind": "zero_division",
+    "focus": "长度自己除自己，空列表时除数为 0",
+    "code": "def list_count(nums):\n    return len(nums) / len(nums) * len(nums)\n"
+  },
+  {
+    "id": "CO5",
+    "exercise": "count",
+    "category": "scale",
+    "case_id": "N01",
+    "diagnosis_kind": "numeric_range",
+    "focus": "把元素个数放大到判题范围之外",
+    "code": "def list_count(nums):\n    return len(nums) * 500000000000\n"
+  },
+  {
+    "id": "CO6",
+    "exercise": "count",
+    "category": "offset",
+    "case_id": "N04",
+    "diagnosis_kind": "wrong_result",
+    "focus": "用长度做二次修正，单元素列表归零",
+    "code": "def list_count(nums):\n    return len(nums) * (len(nums) - 2)\n"
+  }
+]

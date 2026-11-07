@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f5fb">
+  <title>智学工坊 AI-Lab · Python 实验台</title>
+  <script>
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem("ai-lab.theme"); } catch {}
+    document.documentElement.dataset.theme = savedTheme === "light" || savedTheme === "dark"
+      ? savedTheme : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === "dark" ? "#101216" : "#f2f5fb";
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #171a32;
+      --muted: #51566e;
+      --accent: #4930c3;
+      --line: #dedde7;
+      --paper: #f5f4f0;
+      --surface: #fff;
+      --mono: "Cascadia Code", Consolas, monospace;
+      font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; min-width: 0; line-height: 1.6; }
+    button { font: inherit; cursor: pointer; }
+    button:disabled { cursor: default; opacity: .66; }
+    button:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #a897ff; outline-offset: 3px; }
+    .wrap { width: min(1200px, calc(100% - 64px)); margin-inline: auto; }
+    .masthead { border-bottom: 1px solid var(--line); background: #fbfaf8; }
+    .masthead .wrap { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 750; }
+    .brand-mark {
+      display: grid; place-items: center; width: 35px; height: 35px; flex: 0 0 35px;
+      color: white; background: var(--accent); border-radius: 9px; font: 700 16px var(--mono);
+    }
+    .brand small { color: var(--muted); margin-left: 5px; font-weight: 600; }
+    .mode { border: 1px solid #dcd5fb; border-radius: 99px; padding: 4px 12px; color: var(--accent); background: #f0ecff; font-size: .8rem; font-weight: 700; white-space: nowrap; }
+    .hero { padding: 43px 0 33px; }
+    .eyebrow, .index { font: 700 .78rem var(--mono); color: var(--accent); letter-spacing: .13em; }
+    .hero h1 { margin: 6px 0 8px; font-size: clamp(2rem, 5vw, 3.65rem); line-height: 1.18; letter-spacing: -.045em; }
+    .hero p { margin: 0; color: var(--muted); font-size: clamp(.91rem, 2vw, 1.06rem); }
+    .lab { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+    .card { min-width: 0; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 4px 15px #25204407; }
+    .editor-card, .result-card, .history { padding: 22px; }
+    .card-heading { display: flex; align-items: center; gap: 10px; }
+    h2, h3 { line-height: 1.35; }
+    .card-heading h2 { font-size: 1.13rem; margin: 0; }
+    .card h3 { font-size: .92rem; margin: 0 0 8px; }
+    .exercise-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-top: 14px; font-size: .86rem; }
+    .exercise-picker select { min-width: 0; max-width: 100%; padding: 5px 8px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--ink); font: inherit; }
+    .exercise-progress { color: var(--accent); font-weight: 700; }
+    .exercise-title { margin: 16px 0 3px; font-weight: 700; }
+    .description { color: var(--muted); margin: 0 0 15px; font-size: .91rem; white-space: pre-line; overflow-wrap: anywhere; }
+    .code-shell { border: 1px solid #343a55; border-radius: 11px; background: #1a2036; color: #edf0ff; }
+    .code-shell label { display: block; padding: 7px 13px; border-bottom: 1px solid #343a55; color: #c1c8e5; font: 500 .78rem var(--mono); }
+    .code-shell textarea {
+      display: block; width: 100%; min-height: 182px; resize: vertical; border: 0;
+      border-radius: 0 0 11px 11px; padding: 15px 13px; background: transparent;
+      color: inherit; font: .93rem/1.65 var(--mono); tab-size: 4; white-space: pre; overflow: auto;
+    }
+    .editor-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .primary, .secondary { border-radius: 8px; padding: 8px 14px; font-weight: 700; }
+    .primary { background: var(--accent); border: 1px solid var(--accent); color: white; }
+    .primary:hover:enabled { background: #39229f; }
+    .secondary { border: 1px solid #cfc6fb; background: #fff; color: var(--accent); }
+    .secondary:hover:enabled { background: #f0ecff; }
+    kbd, .scope code { font-family: var(--mono); }
+    kbd { border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; background: #f6f5f8; }
+    .shortcut, .scope, .muted { color: var(--muted); font-size: .8rem; }
+    .scope { margin: 16px 0 0; }
+    .notice { color: #a02034; margin: 12px 0 0; overflow-wrap: anywhere; }
+    .result-label { margin: 13px 0 9px; color: var(--muted); font-size: .88rem; min-height: 1.6em; }
+    .placeholder { padding: 15px; background: #f8f7fa; border: 1px dashed var(--line); border-radius: 9px; margin: 0; color: var(--muted); font-size: .88rem; }
+    .cases { list-style: none; display: grid; gap: 8px; padding: 0; margin: 0; }
+    .case { padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; overflow-wrap: anywhere; }
+    .case-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+    .case-head strong { font-size: .88rem; }
+    .case-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 5px 0 0; }
+    .case-values dt { color: var(--muted); font-size: .75rem; }
+    .case-values dd { margin: 0; font: .83rem/1.55 var(--mono); }
+    .case-error { margin: 5px 0 0; color: #a02034; font-size: .8rem; }
+    .tag { display: inline-block; font-size: .74rem; font-weight: 700; border-radius: 99px; padding: 1px 8px; background: #f0eef6; color: var(--muted); }
+    .tag[data-state="passed"] { color: #185a41; background: #e6f6eb; }
+    .tag[data-state="failed"], .tag[data-state="invalid"] { color: #9c243b; background: #fcebef; }
+    .diagnosis { margin: 10px 0 0; overflow-wrap: anywhere; color: var(--muted); font-size: .86rem; }
+    .hints { background: #f5f2ff; border: 1px solid #dfd8ff; border-radius: 11px; margin-top: 14px; padding: 13px; }
+    .hint-list { margin: 0 0 10px; padding-left: 22px; font-size: .89rem; overflow-wrap: anywhere; }
+    .hint-list li + li { margin-top: 5px; }
+    .hint-list .tag { margin-inline-start: 6px; }
+    .hint-actions { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+    .history { margin-top: 18px; }
+    .history p { margin-bottom: 0; }
+    .attempts { list-style: none; margin: 8px 0 0; padding: 0; }
+    .attempts li { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: .85rem; }
+    .attempts li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .attempts time { color: var(--muted); font-variant-numeric: tabular-nums; }
+    footer { padding: 18px 0 26px; color: var(--muted); font-size: .78rem; }
+    @media (max-width: 830px) {
+      .wrap { width: min(100% - 34px, 680px); }
+      .lab { grid-template-columns: minmax(0, 1fr); }
+      .hero { padding-block: 32px 26px; }
+    }
+    @media (max-width: 400px) {
+      .wrap { width: calc(100% - 24px); }
+      .brand { gap: 7px; font-size: .86rem; }
+      .brand small { margin-left: 2px; }
+      .mode { font-size: .7rem; padding-inline: 7px; }
+      .editor-card, .result-card, .history { padding: 14px; }
+    }
+
+    /* iOS-inspired glass surfaces, shared by both appearance modes. */
+    :root {
+      --ink: #1c2333; --muted: #626c7f; --accent: #0068de;
+      --line: #dce3ee; --paper: #f2f5fb; --surface: #ffffffbd;
+      --field: #f5f8fcd9; --soft: #e7f0ff; --header: #ffffffb3;
+      --danger: #b52d48; --danger-bg: #ffe9ef; --success: #176b47; --success-bg: #e2f5ea;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #f2f4f9; --muted: #a4adbd; --accent: #82b8ff;
+      --line: #383e4b; --paper: #101216; --surface: #1d2129e6;
+      --field: #151920; --soft: #25354d; --header: #171b23d9;
+      --danger: #ffadc0; --danger-bg: #492a37; --success: #8cdeb6; --success-bg: #203f35;
+    }
+    body { background: radial-gradient(ellipse at 0 0, #dce9ff, transparent 55%), radial-gradient(ellipse at 100% 55%, #dff3ec, transparent 55%), var(--paper); font-size: 15px; }
+    [data-theme="dark"] body { background: radial-gradient(ellipse at 0 0, #192638, transparent 60%), var(--paper); }
+    .masthead { background: var(--header); border-color: var(--line); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+    .masthead .wrap { min-height: 76px; }
+    .brand-mark { background: #007aff; border-radius: 12px; width: 38px; height: 38px; flex-basis: 38px; }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .mode { border: 0; color: var(--accent); background: var(--soft); font-size: 12px; }
+    .theme-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; background: var(--surface); color: var(--ink); font-size: 13px; font-weight: 600; }
+    .theme-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .theme-toggle .moon { display: none; }
+    [data-theme="dark"] .theme-toggle .sun { display: none; }
+    [data-theme="dark"] .theme-toggle .moon { display: block; }
+    .hero { padding: 36px 0 30px; }
+    .hero h1 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.045em; margin: 0 0 10px; }
+    .hero p { font-size: 15px; }
+    .eyebrow, .index { display: none; }
+    .lab { gap: 24px; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
+    .card { border: 1px solid #ffffffb3; border-radius: 24px; background: var(--surface); box-shadow: 0 12px 40px #354b7010; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+    [data-theme="dark"] .card { border-color: #303743; box-shadow: 0 12px 40px #00000014; }
+    .editor-card, .result-card, .history { padding: 26px; }
+    .card-heading h2 { font-size: 19px; letter-spacing: -.025em; }
+    .exercise-picker { margin-top: 20px; }
+    .exercise-picker select { min-height: 44px; border-radius: 12px; padding: 9px 12px; background: var(--field); }
+    .exercise-title { font-size: 18px; margin-top: 22px; }
+    .description { font-size: 14px; line-height: 1.8; }
+    .code-shell { margin-top: 20px; background: var(--field); color: var(--ink); border-color: var(--line); border-radius: 16px; }
+    .code-shell label { padding: 12px 16px; color: var(--muted); border-color: var(--line); }
+    .code-shell textarea { min-height: 260px; padding: 18px 16px; border-radius: 0 0 16px 16px; font-size: 14px; line-height: 1.85; }
+    .primary, .secondary { min-height: 44px; padding: 10px 18px; border-radius: 99px; font-size: 14px; }
+    .primary { background: #0072ed; border-color: #0072ed; }
+    .primary:hover:enabled { background: #005fc8; }
+    .secondary { background: var(--soft); color: var(--accent); border: 1px solid transparent; }
+    .secondary:hover:enabled { border-color: var(--accent); background: var(--soft); }
+    kbd { background: var(--field); }
+    .scope { line-height: 1.85; }
+    .notice, .case-error { color: var(--danger); }
+    .placeholder { background: var(--field); border-radius: 16px; padding: 20px; }
+    .cases { gap: 0; }
+    .case { padding: 15px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; }
+    .case-values { margin-top: 8px; }
+    .case-values dd { margin-top: 3px; }
+    .tag { color: var(--muted); background: var(--field); padding: 3px 8px; font-size: 11px; }
+    .tag[data-state="passed"] { color: var(--success); background: var(--success-bg); }
+    .tag[data-state="failed"], .tag[data-state="invalid"] { color: var(--danger); background: var(--danger-bg); }
+    .hints { background: var(--soft); border: 0; border-radius: 18px; padding: 18px; margin-top: 20px; }
+    .hint-list { line-height: 1.85; }
+    .hint-actions { margin-top: 16px; }
+    .hints .secondary { background: var(--surface); }
+    .history { margin-top: 24px; }
+    footer { padding-top: 24px; }
+    button:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    @media (max-width: 830px) {
+      .wrap { width: min(100% - 32px, 680px); }
+      .lab { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+      .editor-card, .result-card, .history { padding: 20px; }
+      .hero { padding: 28px 0 24px; }
+      .header-actions .mode { display: none; }
+      .theme-toggle { padding: 8px 12px; }
+      .shortcut { display: none; }
+    }
+    @media (prefers-reduced-transparency: reduce) { .card, .masthead { background: var(--paper); backdrop-filter: none; -webkit-backdrop-filter: none; } }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">&gt;_</span><span>智学工坊 <small>AI-Lab</small></span></div>
+      <div class="header-actions">
+        <span class="mode">分步辅导</span>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.7 8.7 0 0 1 10 3.5 8.8 8.8 0 1 0 20.5 14Z"/></svg>
+          <span id="theme-label">浅色</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="eyebrow">PYTHON LAB / 01</div>
+      <h1 id="page-title">你的编程实验台</h1>
+      <p>运行测试，观察实际值与期望值的差异，再按需打开分步提示。</p>
+    </section>
+
+    <div class="lab">
+      <section class="card editor-card" aria-labelledby="editor-heading">
+        <div class="card-heading"><span class="index">01</span><h2 id="editor-heading">编程练习</h2></div>
+        <div class="exercise-picker">
+          <label for="exercise-select">选择练习</label>
+          <select id="exercise-select" disabled></select>
+          <span id="exercise-progress" class="exercise-progress" role="status"></span>
+        </div>
+        <p class="exercise-title" id="exercise-title">正在加载题目…</p>
+        <p class="description" id="exercise-description"></p>
+
+        <div class="code-shell">
+          <label for="code">solution.py</label>
+          <textarea id="code" aria-describedby="scope" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" maxlength="4000" disabled></textarea>
+        </div>
+
+        <div class="editor-actions">
+          <button class="primary" id="run" type="button" disabled>运行测试</button>
+          <button class="secondary" id="reload" type="button" hidden>重新加载题目</button>
+          <span class="shortcut"><kbd>Ctrl</kbd> 或 <kbd>⌘</kbd> + <kbd>Enter</kbd></span>
+        </div>
+        <p class="notice" id="error" role="alert" hidden></p>
+        <p class="scope" id="scope"><code id="signature"></code> 内可使用数值赋值，最后一行用 <code>return</code> 返回结果。支持数字、<code>+ - * /</code>、<code>sum(nums)</code> 和 <code>len(nums)</code>。循环和导入超出本题语法范围。</p>
+      </section>
+
+      <section class="card result-card" aria-labelledby="result-heading">
+        <div class="card-heading"><span class="index">02</span><h2 id="result-heading">测试与提示</h2></div>
+        <p class="result-label" id="result-label" role="status" aria-live="polite">等待首次运行</p>
+        <p class="placeholder" id="placeholder">测试运行后，这里会显示每组用例的输入、期望值与实际值。</p>
+        <ul class="cases" id="cases" aria-label="测试用例结果"></ul>
+        <p class="diagnosis" id="diagnosis" hidden></p>
+
+        <section class="hints" id="hints" aria-labelledby="hints-heading" hidden>
+          <h3 id="hints-heading">分步提示</h3>
+          <ol class="hint-list" id="hint-list" aria-live="polite" aria-relevant="additions"></ol>
+          <div class="hint-actions">
+            <button class="secondary" id="reveal" type="button">查看第 1 步提示</button>
+            <span class="muted" id="hint-count"></span>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <section class="card history" aria-labelledby="history-heading">
+      <div class="card-heading"><span class="index">03</span><h2 id="history-heading">提交记录</h2></div>
+      <p class="muted" id="storage-note">草稿和提交记录保存在当前浏览器。</p>
+      <p class="muted" id="history-empty">本题暂无提交记录。</p>
+      <ol class="attempts" id="attempts" aria-label="最近五次提交，最新在前"></ol>
+    </section>
+    <footer>智学工坊 AI-Lab · Python 基础练习原型</footer>
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    function updateThemeControl() {
+      const dark = document.documentElement.dataset.theme === "dark";
+      document.getElementById("theme-label").textContent = dark ? "深色" : "浅色";
+      themeToggle.setAttribute("aria-pressed", String(dark));
+      themeToggle.setAttribute("aria-label", dark ? "切换浅色模式" : "切换深色模式");
+      document.querySelector('meta[name="theme-color"]').content = dark ? "#101216" : "#f2f5fb";
+    }
+    updateThemeControl();
+    themeToggle.addEventListener("click", () => {
+      const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = theme;
+      try { localStorage.setItem("ai-lab.theme", theme); } catch {}
+      updateThemeControl();
+    });
+
+    const element = (id) => document.getElementById(id);
+    const editor = element("code");
+    const exerciseSelect = element("exercise-select");
+    const runButton = element("run");
+    const reloadButton = element("reload");
+    const revealButton = element("reveal");
+    const resultLabel = element("result-label");
+    const notice = element("error");
+    const placeholder = element("placeholder");
+    const casesList = element("cases");
+    const diagnosis = element("diagnosis");
+    const hintsPanel = element("hints");
+    const hintList = element("hint-list");
+    const attemptsList = element("attempts");
+    const labels = { passed: "通过", failed: "未通过", invalid: "代码无效", error: "运行错误" };
+    const storagePrefix = "ai-lab.v1.";
+    const exerciseStates = new Map();
+    let exercises = [];
+    let activeExercise = null;
+    let running = false;
+    let lastSubmission = null;
+    let availableHints = [];
+    let revealed = 0;
+    let pendingHint = null;
+
+    function make(tag, className, value) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (value !== undefined) node.textContent = value;
+      return node;
+    }
+
+    function badge(status) {
+      const node = make("span", "tag", labels[status] || "待验证");
+      node.dataset.state = status;
+      return node;
+    }
+
+    function showError(message = "") {
+      notice.textContent = message;
+      notice.hidden = message === "";
+    }
+
+    async function request(path, options) {
+      const response = await fetch(path, options);
+      const data = await response.json().catch(() => null);
+      if (!response.ok || !data) {
+        throw new Error(data?.error || "请求失败，请检查本地服务后重试。");
+      }
+      return data;
+    }
+
+    function storageUnavailable() {
+      element("storage-note").textContent = "浏览器存储不可用，本次改动仅保留在当前页面。";
+    }
+
+    function readStorage(key) {
+      try {
+        return window.localStorage.getItem(storagePrefix + key);
+      } catch {
+        storageUnavailable();
+        return null;
+      }
+    }
+
+    function writeStorage(key, value) {
+      try {
+        window.localStorage.setItem(storagePrefix + key, value);
+        return true;
+      } catch {
+        storageUnavailable();
+        return false;
+      }
+    }
+
+    function exerciseState(id, refresh = false) {
+      const cached = exerciseStates.get(id);
+      if (!cached || (refresh && !cached.unsaved)) {
+        let saved = null;
+        try {
+          const stored = readStorage(`exercise.${id}`);
+          if (stored === null && cached) return cached;
+          saved = JSON.parse(stored);
+        } catch {
+          // A malformed record only affects this exercise.
+          if (cached) return cached;
+        }
+        const attempts = Array.isArray(saved?.attempts) ? saved.attempts.filter((attempt) =>
+          Number.isSafeInteger(attempt?.number) && attempt.number > 0 &&
+          ["passed", "failed", "invalid"].includes(attempt.status) &&
+          Number.isInteger(attempt.passed) && Number.isInteger(attempt.total) &&
+          typeof attempt.time === "string" && Number.isFinite(Date.parse(attempt.time))
+        ).slice(0, 5) : [];
+        exerciseStates.set(id, {
+          draft: typeof saved?.draft === "string" ? saved.draft.slice(0, editor.maxLength) : null,
+          passed: saved?.passed === true || attempts.some((attempt) => attempt.status === "passed"),
+          attempts,
+        });
+      }
+      return exerciseStates.get(id);
+    }
+
+    function saveExercise(id, state) {
+      const { draft, passed, attempts } = state;
+      state.unsaved = !writeStorage(`exercise.${id}`, JSON.stringify({ draft, passed, attempts }));
+    }
+
+    function updateProgress() {
+      const passed = exercises.filter(({ id }) => exerciseState(id).passed).length;
+      element("exercise-progress").textContent = `已通过 ${passed}/${exercises.length}`;
+    }
+
+    function selectExercise(exercise) {
+      activeExercise = exercise;
+      exerciseSelect.value = exercise.id;
+      element("exercise-title").textContent = exercise.title;
+      element("exercise-description").textContent = exercise.description;
+      element("signature").textContent = exercise.signature;
+      const state = exerciseState(exercise.id, true);
+      editor.value = state.draft ?? exercise.starter_code;
+      writeStorage("selected", exercise.id);
+      showError();
+      clearResult();
+      resultLabel.textContent = state.attempts.length ? "本题已有提交记录，运行测试可查看本次结果。" : "等待首次运行";
+      renderAttempts(state.attempts);
+      updateProgress();
+    }
+
+    async function loadExercises() {
+      reloadButton.hidden = true;
+      showError();
+      element("exercise-title").textContent = "正在加载题目…";
+      try {
+        exercises = await request("/api/exercises");
+        if (!Array.isArray(exercises) || !exercises.length) throw new Error("练习列表为空。");
+        exerciseSelect.replaceChildren(...exercises.map(({ id, title }) => {
+          const option = make("option", "", title);
+          option.value = id;
+          return option;
+        }));
+        const savedId = readStorage("selected");
+        selectExercise(exercises.find(({ id }) => id === savedId) ?? exercises[0]);
+        exerciseSelect.disabled = false;
+        editor.disabled = false;
+        runButton.disabled = false;
+      } catch {
+        element("exercise-title").textContent = "题目加载失败";
+        showError("请确认已启动本地服务，再重新加载题目。");
+        reloadButton.hidden = false;
+      }
+    }
+
+    function renderCase(test) {
+      const item = make("li", "case");
+      const head = make("div", "case-head");
+      head.append(make("strong", "", test.id), badge(test.status));
+      const values = make("dl", "case-values");
+      for (const [label, value] of [["输入", test.input], ["期望", test.expected], ["实际", test.actual]]) {
+        const pair = make("div");
+        const display = value == null ? "—" : JSON.stringify(value);
+        pair.append(make("dt", "", label), make("dd", "", display));
+        values.append(pair);
+      }
+      item.append(head, values);
+      if (test.error) item.append(make("p", "case-error", test.error));
+      return item;
+    }
+
+    function updateResultLabel() {
+      if (running || !lastSubmission) return;
+      const { code, number, result } = lastSubmission;
+      const summary = result.status === "invalid"
+        ? "代码无效，未执行测试"
+        : `${result.passed}/${result.total} 个用例通过`;
+      const prefix = editor.value === code ? "" : "代码已修改，以下为上次结果。";
+      resultLabel.textContent = `${prefix}提交 #${number} · ${summary}`;
+    }
+
+    function showDiagnosis(details) {
+      if (!details) return;
+      const location = Number.isInteger(details.line) ? `第 ${details.line} 行 · ` : "";
+      diagnosis.textContent = `${location}${details.message}`;
+      diagnosis.hidden = false;
+    }
+
+    function updateRevealControl() {
+      const total = availableHints.length;
+      element("hint-count").textContent = `已查看 ${revealed}/${total}`;
+      if (pendingHint) {
+        revealButton.textContent = `正在获取第 ${revealed + 1} 步提示…`;
+      } else {
+        revealButton.textContent = revealed === total ? "提示已全部展开" : `查看第 ${revealed + 1} 步提示`;
+      }
+      revealButton.disabled = Boolean(pendingHint) || revealed === total;
+    }
+
+    async function revealHint() {
+      if (pendingHint || revealed >= availableHints.length) return;
+      const level = revealed + 1;
+      let hint = availableHints[revealed];
+      let source = "local";
+      let requestId = "";
+      let fallbackReason = "request_failed";
+
+      const controller = new AbortController();
+      pendingHint = controller;
+      updateRevealControl();
+      const deadline = setTimeout(() => controller.abort(), 18000);
+      try {
+        const result = await request("/api/hint", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ exercise_id: activeExercise.id, code: lastSubmission.code, level }),
+          signal: controller.signal,
+        });
+        if (typeof result.hint === "string" && result.hint.trim() && ["agentarts", "tencent", "deepseek", "local"].includes(result.source)) {
+          hint = result.hint;
+          source = result.source;
+          requestId = result.request_id || "";
+          fallbackReason = result.fallback_reason;
+        }
+      } catch {
+        // The last grading result already includes a local hint for this level.
+      } finally {
+        clearTimeout(deadline);
+      }
+      if (pendingHint !== controller) return;
+      pendingHint = null;
+
+      const item = make("li", "", hint);
+      item.append(make("span", "tag", ({agentarts: "AgentArts", tencent: "腾讯云", deepseek: "DeepSeek", local: "本地规则"})[source]));
+      const reasons = {
+        not_configured: "所选云服务配置不完整",
+        local_exercise: "本题配置为本地辅导",
+        timeout: "云端响应超时",
+        connection_error: "云端连接失败",
+        http_error: "云端返回接口错误，请检查所选服务的认证、模型和地址",
+        invalid_endpoint: "云端调用地址无效",
+        invalid_provider: "云服务选择无效，请检查 AI_PROVIDER",
+        invalid_response: "云端响应格式无法解析",
+        invalid_output: "云端提示未通过字段或内容检查",
+        request_failed: "提示请求未完成，使用本次判题的本地提示",
+      };
+      if (source === "local" && reasons[fallbackReason]) item.append(make("p", "muted", reasons[fallbackReason]));
+      if (requestId) item.append(make("p", "muted", `请求编号 ${requestId}`));
+      hintList.append(item);
+      revealed += 1;
+      if (revealed === 2) showDiagnosis(lastSubmission.result.diagnosis);
+      updateRevealControl();
+    }
+
+    function renderAttempts(attempts) {
+      element("history-empty").hidden = attempts.length > 0;
+      attemptsList.replaceChildren(...attempts.map((attempt) => {
+        const date = new Date(attempt.time);
+        const time = make("time", "", date.toLocaleString("zh-CN", { hour12: false }));
+        time.dateTime = attempt.time;
+        const item = make("li");
+        item.append(make("strong", "", `提交 #${attempt.number}`), badge(attempt.status), time);
+        if (attempt.status !== "invalid") item.append(make("span", "muted", `${attempt.passed}/${attempt.total} 个用例通过`));
+        return item;
+      }));
+    }
+
+    function clearResult() {
+      pendingHint?.abort();
+      pendingHint = null;
+      lastSubmission = null;
+      casesList.replaceChildren();
+      placeholder.hidden = false;
+      diagnosis.hidden = true;
+      diagnosis.textContent = "";
+      hintsPanel.hidden = true;
+      hintList.replaceChildren();
+      availableHints = [];
+      revealed = 0;
+    }
+
+    async function checkCode() {
+      if (!activeExercise || running) return;
+      const { id } = activeExercise;
+      const code = editor.value;
+      running = true;
+      exerciseSelect.disabled = true;
+      editor.disabled = true;
+      runButton.disabled = true;
+      runButton.textContent = "正在测试…";
+      resultLabel.textContent = "正在运行测试…";
+      showError();
+      clearResult();
+      placeholder.hidden = true;
+      try {
+        const result = await request("/api/check", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code, exercise_id: id }),
+        });
+        const state = exerciseState(id, true);
+        const number = (state.attempts[0]?.number ?? 0) + 1;
+        const { status, passed, total } = result;
+        state.attempts.unshift({ number, status, passed, total, time: new Date().toISOString() });
+        state.attempts.length = Math.min(state.attempts.length, 5);
+        state.passed ||= status === "passed";
+        saveExercise(id, state);
+        lastSubmission = { code, number, result };
+        casesList.append(...result.cases.map(renderCase));
+        if (result.status === "invalid") showDiagnosis(result.diagnosis);
+        availableHints = result.status === "failed" ? result.hints : [];
+        hintsPanel.hidden = availableHints.length === 0;
+        updateRevealControl();
+        renderAttempts(state.attempts);
+        updateProgress();
+      } catch (error) {
+        resultLabel.textContent = "本次测试未完成";
+        showError(error instanceof TypeError ? "连接中断，请确认本地服务正在运行后重试。" : error.message);
+      } finally {
+        running = false;
+        exerciseSelect.disabled = false;
+        editor.disabled = false;
+        runButton.disabled = false;
+        runButton.textContent = "运行测试";
+        updateResultLabel();
+      }
+    }
+
+    runButton.addEventListener("click", checkCode);
+    reloadButton.addEventListener("click", loadExercises);
+    exerciseSelect.addEventListener("change", () => {
+      const exercise = exercises.find(({ id }) => id === exerciseSelect.value);
+      if (!running && exercise && exercise !== activeExercise) selectExercise(exercise);
+    });
+    editor.addEventListener("input", () => {
+      if (!activeExercise) return;
+      const { id } = activeExercise;
+      const previous = exerciseState(id);
+      const state = exerciseState(id, true);
+      state.draft = editor.value;
+      saveExercise(id, state);
+      if (state.attempts[0]?.number !== previous.attempts[0]?.number || state.passed !== previous.passed) {
+        renderAttempts(state.attempts);
+        updateProgress();
+      }
+      updateResultLabel();
+    });
+    editor.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+        event.preventDefault();
+        checkCode();
+      }
+    });
+    revealButton.addEventListener("click", revealHint);
+    loadExercises();
+  </script>
+</body>
+</html>
