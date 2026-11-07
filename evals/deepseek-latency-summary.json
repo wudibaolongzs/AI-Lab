@@ -1,0 +1,25 @@
+{
+  "source_file": "evals\\deepseek-paired-results.json",
+  "source_sha256": "fb2fbecfb24ac31389887cbfbc0dde18f768d721d4ebbf1c82b7b5e0aeecdccb",
+  "note": "Derived timing summary only; original human reviews remain pending.",
+  "summary": {
+    "samples": 24,
+    "local_rows": 72,
+    "local_median_ms": 0.123,
+    "local_p95_ms": 0.198,
+    "local_max_ms": 0.283,
+    "endpoint_attempts": 72,
+    "cloud_rows": 72,
+    "cloud_median_ms": 1220.334,
+    "cloud_p95_ms": 2545.275,
+    "cloud_max_ms": 6603.333,
+    "fallback_rows": 0,
+    "fallback_median_ms": null,
+    "fallback_p95_ms": null,
+    "fallback_max_ms": null,
+    "error_rows": 0,
+    "error_median_ms": null,
+    "error_p95_ms": null,
+    "error_max_ms": null
+  }
+}

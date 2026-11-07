@@ -1,6 +1,7 @@
 """Request one evidence-based hint from a published AgentArts workflow."""
 
 import json
+import hint_guard
 import logging
 import os
 import re
@@ -101,7 +102,7 @@ def _cloud_exercises():
     and a one-exercise set keeps the documented three-field payload for older workflows.
     """
     names = {name.strip() for name in os.environ.get("AGENTARTS_EXERCISES", "").split(",") if name.strip()}
-    return (names & set(EXERCISES)) or _DEFAULT_CLOUD_EXERCISES
+    return None if names - set(EXERCISES) else (names or _DEFAULT_CLOUD_EXERCISES)
 
 
 def _invoke(url, api_key, request_id, title, evidence, level, exercise_id=None):
@@ -150,10 +151,30 @@ def get_hint(exercise_id, result, level):
         model = os.environ.get("DEEPSEEK_MODEL", "").strip()
     execution_id = None
     cloud = _cloud_exercises()
-    reason = "local_exercise" if exercise_id not in cloud else "not_configured"
+    reason = "invalid_exercises" if cloud is None else ("local_exercise" if exercise_id not in cloud else "not_configured")
     if provider not in ("agentarts", "tencent", "deepseek"):
         reason = "invalid_provider"
-    elif exercise_id in cloud and url and api_key and (provider == "agentarts" or model):
+    elif cloud is not None and exercise_id in cloud and url and api_key and (provider == "agentarts" or model):
+        guard = None
+        key = None
+        if os.environ.get("AI_HINT_PROTECTION", "0").strip() == "1":
+            guard = hint_guard.GUARD
+            key = hint_guard.cache_key(provider, model, url, api_key, exercise_id,
+                                       {"cases": failed, "diagnosis": result["diagnosis"]}, level)
+            status, cached = guard.begin(key)
+            if status != "allowed":
+                if status == "cached":
+                    reply.update(cached, cache_hit=True)
+                    reason = None
+                else:
+                    reason = status
+                reply.update(fallback_reason=reason)
+                reply.setdefault("execution_id", None)
+                _LOG.info(json.dumps({"request_id": request_id, "source": reply["source"],
+                    "elapsed_ms": round((time.monotonic() - start) * 1000),
+                    "fallback_reason": reason, "execution_id": reply["execution_id"],
+                    "cache_hit": status == "cached"}))
+                return reply
         try:
             if provider == "tencent":
                 fields, execution_id = invoke_tencent(
@@ -188,6 +209,10 @@ def get_hint(exercise_id, result, level):
             reason = "invalid_endpoint"
         except (ValueError, RecursionError):
             reason = "invalid_response"
+        finally:
+            if guard is not None:
+                guard.finish(key, {"hint": reply["hint"], "case_id": reply["case_id"],
+                    "source": reply["source"], "execution_id": execution_id} if reason is None else None)
     reply["fallback_reason"] = reason
     reply["execution_id"] = execution_id
     _LOG.info(json.dumps({

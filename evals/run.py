@@ -6,6 +6,7 @@ import http.client
 import json
 from pathlib import Path
 from statistics import median
+from math import ceil
 from time import perf_counter
 
 from exercise import check_submission
@@ -85,13 +86,24 @@ def collect(samples, port):
     return records
 
 
+def latency_stats(timings):
+    """Milliseconds; P95 uses nearest rank ceil(.95*n), without interpolation."""
+    values = sorted(timings)
+    if not values:
+        return {"median_ms": None, "p95_ms": None, "max_ms": None}
+    return {"median_ms": round(median(values), 3),
+            "p95_ms": round(values[ceil(.95 * len(values)) - 1], 3),
+            "max_ms": round(values[-1], 3)}
+
+
 def summarize(records, paired):
     levels = [row for record in records for row in record["levels"]]
     summary = {
         "samples": len(records),
         "local_rows": len(levels),
-        "local_median_ms": round(median(row["local"]["elapsed_ms"] for row in levels), 3),
     }
+    summary.update({"local_" + key: value for key, value in
+                    latency_stats(row["local"]["elapsed_ms"] for row in levels).items()})
     if paired:
         outcomes = Counter(row["endpoint"]["outcome"] for row in levels)
         summary["endpoint_attempts"] = len(levels)
@@ -99,8 +111,7 @@ def summarize(records, paired):
             summary[outcome + "_rows"] = outcomes[outcome]
             timings = [row["endpoint"]["elapsed_ms"] for row in levels
                        if row["endpoint"]["outcome"] == outcome]
-            if timings:
-                summary[outcome + "_median_ms"] = round(median(timings), 3)
+            summary.update({outcome + "_" + key: value for key, value in latency_stats(timings).items()})
     return summary
 
 

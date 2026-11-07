@@ -6,6 +6,7 @@ from pathlib import Path
 from statistics import median
 
 import agentarts
+from evals.run import latency_stats
 
 
 FIELDS = ("evidence_ok", "actionable", "answer_leaked")
@@ -136,10 +137,20 @@ def check_summary(report, result):
             if field in claimed and claimed[field] != result["local"][field]:
                 result["issues"].append(
                     f"summary.local_review.{field}={claimed[field]}，逐条统计为 {result['local'][field]}")
-    timings = [row["local"]["elapsed_ms"] for row in levels if "elapsed_ms" in row["local"]]
-    if "local_median_ms" in summary and len(timings) == len(levels):
-        if round(median(timings), 3) != summary["local_median_ms"]:
-            result["issues"].append("summary.local_median_ms 与逐条耗时中位数不一致")
+    groups = {"local": [row["local"] for row in levels]}
+    for outcome in ("cloud", "fallback", "error"):
+        groups[outcome] = [row["endpoint"] for row in levels
+                           if row.get("endpoint", {}).get("outcome") == outcome]
+    result["latency"] = {}
+    for name, entries in groups.items():
+        timings = [entry["elapsed_ms"] for entry in entries if "elapsed_ms" in entry]
+        stats = latency_stats(timings)
+        result["latency"][name] = stats
+        if len(timings) == len(entries):
+            for metric, value in stats.items():
+                key = name + "_" + metric
+                if key in summary and summary[key] != value:
+                    result["issues"].append(f"summary.{key} 与逐条耗时统计不一致")
 
 
 def score_report(path):
@@ -190,6 +201,8 @@ def add_drift_check(results, reference_path):
 def render(result, limit):
     print(f"=== {result['report']} ===")
     print(f"模式 {result['mode']} · 来源 {result['note']}")
+    for name, stats in result["latency"].items():
+        print(f"耗时 {name}: median={stats['median_ms']} P95={stats['p95_ms']} max={stats['max_ms']} ms")
     if "模拟" in result["note"]:
         print("        注：模拟数据不计入云端证据，也不参与下面的质量比较。")
     local = result["local"]

@@ -9,7 +9,7 @@
 需要 Python 3.9 或更新版本。进入本目录，在 PowerShell 运行：
 
 ```powershell
-python app.py
+python -B tools/start.py
 ```
 
 看到终端显示 `AI-Lab 运行中` 后，打开 [http://127.0.0.1:8000](http://127.0.0.1:8000)，使用期间保持终端打开。端口占用时可运行 `python app.py --port 8001`，再打开终端显示的地址。按 `Ctrl+C` 停止服务。
@@ -21,7 +21,7 @@ python app.py
 3. 修正分母并重新运行测试。确认该题计入通过进度，再切换到其他题目，查看对应的代码草稿和提交记录。
 4. 刷新网页，确认所选题目、草稿、最近五次提交摘要和通过进度仍可查看。这些记录保存在当前浏览器的该站点下。
 
-本地服务只监听 `127.0.0.1`。执行器根据所选题目的函数签名解析抽象语法树，解释白名单内的简单赋值、返回、数值算术和 `sum(nums)`、`len(nums)`。导入、循环、属性访问和任意函数调用会被拒绝。接收完整 Python 程序需要独立的代码执行隔离环境。
+服务默认监听 `127.0.0.1`；局域网演示可显式设置 --host 和 --allow-host，见部署说明。执行器根据所选题目的函数签名解析抽象语法树，解释白名单内的简单赋值、返回、数值算术和 `sum(nums)`、`len(nums)`。导入、循环、属性访问和任意函数调用会被拒绝。接收完整 Python 程序需要独立的代码执行隔离环境。
 
 ## 验证
 
@@ -94,3 +94,7 @@ python -B tools/probe_agentarts.py --url http://127.0.0.1:8931/runtimes/ai-lab-a
 ## DeepSeek 临时开发模式
 
 支持通过 `AI_PROVIDER=deepseek` 使用 DeepSeek 的 OpenAI 兼容接口，适合在华为云工作流发布前验证提示链路。填写 `DEEPSEEK_API_KEY` 与 `DEEPSEEK_MODEL` 后，运行 `python -B tools/check_deepseek.py --level 2` 做一次真实调用；页面来源会标记为「DeepSeek」。配置、独立评测及切回步骤见 [DeepSeek 接入说明](docs/deepseek-setup.md)。DeepSeek 结果同样不作为华为 AgentArts 验收证据。
+
+## 最新状态
+
+队伍信息见 [项目信息](docs/team.md)，采用 [MIT](LICENSE)。进展与待办见 [整改记录](docs/remediation-status.md)。python app.py 不读取 .env，需要配置时使用 tools/start.py。

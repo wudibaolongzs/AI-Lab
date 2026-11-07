@@ -14,6 +14,7 @@ import unittest
 
 import agentarts
 from evals import score
+from evals.run import latency_stats, summarize
 
 
 def graded(evidence_ok=True, actionable=True, answer_leaked=False):
@@ -39,6 +40,20 @@ def make_report(local_review=None, endpoint=None, note="测试采集", summary=N
 
 
 class ScoreTests(unittest.TestCase):
+    def test_nearest_rank_tail_latency_and_empty_groups(self):
+        self.assertEqual(latency_stats([]), dict(median_ms=None, p95_ms=None, max_ms=None))
+        self.assertEqual(latency_stats([7]), dict(median_ms=7, p95_ms=7, max_ms=7))
+        self.assertEqual(latency_stats(range(1, 21)), dict(median_ms=10.5, p95_ms=19, max_ms=20))
+        self.assertEqual(summarize([], True)['error_p95_ms'], None)
+
+    def test_each_latency_outcome_is_verified(self):
+        for outcome in ('cloud', 'fallback', 'error'):
+            endpoint = dict(outcome=outcome, elapsed_ms=12)
+            report = make_report(endpoint=endpoint, summary={outcome + '_p95_ms': 999})
+            result = score.score_report(self.write(report))
+            self.assertEqual(result['latency'][outcome]['max_ms'], 12)
+            self.assertTrue(any(outcome + '_p95_ms' in issue for issue in result['issues']))
+
     def setUp(self):
         self.dir = tempfile.TemporaryDirectory()
         self.addCleanup(self.dir.cleanup)

@@ -1,6 +1,9 @@
 import argparse
 import json
 import logging
+import os
+import threading
+from logging.handlers import RotatingFileHandler
 import ipaddress
 import re
 import time
@@ -20,8 +23,59 @@ DRAIN_SECONDS = 0.5  # a client that declares bytes it never writes must not hol
 MAX_LENGTH_DIGITS = len(str(DRAIN_CEILING))
 
 
+class BoundedHTTPServer(ThreadingHTTPServer):
+    """Bound concurrent sockets; reject overload before creating another worker."""
+    def __init__(self, *args, **kwargs):
+        self.worker_slots = threading.BoundedSemaphore(16)
+        super().__init__(*args, **kwargs)
+
+    def process_request(self, request, client_address):
+        if not self.worker_slots.acquire(blocking=False):
+            try:
+                request.settimeout(0.2)
+                request.sendall(b"HTTP/1.1 503 Service Unavailable\r\nContent-Length: 0\r\nConnection: close\r\n\r\n")
+            except OSError:
+                pass
+            finally:
+                self.shutdown_request(request)
+            return
+        try:
+            super().process_request(request, client_address)
+        except BaseException:
+            self.worker_slots.release()
+            raise
+
+    def process_request_thread(self, request, client_address):
+        try:
+            super().process_request_thread(request, client_address)
+        finally:
+            self.worker_slots.release()
+
+    def handle_error(self, request, client_address):
+        # Tracebacks can contain submitted code or provider credentials.
+        logging.getLogger("ict.access").error('{"event":"request_error"}')
+
+
+def configure_logging():
+    handlers = [logging.StreamHandler()]
+    log_file = os.environ.get("AI_LOG_FILE", "").strip()
+    if log_file:
+        handlers.append(RotatingFileHandler(log_file, maxBytes=1_000_000, backupCount=3, encoding="utf-8"))
+    logging.basicConfig(level=logging.INFO, format="%(message)s", handlers=handlers, force=True)
+
+
 class Handler(BaseHTTPRequestHandler):
     timeout = 5
+
+    def log_message(self, format, *args):
+        # BaseHTTPRequestHandler otherwise logs the raw URL, including query secrets.
+        pass
+
+    def log_request(self, code="-", size="-"):
+        path = self.path.partition("?")[0]
+        route = path if path in {"/", "/healthz", "/api/exercise", "/api/exercises", "/api/check", "/api/hint"} else "unknown"
+        method = self.command if self.command in {"GET", "POST", "HEAD", "OPTIONS"} else "other"
+        logging.getLogger("ict.access").info(json.dumps({"event": "access", "method": method, "route": route, "status": int(code) if isinstance(code, int) or str(code).isdigit() else 0}, separators=(",", ":")))
 
     def send_body(self, status, content_type, body):
         self.send_response(status)
@@ -50,7 +104,9 @@ class Handler(BaseHTTPRequestHandler):
         if not self.is_local_host():
             return
         path = self.path.partition("?")[0]
-        if path == "/":
+        if path == "/healthz":
+            self.send_json(HTTPStatus.OK, {"status": "ok"})
+        elif path == "/":
             self.send_body(HTTPStatus.OK, "text/html; charset=utf-8", PAGE.read_bytes())
         elif path == "/api/exercise":
             self.send_json(HTTPStatus.OK, EXERCISE)
@@ -154,7 +210,7 @@ def create_server(port, host="127.0.0.1", allowed_hosts=()):
         names.add(name.lower())
     if not address.is_loopback and not allowed_hosts:
         raise ValueError("对外监听需显式提供 --allow-host。")
-    server = ThreadingHTTPServer((str(address), port), Handler)
+    server = BoundedHTTPServer((str(address), port), Handler)
     server.allowed_hosts = {f"{name}:{server.server_port}" for name in names}
     if server.server_port == 80:
         server.allowed_hosts.update(names)
@@ -162,7 +218,7 @@ def create_server(port, host="127.0.0.1", allowed_hosts=()):
 
 
 def main():
-    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    configure_logging()
     parser = argparse.ArgumentParser(description="启动智学工坊 AI-Lab 本地原型。")
     parser.add_argument("--port", type=int, default=8000, help="本机端口，默认 8000")
     parser.add_argument("--host", default="127.0.0.1", help="监听 IPv4，默认仅本机")
@@ -173,7 +229,8 @@ def main():
     except (ValueError, OSError) as error:
         parser.error(str(error))
     with server:
-        print(f"AI-Lab 运行中：http://127.0.0.1:{server.server_port}", flush=True)
+        access_name = args.allow_host[0] if args.host == "0.0.0.0" else args.host
+        print(f"AI-Lab 运行中：http://{access_name}:{server.server_port}", flush=True)
         print(f"监听 {args.host}，允许访问 {', '.join(sorted(server.allowed_hosts))}", flush=True)
         try:
             server.serve_forever()

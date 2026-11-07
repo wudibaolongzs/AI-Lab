@@ -43,7 +43,7 @@ python -B app.py
 
 两个 HTTP 服务都遵循同一顺序：先把 `Content-Length` 声明的请求体读完，再发状态码。Windows 上带着未读字节关连接会让客户端只看到断连，`401`、`413` 就会变成 `connection_error`。排空量按声明长度取，最多 4 MB（`DRAIN_CEILING`），`app.py` 另设 0.5 秒的排空截止、模拟运行时靠处理器 `timeout = 5` 秒兜底，所以「只报头发体不发」的客户端也拖不住工作线程；新增错误分支时请保持这个顺序，`tests/test_app.py` 与 `tests/test_mock_http.py` 里各有重复多次的真实往返守着它，其中一条专门发 200 KB 的体。模拟运行时的 `deliver()` 也刻意先写运行记录、再回放事件流：反过来的话，测试读到响应时记录可能还没落盘，同一用例会随机通过、随机报错。
 
-完成首轮联调和配对评测后，再按参赛需求扩展题库、MCP、教师端或共享部署。当前服务默认只监听电脑本机，手机或异地队友访问需要单独安排部署。若继续交给 AI 编程工具，可将本目录设为工作区，并给出任务「先读 HANDOFF.md、README.md 和 docs/agentarts-integration-checklist.md，运行全部测试、`python -B tools/verify_agentarts.py` 与 `python -B -m evals.score evals/local-baseline.json`，确认链路与统计无误后，等账号与 MaaS 额度到位再做真实云端联调并采集真实配对报告」。云端联调的前置条件是账号和模型额度，缺任何一项都只能得到模拟证据。
+完成首轮联调和配对评测后，再按参赛需求扩展题库、MCP、教师端或共享部署。当前服务默认只监听电脑本机，手机同一Wi-Fi可配置 --host/--allow-host，异地访问需受控部署。若继续交给 AI 编程工具，可将本目录设为工作区，并给出任务「先读 HANDOFF.md、README.md 和 docs/agentarts-integration-checklist.md，运行全部测试、`python -B tools/verify_agentarts.py` 与 `python -B -m evals.score evals/local-baseline.json`，确认链路与统计无误后，等账号与 MaaS 额度到位再做真实云端联调并采集真实配对报告」。云端联调的前置条件是账号和模型额度，缺任何一项都只能得到模拟证据。
 
 ## 腾讯云临时开发模式
 
@@ -51,3 +51,5 @@ python -B app.py
 ## DeepSeek 临时开发模式
 
 支持通过 `AI_PROVIDER=deepseek` 使用 DeepSeek 的 OpenAI 兼容接口，用于华为工作流发布前的链路开发与连通性验证。填入 `DEEPSEEK_API_KEY` 与 `DEEPSEEK_MODEL` 后运行 `python -B tools/check_deepseek.py --level 2`，它走完整生产路径并真实消耗一次调用；退出码 0 才说明 Key、模型与 JSON 输出可用。配置、独立评测及切回步骤见 [DeepSeek 接入说明](docs/deepseek-setup.md)。DeepSeek 结果不作为华为 AgentArts 验收证据。
+
+最新整改结果见 [整改记录](docs/remediation-status.md)，不要将历史报告当作当前验收。

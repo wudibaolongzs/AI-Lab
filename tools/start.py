@@ -8,7 +8,8 @@ import sys
 ROOT = Path(__file__).resolve().parent.parent
 KEYS = {"AGENTARTS_WORKFLOW_URL", "AGENTARTS_API_KEY", "AGENTARTS_EXERCISES",
         "AI_PROVIDER", "AI_TIMEOUT", "TENCENT_API_KEY", "TENCENT_MODEL", "TENCENT_API_URL",
-        "DEEPSEEK_API_KEY", "DEEPSEEK_MODEL", "DEEPSEEK_API_URL"}
+        "DEEPSEEK_API_KEY", "DEEPSEEK_MODEL", "DEEPSEEK_API_URL",
+        "AI_HINT_PROTECTION", "AI_LOG_FILE"}
 
 
 def load_env(path, environment):
@@ -33,6 +34,9 @@ def main():
     environment = os.environ.copy()
     try:
         load_env(ROOT / ".env", environment)
+        environment.setdefault("AI_HINT_PROTECTION", "1")
+        if environment["AI_HINT_PROTECTION"] not in ("0", "1"):
+            raise ValueError("AI_HINT_PROTECTION must be 0 or 1")
     except (ValueError, OSError) as error:
         print(error, file=sys.stderr)
         return 2

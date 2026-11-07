@@ -1,0 +1,24 @@
+[Unit]
+Description=Private ICT study trial
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ict-trial
+Group=ict-trial
+WorkingDirectory=/opt/ict-trial
+Environment=AI_HINT_PROTECTION=1
+EnvironmentFile=/etc/ict-trial/environment
+ExecStart=/usr/bin/python3 /opt/ict-trial/app.py --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/ict-trial /var/log/ict-trial
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

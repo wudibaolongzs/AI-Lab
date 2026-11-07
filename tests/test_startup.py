@@ -46,3 +46,21 @@ class StartupTests(unittest.TestCase):
             finally:
                 server.shutdown()
                 worker.join(3)
+
+
+class ProtectionStartupTests(unittest.TestCase):
+    @patch("tools.start.subprocess.call", return_value=0)
+    @patch("tools.start.load_env")
+    def test_launcher_enables_protection_by_default(self, loader, call):
+        from tools.start import main
+        with patch.dict("os.environ", {}, clear=True), patch("sys.argv", ["tools/start.py"]):
+            self.assertEqual(main(), 0)
+        self.assertEqual(call.call_args.kwargs["env"]["AI_HINT_PROTECTION"], "1")
+
+    @patch("tools.start.subprocess.call")
+    @patch("tools.start.load_env")
+    def test_invalid_protection_setting_stops_startup(self, loader, call):
+        from tools.start import main
+        with patch.dict("os.environ", {"AI_HINT_PROTECTION":"yes"}, clear=True):
+            self.assertEqual(main(), 2)
+        call.assert_not_called()

@@ -4,6 +4,7 @@ import unittest
 from unittest.mock import patch
 
 from agentarts import get_hint
+import hint_guard
 from exercise import EXERCISE, EXERCISES, check_submission
 
 
@@ -17,6 +18,7 @@ class AgentArtsHintTests(unittest.TestCase):
         self.assertEqual(response["source"], "local")
 
     def setUp(self):
+        hint_guard.reset()
         self.result = check_submission(EXERCISE["starter_code"])
         self.env = patch.dict("os.environ", {
             "AGENTARTS_WORKFLOW_URL": "https://example.test/runtimes/average/invocations",
@@ -132,14 +134,12 @@ class AgentArtsHintTests(unittest.TestCase):
         self.assertEqual(inputs["exercise_id"], "average")
 
     @patch("agentarts._OPENER.open")
-    def test_unknown_exercise_list_falls_back_to_the_all_exercise_default(self, open_stream):
-        hint = "对照失败用例，数一数列表中实际有多少元素。"
-        open_stream.side_effect = lambda *args, **kwargs: self.stream(hint)
-        with patch.dict("os.environ", {"AGENTARTS_EXERCISES": "nonexistent"}):
-            self.assertEqual(get_hint("average", self.result, 1)["source"], "agentarts")
-            self.assertEqual(get_hint("count", self.result, 1)["source"], "agentarts")
-        self.assertEqual(open_stream.call_count, 2)
-        self.assertIn("exercise_id", json.loads(open_stream.call_args.args[0].data)["inputs"])
+    def test_unknown_or_mixed_exercise_list_fails_closed(self, open_stream):
+        for scope in ("nonexistent", "average,nonexistent"):
+            with patch.dict("os.environ", {"AGENTARTS_EXERCISES": scope}):
+                response = get_hint("average", self.result, 1)
+            self.assertEqual(response["fallback_reason"], "invalid_exercises")
+        open_stream.assert_not_called()
 
     @patch("agentarts._OPENER.open")
     def test_missing_config_never_invokes_cloud(self, open_stream):
