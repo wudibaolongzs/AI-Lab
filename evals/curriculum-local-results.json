@@ -1,0 +1,1454 @@
+{
+  "mode": "local-only",
+  "note": "未标注来源",
+  "summary": {
+    "samples": 15,
+    "local_rows": 45,
+    "local_median_ms": 0.029,
+    "local_p95_ms": 0.102,
+    "local_max_ms": 0.22
+  },
+  "records": [
+    {
+      "sample_id": "double_sum-wrong_result",
+      "exercise": "double_sum",
+      "category": "wrong_result",
+      "focus": "区分每项乘倍数与总和加固定值。",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 DS01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "DS01",
+          "input": [
+            3,
+            -1,
+            0
+          ],
+          "expected": 4,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "DS03",
+          "input": [
+            7
+          ],
+          "expected": 14,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "DS04",
+          "input": [
+            -4,
+            -2
+          ],
+          "expected": -12,
+          "actual": 0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 DS01 的输入为 [3, -1, 0]。区分每项乘倍数与总和加固定值。",
+            "case_id": "DS01",
+            "elapsed_ms": 0.091,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "DS01",
+            "elapsed_ms": 0.042,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "按题意手算这个输入，再逐步检查返回表达式。",
+            "case_id": "DS01",
+            "elapsed_ms": 0.046,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "double_sum-zero_division",
+      "exercise": "double_sum",
+      "category": "zero_division",
+      "focus": "区分每项乘倍数与总和加固定值。",
+      "diagnosis": {
+        "kind": "zero_division",
+        "message": "此处的除数为 0。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "DS01",
+          "input": [
+            3,
+            -1,
+            0
+          ],
+          "expected": 4,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "DS02",
+          "input": [],
+          "expected": 0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "DS03",
+          "input": [
+            7
+          ],
+          "expected": 14,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "DS04",
+          "input": [
+            -4,
+            -2
+          ],
+          "expected": -12,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 DS01 的输入为 [3, -1, 0]。这个输入使除数变成了 0。",
+            "case_id": "DS01",
+            "elapsed_ms": 0.043,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
+            "case_id": "DS01",
+            "elapsed_ms": 0.032,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "分别写出应有的个数和实际除数，再核对题目的输入范围。",
+            "case_id": "DS01",
+            "elapsed_ms": 0.036,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "double_sum-numeric_range",
+      "exercise": "double_sum",
+      "category": "numeric_range",
+      "focus": "区分每项乘倍数与总和加固定值。",
+      "diagnosis": {
+        "kind": "numeric_range",
+        "message": "计算结果超出了此练习支持的数值范围。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "DS01",
+          "input": [
+            3,
+            -1,
+            0
+          ],
+          "expected": 4,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "DS02",
+          "input": [],
+          "expected": 0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "DS03",
+          "input": [
+            7
+          ],
+          "expected": 14,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "DS04",
+          "input": [
+            -4,
+            -2
+          ],
+          "expected": -12,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 DS01 的输入为 [3, -1, 0]。中间结果超过了支持的数值范围。",
+            "case_id": "DS01",
+            "elapsed_ms": 0.032,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
+            "case_id": "DS01",
+            "elapsed_ms": 0.031,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。",
+            "case_id": "DS01",
+            "elapsed_ms": 0.026,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "shifted_average-wrong_result",
+      "exercise": "shifted_average",
+      "category": "wrong_result",
+      "focus": "每项加相同数，平均值也增加这个数。",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 SA01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "SA01",
+          "input": [
+            2,
+            6
+          ],
+          "expected": 6.0,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "SA02",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": 1.0,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "SA03",
+          "input": [
+            7
+          ],
+          "expected": 9.0,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "SA04",
+          "input": [
+            0,
+            0
+          ],
+          "expected": 2.0,
+          "actual": 0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 SA01 的输入为 [2, 6]。每项加相同数，平均值也增加这个数。",
+            "case_id": "SA01",
+            "elapsed_ms": 0.031,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "SA01",
+            "elapsed_ms": 0.022,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "按题意手算这个输入，再逐步检查返回表达式。",
+            "case_id": "SA01",
+            "elapsed_ms": 0.019,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "shifted_average-zero_division",
+      "exercise": "shifted_average",
+      "category": "zero_division",
+      "focus": "每项加相同数，平均值也增加这个数。",
+      "diagnosis": {
+        "kind": "zero_division",
+        "message": "此处的除数为 0。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "SA01",
+          "input": [
+            2,
+            6
+          ],
+          "expected": 6.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "SA02",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": 1.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "SA03",
+          "input": [
+            7
+          ],
+          "expected": 9.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "SA04",
+          "input": [
+            0,
+            0
+          ],
+          "expected": 2.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 SA01 的输入为 [2, 6]。这个输入使除数变成了 0。",
+            "case_id": "SA01",
+            "elapsed_ms": 0.028,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
+            "case_id": "SA01",
+            "elapsed_ms": 0.028,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "分别写出应有的个数和实际除数，再核对题目的输入范围。",
+            "case_id": "SA01",
+            "elapsed_ms": 0.025,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "shifted_average-numeric_range",
+      "exercise": "shifted_average",
+      "category": "numeric_range",
+      "focus": "每项加相同数，平均值也增加这个数。",
+      "diagnosis": {
+        "kind": "numeric_range",
+        "message": "计算结果超出了此练习支持的数值范围。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "SA01",
+          "input": [
+            2,
+            6
+          ],
+          "expected": 6.0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "SA02",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": 1.0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "SA03",
+          "input": [
+            7
+          ],
+          "expected": 9.0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "SA04",
+          "input": [
+            0,
+            0
+          ],
+          "expected": 2.0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 SA01 的输入为 [2, 6]。中间结果超过了支持的数值范围。",
+            "case_id": "SA01",
+            "elapsed_ms": 0.027,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
+            "case_id": "SA01",
+            "elapsed_ms": 0.028,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。",
+            "case_id": "SA01",
+            "elapsed_ms": 0.026,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "total_with_fee-wrong_result",
+      "exercise": "total_with_fee",
+      "category": "wrong_result",
+      "focus": "区分只收一次的固定费用与按件计费。",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 TF01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "TF01",
+          "input": [
+            2,
+            6
+          ],
+          "expected": 13,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "TF02",
+          "input": [],
+          "expected": 5,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "TF03",
+          "input": [
+            7
+          ],
+          "expected": 12,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "TF04",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": 2,
+          "actual": 0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 TF01 的输入为 [2, 6]。区分只收一次的固定费用与按件计费。",
+            "case_id": "TF01",
+            "elapsed_ms": 0.02,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "TF01",
+            "elapsed_ms": 0.025,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "按题意手算这个输入，再逐步检查返回表达式。",
+            "case_id": "TF01",
+            "elapsed_ms": 0.02,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "total_with_fee-zero_division",
+      "exercise": "total_with_fee",
+      "category": "zero_division",
+      "focus": "区分只收一次的固定费用与按件计费。",
+      "diagnosis": {
+        "kind": "zero_division",
+        "message": "此处的除数为 0。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "TF01",
+          "input": [
+            2,
+            6
+          ],
+          "expected": 13,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "TF02",
+          "input": [],
+          "expected": 5,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "TF03",
+          "input": [
+            7
+          ],
+          "expected": 12,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "TF04",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": 2,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 TF01 的输入为 [2, 6]。这个输入使除数变成了 0。",
+            "case_id": "TF01",
+            "elapsed_ms": 0.177,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
+            "case_id": "TF01",
+            "elapsed_ms": 0.081,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "分别写出应有的个数和实际除数，再核对题目的输入范围。",
+            "case_id": "TF01",
+            "elapsed_ms": 0.069,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "total_with_fee-numeric_range",
+      "exercise": "total_with_fee",
+      "category": "numeric_range",
+      "focus": "区分只收一次的固定费用与按件计费。",
+      "diagnosis": {
+        "kind": "numeric_range",
+        "message": "计算结果超出了此练习支持的数值范围。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "TF01",
+          "input": [
+            2,
+            6
+          ],
+          "expected": 13,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "TF02",
+          "input": [],
+          "expected": 5,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "TF03",
+          "input": [
+            7
+          ],
+          "expected": 12,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "TF04",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": 2,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 TF01 的输入为 [2, 6]。中间结果超过了支持的数值范围。",
+            "case_id": "TF01",
+            "elapsed_ms": 0.22,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
+            "case_id": "TF01",
+            "elapsed_ms": 0.045,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。",
+            "case_id": "TF01",
+            "elapsed_ms": 0.102,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "pair_count-wrong_result",
+      "exercise": "pair_count",
+      "category": "wrong_result",
+      "focus": "计数关注元素位置，不受元素的值影响。",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 PC01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "PC01",
+          "input": [
+            4,
+            4,
+            0
+          ],
+          "expected": 6,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "PC03",
+          "input": [
+            7
+          ],
+          "expected": 2,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "PC04",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": 6,
+          "actual": 0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 PC01 的输入为 [4, 4, 0]。计数关注元素位置，不受元素的值影响。",
+            "case_id": "PC01",
+            "elapsed_ms": 0.04,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "PC01",
+            "elapsed_ms": 0.027,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "按题意手算这个输入，再逐步检查返回表达式。",
+            "case_id": "PC01",
+            "elapsed_ms": 0.021,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "pair_count-zero_division",
+      "exercise": "pair_count",
+      "category": "zero_division",
+      "focus": "计数关注元素位置，不受元素的值影响。",
+      "diagnosis": {
+        "kind": "zero_division",
+        "message": "此处的除数为 0。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "PC01",
+          "input": [
+            4,
+            4,
+            0
+          ],
+          "expected": 6,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "PC02",
+          "input": [],
+          "expected": 0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "PC03",
+          "input": [
+            7
+          ],
+          "expected": 2,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "PC04",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": 6,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 PC01 的输入为 [4, 4, 0]。这个输入使除数变成了 0。",
+            "case_id": "PC01",
+            "elapsed_ms": 0.032,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
+            "case_id": "PC01",
+            "elapsed_ms": 0.029,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "分别写出应有的个数和实际除数，再核对题目的输入范围。",
+            "case_id": "PC01",
+            "elapsed_ms": 0.03,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "pair_count-numeric_range",
+      "exercise": "pair_count",
+      "category": "numeric_range",
+      "focus": "计数关注元素位置，不受元素的值影响。",
+      "diagnosis": {
+        "kind": "numeric_range",
+        "message": "计算结果超出了此练习支持的数值范围。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "PC01",
+          "input": [
+            4,
+            4,
+            0
+          ],
+          "expected": 6,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "PC02",
+          "input": [],
+          "expected": 0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "PC03",
+          "input": [
+            7
+          ],
+          "expected": 2,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "PC04",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": 6,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 PC01 的输入为 [4, 4, 0]。中间结果超过了支持的数值范围。",
+            "case_id": "PC01",
+            "elapsed_ms": 0.029,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
+            "case_id": "PC01",
+            "elapsed_ms": 0.027,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。",
+            "case_id": "PC01",
+            "elapsed_ms": 0.026,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "average_with_zero-wrong_result",
+      "exercise": "average_with_zero",
+      "category": "wrong_result",
+      "focus": "追加零不改变总和，但会增加元素个数。",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 AZ01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "AZ01",
+          "input": [
+            2,
+            6
+          ],
+          "expected": 2.6666666666666665,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "AZ03",
+          "input": [
+            7
+          ],
+          "expected": 3.5,
+          "actual": 0,
+          "status": "failed"
+        },
+        {
+          "id": "AZ04",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": -0.75,
+          "actual": 0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 AZ01 的输入为 [2, 6]。追加零不改变总和，但会增加元素个数。",
+            "case_id": "AZ01",
+            "elapsed_ms": 0.024,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "AZ01",
+            "elapsed_ms": 0.02,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "按题意手算这个输入，再逐步检查返回表达式。",
+            "case_id": "AZ01",
+            "elapsed_ms": 0.019,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "average_with_zero-zero_division",
+      "exercise": "average_with_zero",
+      "category": "zero_division",
+      "focus": "追加零不改变总和，但会增加元素个数。",
+      "diagnosis": {
+        "kind": "zero_division",
+        "message": "此处的除数为 0。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "AZ01",
+          "input": [
+            2,
+            6
+          ],
+          "expected": 2.6666666666666665,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "AZ02",
+          "input": [],
+          "expected": 0.0,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "AZ03",
+          "input": [
+            7
+          ],
+          "expected": 3.5,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        },
+        {
+          "id": "AZ04",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": -0.75,
+          "actual": null,
+          "status": "error",
+          "error": "此处的除数为 0。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 AZ01 的输入为 [2, 6]。这个输入使除数变成了 0。",
+            "case_id": "AZ01",
+            "elapsed_ms": 0.03,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
+            "case_id": "AZ01",
+            "elapsed_ms": 0.029,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "分别写出应有的个数和实际除数，再核对题目的输入范围。",
+            "case_id": "AZ01",
+            "elapsed_ms": 0.028,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "average_with_zero-numeric_range",
+      "exercise": "average_with_zero",
+      "category": "numeric_range",
+      "focus": "追加零不改变总和，但会增加元素个数。",
+      "diagnosis": {
+        "kind": "numeric_range",
+        "message": "计算结果超出了此练习支持的数值范围。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "AZ01",
+          "input": [
+            2,
+            6
+          ],
+          "expected": 2.6666666666666665,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "AZ02",
+          "input": [],
+          "expected": 0.0,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "AZ03",
+          "input": [
+            7
+          ],
+          "expected": 3.5,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        },
+        {
+          "id": "AZ04",
+          "input": [
+            -4,
+            0,
+            1
+          ],
+          "expected": -0.75,
+          "actual": null,
+          "status": "error",
+          "error": "计算结果超出了此练习支持的数值范围。"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 AZ01 的输入为 [2, 6]。中间结果超过了支持的数值范围。",
+            "case_id": "AZ01",
+            "elapsed_ms": 0.03,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
+            "case_id": "AZ01",
+            "elapsed_ms": 0.03,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。",
+            "case_id": "AZ01",
+            "elapsed_ms": 0.029,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -186,7 +186,7 @@ class ListExerciseTests(unittest.TestCase):
                              "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。"),
         })
         self.assertEqual(HINT_LOCATION["wrong_result"], "从第 {line} 行的返回表达式开始，回查参与计算的变量。")
-        self.assertEqual(set(HINT_GUIDANCE), {"average", "sum", "count"})
+        self.assertTrue({"average", "sum", "count"}.issubset(HINT_GUIDANCE))
         self.assertEqual(set(HINT_GUIDANCE["sum"]), set(HINT_LOCATION), "每题都要覆盖全部诊断类别")
 
     def test_list_exercise_rejects_file_access(self):

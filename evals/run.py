@@ -118,6 +118,7 @@ def summarize(records, paired):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--samples", type=Path, default=SAMPLES_PATH, help="Independent sample set; defaults to the original 24 samples.")
     parser.add_argument("--compare-port", type=int, help="Also call the local /api/hint endpoint.")
     parser.add_argument("--note", help="Provenance written to the report, e.g. that the endpoint is a mock.")
     args = parser.parse_args()
@@ -125,7 +126,9 @@ def main():
         parser.error("--compare-port must be 1–65535")
     if args.note and args.compare_port is None:
         parser.error("--note 只在配对采集时使用")
-    samples = json.loads(SAMPLES_PATH.read_text(encoding="utf-8"))
+    samples = json.loads(args.samples.read_text(encoding="utf-8"))
+    if not isinstance(samples, list) or not samples:
+        parser.error("sample set must be a non-empty array")
     records = collect(samples, args.compare_port)
     report = {
         "mode": "endpoint-comparison" if args.compare_port is not None else "local-only",

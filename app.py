@@ -11,6 +11,10 @@ from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from socket import timeout as SocketTimeout
+from urllib.parse import parse_qs
+
+import learning
+import classroom
 
 from agentarts import get_hint
 from exercise import EXERCISE, EXERCISES, check_submission
@@ -104,6 +108,21 @@ class Handler(BaseHTTPRequestHandler):
         if not self.is_local_host():
             return
         path = self.path.partition("?")[0]
+        if path.startswith("/api/classroom/"):
+            classroom.dispatch(self)
+            return
+        if path == "/teacher":
+            self.send_body(HTTPStatus.OK, "text/html; charset=utf-8", PAGE.with_name("teacher.html").read_bytes())
+            return
+        if path == "/api/learning/challenge":
+            try:
+                query = parse_qs(self.path.partition("?")[2], keep_blank_values=True)
+                if set(query) != {"exercise_id"} or len(query["exercise_id"]) != 1:
+                    raise ValueError("exercise_id required")
+                self.send_json(HTTPStatus.OK, learning.challenge(query["exercise_id"][0]))
+            except (ValueError, KeyError):
+                self.reject(HTTPStatus.BAD_REQUEST, "请选择有效练习。")
+            return
         if path == "/healthz":
             self.send_json(HTTPStatus.OK, {"status": "ok"})
         elif path == "/":
@@ -132,7 +151,7 @@ class Handler(BaseHTTPRequestHandler):
         finally:
             self.connection.settimeout(previous)
 
-    def read_post_payload(self):
+    def read_post_payload(self, require_code=True):
         lengths = self.headers.get_all("Content-Length", [])
         length = lengths[0].strip(" \t") if len(lengths) == 1 else ""
         if not length.isascii() or not length.isdigit() or "Transfer-Encoding" in self.headers:
@@ -165,9 +184,10 @@ class Handler(BaseHTTPRequestHandler):
             return
         try:
             payload = json.loads(body.decode("utf-8"))
-            if not isinstance(payload, dict) or not isinstance(payload.get("code"), str):
+            if not isinstance(payload, dict) or (require_code and not isinstance(payload.get("code"), str)):
                 raise ValueError
-            payload["code"].encode("utf-8")
+            if require_code:
+                payload["code"].encode("utf-8")
         except (ValueError, RecursionError):
             self.reject(HTTPStatus.BAD_REQUEST, "请提供有效的 UTF-8 文本字段 code。")
             return
@@ -176,13 +196,27 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         if not self.is_local_host():
             return
-        if self.path not in ("/api/check", "/api/hint"):
+        is_classroom = self.path.startswith("/api/classroom/")
+        if self.path not in ("/api/check", "/api/hint", "/api/learning/verify") and not is_classroom:
             self.reject(HTTPStatus.NOT_FOUND, "接口不存在。")
             return
-        payload = self.read_post_payload()
+        payload = self.read_post_payload(require_code=not is_classroom)
         if payload is None:
             return
 
+        if is_classroom:
+            classroom.dispatch(self, payload)
+            return
+        if self.path == "/api/learning/verify":
+            try:
+                result = learning.verify(payload.get("exercise_id"), payload["code"],
+                                         payload.get("answer"), payload.get("explanation", ""))
+                self.send_json(HTTPStatus.OK, result)
+            except learning.LearningConflict as error:
+                self.reject(HTTPStatus.CONFLICT, str(error))
+            except (ValueError, KeyError, TypeError) as error:
+                self.reject(HTTPStatus.BAD_REQUEST, str(error))
+            return
         is_hint = self.path == "/api/hint"
         exercise_id = payload.get("exercise_id", None if is_hint else "average")
         if not isinstance(exercise_id, str) or exercise_id not in EXERCISES:

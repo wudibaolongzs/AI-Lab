@@ -1,0 +1,89 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>课堂工作台</title><style>body{font:16px system-ui;max-width:900px;margin:40px auto;padding:0 20px;background:#f4f7fa;color:#183044}section,article{background:white;padding:20px;margin:16px 0;border-radius:12px}input,textarea,select,button{font:inherit;padding:10px;margin:5px;max-width:90%}textarea{display:block;width:90%}button{cursor:pointer}label{display:block}small{color:#526576}</style><h1>课堂工作台</h1><p>教师发布任务并回复求助；学生查看本班任务与自己的回复。</p><section id="login"><label>身份 <select id="role"><option value="teacher">教师</option><option value="student">学生</option></select></label><label>专属凭证 <input id="credential" type="password" autocomplete="off"></label><button id="connect">进入课堂</button><small>凭证仅保留在本页内存中，刷新或退出即清除。</small></section><p id="status" role="status"></p><main id="workspace" hidden><button id="refresh">刷新</button><button id="logout">退出</button><section id="publish"><h2>发布任务</h2><label>练习 ID <input id="exercise" placeholder="average"></label><label>标题 <input id="title" maxlength="160"></label><label>截止时间（选填） <input id="due" maxlength="80"></label><button id="create">发布</button></section><section id="ask" hidden><h2>向教师求助</h2><p>以下为主动提交的自述，不包含源码，也不作为云端调用证明。</p><label>练习 ID <input id="ask-exercise" value="average" maxlength="80"></label><label>提交编号 <input id="ask-submission" maxlength="100" placeholder="例如 本次提交1"></label><label>遇到的问题 <textarea id="ask-question" maxlength="1000"></textarea></label><label>相关提示（选填） <textarea id="ask-hint" maxlength="240"></textarea></label><button id="ask-send">发送求助</button></section><section><h2>本班任务</h2><div id="tasks"></div></section><section><h2>求助与回复</h2><small>仅展示实际求助和回复数量，不评价学生掌握程度。</small><p id="counts"></p><div id="queue"></div></section></main><script>
+'use strict';
+let token = '', activeRole = '', generation = 0;
+const $ = id => document.getElementById(id);
+const session = () => ({ token, role: activeRole, generation });
+const current = s => s.generation === generation && s.token === token && s.role === activeRole;
+async function api(s, path, body) {
+  const r = await fetch('/api/classroom/' + path, {
+    method: body ? 'POST' : 'GET',
+    headers: { 'X-Classroom-Token': s.token, ...(body ? {'Content-Type':'application/json'} : {}) },
+    ...(body ? {body: JSON.stringify(body)} : {})
+  });
+  const d = await r.json();
+  if (!r.ok) throw Error(d.error || '请求失败');
+  return d;
+}
+function text(parent, tag, value) {
+  const e = document.createElement(tag); e.textContent = value; parent.append(e); return e;
+}
+async function refresh(s = session()) {
+  if (!current(s)) return;
+  try {
+    const d = await api(s, s.role);
+    if (!current(s)) return;
+    $('workspace').hidden = false; $('login').hidden = true;
+    $('publish').hidden = s.role !== 'teacher';
+    $('ask').hidden = s.role !== 'student';
+    $('tasks').replaceChildren();
+    d.tasks.forEach(t => text($('tasks'), 'p', t.title + ' · ' + t.exercise_id + (t.due ? ' · 截止 ' + t.due : '')));
+    $('queue').replaceChildren();
+    d.help.forEach(h => {
+      const box = text($('queue'), 'article', '');
+      text(box, 'p', (h.student_id || '') + ' · ' + h.exercise_id + ' · ' + h.created_at);
+      text(box, 'p', h.question);
+      if (h.hint) text(box, 'p', '提示：' + h.hint);
+      text(box, 'p', '回复：' + (h.reply || '等待教师回复'));
+      if (s.role === 'teacher') {
+        const field = document.createElement('textarea'); field.maxLength = 1000; field.value = h.reply;
+        field.setAttribute('aria-label', '教师回复'); box.append(field);
+        const button = text(box, 'button', '保存回复');
+        button.onclick = async () => {
+          if (!current(s)) return;
+          try {
+            await api(s, 'reply', {help_id: h.id, reply: field.value});
+            if (current(s)) await refresh(s);
+          } catch (e) { if (current(s)) $('status').textContent = e.message; }
+        };
+      }
+    });
+    $('counts').textContent = d.counts ? '任务 ' + d.counts.tasks + ' · 求助 ' + d.counts.help_requests + ' · 待回复 ' + d.counts.unanswered : '';
+    $('status').textContent = '班级：' + d.class_id;
+  } catch (e) { if (current(s)) $('status').textContent = e.message; }
+}
+function clearPrivateView() {
+  $('workspace').hidden = true; $('login').hidden = false;
+  $('tasks').replaceChildren(); $('queue').replaceChildren(); $('counts').textContent = '';
+  $('exercise').value = ''; $('title').value = ''; $('due').value = '';
+  $('ask-question').value = ''; $('ask-hint').value = ''; $('ask-submission').value = ''; $('ask-send').disabled = false;
+}
+$('connect').onclick = () => {
+  generation++; token = $('credential').value; $('credential').value = ''; activeRole = $('role').value;
+  clearPrivateView(); refresh();
+};
+$('refresh').onclick = () => refresh();
+$('logout').onclick = () => {
+  generation++; token = ''; activeRole = ''; clearPrivateView(); $('status').textContent = '已退出';
+};
+$('create').onclick = async () => {
+  const s = session();
+  try {
+    await api(s, 'tasks', {exercise_id: $('exercise').value, title: $('title').value, due: $('due').value});
+    if (current(s)) await refresh(s);
+  } catch (e) { if (current(s)) $('status').textContent = e.message; }
+};
+$('ask-send').onclick = async () => {
+  const s = session();
+  if (s.role !== 'student' || !s.token) return;
+  const question = $('ask-question').value.trim();
+  const submission = $('ask-submission').value.trim();
+  if (!question || !submission) { $('status').textContent = '请填写提交编号和问题'; return; }
+  $('ask-send').disabled = true;
+  try {
+    await api(s, 'help', {exercise_id: $('ask-exercise').value, submission_id: submission,
+      request_id: crypto.randomUUID(), question, hint: $('ask-hint').value, source: 'manual'});
+    if (current(s)) { $('ask-question').value = ''; $('ask-hint').value = ''; await refresh(s); }
+  } catch (e) { if (current(s)) $('status').textContent = e.message; }
+  finally { if (current(s)) $('ask-send').disabled = false; }
+};
+</script></html>

@@ -53,3 +53,7 @@ python -B app.py
 支持通过 `AI_PROVIDER=deepseek` 使用 DeepSeek 的 OpenAI 兼容接口，用于华为工作流发布前的链路开发与连通性验证。填入 `DEEPSEEK_API_KEY` 与 `DEEPSEEK_MODEL` 后运行 `python -B tools/check_deepseek.py --level 2`，它走完整生产路径并真实消耗一次调用；退出码 0 才说明 Key、模型与 JSON 输出可用。配置、独立评测及切回步骤见 [DeepSeek 接入说明](docs/deepseek-setup.md)。DeepSeek 结果不作为华为 AgentArts 验收证据。
 
 最新整改结果见 [整改记录](docs/remediation-status.md)，不要将历史报告当作当前验收。
+
+## 2026-11-08 学习闭环版本
+
+现有8道练习，新增理解变式验证、提示反馈、记录导入导出和可选课堂工作台。完整用法、接口与验收见 [学习闭环说明](docs/learning-guide.md)。新题默认本地辅导；原24样本和72个提示位置保留历史范围。

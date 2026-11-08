@@ -179,6 +179,13 @@
     .hint-actions { margin-top: 16px; }
     .hints .secondary { background: var(--surface); }
     .history { margin-top: 24px; }
+    .learning { margin-top: 20px; padding: 18px; border-radius: 18px; background: var(--field); }
+    .learning label { display: block; margin-top: 12px; }
+    .learning textarea, .learning input { width: 100%; padding: 10px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; font: inherit; }
+    .feedback { display: flex; gap: 6px; flex-wrap: wrap; margin-block: 8px; }
+    .feedback button { font-size: 12px; padding: 6px 10px; min-height: 36px; }
+    .feedback button[aria-pressed="true"] { outline: 2px solid var(--accent); }
+
     footer { padding-top: 24px; }
     button:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     @media (max-width: 830px) {
@@ -198,7 +205,7 @@
     <div class="wrap">
       <div class="brand"><span class="brand-mark" aria-hidden="true">&gt;_</span><span>智学工坊 <small>AI-Lab</small></span></div>
       <div class="header-actions">
-        <span class="mode">分步辅导</span>
+        <a href="/teacher" class="mode" style="text-decoration:none">课堂工作台</a>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式" aria-pressed="false">
           <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg>
           <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.7 8.7 0 0 1 10 3.5 8.8 8.8 0 1 0 20.5 14Z"/></svg>
@@ -255,12 +262,29 @@
             <span class="muted" id="hint-count"></span>
           </div>
         </section>
+        <section class="learning" id="learning" hidden aria-labelledby="learning-heading">
+          <h3 id="learning-heading">原题已通过 · 理解验证待完成</h3>
+          <p id="learning-question"></p>
+          <label for="learning-explanation">用自己的话解释思路（选填，仅记录，不参与判分）</label>
+          <textarea id="learning-explanation" maxlength="500" rows="3"></textarea>
+          <label for="learning-answer">变式题的数值答案</label>
+          <input id="learning-answer" type="number" step="any">
+          <button class="secondary" id="learning-submit" type="button" disabled>提交变式答案</button>
+          <p id="learning-message" role="status" aria-live="polite"></p>
+        </section>
       </section>
     </div>
 
     <section class="card history" aria-labelledby="history-heading">
       <div class="card-heading"><span class="index">03</span><h2 id="history-heading">提交记录</h2></div>
       <p class="muted" id="storage-note">草稿和提交记录保存在当前浏览器。</p>
+      <div class="editor-actions">
+        <button class="secondary" id="export-records" type="button">导出学习记录</button>
+        <label class="secondary" for="import-records">导入学习记录</label>
+        <input id="import-records" type="file" accept="application/json,.json">
+      </div>
+      <p class="muted">导入会替换同题草稿和记录；其他题目保持不变。最多 256 KiB，仅在当前浏览器处理。</p>
+      <p id="records-message" role="status"></p>
       <p class="muted" id="history-empty">本题暂无提交记录。</p>
       <ol class="attempts" id="attempts" aria-label="最近五次提交，最新在前"></ol>
     </section>
@@ -308,6 +332,11 @@
     let availableHints = [];
     let revealed = 0;
     let pendingHint = null;
+    let learningController = null;
+    let learningCode = null;
+    let learningReady = false;
+    const feedbackChoices = ["有帮助", "太模糊", "接近答案", "可能错误"];
+
 
     function make(tag, className, value) {
       const node = document.createElement(tag);
@@ -381,14 +410,16 @@
           draft: typeof saved?.draft === "string" ? saved.draft.slice(0, editor.maxLength) : null,
           passed: saved?.passed === true || attempts.some((attempt) => attempt.status === "passed"),
           attempts,
+          feedback: Array.isArray(saved?.feedback) ? saved.feedback.filter(validFeedback).slice(-40) : [],
+          learning: validLearning(saved?.learning) ? saved.learning : null,
         });
       }
       return exerciseStates.get(id);
     }
 
     function saveExercise(id, state) {
-      const { draft, passed, attempts } = state;
-      state.unsaved = !writeStorage(`exercise.${id}`, JSON.stringify({ draft, passed, attempts }));
+      const { draft, passed, attempts, feedback, learning } = state;
+      state.unsaved = !writeStorage(`exercise.${id}`, JSON.stringify({ draft, passed, attempts, feedback, learning }));
     }
 
     function updateProgress() {
@@ -533,6 +564,25 @@
       };
       if (source === "local" && reasons[fallbackReason]) item.append(make("p", "muted", reasons[fallbackReason]));
       if (requestId) item.append(make("p", "muted", `请求编号 ${requestId}`));
+      const controls = make("div", "feedback");
+      controls.setAttribute("aria-label", `第 ${level} 步提示反馈`);
+      const feedbackExercise = activeExercise.id;
+      const feedbackRequest = String(requestId || `local-${lastSubmission.number}`).slice(0, 200);
+      for (const choice of feedbackChoices) {
+        const button = make("button", "secondary", choice);
+        button.type = "button";
+        button.setAttribute("aria-pressed", "false");
+        button.addEventListener("click", () => {
+          const state = exerciseState(feedbackExercise);
+          state.feedback = state.feedback.filter(f => !(f.request_id === feedbackRequest && f.level === level && f.source === source));
+          state.feedback.push({ request_id: feedbackRequest, source, level, choice, time: new Date().toISOString() });
+          state.feedback = state.feedback.slice(-40);
+          saveExercise(feedbackExercise, state);
+          for (const sibling of controls.children) sibling.setAttribute("aria-pressed", String(sibling === button));
+        });
+        controls.append(button);
+      }
+      item.append(controls);
       hintList.append(item);
       revealed += 1;
       if (revealed === 2) showDiagnosis(lastSubmission.result.diagnosis);
@@ -552,7 +602,73 @@
       }));
     }
 
+    function resetLearning() {
+      learningController?.abort();
+      learningController = null;
+      learningReady = false;
+      learningCode = null;
+      element("learning").hidden = true;
+      element("learning-answer").value = "";
+      element("learning-explanation").value = "";
+      element("learning-message").textContent = "";
+    }
+
+    async function openLearning(id, code) {
+      resetLearning();
+      const controller = new AbortController();
+      learningController = controller;
+      learningCode = code;
+      element("learning").hidden = false;
+      element("learning-heading").textContent = "原题已通过 · 理解验证待完成";
+      element("learning-question").textContent = "正在加载变式题…";
+      element("learning-submit").disabled = true;
+      try {
+        const challenge = await request(`/api/learning/challenge?exercise_id=${encodeURIComponent(id)}`, { signal: controller.signal });
+        if (learningController !== controller || activeExercise.id !== id || editor.value !== code) return;
+        element("learning-question").textContent = challenge.question;
+        learningReady = true;
+        element("learning-submit").disabled = false;
+      } catch (error) {
+        if (learningController === controller) element("learning-message").textContent = error.message;
+      }
+    }
+
+    element("learning-submit").addEventListener("click", async () => {
+      if (!learningReady || learningCode !== editor.value) return;
+      const raw = element("learning-answer").value;
+      if (!raw.trim() || !Number.isFinite(Number(raw))) {
+        element("learning-message").textContent = "请输入有效的数值答案。";
+        return;
+      }
+      learningController?.abort();
+      const controller = new AbortController();
+      learningController = controller;
+      const id = activeExercise.id, code = learningCode;
+      const explanation = element("learning-explanation").value;
+      element("learning-submit").disabled = true;
+      try {
+        const result = await request("/api/learning/verify", {
+          method: "POST", headers: { "Content-Type": "application/json" }, signal: controller.signal,
+          body: JSON.stringify({ exercise_id: id, code, answer: Number(raw), explanation }),
+        });
+        if (learningController !== controller || activeExercise.id !== id || editor.value !== code) return;
+        const state = exerciseState(id);
+        const count = state.learning?.attempt_count || 0;
+        state.learning = { correct: result.correct === true, explanation_recorded: result.explanation_recorded === true, explanation,
+          attempt_count: count + 1, first_correct: count ? state.learning.first_correct : result.correct === true,
+          time: new Date().toISOString() };
+        saveExercise(id, state);
+        element("learning-heading").textContent = result.correct ? "变式验证通过" : "原题已通过 · 理解验证待完成";
+        element("learning-message").textContent = result.message;
+      } catch (error) {
+        if (learningController === controller) element("learning-message").textContent = error.message;
+      } finally {
+        if (learningController === controller) element("learning-submit").disabled = false;
+      }
+    });
+
     function clearResult() {
+      resetLearning();
       pendingHint?.abort();
       pendingHint = null;
       lastSubmission = null;
@@ -571,6 +687,7 @@
       const { id } = activeExercise;
       const code = editor.value;
       running = true;
+      element("import-records").disabled = true;
       exerciseSelect.disabled = true;
       editor.disabled = true;
       runButton.disabled = true;
@@ -600,11 +717,13 @@
         updateRevealControl();
         renderAttempts(state.attempts);
         updateProgress();
+        if (status === "passed") openLearning(id, code);
       } catch (error) {
         resultLabel.textContent = "本次测试未完成";
         showError(error instanceof TypeError ? "连接中断，请确认本地服务正在运行后重试。" : error.message);
       } finally {
         running = false;
+        element("import-records").disabled = false;
         exerciseSelect.disabled = false;
         editor.disabled = false;
         runButton.disabled = false;
@@ -613,6 +732,74 @@
       }
     }
 
+    function validFeedback(f) {
+      return f && typeof f.request_id === "string" && f.request_id.length <= 200 &&
+        ["local", "agentarts", "tencent", "deepseek"].includes(f.source) &&
+        Number.isInteger(f.level) && f.level >= 1 && f.level <= 10 && feedbackChoices.includes(f.choice) &&
+        typeof f.time === "string" && Number.isFinite(Date.parse(f.time));
+    }
+    function validLearning(v) {
+      return v && typeof v.correct === "boolean" && typeof v.explanation_recorded === "boolean" &&
+        Number.isSafeInteger(v.attempt_count) && v.attempt_count > 0 && v.attempt_count <= 1000000 && typeof v.first_correct === "boolean" &&
+        (v.explanation === undefined || (typeof v.explanation === "string" && v.explanation.length <= 500)) &&
+        typeof v.time === "string" && Number.isFinite(Date.parse(v.time));
+    }
+    function portableState(v) {
+      if (!v || (v.draft !== null && (typeof v.draft !== "string" || v.draft.length > 4000)) ||
+          typeof v.passed !== "boolean" || !Array.isArray(v.attempts) || v.attempts.length > 5 ||
+          !Array.isArray(v.feedback) || v.feedback.length > 40 || !v.feedback.every(validFeedback) ||
+          (v.learning !== null && !validLearning(v.learning))) throw new Error("记录格式无效。");
+      const attempts = v.attempts.map(a => {
+        if (!a || !Number.isSafeInteger(a.number) || a.number < 1 || !["passed", "failed", "invalid"].includes(a.status) ||
+          !Number.isInteger(a.passed) || !Number.isInteger(a.total) || a.passed < 0 || a.total < a.passed || a.total > 100 ||
+          typeof a.time !== "string" || !Number.isFinite(Date.parse(a.time))) throw new Error("提交记录无效。");
+        return { number: a.number, status: a.status, passed: a.passed, total: a.total, time: a.time };
+      });
+      return { draft: v.draft, passed: v.passed, attempts,
+        feedback: v.feedback.map(f => ({ request_id: f.request_id, source: f.source, level: f.level, choice: f.choice, time: f.time })),
+        learning: v.learning === null ? null : { correct: v.learning.correct, explanation_recorded: v.learning.explanation_recorded, explanation: v.learning.explanation ?? "", attempt_count: v.learning.attempt_count, first_correct: v.learning.first_correct, time: v.learning.time } };
+    }
+    element("export-records").addEventListener("click", () => {
+      const records = exercises.map(({id}) => ({ id, ...portableState(exerciseState(id)) }));
+      const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 1, records }, null, 2)], { type: "application/json" }));
+      const link = make("a"); link.href = url; link.download = "ai-lab-learning-v1.json"; link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      element("records-message").textContent = "已导出本地学习记录。";
+    });
+    element("import-records").addEventListener("change", async event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      if (running) { element("records-message").textContent = "测试运行中，请完成后再导入。"; event.target.value = ""; return; }
+      try {
+        if (file.size > 256 * 1024) throw new Error("文件不能超过 256 KiB。");
+        const content = await file.text();
+        if (running) throw new Error("测试运行中，请完成后再导入。");
+        const data = JSON.parse(content);
+        if (data.version !== 1 || !Array.isArray(data.records) || data.records.length > exercises.length) throw new Error("备份版本或记录数量无效。");
+        const seen = new Set();
+        const records = data.records.map(v => {
+          if (!exercises.some(e => e.id === v.id) || seen.has(v.id)) throw new Error("题目编号无效或重复。");
+          seen.add(v.id); return { id: v.id, state: portableState(v) };
+        });
+        const originals = records.map(({id}) => [id, window.localStorage.getItem(storagePrefix + `exercise.${id}`)]);
+        try {
+          for (const {id, state} of records) window.localStorage.setItem(storagePrefix + `exercise.${id}`, JSON.stringify(state));
+        } catch (error) {
+          let restored = true;
+          for (const [id, value] of originals) {
+            try { if (value === null) window.localStorage.removeItem(storagePrefix + `exercise.${id}`); else window.localStorage.setItem(storagePrefix + `exercise.${id}`, value); }
+            catch { restored = false; }
+          }
+          if (!restored) { element("records-message").textContent = "存储失败，部分记录未能恢复，请检查浏览器存储。"; return; }
+          throw new Error("浏览器存储写入失败。");
+        }
+        for (const {id, state} of records) exerciseStates.set(id, state);
+        if (activeExercise && !running) selectExercise(activeExercise);
+        element("records-message").textContent = `已导入 ${records.length} 题的草稿和记录。`;
+      } catch (error) { element("records-message").textContent = `导入失败，原记录未改动：${error.message}`; }
+      event.target.value = "";
+    });
+
     runButton.addEventListener("click", checkCode);
     reloadButton.addEventListener("click", loadExercises);
     exerciseSelect.addEventListener("change", () => {
@@ -620,6 +807,10 @@
       if (!running && exercise && exercise !== activeExercise) selectExercise(exercise);
     });
     editor.addEventListener("input", () => {
+      resetLearning();
+      pendingHint?.abort();
+      pendingHint = null;
+      hintsPanel.hidden = true;
       if (!activeExercise) return;
       const { id } = activeExercise;
       const previous = exerciseState(id);

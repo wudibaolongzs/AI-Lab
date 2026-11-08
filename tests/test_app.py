@@ -73,9 +73,11 @@ class AppTests(unittest.TestCase):
         status, body = self.request("GET", "/api/exercises")
         self.assertEqual(status, 200)
         exercises = json.loads(body)
-        self.assertEqual([item["id"] for item in exercises], ["average", "sum", "count"])
+        self.assertEqual([item["id"] for item in exercises], ["average", "sum", "count", "double_sum", "shifted_average", "total_with_fee", "pair_count", "average_with_zero"])
 
-        for exercise, expression in zip(exercises[1:], ("sum(nums)", "len(nums)")):
+        expressions = ("sum(nums)", "len(nums)", "sum(nums)*2", "sum(nums)/len(nums)+2",
+                       "sum(nums)+5", "len(nums)*2", "sum(nums)/(len(nums)+1)")
+        for exercise, expression in zip(exercises[1:], expressions):
             with self.subTest(exercise=exercise["id"]):
                 submission = {"exercise_id": exercise["id"], "code": exercise["starter_code"]}
                 status, result = self.check(submission)

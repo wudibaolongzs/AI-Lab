@@ -102,6 +102,39 @@ HINT_GUIDANCE = {
         ),
     },
 }
+# Additional local curriculum; the original three fixtures and hint wording stay intact.
+_NEW_EXERCISES = {
+    "double_sum": ("每个元素翻倍后求和", "将整数列表中每个值翻倍后求和；空列表返回 0。", "sum(nums) * 2", "sum(nums)", "区分每项乘倍数与总和加固定值。", ((3, -1, 0), (), (7,), (-4, -2))),
+    "shifted_average": ("每项加二后的平均值", "非空整数列表中每个值加 2，返回新列表的平均值。", "sum(nums) / len(nums) + 2", "(sum(nums) + 2) / len(nums)", "每项加相同数，平均值也增加这个数。", ((2, 6), (-4, 0, 1), (7,), (0, 0))),
+    "total_with_fee": ("加上一次固定费用", "返回整数金额列表的总和加上一次固定费用 5；空列表也收取该费用。", "sum(nums) + 5", "sum(nums) + len(nums) * 5", "区分只收一次的固定费用与按件计费。", ((2, 6), (), (7,), (-4, 0, 1))),
+    "pair_count": ("每件物品两张标签", "列表中每个元素需要两张标签，返回标签总数；重复值也分别计数。", "len(nums) * 2", "sum(nums) * 2", "计数关注元素位置，不受元素的值影响。", ((4, 4, 0), (), (7,), (-4, 0, 1))),
+    "average_with_zero": ("追加一个零后求平均值", "在整数列表末尾追加一个 0，返回新列表的平均值；空输入的结果为 0。", "sum(nums) / (len(nums) + 1)", "sum(nums) / len(nums)", "追加零不改变总和，但会增加元素个数。", ((2, 6), (), (7,), (-4, 0, 1))),
+}
+for _id, (_title, _description, _correct, _buggy, _goal, _inputs) in _NEW_EXERCISES.items():
+    EXERCISES[_id] = {
+        "title": _title, "description": _description,
+        "signature": f"def {_id}(nums):",
+        "starter_code": f"def {_id}(nums):\n    return {_buggy}\n",
+        "learning_goal": _goal,
+    }
+# Expected values are fixed fixtures, never evaluated from source strings.
+EXERCISE_CASES.update({
+    "double_sum": (("DS01", (3, -1, 0), 4), ("DS02", (), 0), ("DS03", (7,), 14), ("DS04", (-4, -2), -12)),
+    "shifted_average": (("SA01", (2, 6), 6.0), ("SA02", (-4, 0, 1), 1.0), ("SA03", (7,), 9.0), ("SA04", (0, 0), 2.0)),
+    "total_with_fee": (("TF01", (2, 6), 13), ("TF02", (), 5), ("TF03", (7,), 12), ("TF04", (-4, 0, 1), 2)),
+    "pair_count": (("PC01", (4, 4, 0), 6), ("PC02", (), 0), ("PC03", (7,), 2), ("PC04", (-4, 0, 1), 6)),
+    "average_with_zero": (("AZ01", (2, 6), 8 / 3), ("AZ02", (), 0.0), ("AZ03", (7,), 3.5), ("AZ04", (-4, 0, 1), -0.75)),
+})
+for _id in _NEW_EXERCISES:
+    HINT_GUIDANCE[_id] = {
+        "wrong_result": (EXERCISES[_id]["learning_goal"], "按题意手算这个输入，再逐步检查返回表达式。"),
+        "zero_division": ("这个输入使除数变成了 0。", "分别写出应有的个数和实际除数，再核对题目的输入范围。"),
+        "numeric_range": ("中间结果超过了支持的数值范围。", "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。"),
+    }
+EXERCISES["average"]["learning_goal"] = "用总和与实际元素个数计算平均值。"
+EXERCISES["sum"]["learning_goal"] = "将正负数相加，理解空列表的总和为 0。"
+EXERCISES["count"]["learning_goal"] = "按位置计数，重复值与零都占一个位置。"
+
 MAX_SOURCE_LENGTH = 4000
 MAX_AST_NODES = 120
 MAX_VALUE = 10**12

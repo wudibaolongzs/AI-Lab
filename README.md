@@ -98,3 +98,7 @@ python -B tools/probe_agentarts.py --url http://127.0.0.1:8931/runtimes/ai-lab-a
 ## 最新状态
 
 队伍信息见 [项目信息](docs/team.md)，采用 [MIT](LICENSE)。进展与待办见 [整改记录](docs/remediation-status.md)。python app.py 不读取 .env，需要配置时使用 tools/start.py。
+
+## 2026-11-08 学习闭环版本
+
+现有8道练习，新增理解变式验证、提示反馈、记录导入导出和可选课堂工作台。完整用法、接口与验收见 [学习闭环说明](docs/learning-guide.md)。新题默认本地辅导；原24样本和72个提示位置保留历史范围。

@@ -38,7 +38,7 @@ _MAX_HINT_LENGTH = 240  # one sentence is enough to point at the next check
 _EXECUTION_ID = re.compile(r"[A-Za-z0-9_.:-]{1,100}")
 _SOLUTION = re.compile(r"```|\b(?:def|return)\s+|\bsum\s*\([^)]*\)\s*/\s*len\s*\(", re.I | re.ASCII)
 _LOOPBACK_HOSTS = frozenset({"127.0.0.1", "localhost", "::1"})
-_DEFAULT_CLOUD_EXERCISES = frozenset(EXERCISES)
+_DEFAULT_CLOUD_EXERCISES = frozenset({"average", "sum", "count"})
 
 
 class InvalidEndpoint(ValueError):

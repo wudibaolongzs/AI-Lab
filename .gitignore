@@ -21,3 +21,11 @@ test-results/
 *.log
 # Design exploration, not the application
 design-demos/
+
+# Classroom credentials and local student records
+classroom-config*.json
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*

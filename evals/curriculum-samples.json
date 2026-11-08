@@ -1,0 +1,137 @@
+[
+  {
+    "id": "double_sum-wrong_result",
+    "exercise": "double_sum",
+    "category": "wrong_result",
+    "focus": "\u533a\u5206\u6bcf\u9879\u4e58\u500d\u6570\u4e0e\u603b\u548c\u52a0\u56fa\u5b9a\u503c\u3002",
+    "case_id": "DS01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def double_sum(nums):\n    return 0"
+  },
+  {
+    "id": "double_sum-zero_division",
+    "exercise": "double_sum",
+    "category": "zero_division",
+    "focus": "\u533a\u5206\u6bcf\u9879\u4e58\u500d\u6570\u4e0e\u603b\u548c\u52a0\u56fa\u5b9a\u503c\u3002",
+    "case_id": "DS01",
+    "diagnosis_kind": "zero_division",
+    "code": "def double_sum(nums):\n    return 1 / 0"
+  },
+  {
+    "id": "double_sum-numeric_range",
+    "exercise": "double_sum",
+    "category": "numeric_range",
+    "focus": "\u533a\u5206\u6bcf\u9879\u4e58\u500d\u6570\u4e0e\u603b\u548c\u52a0\u56fa\u5b9a\u503c\u3002",
+    "case_id": "DS01",
+    "diagnosis_kind": "numeric_range",
+    "code": "def double_sum(nums):\n    return 1000000000 * 1000000000"
+  },
+  {
+    "id": "shifted_average-wrong_result",
+    "exercise": "shifted_average",
+    "category": "wrong_result",
+    "focus": "\u6bcf\u9879\u52a0\u76f8\u540c\u6570\uff0c\u5e73\u5747\u503c\u4e5f\u589e\u52a0\u8fd9\u4e2a\u6570\u3002",
+    "case_id": "SA01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def shifted_average(nums):\n    return 0"
+  },
+  {
+    "id": "shifted_average-zero_division",
+    "exercise": "shifted_average",
+    "category": "zero_division",
+    "focus": "\u6bcf\u9879\u52a0\u76f8\u540c\u6570\uff0c\u5e73\u5747\u503c\u4e5f\u589e\u52a0\u8fd9\u4e2a\u6570\u3002",
+    "case_id": "SA01",
+    "diagnosis_kind": "zero_division",
+    "code": "def shifted_average(nums):\n    return 1 / 0"
+  },
+  {
+    "id": "shifted_average-numeric_range",
+    "exercise": "shifted_average",
+    "category": "numeric_range",
+    "focus": "\u6bcf\u9879\u52a0\u76f8\u540c\u6570\uff0c\u5e73\u5747\u503c\u4e5f\u589e\u52a0\u8fd9\u4e2a\u6570\u3002",
+    "case_id": "SA01",
+    "diagnosis_kind": "numeric_range",
+    "code": "def shifted_average(nums):\n    return 1000000000 * 1000000000"
+  },
+  {
+    "id": "total_with_fee-wrong_result",
+    "exercise": "total_with_fee",
+    "category": "wrong_result",
+    "focus": "\u533a\u5206\u53ea\u6536\u4e00\u6b21\u7684\u56fa\u5b9a\u8d39\u7528\u4e0e\u6309\u4ef6\u8ba1\u8d39\u3002",
+    "case_id": "TF01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def total_with_fee(nums):\n    return 0"
+  },
+  {
+    "id": "total_with_fee-zero_division",
+    "exercise": "total_with_fee",
+    "category": "zero_division",
+    "focus": "\u533a\u5206\u53ea\u6536\u4e00\u6b21\u7684\u56fa\u5b9a\u8d39\u7528\u4e0e\u6309\u4ef6\u8ba1\u8d39\u3002",
+    "case_id": "TF01",
+    "diagnosis_kind": "zero_division",
+    "code": "def total_with_fee(nums):\n    return 1 / 0"
+  },
+  {
+    "id": "total_with_fee-numeric_range",
+    "exercise": "total_with_fee",
+    "category": "numeric_range",
+    "focus": "\u533a\u5206\u53ea\u6536\u4e00\u6b21\u7684\u56fa\u5b9a\u8d39\u7528\u4e0e\u6309\u4ef6\u8ba1\u8d39\u3002",
+    "case_id": "TF01",
+    "diagnosis_kind": "numeric_range",
+    "code": "def total_with_fee(nums):\n    return 1000000000 * 1000000000"
+  },
+  {
+    "id": "pair_count-wrong_result",
+    "exercise": "pair_count",
+    "category": "wrong_result",
+    "focus": "\u8ba1\u6570\u5173\u6ce8\u5143\u7d20\u4f4d\u7f6e\uff0c\u4e0d\u53d7\u5143\u7d20\u7684\u503c\u5f71\u54cd\u3002",
+    "case_id": "PC01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def pair_count(nums):\n    return 0"
+  },
+  {
+    "id": "pair_count-zero_division",
+    "exercise": "pair_count",
+    "category": "zero_division",
+    "focus": "\u8ba1\u6570\u5173\u6ce8\u5143\u7d20\u4f4d\u7f6e\uff0c\u4e0d\u53d7\u5143\u7d20\u7684\u503c\u5f71\u54cd\u3002",
+    "case_id": "PC01",
+    "diagnosis_kind": "zero_division",
+    "code": "def pair_count(nums):\n    return 1 / 0"
+  },
+  {
+    "id": "pair_count-numeric_range",
+    "exercise": "pair_count",
+    "category": "numeric_range",
+    "focus": "\u8ba1\u6570\u5173\u6ce8\u5143\u7d20\u4f4d\u7f6e\uff0c\u4e0d\u53d7\u5143\u7d20\u7684\u503c\u5f71\u54cd\u3002",
+    "case_id": "PC01",
+    "diagnosis_kind": "numeric_range",
+    "code": "def pair_count(nums):\n    return 1000000000 * 1000000000"
+  },
+  {
+    "id": "average_with_zero-wrong_result",
+    "exercise": "average_with_zero",
+    "category": "wrong_result",
+    "focus": "\u8ffd\u52a0\u96f6\u4e0d\u6539\u53d8\u603b\u548c\uff0c\u4f46\u4f1a\u589e\u52a0\u5143\u7d20\u4e2a\u6570\u3002",
+    "case_id": "AZ01",
+    "diagnosis_kind": "wrong_result",
+    "code": "def average_with_zero(nums):\n    return 0"
+  },
+  {
+    "id": "average_with_zero-zero_division",
+    "exercise": "average_with_zero",
+    "category": "zero_division",
+    "focus": "\u8ffd\u52a0\u96f6\u4e0d\u6539\u53d8\u603b\u548c\uff0c\u4f46\u4f1a\u589e\u52a0\u5143\u7d20\u4e2a\u6570\u3002",
+    "case_id": "AZ01",
+    "diagnosis_kind": "zero_division",
+    "code": "def average_with_zero(nums):\n    return 1 / 0"
+  },
+  {
+    "id": "average_with_zero-numeric_range",
+    "exercise": "average_with_zero",
+    "category": "numeric_range",
+    "focus": "\u8ffd\u52a0\u96f6\u4e0d\u6539\u53d8\u603b\u548c\uff0c\u4f46\u4f1a\u589e\u52a0\u5143\u7d20\u4e2a\u6570\u3002",
+    "case_id": "AZ01",
+    "diagnosis_kind": "numeric_range",
+    "code": "def average_with_zero(nums):\n    return 1000000000 * 1000000000"
+  }
+]
