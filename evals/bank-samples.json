@@ -1,0 +1,182 @@
+[
+  {
+    "id": "EX01",
+    "exercise": "ex_bake_time_remaining",
+    "category": "bank_logic",
+    "focus": "剩余烘烤时间的规则或边界错误",
+    "code": "def bake_time_remaining(elapsed_bake_time):\n    return 40 + elapsed_bake_time\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX02",
+    "exercise": "ex_preparation_time_in_minutes",
+    "category": "bank_logic",
+    "focus": "千层面准备时间的规则或边界错误",
+    "code": "def preparation_time_in_minutes(number_of_layers):\n    return number_of_layers + 2\n",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX03",
+    "exercise": "ex_elapsed_time_in_minutes",
+    "category": "bank_logic",
+    "focus": "制作总用时的规则或边界错误",
+    "code": "def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):\n    return number_of_layers + elapsed_bake_time\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX04",
+    "exercise": "ex_eat_ghost",
+    "category": "bank_logic",
+    "focus": "能否吃掉幽灵的规则或边界错误",
+    "code": "def eat_ghost(power_pellet_active, touching_ghost):\n    return power_pellet_active or touching_ghost\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX05",
+    "exercise": "ex_score",
+    "category": "bank_logic",
+    "focus": "是否得分的规则或边界错误",
+    "code": "def score(touching_power_pellet, touching_dot):\n    return touching_power_pellet and touching_dot\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX06",
+    "exercise": "ex_lose",
+    "category": "bank_logic",
+    "focus": "是否失败的规则或边界错误",
+    "code": "def lose(power_pellet_active, touching_ghost):\n    return power_pellet_active and touching_ghost\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX07",
+    "exercise": "ex_win",
+    "category": "bank_logic",
+    "focus": "是否获胜的规则或边界错误",
+    "code": "def win(has_eaten_all_dots, power_pellet_active, touching_ghost):\n    return has_eaten_all_dots\n",
+    "case_id": "C06",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX08",
+    "exercise": "ex_is_criticality_balanced",
+    "category": "bank_logic",
+    "focus": "临界状态检查的规则或边界错误",
+    "code": "def is_criticality_balanced(temperature, neutrons_emitted):\n    return temperature <= 800 and neutrons_emitted >= 500\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX09",
+    "exercise": "ex_reactor_efficiency",
+    "category": "bank_logic",
+    "focus": "效率分档的规则或边界错误",
+    "code": "def reactor_efficiency(voltage, current, theoretical_max_power):\n    return 'green' if voltage * current / theoretical_max_power > 0.8 else 'black'\n",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX10",
+    "exercise": "ex_fail_safe",
+    "category": "bank_logic",
+    "focus": "安全状态分档的规则或边界错误",
+    "code": "def fail_safe(temperature, neutrons_produced_per_second, threshold):\n    return 'LOW' if temperature * neutrons_produced_per_second <= threshold * 0.9 else 'DANGER'\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX11",
+    "exercise": "ex_value_of_card",
+    "category": "bank_logic",
+    "focus": "单张牌点数的规则或边界错误",
+    "code": "def value_of_card(card):\n    return 10\n",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX12",
+    "exercise": "ex_value_of_ace",
+    "category": "bank_logic",
+    "focus": "新A牌点数的规则或边界错误",
+    "code": "def value_of_ace(card_one, card_two):\n    return 11\n",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX13",
+    "exercise": "ex_is_blackjack",
+    "category": "bank_logic",
+    "focus": "是否天然二十一点的规则或边界错误",
+    "code": "def is_blackjack(card_one, card_two):\n    return card_one == 'A' or card_two == 'A'\n",
+    "case_id": "C03",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX14",
+    "exercise": "ex_can_split_pairs",
+    "category": "bank_logic",
+    "focus": "是否可以分牌的规则或边界错误",
+    "code": "def can_split_pairs(card_one, card_two):\n    return card_one == card_two\n",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX15",
+    "exercise": "ex_can_double_down",
+    "category": "bank_logic",
+    "focus": "是否可以加倍的规则或边界错误",
+    "code": "def can_double_down(card_one, card_two):\n    return (1 if card_one == 'A' else (10 if card_one in ('J', 'Q', 'K') else int(card_one))) + (1 if card_two == 'A' else (10 if card_two in ('J', 'Q', 'K') else int(card_two))) == 10\n",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX16",
+    "exercise": "ex_add_prefix_un",
+    "category": "bank_logic",
+    "focus": "添加否定前缀的规则或边界错误",
+    "code": "def add_prefix_un(word):\n    return word + 'un'\n",
+    "case_id": "C01",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX17",
+    "exercise": "ex_leap_year",
+    "category": "bank_logic",
+    "focus": "闰年判断的规则或边界错误",
+    "code": "def leap_year(year):\n    return year % 4 == 0\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX18",
+    "exercise": "ex_equilateral",
+    "category": "bank_logic",
+    "focus": "等边三角形的规则或边界错误",
+    "code": "def equilateral(sides):\n    return sides[0] == sides[1] == sides[2]\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX19",
+    "exercise": "ex_score_dart",
+    "category": "bank_logic",
+    "focus": "飞镖得分的规则或边界错误",
+    "code": "def score_dart(x, y):\n    return 10 if x*x + y*y < 1 else (5 if x*x + y*y < 25 else (1 if x*x + y*y < 100 else 0))\n",
+    "case_id": "C02",
+    "diagnosis_kind": "wrong_result"
+  },
+  {
+    "id": "EX20",
+    "exercise": "ex_reverse",
+    "category": "bank_logic",
+    "focus": "反转字符串的规则或边界错误",
+    "code": "def reverse(text):\n    return text\n",
+    "case_id": "C03",
+    "diagnosis_kind": "wrong_result"
+  }
+]

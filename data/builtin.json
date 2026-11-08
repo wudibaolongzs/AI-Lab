@@ -1,0 +1,770 @@
+{
+  "schema_version": 1,
+  "pack_id": "ai-lab-builtin",
+  "version": "1.0.0",
+  "problems": [
+    {
+      "title": "计算列表平均值",
+      "description": "补全 average(nums)，返回非空整数列表的算术平均值。例如 [10, 20, 30, 40] 应返回 25.0。",
+      "starter_code": "def average(nums):\n    total = sum(nums)\n    return total / (len(nums) - 1)\n",
+      "signature": "def average(nums):",
+      "learning_goal": "用总和与实际元素个数计算平均值。",
+      "id": "average",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "nums",
+          "type": "number_list"
+        }
+      ],
+      "return_type": "number",
+      "engine": "legacy",
+      "reference_code": "def average(nums):\n    return sum(nums)/len(nums)\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            [
+              10,
+              20,
+              30,
+              40
+            ]
+          ],
+          "expected": 25.0
+        },
+        {
+          "id": "C02",
+          "args": [
+            [
+              -6,
+              -3,
+              0
+            ]
+          ],
+          "expected": -3.0
+        },
+        {
+          "id": "C03",
+          "args": [
+            [
+              1,
+              2
+            ]
+          ],
+          "expected": 1.5
+        },
+        {
+          "id": "C04",
+          "args": [
+            [
+              7
+            ]
+          ],
+          "expected": 7.0
+        }
+      ],
+      "hints": [
+        "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+        "从第 3 行的返回表达式开始，回查参与计算的变量。",
+        "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。"
+      ],
+      "legacy_guidance": {
+        "zero_division": [
+          "先数一数这个列表的元素个数，再想想它与除数的关系。",
+          "把总和和实际元素个数分开核对，再用这个失败用例复测。"
+        ],
+        "numeric_range": [
+          "圈出输入中的最小值和最大值，再判断平均值是否应落在两者之间。",
+          "分别手算列表总和与元素个数，用这两个量检查各步运算。"
+        ],
+        "wrong_result": [
+          "试着手算这个列表的总和，再数一数元素个数。",
+          "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。"
+        ]
+      },
+      "tags": [
+        "列表",
+        "基础运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "AI-Lab",
+        "url": "local:ai-lab",
+        "revision": "08deaf1",
+        "license": "MIT",
+        "attribution": "2026 哈吉米难被略夺",
+        "adaptation": "原有题目，保留原判题路径"
+      },
+      "transfer": {
+        "question_id": "avg-transfer-1",
+        "question": "列表总和为 18，共 4 个元素。平均值是多少？",
+        "answer": 4.5
+      }
+    },
+    {
+      "title": "计算列表总和",
+      "description": "补全 list_sum(nums)，返回整数列表中所有元素相加的结果。例如 [-5, 2, 0] 应返回 -3，空列表应返回 0。",
+      "starter_code": "def list_sum(nums):\n    return len(nums)\n",
+      "signature": "def list_sum(nums):",
+      "learning_goal": "将正负数相加，理解空列表的总和为 0。",
+      "id": "sum",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "nums",
+          "type": "number_list"
+        }
+      ],
+      "return_type": "number",
+      "engine": "legacy",
+      "reference_code": "def list_sum(nums):\n    return sum(nums)\n",
+      "cases": [
+        {
+          "id": "S01",
+          "args": [
+            [
+              3,
+              5,
+              2
+            ]
+          ],
+          "expected": 10
+        },
+        {
+          "id": "S02",
+          "args": [
+            [
+              -5,
+              2,
+              0
+            ]
+          ],
+          "expected": -3
+        },
+        {
+          "id": "S03",
+          "args": [
+            []
+          ],
+          "expected": 0
+        },
+        {
+          "id": "S04",
+          "args": [
+            [
+              7
+            ]
+          ],
+          "expected": 7
+        }
+      ],
+      "hints": [
+        "用例 S01 的输入为 [3, 5, 2]。手算这个列表的相加结果，再数一数元素个数，看返回值更接近哪一个。",
+        "从第 2 行的返回表达式开始，回查参与计算的变量。",
+        "让返回值表示元素的总和。负数也参与相加，空列表的总和是 0。"
+      ],
+      "legacy_guidance": {
+        "zero_division": [
+          "求和只要把元素相加，你的式子里为什么出现了除法？",
+          "去掉除法，把返回值改成各元素相加的结果，再用这个失败用例复测。"
+        ],
+        "numeric_range": [
+          "圈出输入中的最小值和最大值，估一估这组数相加最多能到多少。",
+          "手算这组数的相加结果，看你的式子算出的结果比它大了多少倍，再回到相加那一步。"
+        ],
+        "wrong_result": [
+          "手算这个列表的相加结果，再数一数元素个数，看返回值更接近哪一个。",
+          "让返回值表示元素的总和。负数也参与相加，空列表的总和是 0。"
+        ]
+      },
+      "tags": [
+        "列表",
+        "基础运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "AI-Lab",
+        "url": "local:ai-lab",
+        "revision": "08deaf1",
+        "license": "MIT",
+        "attribution": "2026 哈吉米难被略夺",
+        "adaptation": "原有题目，保留原判题路径"
+      },
+      "transfer": {
+        "question_id": "sum-transfer-1",
+        "question": "[-8, 3, 1] 的总和是多少？",
+        "answer": -4
+      }
+    },
+    {
+      "title": "计算列表元素个数",
+      "description": "补全 list_count(nums)，返回整数列表中元素的个数。例如 [4, 4, 0] 应返回 3，空列表应返回 0。",
+      "starter_code": "def list_count(nums):\n    return sum(nums)\n",
+      "signature": "def list_count(nums):",
+      "learning_goal": "按位置计数，重复值与零都占一个位置。",
+      "id": "count",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "nums",
+          "type": "number_list"
+        }
+      ],
+      "return_type": "number",
+      "engine": "legacy",
+      "reference_code": "def list_count(nums):\n    return len(nums)\n",
+      "cases": [
+        {
+          "id": "N01",
+          "args": [
+            [
+              4,
+              4,
+              0
+            ]
+          ],
+          "expected": 3
+        },
+        {
+          "id": "N02",
+          "args": [
+            [
+              -5,
+              2,
+              0
+            ]
+          ],
+          "expected": 3
+        },
+        {
+          "id": "N03",
+          "args": [
+            []
+          ],
+          "expected": 0
+        },
+        {
+          "id": "N04",
+          "args": [
+            [
+              7
+            ]
+          ],
+          "expected": 1
+        }
+      ],
+      "hints": [
+        "用例 N01 的输入为 [4, 4, 0]。先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。",
+        "从第 2 行的返回表达式开始，回查参与计算的变量。",
+        "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。"
+      ],
+      "legacy_guidance": {
+        "zero_division": [
+          "数个数只要数位置，你的式子里为什么出现了除法？",
+          "去掉除法，直接数出位置有几个，再用这个失败用例复测。"
+        ],
+        "numeric_range": [
+          "先数一数这组输入一共占几个位置，再判断返回值该有多大。",
+          "手数这组输入的元素个数，看你的式子算出的结果比它大了多少倍，再回到计数那一步。"
+        ],
+        "wrong_result": [
+          "先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。",
+          "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。"
+        ]
+      },
+      "tags": [
+        "列表",
+        "基础运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "AI-Lab",
+        "url": "local:ai-lab",
+        "revision": "08deaf1",
+        "license": "MIT",
+        "attribution": "2026 哈吉米难被略夺",
+        "adaptation": "原有题目，保留原判题路径"
+      },
+      "transfer": {
+        "question_id": "count-transfer-1",
+        "question": "[0, 0, -9, 2, 2] 有几个元素？",
+        "answer": 5
+      }
+    },
+    {
+      "title": "每个元素翻倍后求和",
+      "description": "将整数列表中每个值翻倍后求和；空列表返回 0。",
+      "signature": "def double_sum(nums):",
+      "starter_code": "def double_sum(nums):\n    return sum(nums)\n",
+      "learning_goal": "区分每项乘倍数与总和加固定值。",
+      "id": "double_sum",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "nums",
+          "type": "number_list"
+        }
+      ],
+      "return_type": "number",
+      "engine": "legacy",
+      "reference_code": "def double_sum(nums):\n    return sum(nums)*2\n",
+      "cases": [
+        {
+          "id": "DS01",
+          "args": [
+            [
+              3,
+              -1,
+              0
+            ]
+          ],
+          "expected": 4
+        },
+        {
+          "id": "DS02",
+          "args": [
+            []
+          ],
+          "expected": 0
+        },
+        {
+          "id": "DS03",
+          "args": [
+            [
+              7
+            ]
+          ],
+          "expected": 14
+        },
+        {
+          "id": "DS04",
+          "args": [
+            [
+              -4,
+              -2
+            ]
+          ],
+          "expected": -12
+        }
+      ],
+      "hints": [
+        "用例 DS01 的输入为 [3, -1, 0]。区分每项乘倍数与总和加固定值。",
+        "从第 2 行的返回表达式开始，回查参与计算的变量。",
+        "按题意手算这个输入，再逐步检查返回表达式。"
+      ],
+      "legacy_guidance": {
+        "wrong_result": [
+          "区分每项乘倍数与总和加固定值。",
+          "按题意手算这个输入，再逐步检查返回表达式。"
+        ],
+        "zero_division": [
+          "这个输入使除数变成了 0。",
+          "分别写出应有的个数和实际除数，再核对题目的输入范围。"
+        ],
+        "numeric_range": [
+          "中间结果超过了支持的数值范围。",
+          "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。"
+        ]
+      },
+      "tags": [
+        "列表",
+        "基础运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "AI-Lab",
+        "url": "local:ai-lab",
+        "revision": "08deaf1",
+        "license": "MIT",
+        "attribution": "2026 哈吉米难被略夺",
+        "adaptation": "原有题目，保留原判题路径"
+      },
+      "transfer": {
+        "question_id": "double-transfer-1",
+        "question": "将 [-3, 8] 中每个值翻倍，新总和是多少？",
+        "answer": 10
+      }
+    },
+    {
+      "title": "每项加二后的平均值",
+      "description": "非空整数列表中每个值加 2，返回新列表的平均值。",
+      "signature": "def shifted_average(nums):",
+      "starter_code": "def shifted_average(nums):\n    return (sum(nums) + 2) / len(nums)\n",
+      "learning_goal": "每项加相同数，平均值也增加这个数。",
+      "id": "shifted_average",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "nums",
+          "type": "number_list"
+        }
+      ],
+      "return_type": "number",
+      "engine": "legacy",
+      "reference_code": "def shifted_average(nums):\n    return sum(nums)/len(nums)+2\n",
+      "cases": [
+        {
+          "id": "SA01",
+          "args": [
+            [
+              2,
+              6
+            ]
+          ],
+          "expected": 6.0
+        },
+        {
+          "id": "SA02",
+          "args": [
+            [
+              -4,
+              0,
+              1
+            ]
+          ],
+          "expected": 1.0
+        },
+        {
+          "id": "SA03",
+          "args": [
+            [
+              7
+            ]
+          ],
+          "expected": 9.0
+        },
+        {
+          "id": "SA04",
+          "args": [
+            [
+              0,
+              0
+            ]
+          ],
+          "expected": 2.0
+        }
+      ],
+      "hints": [
+        "用例 SA01 的输入为 [2, 6]。每项加相同数，平均值也增加这个数。",
+        "从第 2 行的返回表达式开始，回查参与计算的变量。",
+        "按题意手算这个输入，再逐步检查返回表达式。"
+      ],
+      "legacy_guidance": {
+        "wrong_result": [
+          "每项加相同数，平均值也增加这个数。",
+          "按题意手算这个输入，再逐步检查返回表达式。"
+        ],
+        "zero_division": [
+          "这个输入使除数变成了 0。",
+          "分别写出应有的个数和实际除数，再核对题目的输入范围。"
+        ],
+        "numeric_range": [
+          "中间结果超过了支持的数值范围。",
+          "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。"
+        ]
+      },
+      "tags": [
+        "列表",
+        "基础运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "AI-Lab",
+        "url": "local:ai-lab",
+        "revision": "08deaf1",
+        "license": "MIT",
+        "attribution": "2026 哈吉米难被略夺",
+        "adaptation": "原有题目，保留原判题路径"
+      },
+      "transfer": {
+        "question_id": "shift-transfer-1",
+        "question": "列表平均值为 -3，每个值加 2 后，新平均值是多少？",
+        "answer": -1
+      }
+    },
+    {
+      "title": "加上一次固定费用",
+      "description": "返回整数金额列表的总和加上一次固定费用 5；空列表也收取该费用。",
+      "signature": "def total_with_fee(nums):",
+      "starter_code": "def total_with_fee(nums):\n    return sum(nums) + len(nums) * 5\n",
+      "learning_goal": "区分只收一次的固定费用与按件计费。",
+      "id": "total_with_fee",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "nums",
+          "type": "number_list"
+        }
+      ],
+      "return_type": "number",
+      "engine": "legacy",
+      "reference_code": "def total_with_fee(nums):\n    return sum(nums)+5\n",
+      "cases": [
+        {
+          "id": "TF01",
+          "args": [
+            [
+              2,
+              6
+            ]
+          ],
+          "expected": 13
+        },
+        {
+          "id": "TF02",
+          "args": [
+            []
+          ],
+          "expected": 5
+        },
+        {
+          "id": "TF03",
+          "args": [
+            [
+              7
+            ]
+          ],
+          "expected": 12
+        },
+        {
+          "id": "TF04",
+          "args": [
+            [
+              -4,
+              0,
+              1
+            ]
+          ],
+          "expected": 2
+        }
+      ],
+      "hints": [
+        "用例 TF01 的输入为 [2, 6]。区分只收一次的固定费用与按件计费。",
+        "从第 2 行的返回表达式开始，回查参与计算的变量。",
+        "按题意手算这个输入，再逐步检查返回表达式。"
+      ],
+      "legacy_guidance": {
+        "wrong_result": [
+          "区分只收一次的固定费用与按件计费。",
+          "按题意手算这个输入，再逐步检查返回表达式。"
+        ],
+        "zero_division": [
+          "这个输入使除数变成了 0。",
+          "分别写出应有的个数和实际除数，再核对题目的输入范围。"
+        ],
+        "numeric_range": [
+          "中间结果超过了支持的数值范围。",
+          "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。"
+        ]
+      },
+      "tags": [
+        "列表",
+        "基础运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "AI-Lab",
+        "url": "local:ai-lab",
+        "revision": "08deaf1",
+        "license": "MIT",
+        "attribution": "2026 哈吉米难被略夺",
+        "adaptation": "原有题目，保留原判题路径"
+      },
+      "transfer": {
+        "question_id": "fee-transfer-1",
+        "question": "金额为 [1, 2, 3, 4]，另加一次固定费用 5。总金额是多少？",
+        "answer": 15
+      }
+    },
+    {
+      "title": "每件物品两张标签",
+      "description": "列表中每个元素需要两张标签，返回标签总数；重复值也分别计数。",
+      "signature": "def pair_count(nums):",
+      "starter_code": "def pair_count(nums):\n    return sum(nums) * 2\n",
+      "learning_goal": "计数关注元素位置，不受元素的值影响。",
+      "id": "pair_count",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "nums",
+          "type": "number_list"
+        }
+      ],
+      "return_type": "number",
+      "engine": "legacy",
+      "reference_code": "def pair_count(nums):\n    return len(nums)*2\n",
+      "cases": [
+        {
+          "id": "PC01",
+          "args": [
+            [
+              4,
+              4,
+              0
+            ]
+          ],
+          "expected": 6
+        },
+        {
+          "id": "PC02",
+          "args": [
+            []
+          ],
+          "expected": 0
+        },
+        {
+          "id": "PC03",
+          "args": [
+            [
+              7
+            ]
+          ],
+          "expected": 2
+        },
+        {
+          "id": "PC04",
+          "args": [
+            [
+              -4,
+              0,
+              1
+            ]
+          ],
+          "expected": 6
+        }
+      ],
+      "hints": [
+        "用例 PC01 的输入为 [4, 4, 0]。计数关注元素位置，不受元素的值影响。",
+        "从第 2 行的返回表达式开始，回查参与计算的变量。",
+        "按题意手算这个输入，再逐步检查返回表达式。"
+      ],
+      "legacy_guidance": {
+        "wrong_result": [
+          "计数关注元素位置，不受元素的值影响。",
+          "按题意手算这个输入，再逐步检查返回表达式。"
+        ],
+        "zero_division": [
+          "这个输入使除数变成了 0。",
+          "分别写出应有的个数和实际除数，再核对题目的输入范围。"
+        ],
+        "numeric_range": [
+          "中间结果超过了支持的数值范围。",
+          "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。"
+        ]
+      },
+      "tags": [
+        "列表",
+        "基础运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "AI-Lab",
+        "url": "local:ai-lab",
+        "revision": "08deaf1",
+        "license": "MIT",
+        "attribution": "2026 哈吉米难被略夺",
+        "adaptation": "原有题目，保留原判题路径"
+      },
+      "transfer": {
+        "question_id": "pair-transfer-1",
+        "question": "物品列表为 [0, 0, -9, 2, 2]，每件需两张标签。共需多少张？",
+        "answer": 10
+      }
+    },
+    {
+      "title": "追加一个零后求平均值",
+      "description": "在整数列表末尾追加一个 0，返回新列表的平均值；空输入的结果为 0。",
+      "signature": "def average_with_zero(nums):",
+      "starter_code": "def average_with_zero(nums):\n    return sum(nums) / len(nums)\n",
+      "learning_goal": "追加零不改变总和，但会增加元素个数。",
+      "id": "average_with_zero",
+      "version": "1.0.0",
+      "parameters": [
+        {
+          "name": "nums",
+          "type": "number_list"
+        }
+      ],
+      "return_type": "number",
+      "engine": "legacy",
+      "reference_code": "def average_with_zero(nums):\n    return sum(nums)/(len(nums)+1)\n",
+      "cases": [
+        {
+          "id": "AZ01",
+          "args": [
+            [
+              2,
+              6
+            ]
+          ],
+          "expected": 2.6666666666666665
+        },
+        {
+          "id": "AZ02",
+          "args": [
+            []
+          ],
+          "expected": 0.0
+        },
+        {
+          "id": "AZ03",
+          "args": [
+            [
+              7
+            ]
+          ],
+          "expected": 3.5
+        },
+        {
+          "id": "AZ04",
+          "args": [
+            [
+              -4,
+              0,
+              1
+            ]
+          ],
+          "expected": -0.75
+        }
+      ],
+      "hints": [
+        "用例 AZ01 的输入为 [2, 6]。追加零不改变总和，但会增加元素个数。",
+        "从第 2 行的返回表达式开始，回查参与计算的变量。",
+        "按题意手算这个输入，再逐步检查返回表达式。"
+      ],
+      "legacy_guidance": {
+        "wrong_result": [
+          "追加零不改变总和，但会增加元素个数。",
+          "按题意手算这个输入，再逐步检查返回表达式。"
+        ],
+        "zero_division": [
+          "这个输入使除数变成了 0。",
+          "分别写出应有的个数和实际除数，再核对题目的输入范围。"
+        ],
+        "numeric_range": [
+          "中间结果超过了支持的数值范围。",
+          "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。"
+        ]
+      },
+      "tags": [
+        "列表",
+        "基础运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "AI-Lab",
+        "url": "local:ai-lab",
+        "revision": "08deaf1",
+        "license": "MIT",
+        "attribution": "2026 哈吉米难被略夺",
+        "adaptation": "原有题目，保留原判题路径"
+      },
+      "transfer": {
+        "question_id": "zero-transfer-1",
+        "question": "列表总和为 12，共 3 个元素。追加一个 0 后，平均值是多少？",
+        "answer": 3
+      }
+    }
+  ]
+}

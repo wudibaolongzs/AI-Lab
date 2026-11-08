@@ -222,6 +222,18 @@
       <p>运行测试，观察实际值与期望值的差异，再按需打开分步提示。</p>
     </section>
 
+    <section class="card history" aria-labelledby="catalog-heading" style="margin:0 0 24px;padding:20px">
+      <h2 id="catalog-heading">练习题库</h2>
+      <div class="exercise-picker">
+        <input id="catalog-query" aria-label="搜索题目" placeholder="搜索题目或知识点" maxlength="100">
+        <select id="catalog-tag" aria-label="知识点"><option value="">全部知识点</option></select>
+        <select id="catalog-difficulty" aria-label="难度"><option value="">全部难度</option><option value="easy">基础</option><option value="medium">进阶</option></select>
+        <select id="catalog-source" aria-label="题目来源"><option value="">全部来源</option></select>
+      </div>
+      <p id="catalog-status" class="muted" role="status"></p>
+      <div id="catalog-items" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:12px"></div>
+      <div class="editor-actions"><button class="secondary" id="catalog-prev">上一页</button><span id="catalog-page"></span><button class="secondary" id="catalog-next">下一页</button></div>
+    </section>
     <div class="lab">
       <section class="card editor-card" aria-labelledby="editor-heading">
         <div class="card-heading"><span class="index">01</span><h2 id="editor-heading">编程练习</h2></div>
@@ -231,7 +243,7 @@
           <span id="exercise-progress" class="exercise-progress" role="status"></span>
         </div>
         <p class="exercise-title" id="exercise-title">正在加载题目…</p>
-        <p class="description" id="exercise-description"></p>
+        <p class="description" id="exercise-description"></p><p id="exercise-source" class="muted"></p><p id="exercise-capabilities" class="muted" hidden></p>
 
         <div class="code-shell">
           <label for="code">solution.py</label>
@@ -432,6 +444,15 @@
       exerciseSelect.value = exercise.id;
       element("exercise-title").textContent = exercise.title;
       element("exercise-description").textContent = exercise.description;
+      const sourceInfo = element("exercise-source");
+      sourceInfo.replaceChildren(document.createTextNode("来源：" + (exercise.source?.name || "AI-Lab") + " · " + (exercise.source?.license || "MIT") + " · " + (exercise.tags || []).join(" / ")));
+      if (exercise.source?.url?.startsWith("https://")) {
+        const link = make("a", "", " 查看原始来源"); link.href = exercise.source.url;
+        link.target = "_blank"; link.rel = "noopener noreferrer"; sourceInfo.append(link);
+      }
+      element("scope").hidden = exercise.engine === "bounded_v1";
+      element("exercise-capabilities").hidden = exercise.engine !== "bounded_v1";
+      element("exercise-capabilities").textContent = "本题使用受限解释器：支持基础运算、布尔、条件和字符串；不支持循环、导入或自定义函数调用。";
       element("signature").textContent = exercise.signature;
       const state = exerciseState(exercise.id, true);
       editor.value = state.draft ?? exercise.starter_code;
@@ -460,6 +481,11 @@
         exerciseSelect.disabled = false;
         editor.disabled = false;
         runButton.disabled = false;
+        for (const [id, values] of [["catalog-tag", exercises.flatMap(e => e.tags || [])], ["catalog-source", exercises.map(e => e.source?.name).filter(Boolean)]]) {
+          const select = element(id);
+          select.replaceChildren(select.options[0], ...[...new Set(values)].sort().map(value => { const o = make("option", "", value); o.value = value; return o; }));
+        }
+        loadCatalog();
       } catch {
         element("exercise-title").textContent = "题目加载失败";
         showError("请确认已启动本地服务，再重新加载题目。");
@@ -626,6 +652,11 @@
         const challenge = await request(`/api/learning/challenge?exercise_id=${encodeURIComponent(id)}`, { signal: controller.signal });
         if (learningController !== controller || activeExercise.id !== id || editor.value !== code) return;
         element("learning-question").textContent = challenge.question;
+        if (challenge.available === false) {
+          element("learning-heading").textContent = "原题已通过 · 暂未配置理解验证";
+          learningReady = false;
+          return;
+        }
         learningReady = true;
         element("learning-submit").disabled = false;
       } catch (error) {
@@ -801,6 +832,36 @@
     });
 
     runButton.addEventListener("click", checkCode);
+    let catalogPage = 1, catalogGeneration = 0;
+    async function loadCatalog() {
+      const generation = ++catalogGeneration;
+      const query = new URLSearchParams({query: element("catalog-query").value, tag: element("catalog-tag").value,
+        difficulty: element("catalog-difficulty").value, source: element("catalog-source").value, page: String(catalogPage), page_size: "12"});
+      try {
+        const data = await request("/api/catalog?" + query);
+        if (generation !== catalogGeneration) return;
+        element("catalog-items").replaceChildren(...data.items.map(problem => {
+          const card = make("article", "case");
+          card.append(make("strong", "", problem.title), make("p", "muted", (problem.tags || []).join(" / ") + " · " + problem.source.name));
+          const button = make("button", "secondary", "开始练习"); button.type = "button";
+          button.addEventListener("click", () => {
+            if (running) { showError("测试完成后可切换题目"); return; }
+            const selected = exercises.find(e => e.id === problem.id);
+            if (selected) { selectExercise(selected); element("editor-heading").scrollIntoView({behavior: "auto", block: "start"}); }
+          });
+          card.append(button); return card;
+        }));
+        element("catalog-status").textContent = "共 " + data.total + " 道题";
+        element("catalog-page").textContent = "第 " + data.page + " 页";
+        element("catalog-prev").disabled = data.page <= 1;
+        element("catalog-next").disabled = data.page * data.page_size >= data.total;
+      } catch (error) { if (generation === catalogGeneration) element("catalog-status").textContent = error.message; }
+    }
+    for (const id of ["catalog-query", "catalog-tag", "catalog-source", "catalog-difficulty"]) {
+      element(id).addEventListener(id === "catalog-query" ? "input" : "change", () => { catalogPage = 1; loadCatalog(); });
+    }
+    element("catalog-prev").addEventListener("click", () => { if (catalogPage > 1) { catalogPage--; loadCatalog(); } });
+    element("catalog-next").addEventListener("click", () => { catalogPage++; loadCatalog(); });
     reloadButton.addEventListener("click", loadExercises);
     exerciseSelect.addEventListener("change", () => {
       const exercise = exercises.find(({ id }) => id === exerciseSelect.value);

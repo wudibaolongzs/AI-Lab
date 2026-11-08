@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "pack_id": "teacher-example",
+  "version": "1.0.0",
+  "problems": [
+    {
+      "id": "teacher_add_one",
+      "version": "1.0.0",
+      "title": "整数加一",
+      "description": "返回输入整数加一后的结果。",
+      "learning_goal": "使用参数完成数值表达式。",
+      "tags": [
+        "数值运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "AI-Lab教师示例",
+        "url": "local:teacher-template",
+        "revision": "1.0.0",
+        "license": "MIT",
+        "attribution": "2026 哈吉米难被略夺",
+        "adaptation": "维护者导入示例，非Exercism题目"
+      },
+      "signature": "def add_one(value):",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "integer"
+        }
+      ],
+      "return_type": "integer",
+      "starter_code": "def add_one(value):\n    return value\n",
+      "reference_code": "def add_one(value):\n    return value + 1\n",
+      "cases": [
+        {
+          "id": "T1",
+          "args": [
+            0
+          ],
+          "expected": 1
+        },
+        {
+          "id": "T2",
+          "args": [
+            -1
+          ],
+          "expected": 0
+        },
+        {
+          "id": "T3",
+          "args": [
+            2
+          ],
+          "expected": 3
+        }
+      ],
+      "hints": [
+        "先手算输入与期望的差。",
+        "检查返回值是否使用了所需的增量。",
+        "修改后用零和负数再次测试。"
+      ],
+      "engine": "bounded_v1"
+    }
+  ]
+}

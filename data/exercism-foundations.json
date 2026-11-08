@@ -1,0 +1,1625 @@
+{
+  "schema_version": 1,
+  "pack_id": "exercism-foundations",
+  "version": "1.0.0",
+  "problems": [
+    {
+      "id": "ex_bake_time_remaining",
+      "version": "1.0.0",
+      "title": "剩余烘烤时间",
+      "description": "烘烤共需40分钟。输入已烘烤的整数分钟（0到40），返回还需要的分钟数。",
+      "learning_goal": "通过不同输入检查算术规则，解释边界条件。",
+      "tags": [
+        "算术"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/guidos-gorgeous-lasagna",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def bake_time_remaining(elapsed_bake_time):",
+      "parameters": [
+        {
+          "name": "elapsed_bake_time",
+          "type": "integer"
+        }
+      ],
+      "return_type": "integer",
+      "starter_code": "def bake_time_remaining(elapsed_bake_time):\n    return 40 + elapsed_bake_time\n",
+      "reference_code": "def bake_time_remaining(elapsed_bake_time):\n    return 40 - elapsed_bake_time\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            0
+          ],
+          "expected": 40
+        },
+        {
+          "id": "C02",
+          "args": [
+            1
+          ],
+          "expected": 39
+        },
+        {
+          "id": "C03",
+          "args": [
+            20
+          ],
+          "expected": 20
+        },
+        {
+          "id": "C04",
+          "args": [
+            40
+          ],
+          "expected": 0
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_preparation_time_in_minutes",
+      "version": "1.0.0",
+      "title": "千层面准备时间",
+      "description": "每层需要准备2分钟。输入非负整数层数，返回准备时间。",
+      "learning_goal": "通过不同输入检查算术规则，解释边界条件。",
+      "tags": [
+        "算术"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/guidos-gorgeous-lasagna",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def preparation_time_in_minutes(number_of_layers):",
+      "parameters": [
+        {
+          "name": "number_of_layers",
+          "type": "integer"
+        }
+      ],
+      "return_type": "integer",
+      "starter_code": "def preparation_time_in_minutes(number_of_layers):\n    return number_of_layers + 2\n",
+      "reference_code": "def preparation_time_in_minutes(number_of_layers):\n    return number_of_layers * 2\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            0
+          ],
+          "expected": 0
+        },
+        {
+          "id": "C02",
+          "args": [
+            1
+          ],
+          "expected": 2
+        },
+        {
+          "id": "C03",
+          "args": [
+            3
+          ],
+          "expected": 6
+        },
+        {
+          "id": "C04",
+          "args": [
+            10
+          ],
+          "expected": 20
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_elapsed_time_in_minutes",
+      "version": "1.0.0",
+      "title": "制作总用时",
+      "description": "每层准备2分钟。输入非负整数层数和已烘烤分钟数，返回准备与烘烤的总时间。",
+      "learning_goal": "通过不同输入检查算术规则，解释边界条件。",
+      "tags": [
+        "算术"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/guidos-gorgeous-lasagna",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):",
+      "parameters": [
+        {
+          "name": "number_of_layers",
+          "type": "integer"
+        },
+        {
+          "name": "elapsed_bake_time",
+          "type": "integer"
+        }
+      ],
+      "return_type": "integer",
+      "starter_code": "def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):\n    return number_of_layers + elapsed_bake_time\n",
+      "reference_code": "def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):\n    return number_of_layers * 2 + elapsed_bake_time\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            0,
+            0
+          ],
+          "expected": 0
+        },
+        {
+          "id": "C02",
+          "args": [
+            1,
+            0
+          ],
+          "expected": 2
+        },
+        {
+          "id": "C03",
+          "args": [
+            3,
+            20
+          ],
+          "expected": 26
+        },
+        {
+          "id": "C04",
+          "args": [
+            5,
+            40
+          ],
+          "expected": 50
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_eat_ghost",
+      "version": "1.0.0",
+      "title": "能否吃掉幽灵",
+      "description": "只有能量状态开启且碰到幽灵时才能吃掉幽灵。两个参数依次表示这两种状态，返回布尔值。",
+      "learning_goal": "通过不同输入检查布尔逻辑规则，解释边界条件。",
+      "tags": [
+        "布尔逻辑"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/ghost-gobble-arcade-game",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def eat_ghost(power_pellet_active, touching_ghost):",
+      "parameters": [
+        {
+          "name": "power_pellet_active",
+          "type": "boolean"
+        },
+        {
+          "name": "touching_ghost",
+          "type": "boolean"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def eat_ghost(power_pellet_active, touching_ghost):\n    return power_pellet_active or touching_ghost\n",
+      "reference_code": "def eat_ghost(power_pellet_active, touching_ghost):\n    return power_pellet_active and touching_ghost\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            false,
+            false
+          ],
+          "expected": false
+        },
+        {
+          "id": "C02",
+          "args": [
+            false,
+            true
+          ],
+          "expected": false
+        },
+        {
+          "id": "C03",
+          "args": [
+            true,
+            false
+          ],
+          "expected": false
+        },
+        {
+          "id": "C04",
+          "args": [
+            true,
+            true
+          ],
+          "expected": true
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_score",
+      "version": "1.0.0",
+      "title": "是否得分",
+      "description": "碰到能量球或普通豆子都能得分。参数分别表示是否碰到两类物品，返回是否得分。",
+      "learning_goal": "通过不同输入检查布尔逻辑规则，解释边界条件。",
+      "tags": [
+        "布尔逻辑"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/ghost-gobble-arcade-game",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def score(touching_power_pellet, touching_dot):",
+      "parameters": [
+        {
+          "name": "touching_power_pellet",
+          "type": "boolean"
+        },
+        {
+          "name": "touching_dot",
+          "type": "boolean"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def score(touching_power_pellet, touching_dot):\n    return touching_power_pellet and touching_dot\n",
+      "reference_code": "def score(touching_power_pellet, touching_dot):\n    return touching_power_pellet or touching_dot\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            false,
+            false
+          ],
+          "expected": false
+        },
+        {
+          "id": "C02",
+          "args": [
+            false,
+            true
+          ],
+          "expected": true
+        },
+        {
+          "id": "C03",
+          "args": [
+            true,
+            false
+          ],
+          "expected": true
+        },
+        {
+          "id": "C04",
+          "args": [
+            true,
+            true
+          ],
+          "expected": true
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_lose",
+      "version": "1.0.0",
+      "title": "是否失败",
+      "description": "没有能量保护且碰到幽灵时失败。参数依次为能量是否开启、是否碰到幽灵。",
+      "learning_goal": "通过不同输入检查布尔逻辑规则，解释边界条件。",
+      "tags": [
+        "布尔逻辑"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/ghost-gobble-arcade-game",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def lose(power_pellet_active, touching_ghost):",
+      "parameters": [
+        {
+          "name": "power_pellet_active",
+          "type": "boolean"
+        },
+        {
+          "name": "touching_ghost",
+          "type": "boolean"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def lose(power_pellet_active, touching_ghost):\n    return power_pellet_active and touching_ghost\n",
+      "reference_code": "def lose(power_pellet_active, touching_ghost):\n    return not power_pellet_active and touching_ghost\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            false,
+            false
+          ],
+          "expected": false
+        },
+        {
+          "id": "C02",
+          "args": [
+            false,
+            true
+          ],
+          "expected": true
+        },
+        {
+          "id": "C03",
+          "args": [
+            true,
+            false
+          ],
+          "expected": false
+        },
+        {
+          "id": "C04",
+          "args": [
+            true,
+            true
+          ],
+          "expected": false
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_win",
+      "version": "1.0.0",
+      "title": "是否获胜",
+      "description": "吃完所有豆子且没有失败时获胜。失败指没有能量保护且碰到幽灵。参数依次为是否吃完、是否有能量、是否碰到幽灵。",
+      "learning_goal": "通过不同输入检查布尔逻辑规则，解释边界条件。",
+      "tags": [
+        "布尔逻辑"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/ghost-gobble-arcade-game",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def win(has_eaten_all_dots, power_pellet_active, touching_ghost):",
+      "parameters": [
+        {
+          "name": "has_eaten_all_dots",
+          "type": "boolean"
+        },
+        {
+          "name": "power_pellet_active",
+          "type": "boolean"
+        },
+        {
+          "name": "touching_ghost",
+          "type": "boolean"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def win(has_eaten_all_dots, power_pellet_active, touching_ghost):\n    return has_eaten_all_dots\n",
+      "reference_code": "def win(has_eaten_all_dots, power_pellet_active, touching_ghost):\n    return has_eaten_all_dots and (power_pellet_active or not touching_ghost)\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            false,
+            false,
+            false
+          ],
+          "expected": false
+        },
+        {
+          "id": "C02",
+          "args": [
+            false,
+            false,
+            true
+          ],
+          "expected": false
+        },
+        {
+          "id": "C03",
+          "args": [
+            false,
+            true,
+            false
+          ],
+          "expected": false
+        },
+        {
+          "id": "C04",
+          "args": [
+            false,
+            true,
+            true
+          ],
+          "expected": false
+        },
+        {
+          "id": "C05",
+          "args": [
+            true,
+            false,
+            false
+          ],
+          "expected": true
+        },
+        {
+          "id": "C06",
+          "args": [
+            true,
+            false,
+            true
+          ],
+          "expected": false
+        },
+        {
+          "id": "C07",
+          "args": [
+            true,
+            true,
+            false
+          ],
+          "expected": true
+        },
+        {
+          "id": "C08",
+          "args": [
+            true,
+            true,
+            true
+          ],
+          "expected": true
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_is_criticality_balanced",
+      "version": "1.0.0",
+      "title": "临界状态检查",
+      "description": "温度小于800、中子数大于500，且两者乘积小于500000时返回True，否则False。输入非负数。",
+      "learning_goal": "通过不同输入检查条件判断规则，解释边界条件。",
+      "tags": [
+        "条件判断"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/meltdown-mitigation",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def is_criticality_balanced(temperature, neutrons_emitted):",
+      "parameters": [
+        {
+          "name": "temperature",
+          "type": "number"
+        },
+        {
+          "name": "neutrons_emitted",
+          "type": "number"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def is_criticality_balanced(temperature, neutrons_emitted):\n    return temperature <= 800 and neutrons_emitted >= 500\n",
+      "reference_code": "def is_criticality_balanced(temperature, neutrons_emitted):\n    return temperature < 800 and neutrons_emitted > 500 and temperature * neutrons_emitted < 500000\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            750,
+            600
+          ],
+          "expected": true
+        },
+        {
+          "id": "C02",
+          "args": [
+            800,
+            501
+          ],
+          "expected": false
+        },
+        {
+          "id": "C03",
+          "args": [
+            700,
+            500
+          ],
+          "expected": false
+        },
+        {
+          "id": "C04",
+          "args": [
+            500,
+            1000
+          ],
+          "expected": false
+        },
+        {
+          "id": "C05",
+          "args": [
+            799,
+            501
+          ],
+          "expected": true
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_reactor_efficiency",
+      "version": "1.0.0",
+      "title": "效率分档",
+      "description": "效率百分比为电压×电流÷理论最大功率×100。效率至少80返回green；至少60但小于80返回orange；至少30但小于60返回red；其余返回black。输入非负数，理论最大功率为正数。",
+      "learning_goal": "通过不同输入检查条件判断规则，解释边界条件。",
+      "tags": [
+        "条件判断"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/meltdown-mitigation",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def reactor_efficiency(voltage, current, theoretical_max_power):",
+      "parameters": [
+        {
+          "name": "voltage",
+          "type": "number"
+        },
+        {
+          "name": "current",
+          "type": "number"
+        },
+        {
+          "name": "theoretical_max_power",
+          "type": "number"
+        }
+      ],
+      "return_type": "string",
+      "starter_code": "def reactor_efficiency(voltage, current, theoretical_max_power):\n    return 'green' if voltage * current / theoretical_max_power > 0.8 else 'black'\n",
+      "reference_code": "def reactor_efficiency(voltage, current, theoretical_max_power):\n    return 'green' if voltage * current / theoretical_max_power >= 0.8 else ('orange' if voltage * current / theoretical_max_power >= 0.6 else ('red' if voltage * current / theoretical_max_power >= 0.3 else 'black'))\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            80,
+            1,
+            100
+          ],
+          "expected": "green"
+        },
+        {
+          "id": "C02",
+          "args": [
+            60,
+            1,
+            100
+          ],
+          "expected": "orange"
+        },
+        {
+          "id": "C03",
+          "args": [
+            30,
+            1,
+            100
+          ],
+          "expected": "red"
+        },
+        {
+          "id": "C04",
+          "args": [
+            29,
+            1,
+            100
+          ],
+          "expected": "black"
+        },
+        {
+          "id": "C05",
+          "args": [
+            79,
+            1,
+            100
+          ],
+          "expected": "orange"
+        },
+        {
+          "id": "C06",
+          "args": [
+            0,
+            1,
+            100
+          ],
+          "expected": "black"
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_fail_safe",
+      "version": "1.0.0",
+      "title": "安全状态分档",
+      "description": "比较温度×每秒中子数与正数阈值：小于阈值90%返回LOW；在90%到110%之间（含端点）返回NORMAL；超过110%返回DANGER。输入非负数。",
+      "learning_goal": "通过不同输入检查条件判断规则，解释边界条件。",
+      "tags": [
+        "条件判断"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/meltdown-mitigation",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def fail_safe(temperature, neutrons_produced_per_second, threshold):",
+      "parameters": [
+        {
+          "name": "temperature",
+          "type": "number"
+        },
+        {
+          "name": "neutrons_produced_per_second",
+          "type": "number"
+        },
+        {
+          "name": "threshold",
+          "type": "number"
+        }
+      ],
+      "return_type": "string",
+      "starter_code": "def fail_safe(temperature, neutrons_produced_per_second, threshold):\n    return 'LOW' if temperature * neutrons_produced_per_second <= threshold * 0.9 else 'DANGER'\n",
+      "reference_code": "def fail_safe(temperature, neutrons_produced_per_second, threshold):\n    return 'LOW' if temperature * neutrons_produced_per_second < threshold * 0.9 else ('NORMAL' if temperature * neutrons_produced_per_second <= threshold * 1.1 else 'DANGER')\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            89,
+            1,
+            100
+          ],
+          "expected": "LOW"
+        },
+        {
+          "id": "C02",
+          "args": [
+            90,
+            1,
+            100
+          ],
+          "expected": "NORMAL"
+        },
+        {
+          "id": "C03",
+          "args": [
+            100,
+            1,
+            100
+          ],
+          "expected": "NORMAL"
+        },
+        {
+          "id": "C04",
+          "args": [
+            110,
+            1,
+            100
+          ],
+          "expected": "NORMAL"
+        },
+        {
+          "id": "C05",
+          "args": [
+            111,
+            1,
+            100
+          ],
+          "expected": "DANGER"
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_value_of_card",
+      "version": "1.0.0",
+      "title": "单张牌点数",
+      "description": "牌面只取字符串A、J、Q、K或2到10。J/Q/K计10，数字牌按数字计分。A计1，返回点数。",
+      "learning_goal": "通过不同输入检查字符串规则，解释边界条件。",
+      "tags": [
+        "字符串",
+        "条件判断"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/black-jack",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def value_of_card(card):",
+      "parameters": [
+        {
+          "name": "card",
+          "type": "string"
+        }
+      ],
+      "return_type": "integer",
+      "starter_code": "def value_of_card(card):\n    return 10\n",
+      "reference_code": "def value_of_card(card):\n    return (1 if card == 'A' else (10 if card in ('J', 'Q', 'K') else int(card)))\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            "A"
+          ],
+          "expected": 1
+        },
+        {
+          "id": "C02",
+          "args": [
+            "J"
+          ],
+          "expected": 10
+        },
+        {
+          "id": "C03",
+          "args": [
+            "2"
+          ],
+          "expected": 2
+        },
+        {
+          "id": "C04",
+          "args": [
+            "10"
+          ],
+          "expected": 10
+        },
+        {
+          "id": "C05",
+          "args": [
+            "Q"
+          ],
+          "expected": 10
+        },
+        {
+          "id": "C06",
+          "args": [
+            "K"
+          ],
+          "expected": 10
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_value_of_ace",
+      "version": "1.0.0",
+      "title": "新A牌点数",
+      "description": "牌面只取字符串A、J、Q、K或2到10。J/Q/K计10，数字牌按数字计分。输入手中已有两张牌。若已有A，新A计1；否则在加11不超过21时计11，其余计1。",
+      "learning_goal": "通过不同输入检查条件判断规则，解释边界条件。",
+      "tags": [
+        "条件判断",
+        "字符串"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/black-jack",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def value_of_ace(card_one, card_two):",
+      "parameters": [
+        {
+          "name": "card_one",
+          "type": "string"
+        },
+        {
+          "name": "card_two",
+          "type": "string"
+        }
+      ],
+      "return_type": "integer",
+      "starter_code": "def value_of_ace(card_one, card_two):\n    return 11\n",
+      "reference_code": "def value_of_ace(card_one, card_two):\n    return 1 if 'A' in (card_one, card_two) or (1 if card_one == 'A' else (10 if card_one in ('J', 'Q', 'K') else int(card_one))) + (1 if card_two == 'A' else (10 if card_two in ('J', 'Q', 'K') else int(card_two))) > 10 else 11\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            "A",
+            "2"
+          ],
+          "expected": 1
+        },
+        {
+          "id": "C02",
+          "args": [
+            "7",
+            "3"
+          ],
+          "expected": 11
+        },
+        {
+          "id": "C03",
+          "args": [
+            "6",
+            "K"
+          ],
+          "expected": 1
+        },
+        {
+          "id": "C04",
+          "args": [
+            "2",
+            "2"
+          ],
+          "expected": 11
+        },
+        {
+          "id": "C05",
+          "args": [
+            "5",
+            "6"
+          ],
+          "expected": 1
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_is_blackjack",
+      "version": "1.0.0",
+      "title": "是否天然二十一点",
+      "description": "牌面只取字符串A、J、Q、K或2到10。J/Q/K计10，数字牌按数字计分。两张牌必须恰好为一张A与一张10点牌时返回True。",
+      "learning_goal": "通过不同输入检查布尔逻辑规则，解释边界条件。",
+      "tags": [
+        "布尔逻辑",
+        "字符串"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/black-jack",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def is_blackjack(card_one, card_two):",
+      "parameters": [
+        {
+          "name": "card_one",
+          "type": "string"
+        },
+        {
+          "name": "card_two",
+          "type": "string"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def is_blackjack(card_one, card_two):\n    return card_one == 'A' or card_two == 'A'\n",
+      "reference_code": "def is_blackjack(card_one, card_two):\n    return (card_one == 'A' and card_two in ('10','J','Q','K')) or (card_two == 'A' and card_one in ('10','J','Q','K'))\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            "A",
+            "K"
+          ],
+          "expected": true
+        },
+        {
+          "id": "C02",
+          "args": [
+            "10",
+            "A"
+          ],
+          "expected": true
+        },
+        {
+          "id": "C03",
+          "args": [
+            "A",
+            "2"
+          ],
+          "expected": false
+        },
+        {
+          "id": "C04",
+          "args": [
+            "A",
+            "A"
+          ],
+          "expected": false
+        },
+        {
+          "id": "C05",
+          "args": [
+            "K",
+            "Q"
+          ],
+          "expected": false
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_can_split_pairs",
+      "version": "1.0.0",
+      "title": "是否可以分牌",
+      "description": "牌面只取字符串A、J、Q、K或2到10。J/Q/K计10，数字牌按数字计分。A计1。两张牌点数相同可分牌，返回布尔值。",
+      "learning_goal": "通过不同输入检查条件判断规则，解释边界条件。",
+      "tags": [
+        "条件判断",
+        "字符串"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/black-jack",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def can_split_pairs(card_one, card_two):",
+      "parameters": [
+        {
+          "name": "card_one",
+          "type": "string"
+        },
+        {
+          "name": "card_two",
+          "type": "string"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def can_split_pairs(card_one, card_two):\n    return card_one == card_two\n",
+      "reference_code": "def can_split_pairs(card_one, card_two):\n    return (1 if card_one == 'A' else (10 if card_one in ('J', 'Q', 'K') else int(card_one))) == (1 if card_two == 'A' else (10 if card_two in ('J', 'Q', 'K') else int(card_two)))\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            "Q",
+            "K"
+          ],
+          "expected": true
+        },
+        {
+          "id": "C02",
+          "args": [
+            "10",
+            "J"
+          ],
+          "expected": true
+        },
+        {
+          "id": "C03",
+          "args": [
+            "A",
+            "A"
+          ],
+          "expected": true
+        },
+        {
+          "id": "C04",
+          "args": [
+            "2",
+            "3"
+          ],
+          "expected": false
+        },
+        {
+          "id": "C05",
+          "args": [
+            "A",
+            "10"
+          ],
+          "expected": false
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_can_double_down",
+      "version": "1.0.0",
+      "title": "是否可以加倍",
+      "description": "牌面只取字符串A、J、Q、K或2到10。J/Q/K计10，数字牌按数字计分。A计1。两张牌总点数为9、10或11时返回True，否则False。",
+      "learning_goal": "通过不同输入检查条件判断规则，解释边界条件。",
+      "tags": [
+        "条件判断",
+        "字符串"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/black-jack",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def can_double_down(card_one, card_two):",
+      "parameters": [
+        {
+          "name": "card_one",
+          "type": "string"
+        },
+        {
+          "name": "card_two",
+          "type": "string"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def can_double_down(card_one, card_two):\n    return (1 if card_one == 'A' else (10 if card_one in ('J', 'Q', 'K') else int(card_one))) + (1 if card_two == 'A' else (10 if card_two in ('J', 'Q', 'K') else int(card_two))) == 10\n",
+      "reference_code": "def can_double_down(card_one, card_two):\n    return ((1 if card_one == 'A' else (10 if card_one in ('J', 'Q', 'K') else int(card_one))) + (1 if card_two == 'A' else (10 if card_two in ('J', 'Q', 'K') else int(card_two)))) in (9,10,11)\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            "A",
+            "8"
+          ],
+          "expected": true
+        },
+        {
+          "id": "C02",
+          "args": [
+            "A",
+            "9"
+          ],
+          "expected": true
+        },
+        {
+          "id": "C03",
+          "args": [
+            "5",
+            "6"
+          ],
+          "expected": true
+        },
+        {
+          "id": "C04",
+          "args": [
+            "2",
+            "6"
+          ],
+          "expected": false
+        },
+        {
+          "id": "C05",
+          "args": [
+            "10",
+            "2"
+          ],
+          "expected": false
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_add_prefix_un",
+      "version": "1.0.0",
+      "title": "添加否定前缀",
+      "description": "输入一个非空英文单词，在前面加上un并返回新字符串。无需改变大小写或验证词义。",
+      "learning_goal": "通过不同输入检查字符串规则，解释边界条件。",
+      "tags": [
+        "字符串"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/concept/little-sisters-vocab",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def add_prefix_un(word):",
+      "parameters": [
+        {
+          "name": "word",
+          "type": "string"
+        }
+      ],
+      "return_type": "string",
+      "starter_code": "def add_prefix_un(word):\n    return word + 'un'\n",
+      "reference_code": "def add_prefix_un(word):\n    return 'un' + word\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            "happy"
+          ],
+          "expected": "unhappy"
+        },
+        {
+          "id": "C02",
+          "args": [
+            "known"
+          ],
+          "expected": "unknown"
+        },
+        {
+          "id": "C03",
+          "args": [
+            "fair"
+          ],
+          "expected": "unfair"
+        },
+        {
+          "id": "C04",
+          "args": [
+            "usual"
+          ],
+          "expected": "unusual"
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_leap_year",
+      "version": "1.0.0",
+      "title": "闰年判断",
+      "description": "输入1到9999的公历年份。能被4整除为闰年，但能被100整除且不能被400整除时不是闰年。返回布尔值。",
+      "learning_goal": "通过不同输入检查取模规则，解释边界条件。",
+      "tags": [
+        "取模",
+        "布尔逻辑"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/practice/leap",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def leap_year(year):",
+      "parameters": [
+        {
+          "name": "year",
+          "type": "integer"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def leap_year(year):\n    return year % 4 == 0\n",
+      "reference_code": "def leap_year(year):\n    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            2000
+          ],
+          "expected": true
+        },
+        {
+          "id": "C02",
+          "args": [
+            1900
+          ],
+          "expected": false
+        },
+        {
+          "id": "C03",
+          "args": [
+            2024
+          ],
+          "expected": true
+        },
+        {
+          "id": "C04",
+          "args": [
+            2023
+          ],
+          "expected": false
+        },
+        {
+          "id": "C05",
+          "args": [
+            1
+          ],
+          "expected": false
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_equilateral",
+      "version": "1.0.0",
+      "title": "等边三角形",
+      "description": "输入恰含三个有限数的列表sides。只有三边都为正且相等时返回True；零、负数或不相等都返回False。",
+      "learning_goal": "通过不同输入检查比较规则，解释边界条件。",
+      "tags": [
+        "比较",
+        "列表"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/practice/triangle",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def equilateral(sides):",
+      "parameters": [
+        {
+          "name": "sides",
+          "type": "number_list"
+        }
+      ],
+      "return_type": "boolean",
+      "starter_code": "def equilateral(sides):\n    return sides[0] == sides[1] == sides[2]\n",
+      "reference_code": "def equilateral(sides):\n    return sides[0] > 0 and sides[0] == sides[1] == sides[2]\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            [
+              2,
+              2,
+              2
+            ]
+          ],
+          "expected": true
+        },
+        {
+          "id": "C02",
+          "args": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "expected": false
+        },
+        {
+          "id": "C03",
+          "args": [
+            [
+              -1,
+              -1,
+              -1
+            ]
+          ],
+          "expected": false
+        },
+        {
+          "id": "C04",
+          "args": [
+            [
+              2,
+              2,
+              3
+            ]
+          ],
+          "expected": false
+        },
+        {
+          "id": "C05",
+          "args": [
+            [
+              0.5,
+              0.5,
+              0.5
+            ]
+          ],
+          "expected": true
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_score_dart",
+      "version": "1.0.0",
+      "title": "飞镖得分",
+      "description": "输入平面坐标x、y。距原点不超过1得10分；超过1但不超过5得5分；超过5但不超过10得1分；超过10得0分。圆边界计入内圈。",
+      "learning_goal": "通过不同输入检查条件判断规则，解释边界条件。",
+      "tags": [
+        "条件判断",
+        "算术"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/practice/darts",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def score_dart(x, y):",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        }
+      ],
+      "return_type": "integer",
+      "starter_code": "def score_dart(x, y):\n    return 10 if x*x + y*y < 1 else (5 if x*x + y*y < 25 else (1 if x*x + y*y < 100 else 0))\n",
+      "reference_code": "def score_dart(x, y):\n    return 10 if x*x + y*y <= 1 else (5 if x*x + y*y <= 25 else (1 if x*x + y*y <= 100 else 0))\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            0,
+            0
+          ],
+          "expected": 10
+        },
+        {
+          "id": "C02",
+          "args": [
+            1,
+            0
+          ],
+          "expected": 10
+        },
+        {
+          "id": "C03",
+          "args": [
+            3,
+            4
+          ],
+          "expected": 5
+        },
+        {
+          "id": "C04",
+          "args": [
+            -10,
+            0
+          ],
+          "expected": 1
+        },
+        {
+          "id": "C05",
+          "args": [
+            10.1,
+            0
+          ],
+          "expected": 0
+        },
+        {
+          "id": "C06",
+          "args": [
+            2,
+            0
+          ],
+          "expected": 5
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    },
+    {
+      "id": "ex_reverse",
+      "version": "1.0.0",
+      "title": "反转字符串",
+      "description": "输入字符串text，返回字符顺序反转后的字符串。允许空字符串，按Python字符顺序处理，不拆分为单词。",
+      "learning_goal": "通过不同输入检查字符串规则，解释边界条件。",
+      "tags": [
+        "字符串",
+        "切片"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "Exercism Python",
+        "url": "https://github.com/exercism/python/tree/479f11b44b02337b0413e805b948491c2179615a/exercises/practice/reverse-string",
+        "revision": "479f11b44b02337b0413e805b948491c2179615a",
+        "license": "MIT",
+        "attribution": "Copyright (c) 2021 Exercism",
+        "adaptation": "中文改写并拆分为单函数练习；限制输入范围；重写起始代码、参考实现、提示和本地测试。"
+      },
+      "signature": "def reverse(text):",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "return_type": "string",
+      "starter_code": "def reverse(text):\n    return text\n",
+      "reference_code": "def reverse(text):\n    return text[::-1]\n",
+      "cases": [
+        {
+          "id": "C01",
+          "args": [
+            ""
+          ],
+          "expected": ""
+        },
+        {
+          "id": "C02",
+          "args": [
+            "a"
+          ],
+          "expected": "a"
+        },
+        {
+          "id": "C03",
+          "args": [
+            "abc"
+          ],
+          "expected": "cba"
+        },
+        {
+          "id": "C04",
+          "args": [
+            "hello!"
+          ],
+          "expected": "!olleh"
+        },
+        {
+          "id": "C05",
+          "args": [
+            "中文"
+          ],
+          "expected": "文中"
+        },
+        {
+          "id": "C06",
+          "args": [
+            "a b"
+          ],
+          "expected": "b a"
+        }
+      ],
+      "hints": [
+        "把题目中的输入和返回值对应起来，先手算一个例子。",
+        "逐项检查规则，特别注意恰好位于边界的输入。",
+        "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。"
+      ],
+      "engine": "bounded_v1"
+    }
+  ]
+}

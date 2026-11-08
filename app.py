@@ -13,6 +13,7 @@ from pathlib import Path
 from socket import timeout as SocketTimeout
 from urllib.parse import parse_qs
 
+import question_bank
 import learning
 import classroom
 
@@ -108,6 +109,28 @@ class Handler(BaseHTTPRequestHandler):
         if not self.is_local_host():
             return
         path = self.path.partition("?")[0]
+        if path == "/api/catalog":
+            try:
+                query = parse_qs(self.path.partition("?")[2], keep_blank_values=True)
+                allowed = {"query", "tag", "difficulty", "source", "page", "page_size"}
+                if set(query) - allowed or any(len(v) != 1 for v in query.values()):
+                    raise ValueError("Invalid catalog query")
+                options = {k: v[0] for k, v in query.items()}
+                for field in ("page", "page_size"):
+                    if field in options:
+                        options[field] = int(options[field])
+                self.send_json(HTTPStatus.OK, question_bank.catalog(**options))
+            except (ValueError, TypeError):
+                self.reject(HTTPStatus.BAD_REQUEST, "题库查询参数无效。")
+            return
+        if path.startswith("/api/problems/"):
+            problem_id = path.removeprefix("/api/problems/")
+            problem = next((p for p in question_bank.public_exercises() if p["id"] == problem_id), None)
+            if problem is None:
+                self.reject(HTTPStatus.NOT_FOUND, "题目不存在。")
+            else:
+                self.send_json(HTTPStatus.OK, problem)
+            return
         if path.startswith("/api/classroom/"):
             classroom.dispatch(self)
             return

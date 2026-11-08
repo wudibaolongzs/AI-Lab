@@ -5,136 +5,29 @@ import math
 import operator
 
 
-EXERCISE = {
-    "title": "计算列表平均值",
-    "description": "补全 average(nums)，返回非空整数列表的算术平均值。"
-    "例如 [10, 20, 30, 40] 应返回 25.0。",
-    "starter_code": "def average(nums):\n    total = sum(nums)\n    return total / (len(nums) - 1)\n",
-}
-EXERCISES = {
-    "average": {**EXERCISE, "signature": "def average(nums):"},
-    "sum": {
-        "title": "计算列表总和",
-        "description": "补全 list_sum(nums)，返回整数列表中所有元素相加的结果。"
-        "例如 [-5, 2, 0] 应返回 -3，空列表应返回 0。",
-        "starter_code": "def list_sum(nums):\n    return len(nums)\n",
-        "signature": "def list_sum(nums):",
-    },
-    "count": {
-        "title": "计算列表元素个数",
-        "description": "补全 list_count(nums)，返回整数列表中元素的个数。"
-        "例如 [4, 4, 0] 应返回 3，空列表应返回 0。",
-        "starter_code": "def list_count(nums):\n    return sum(nums)\n",
-        "signature": "def list_count(nums):",
-    },
-}
-EXERCISE_CASES = {
-    "average": (
-        ("C01", (10, 20, 30, 40), 25.0),
-        ("C02", (-6, -3, 0), -3.0),
-        ("C03", (1, 2), 1.5),
-        ("C04", (7,), 7.0),
-    ),
-    "sum": (
-        ("S01", (3, 5, 2), 10),
-        ("S02", (-5, 2, 0), -3),
-        ("S03", (), 0),
-        ("S04", (7,), 7),
-    ),
-    "count": (
-        ("N01", (4, 4, 0), 3),
-        ("N02", (-5, 2, 0), 3),
-        ("N03", (), 0),
-        ("N04", (7,), 1),
-    ),
-}
-HINT_LOCATION = {
-    "zero_division": "用这个输入检查第 {line} 行的除法，追踪右侧表达式如何得到 0。",
-    "numeric_range": "检查第 {line} 行的中间结果，看哪一步将数值放大。",
-    "wrong_result": "从第 {line} 行的返回表达式开始，回查参与计算的变量。",
-}
-# One concept line and one next-step line per exercise and diagnosis kind. The three
-# exercises fail for different reasons, so a sum hint may never call the element count the
-# answer and a count hint may never call the value total the answer. Another exercise's
-# quantity may appear only as something to compare the return value against, which is how a
-# level-1 hint stays evidence-supported when the wrong result matches neither quantity.
-HINT_GUIDANCE = {
-    "average": {
-        "zero_division": (
-            "先数一数这个列表的元素个数，再想想它与除数的关系。",
-            "把总和和实际元素个数分开核对，再用这个失败用例复测。",
-        ),
-        "numeric_range": (
-            "圈出输入中的最小值和最大值，再判断平均值是否应落在两者之间。",
-            "分别手算列表总和与元素个数，用这两个量检查各步运算。",
-        ),
-        "wrong_result": (
-            "试着手算这个列表的总和，再数一数元素个数。",
-            "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
-        ),
-    },
-    "sum": {
-        "zero_division": (
-            "求和只要把元素相加，你的式子里为什么出现了除法？",
-            "去掉除法，把返回值改成各元素相加的结果，再用这个失败用例复测。",
-        ),
-        "numeric_range": (
-            "圈出输入中的最小值和最大值，估一估这组数相加最多能到多少。",
-            "手算这组数的相加结果，看你的式子算出的结果比它大了多少倍，再回到相加那一步。",
-        ),
-        "wrong_result": (
-            "手算这个列表的相加结果，再数一数元素个数，看返回值更接近哪一个。",
-            "让返回值表示元素的总和。负数也参与相加，空列表的总和是 0。",
-        ),
-    },
-    "count": {
-        "zero_division": (
-            "数个数只要数位置，你的式子里为什么出现了除法？",
-            "去掉除法，直接数出位置有几个，再用这个失败用例复测。",
-        ),
-        "numeric_range": (
-            "先数一数这组输入一共占几个位置，再判断返回值该有多大。",
-            "手数这组输入的元素个数，看你的式子算出的结果比它大了多少倍，再回到计数那一步。",
-        ),
-        "wrong_result": (
-            "先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。",
-            "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。",
-        ),
-    },
-}
-# Additional local curriculum; the original three fixtures and hint wording stay intact.
-_NEW_EXERCISES = {
-    "double_sum": ("每个元素翻倍后求和", "将整数列表中每个值翻倍后求和；空列表返回 0。", "sum(nums) * 2", "sum(nums)", "区分每项乘倍数与总和加固定值。", ((3, -1, 0), (), (7,), (-4, -2))),
-    "shifted_average": ("每项加二后的平均值", "非空整数列表中每个值加 2，返回新列表的平均值。", "sum(nums) / len(nums) + 2", "(sum(nums) + 2) / len(nums)", "每项加相同数，平均值也增加这个数。", ((2, 6), (-4, 0, 1), (7,), (0, 0))),
-    "total_with_fee": ("加上一次固定费用", "返回整数金额列表的总和加上一次固定费用 5；空列表也收取该费用。", "sum(nums) + 5", "sum(nums) + len(nums) * 5", "区分只收一次的固定费用与按件计费。", ((2, 6), (), (7,), (-4, 0, 1))),
-    "pair_count": ("每件物品两张标签", "列表中每个元素需要两张标签，返回标签总数；重复值也分别计数。", "len(nums) * 2", "sum(nums) * 2", "计数关注元素位置，不受元素的值影响。", ((4, 4, 0), (), (7,), (-4, 0, 1))),
-    "average_with_zero": ("追加一个零后求平均值", "在整数列表末尾追加一个 0，返回新列表的平均值；空输入的结果为 0。", "sum(nums) / (len(nums) + 1)", "sum(nums) / len(nums)", "追加零不改变总和，但会增加元素个数。", ((2, 6), (), (7,), (-4, 0, 1))),
-}
-for _id, (_title, _description, _correct, _buggy, _goal, _inputs) in _NEW_EXERCISES.items():
-    EXERCISES[_id] = {
-        "title": _title, "description": _description,
-        "signature": f"def {_id}(nums):",
-        "starter_code": f"def {_id}(nums):\n    return {_buggy}\n",
-        "learning_goal": _goal,
-    }
-# Expected values are fixed fixtures, never evaluated from source strings.
-EXERCISE_CASES.update({
-    "double_sum": (("DS01", (3, -1, 0), 4), ("DS02", (), 0), ("DS03", (7,), 14), ("DS04", (-4, -2), -12)),
-    "shifted_average": (("SA01", (2, 6), 6.0), ("SA02", (-4, 0, 1), 1.0), ("SA03", (7,), 9.0), ("SA04", (0, 0), 2.0)),
-    "total_with_fee": (("TF01", (2, 6), 13), ("TF02", (), 5), ("TF03", (7,), 12), ("TF04", (-4, 0, 1), 2)),
-    "pair_count": (("PC01", (4, 4, 0), 6), ("PC02", (), 0), ("PC03", (7,), 2), ("PC04", (-4, 0, 1), 6)),
-    "average_with_zero": (("AZ01", (2, 6), 8 / 3), ("AZ02", (), 0.0), ("AZ03", (7,), 3.5), ("AZ04", (-4, 0, 1), -0.75)),
-})
-for _id in _NEW_EXERCISES:
-    HINT_GUIDANCE[_id] = {
-        "wrong_result": (EXERCISES[_id]["learning_goal"], "按题意手算这个输入，再逐步检查返回表达式。"),
-        "zero_division": ("这个输入使除数变成了 0。", "分别写出应有的个数和实际除数，再核对题目的输入范围。"),
-        "numeric_range": ("中间结果超过了支持的数值范围。", "手算目标数值，再检查哪一步乘除让你的式子算出的结果放大。"),
-    }
-EXERCISES["average"]["learning_goal"] = "用总和与实际元素个数计算平均值。"
-EXERCISES["sum"]["learning_goal"] = "将正负数相加，理解空列表的总和为 0。"
-EXERCISES["count"]["learning_goal"] = "按位置计数，重复值与零都占一个位置。"
+from collections.abc import Mapping
+from pathlib import Path
+import json
+import question_bank
+import bank_engine
 
+_LEGACY = json.loads(Path(__file__).with_name("data").joinpath("builtin.json").read_text(encoding="utf-8"))["problems"]
+class _Catalog(Mapping):
+    def __getitem__(self, key):
+        for problem in question_bank.public_exercises():
+            if problem["id"] == key:
+                return problem
+        raise KeyError(key)
+    def __iter__(self):
+        return iter([problem["id"] for problem in question_bank.public_exercises()])
+    def __len__(self):
+        return len(question_bank.public_exercises())
+
+EXERCISES = _Catalog()
+EXERCISE = {key: _LEGACY[0][key] for key in ("title", "description", "starter_code")}
+EXERCISE_CASES = {p["id"]: tuple((c["id"], tuple(c["args"][0]), c["expected"]) for c in p["cases"]) for p in _LEGACY}
+HINT_GUIDANCE = {p["id"]: {kind: tuple(lines) for kind, lines in p["legacy_guidance"].items()} for p in _LEGACY}
+HINT_LOCATION = {'zero_division': '用这个输入检查第 {line} 行的除法，追踪右侧表达式如何得到 0。', 'numeric_range': '检查第 {line} 行的中间结果，看哪一步将数值放大。', 'wrong_result': '从第 {line} 行的返回表达式开始，回查参与计算的变量。'}
 MAX_SOURCE_LENGTH = 4000
 MAX_AST_NODES = 120
 MAX_VALUE = 10**12
@@ -283,6 +176,9 @@ def feedback(diagnosis, case, exercise_id="average"):
 
 
 def check_submission(code: str, exercise_id: str = "average") -> dict:
+    specification = question_bank.get_problem(exercise_id)
+    if specification["engine"] != "legacy":
+        return bank_engine.check(code, specification)
     exercise = EXERCISES[exercise_id]
     cases = EXERCISE_CASES[exercise_id]
     result = {"status": "invalid", "passed": 0, "total": len(cases),

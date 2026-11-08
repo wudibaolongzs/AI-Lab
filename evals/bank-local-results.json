@@ -1,0 +1,1669 @@
+{
+  "mode": "local-only",
+  "note": "未标注来源",
+  "summary": {
+    "samples": 20,
+    "local_rows": 60,
+    "local_median_ms": 1.129,
+    "local_p95_ms": 1.319,
+    "local_max_ms": 1.568
+  },
+  "records": [
+    {
+      "sample_id": "EX01",
+      "exercise": "ex_bake_time_remaining",
+      "category": "bank_logic",
+      "focus": "剩余烘烤时间的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            1
+          ],
+          "expected": 39,
+          "actual": 41,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            20
+          ],
+          "expected": 20,
+          "actual": 60,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            40
+          ],
+          "expected": 0,
+          "actual": 80,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [1]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.364,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.153,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.103,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX02",
+      "exercise": "ex_preparation_time_in_minutes",
+      "category": "bank_logic",
+      "focus": "千层面准备时间的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            0
+          ],
+          "expected": 0,
+          "actual": 2,
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            1
+          ],
+          "expected": 2,
+          "actual": 3,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            3
+          ],
+          "expected": 6,
+          "actual": 5,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            10
+          ],
+          "expected": 20,
+          "actual": 12,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [0]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C01",
+            "elapsed_ms": 1.135,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C01",
+            "elapsed_ms": 1.257,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C01",
+            "elapsed_ms": 1.083,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX03",
+      "exercise": "ex_elapsed_time_in_minutes",
+      "category": "bank_logic",
+      "focus": "制作总用时的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            1,
+            0
+          ],
+          "expected": 2,
+          "actual": 1,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            3,
+            20
+          ],
+          "expected": 26,
+          "actual": 23,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            5,
+            40
+          ],
+          "expected": 50,
+          "actual": 45,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [1, 0]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.13,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.122,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.114,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX04",
+      "exercise": "ex_eat_ghost",
+      "category": "bank_logic",
+      "focus": "能否吃掉幽灵的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            false,
+            true
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            true,
+            false
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [False, True]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.299,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.189,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.127,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX05",
+      "exercise": "ex_score",
+      "category": "bank_logic",
+      "focus": "是否得分的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            false,
+            true
+          ],
+          "expected": true,
+          "actual": false,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            true,
+            false
+          ],
+          "expected": true,
+          "actual": false,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [False, True]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.092,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.092,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.122,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX06",
+      "exercise": "ex_lose",
+      "category": "bank_logic",
+      "focus": "是否失败的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            false,
+            true
+          ],
+          "expected": true,
+          "actual": false,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            true,
+            true
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [False, True]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.148,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.119,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.09,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX07",
+      "exercise": "ex_win",
+      "category": "bank_logic",
+      "focus": "是否获胜的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C06",
+          "input": [
+            true,
+            false,
+            true
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C06 的输入为 [True, False, True]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C06",
+            "elapsed_ms": 1.081,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C06",
+            "elapsed_ms": 1.075,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C06",
+            "elapsed_ms": 1.093,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX08",
+      "exercise": "ex_is_criticality_balanced",
+      "category": "bank_logic",
+      "focus": "临界状态检查的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            800,
+            501
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            700,
+            500
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            500,
+            1000
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [800, 501]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.112,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.191,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.174,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX09",
+      "exercise": "ex_reactor_efficiency",
+      "category": "bank_logic",
+      "focus": "效率分档的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            80,
+            1,
+            100
+          ],
+          "expected": "green",
+          "actual": "black",
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            60,
+            1,
+            100
+          ],
+          "expected": "orange",
+          "actual": "black",
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            30,
+            1,
+            100
+          ],
+          "expected": "red",
+          "actual": "black",
+          "status": "failed"
+        },
+        {
+          "id": "C05",
+          "input": [
+            79,
+            1,
+            100
+          ],
+          "expected": "orange",
+          "actual": "black",
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 [80, 1, 100]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C01",
+            "elapsed_ms": 1.163,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C01",
+            "elapsed_ms": 1.132,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C01",
+            "elapsed_ms": 1.207,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX10",
+      "exercise": "ex_fail_safe",
+      "category": "bank_logic",
+      "focus": "安全状态分档的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            90,
+            1,
+            100
+          ],
+          "expected": "NORMAL",
+          "actual": "LOW",
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            100,
+            1,
+            100
+          ],
+          "expected": "NORMAL",
+          "actual": "DANGER",
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            110,
+            1,
+            100
+          ],
+          "expected": "NORMAL",
+          "actual": "DANGER",
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [90, 1, 100]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.22,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.222,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.196,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX11",
+      "exercise": "ex_value_of_card",
+      "category": "bank_logic",
+      "focus": "单张牌点数的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            "A"
+          ],
+          "expected": 1,
+          "actual": 10,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            "2"
+          ],
+          "expected": 2,
+          "actual": 10,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 ['A']。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C01",
+            "elapsed_ms": 1.109,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C01",
+            "elapsed_ms": 1.153,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C01",
+            "elapsed_ms": 1.13,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX12",
+      "exercise": "ex_value_of_ace",
+      "category": "bank_logic",
+      "focus": "新A牌点数的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            "A",
+            "2"
+          ],
+          "expected": 1,
+          "actual": 11,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            "6",
+            "K"
+          ],
+          "expected": 1,
+          "actual": 11,
+          "status": "failed"
+        },
+        {
+          "id": "C05",
+          "input": [
+            "5",
+            "6"
+          ],
+          "expected": 1,
+          "actual": 11,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 ['A', '2']。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C01",
+            "elapsed_ms": 1.117,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C01",
+            "elapsed_ms": 1.062,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C01",
+            "elapsed_ms": 1.136,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX13",
+      "exercise": "ex_is_blackjack",
+      "category": "bank_logic",
+      "focus": "是否天然二十一点的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C03",
+          "input": [
+            "A",
+            "2"
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            "A",
+            "A"
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C03 的输入为 ['A', '2']。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C03",
+            "elapsed_ms": 1.311,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C03",
+            "elapsed_ms": 1.205,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C03",
+            "elapsed_ms": 1.277,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX14",
+      "exercise": "ex_can_split_pairs",
+      "category": "bank_logic",
+      "focus": "是否可以分牌的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            "Q",
+            "K"
+          ],
+          "expected": true,
+          "actual": false,
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            "10",
+            "J"
+          ],
+          "expected": true,
+          "actual": false,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 ['Q', 'K']。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C01",
+            "elapsed_ms": 1.129,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C01",
+            "elapsed_ms": 1.1,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C01",
+            "elapsed_ms": 1.084,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX15",
+      "exercise": "ex_can_double_down",
+      "category": "bank_logic",
+      "focus": "是否可以加倍的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            "A",
+            "8"
+          ],
+          "expected": true,
+          "actual": false,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            "5",
+            "6"
+          ],
+          "expected": true,
+          "actual": false,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 ['A', '8']。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C01",
+            "elapsed_ms": 1.319,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C01",
+            "elapsed_ms": 1.568,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C01",
+            "elapsed_ms": 1.329,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX16",
+      "exercise": "ex_add_prefix_un",
+      "category": "bank_logic",
+      "focus": "添加否定前缀的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C01",
+          "input": [
+            "happy"
+          ],
+          "expected": "unhappy",
+          "actual": "happyun",
+          "status": "failed"
+        },
+        {
+          "id": "C02",
+          "input": [
+            "known"
+          ],
+          "expected": "unknown",
+          "actual": "knownun",
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            "fair"
+          ],
+          "expected": "unfair",
+          "actual": "fairun",
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            "usual"
+          ],
+          "expected": "unusual",
+          "actual": "usualun",
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C01 的输入为 ['happy']。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C01",
+            "elapsed_ms": 1.02,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C01",
+            "elapsed_ms": 1.001,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C01",
+            "elapsed_ms": 0.99,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX17",
+      "exercise": "ex_leap_year",
+      "category": "bank_logic",
+      "focus": "闰年判断的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            1900
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [1900]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.103,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.086,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.03,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX18",
+      "exercise": "ex_equilateral",
+      "category": "bank_logic",
+      "focus": "等边三角形的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            [
+              -1,
+              -1,
+              -1
+            ]
+          ],
+          "expected": false,
+          "actual": true,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [[0, 0, 0]]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.07,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.19,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.193,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX19",
+      "exercise": "ex_score_dart",
+      "category": "bank_logic",
+      "focus": "飞镖得分的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C02",
+          "input": [
+            1,
+            0
+          ],
+          "expected": 10,
+          "actual": 5,
+          "status": "failed"
+        },
+        {
+          "id": "C03",
+          "input": [
+            3,
+            4
+          ],
+          "expected": 5,
+          "actual": 1,
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            -10,
+            0
+          ],
+          "expected": 1,
+          "actual": 0,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C02 的输入为 [1, 0]。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C02",
+            "elapsed_ms": 1.317,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C02",
+            "elapsed_ms": 1.203,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C02",
+            "elapsed_ms": 1.247,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "EX20",
+      "exercise": "ex_reverse",
+      "category": "bank_logic",
+      "focus": "反转字符串的规则或边界错误",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "返回结果与预期不符。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "C03",
+          "input": [
+            "abc"
+          ],
+          "expected": "cba",
+          "actual": "abc",
+          "status": "failed"
+        },
+        {
+          "id": "C04",
+          "input": [
+            "hello!"
+          ],
+          "expected": "!olleh",
+          "actual": "hello!",
+          "status": "failed"
+        },
+        {
+          "id": "C05",
+          "input": [
+            "中文"
+          ],
+          "expected": "文中",
+          "actual": "中文",
+          "status": "failed"
+        },
+        {
+          "id": "C06",
+          "input": [
+            "a b"
+          ],
+          "expected": "b a",
+          "actual": "a b",
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 C03 的输入为 ['abc']。把题目中的输入和返回值对应起来，先手算一个例子。",
+            "case_id": "C03",
+            "elapsed_ms": 1.036,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "逐项检查规则，特别注意恰好位于边界的输入。",
+            "case_id": "C03",
+            "elapsed_ms": 1.052,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "比较两个结果不同的测试，找出当前表达式遗漏的条件或运算。",
+            "case_id": "C03",
+            "elapsed_ms": 0.98,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

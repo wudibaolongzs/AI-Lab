@@ -21,8 +21,9 @@ def solution(exercise_id):
 
 class CurriculumTests(unittest.TestCase):
     def test_eight_correct_solutions_and_buggy_starters(self):
-        self.assertEqual(len(EXERCISES), 8)
-        for exercise_id, item in EXERCISES.items():
+        self.assertTrue(set(SOLUTIONS).issubset(EXERCISES))
+        for exercise_id in SOLUTIONS:
+            item = EXERCISES[exercise_id]
             with self.subTest(exercise_id=exercise_id):
                 self.assertTrue(item["learning_goal"])
                 self.assertEqual(check_submission(solution(exercise_id), exercise_id)["status"], "passed")
@@ -47,13 +48,16 @@ class CurriculumTests(unittest.TestCase):
 class LearningTests(unittest.TestCase):
     def test_challenges_do_not_disclose_answers(self):
         for exercise_id in EXERCISES:
+            if not EXERCISES[exercise_id]["has_transfer"]:
+                self.assertFalse(challenge(exercise_id)["available"])
+                continue
             self.assertEqual(set(challenge(exercise_id)), {"exercise_id", "question_id", "question", "answer_type"})
             self.assertEqual(challenge(exercise_id)["answer_type"], "number")
 
     def test_original_failure_requires_conflict(self):
-        for exercise_id, item in EXERCISES.items():
+        for exercise_id in ANSWERS:
             with self.assertRaises(LearningConflict):
-                verify(exercise_id, item["starter_code"], ANSWERS[exercise_id])
+                verify(exercise_id, EXERCISES[exercise_id]["starter_code"], ANSWERS[exercise_id])
 
     def test_right_wrong_and_explanation_is_never_scored(self):
         for exercise_id, answer in ANSWERS.items():
