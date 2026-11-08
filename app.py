@@ -13,6 +13,7 @@ from pathlib import Path
 from socket import timeout as SocketTimeout
 from urllib.parse import parse_qs
 
+import remote_judge
 import question_bank
 import learning
 import classroom
@@ -109,10 +110,13 @@ class Handler(BaseHTTPRequestHandler):
         if not self.is_local_host():
             return
         path = self.path.partition("?")[0]
+        if path.startswith("/api/remote/"):
+            remote_judge.dispatch(self)
+            return
         if path == "/api/catalog":
             try:
                 query = parse_qs(self.path.partition("?")[2], keep_blank_values=True)
-                allowed = {"query", "tag", "difficulty", "source", "page", "page_size"}
+                allowed = {"query", "tag", "difficulty", "source", "page", "page_size", "mode"}
                 if set(query) - allowed or any(len(v) != 1 for v in query.values()):
                     raise ValueError("Invalid catalog query")
                 options = {k: v[0] for k, v in query.items()}
@@ -220,13 +224,17 @@ class Handler(BaseHTTPRequestHandler):
         if not self.is_local_host():
             return
         is_classroom = self.path.startswith("/api/classroom/")
-        if self.path not in ("/api/check", "/api/hint", "/api/learning/verify") and not is_classroom:
+        is_remote = self.path == "/api/remote/submissions"
+        if self.path not in ("/api/check", "/api/hint", "/api/learning/verify") and not is_classroom and not is_remote:
             self.reject(HTTPStatus.NOT_FOUND, "接口不存在。")
             return
         payload = self.read_post_payload(require_code=not is_classroom)
         if payload is None:
             return
 
+        if is_remote:
+            remote_judge.dispatch(self, payload)
+            return
         if is_classroom:
             classroom.dispatch(self, payload)
             return
@@ -244,6 +252,9 @@ class Handler(BaseHTTPRequestHandler):
         exercise_id = payload.get("exercise_id", None if is_hint else "average")
         if not isinstance(exercise_id, str) or exercise_id not in EXERCISES:
             self.reject(HTTPStatus.BAD_REQUEST, "请选择题库中的练习。")
+            return
+        if question_bank.get_problem(exercise_id)["engine"] == "luogu_remote":
+            self.reject(HTTPStatus.CONFLICT, "洛谷题请使用远程评测入口，不能进行本地判题或三级提示。")
             return
         level = payload.get("level")
         if is_hint and (type(level) is not int or not 1 <= level <= 3):

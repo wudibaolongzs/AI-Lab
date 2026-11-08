@@ -18,6 +18,10 @@ class _Catalog(Mapping):
             if problem["id"] == key:
                 return problem
         raise KeyError(key)
+    def items(self):
+        return ((problem["id"], problem) for problem in question_bank.public_exercises())
+    def values(self):
+        return iter(question_bank.public_exercises())
     def __iter__(self):
         return iter([problem["id"] for problem in question_bank.public_exercises()])
     def __len__(self):
@@ -177,6 +181,9 @@ def feedback(diagnosis, case, exercise_id="average"):
 
 def check_submission(code: str, exercise_id: str = "average") -> dict:
     specification = question_bank.get_problem(exercise_id)
+    if specification["engine"] == "luogu_remote":
+        return {"status":"invalid", "passed":0, "total":0, "cases":[], "hints":[],
+                "diagnosis":{"kind":"unsupported", "message":"洛谷题需要远程评测。", "line":None}}
     if specification["engine"] != "legacy":
         return bank_engine.check(code, specification)
     exercise = EXERCISES[exercise_id]

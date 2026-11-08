@@ -228,6 +228,7 @@
         <input id="catalog-query" aria-label="搜索题目" placeholder="搜索题目或知识点" maxlength="100">
         <select id="catalog-tag" aria-label="知识点"><option value="">全部知识点</option></select>
         <select id="catalog-difficulty" aria-label="难度"><option value="">全部难度</option><option value="easy">基础</option><option value="medium">进阶</option></select>
+        <select id="catalog-mode" aria-label="练习模式"><option value="all">全部模式</option><option value="local">本地练习</option><option value="remote">洛谷远程判题</option></select>
         <select id="catalog-source" aria-label="题目来源"><option value="">全部来源</option></select>
       </div>
       <p id="catalog-status" class="muted" role="status"></p>
@@ -245,6 +246,20 @@
         <p class="exercise-title" id="exercise-title">正在加载题目…</p>
         <p class="description" id="exercise-description"></p><p id="exercise-source" class="muted"></p><p id="exercise-capabilities" class="muted" hidden></p>
 
+        <section id="remote-panel" hidden>
+          <p>题面待授权同步，请到洛谷查看原题。提交的是完整程序，使用标准输入和输出。</p>
+          <label for="remote-language">远程语言</label>
+          <select id="remote-language"><option value="python3/c">Python 3</option><option value="cxx/17/gcc">C++17</option></select>
+          <p id="remote-limits" class="muted"></p><p id="remote-config" role="status">远程未开通</p>
+          <label for="remote-token">课堂凭证（仅本次页面内存）</label>
+          <input id="remote-token" type="password" autocomplete="off" maxlength="512">
+          <button id="remote-logout" class="secondary" type="button">退出远程会话</button>
+          <p>代码将上传至洛谷开放平台进行判题；请勿包含个人信息或密钥。每次新提交前均需确认。</p>
+          <label><input id="remote-confirm" type="checkbox">我确认上传本次代码至洛谷</label>
+          <button id="remote-submit" type="button" class="primary" disabled>提交至洛谷</button>
+          <button id="remote-refresh" type="button" class="secondary" disabled>刷新判题状态</button>
+          <pre id="remote-result" role="status" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
+        </section>
         <div class="code-shell">
           <label for="code">solution.py</label>
           <textarea id="code" aria-describedby="scope" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" maxlength="4000" disabled></textarea>
@@ -419,6 +434,7 @@
           typeof attempt.time === "string" && Number.isFinite(Date.parse(attempt.time))
         ).slice(0, 5) : [];
         exerciseStates.set(id, {
+          remoteDrafts: cleanRemoteDrafts(saved?.remoteDrafts),
           draft: typeof saved?.draft === "string" ? saved.draft.slice(0, editor.maxLength) : null,
           passed: saved?.passed === true || attempts.some((attempt) => attempt.status === "passed"),
           attempts,
@@ -430,16 +446,18 @@
     }
 
     function saveExercise(id, state) {
-      const { draft, passed, attempts, feedback, learning } = state;
-      state.unsaved = !writeStorage(`exercise.${id}`, JSON.stringify({ draft, passed, attempts, feedback, learning }));
+      const { draft, passed, attempts, feedback, learning, remoteDrafts } = state;
+      state.unsaved = !writeStorage(`exercise.${id}`, JSON.stringify({ draft, passed, attempts, feedback, learning, remoteDrafts }));
     }
 
     function updateProgress() {
-      const passed = exercises.filter(({ id }) => exerciseState(id).passed).length;
-      element("exercise-progress").textContent = `已通过 ${passed}/${exercises.length}`;
+      const localExercises = exercises.filter(e => e.engine !== "luogu_remote");
+      const passed = localExercises.filter(({ id }) => exerciseState(id).passed).length;
+      element("exercise-progress").textContent = `已通过 ${passed}/${localExercises.length}`;
     }
 
     function selectExercise(exercise) {
+      invalidateRemote();
       activeExercise = exercise;
       exerciseSelect.value = exercise.id;
       element("exercise-title").textContent = exercise.title;
@@ -462,6 +480,7 @@
       resultLabel.textContent = state.attempts.length ? "本题已有提交记录，运行测试可查看本次结果。" : "等待首次运行";
       renderAttempts(state.attempts);
       updateProgress();
+      renderRemote();
     }
 
     async function loadExercises() {
@@ -476,6 +495,7 @@
           option.value = id;
           return option;
         }));
+        try { remoteConfig = await request("/api/remote/config"); } catch { remoteConfig = {enabled:false}; }
         const savedId = readStorage("selected");
         selectExercise(exercises.find(({ id }) => id === savedId) ?? exercises[0]);
         exerciseSelect.disabled = false;
@@ -714,7 +734,7 @@
     }
 
     async function checkCode() {
-      if (!activeExercise || running) return;
+      if (!activeExercise || isRemote() || running) return;
       const { id } = activeExercise;
       const code = editor.value;
       running = true;
@@ -786,7 +806,7 @@
           typeof a.time !== "string" || !Number.isFinite(Date.parse(a.time))) throw new Error("提交记录无效。");
         return { number: a.number, status: a.status, passed: a.passed, total: a.total, time: a.time };
       });
-      return { draft: v.draft, passed: v.passed, attempts,
+      return { remoteDrafts: cleanRemoteDrafts(v.remoteDrafts), draft: v.draft, passed: v.passed, attempts,
         feedback: v.feedback.map(f => ({ request_id: f.request_id, source: f.source, level: f.level, choice: f.choice, time: f.time })),
         learning: v.learning === null ? null : { correct: v.learning.correct, explanation_recorded: v.learning.explanation_recorded, explanation: v.learning.explanation ?? "", attempt_count: v.learning.attempt_count, first_correct: v.learning.first_correct, time: v.learning.time } };
     }
@@ -836,7 +856,7 @@
     async function loadCatalog() {
       const generation = ++catalogGeneration;
       const query = new URLSearchParams({query: element("catalog-query").value, tag: element("catalog-tag").value,
-        difficulty: element("catalog-difficulty").value, source: element("catalog-source").value, page: String(catalogPage), page_size: "12"});
+        difficulty: element("catalog-difficulty").value, mode: element("catalog-mode").value, source: element("catalog-source").value, page: String(catalogPage), page_size: "12"});
       try {
         const data = await request("/api/catalog?" + query);
         if (generation !== catalogGeneration) return;
@@ -857,7 +877,7 @@
         element("catalog-next").disabled = data.page * data.page_size >= data.total;
       } catch (error) { if (generation === catalogGeneration) element("catalog-status").textContent = error.message; }
     }
-    for (const id of ["catalog-query", "catalog-tag", "catalog-source", "catalog-difficulty"]) {
+    for (const id of ["catalog-query", "catalog-tag", "catalog-source", "catalog-difficulty", "catalog-mode"]) {
       element(id).addEventListener(id === "catalog-query" ? "input" : "change", () => { catalogPage = 1; loadCatalog(); });
     }
     element("catalog-prev").addEventListener("click", () => { if (catalogPage > 1) { catalogPage--; loadCatalog(); } });
@@ -873,6 +893,13 @@
       pendingHint = null;
       hintsPanel.hidden = true;
       if (!activeExercise) return;
+      if (isRemote()) {
+        invalidateRemote();
+        const state = exerciseState(activeExercise.id);
+        state.remoteDrafts = {...state.remoteDrafts, [element("remote-language").value]: editor.value.slice(0,4000)};
+        saveExercise(activeExercise.id,state);
+        return;
+      }
       const { id } = activeExercise;
       const previous = exerciseState(id);
       const state = exerciseState(id, true);
@@ -891,6 +918,123 @@
       }
     });
     revealButton.addEventListener("click", revealHint);
+
+    let remoteConfig = {enabled:false}, remoteGeneration = 0, remoteController = null, remoteTimer = null;
+    let remoteLogical = null, remoteSubmission = null, remoteStarted = 0, remoteBusy = false;
+    function isRemote() { return activeExercise?.engine === "luogu_remote"; }
+    function cleanRemoteDrafts(value) {
+      const clean = {};
+      for (const language of ["python3/c", "cxx/17/gcc"]) {
+        if (typeof value?.[language] === "string" && value[language].length <= 4000) clean[language] = value[language];
+      }
+      return clean;
+    }
+    function invalidateRemote(keepLogical = false) {
+      remoteGeneration++; remoteController?.abort(); clearTimeout(remoteTimer);
+      remoteController = null; remoteBusy = false; remoteSubmission = null;
+      if (!keepLogical) remoteLogical = null;
+      element("remote-confirm").checked = false;
+      element("remote-refresh").disabled = true;
+      element("remote-result").textContent = "";
+      if (isRemote()) resultLabel.textContent = "洛谷开放平台 · 等待远程提交";
+      remoteControls();
+    }
+    function remoteControls() {
+      element("remote-submit").disabled = !isRemote() || remoteConfig.enabled !== true || remoteBusy ||
+        !element("remote-token").value.trim() || !element("remote-confirm").checked;
+    }
+    function renderRemote() {
+      const remote = isRemote();
+      element("remote-panel").hidden = !remote;
+      runButton.hidden = remote;
+      element("scope").hidden = remote || activeExercise.engine === "bounded_v1";
+      document.querySelector(".shortcut").hidden = remote;
+      casesList.hidden = remote; placeholder.hidden = remote;
+      document.querySelector(".code-shell label").textContent = remote && element("remote-language").value === "cxx/17/gcc" ? "main.cpp" : "solution.py";
+      if (!remote) return;
+      hintsPanel.hidden = true; element("learning").hidden = true;
+      element("exercise-capabilities").hidden = true;
+      element("exercise-description").textContent = "题面待授权同步，请到洛谷查看原题";
+      element("remote-config").textContent = remoteConfig.enabled === true ? "洛谷远程判题已配置" : "远程未开通";
+      const limits = activeExercise.remote?.limits || {};
+      const range = value => {
+        const values = (Array.isArray(value) ? value : [value]).filter(v => typeof v === "number" && Number.isFinite(v));
+        return values.length ? String(Math.min(...values)) + (Math.max(...values) !== Math.min(...values) ? "–" + Math.max(...values) : "") : "未提供";
+      };
+      element("remote-limits").textContent = "官方限制原始值：时间 " + range(limits.time) + "，内存 " + range(limits.memory) +
+        "。单位与逐测试点限制以原题说明为准。Python可提交不代表已验证能通过时限。";
+      const language = element("remote-language").value;
+      editor.value = exerciseState(activeExercise.id).remoteDrafts?.[language] ?? (language === "python3/c" ?
+        "# Python 3: read standard input and print the answer\nimport sys\n\ndef main():\n    data = sys.stdin.read()\n    # Write your program here\n\nif __name__ == '__main__':\n    main()\n" :
+        "#include <iostream>\nusing namespace std;\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    // Write your program here\n    return 0;\n}\n");
+      resultLabel.textContent = "洛谷开放平台 · 等待远程提交";
+      remoteControls();
+    }
+    async function remoteCall(path, options = {}) {
+      return request(path, {...options, headers: {...options.headers, "X-Classroom-Token": element("remote-token").value}});
+    }
+    function showRemoteResult(data) {
+      element("remote-result").textContent = "来源：洛谷开放平台\n" + JSON.stringify({
+        status: data.status, request_id: data.request_id, track_id: data.track_id, result: data.result
+      }, null, 2);
+      const stages = {submitting:"提交中", judging:"评测中", completed:"评测已完成", uncertain:"提交结果不确定，请勿自动重交", error:"服务错误", expired:"上游结果已过期"};
+      const judgeStatus = data.result?.data?.judge?.status;
+      const verdicts = {2:"编译错误",3:"输出超限",4:"内存超限",5:"运行超时",6:"答案错误",7:"运行错误",11:"无效评测",12:"通过",14:"未通过"};
+      let verdict = "";
+      if (data.status === "completed") {
+        verdict = data.result?.data?.compile?.success === false ? "编译错误" :
+          (typeof judgeStatus === "number" ? verdicts[judgeStatus] : "") || "结论待确认";
+      }
+      resultLabel.textContent = "洛谷远程判题 · " + (stages[data.status] || "状态待确认") + (verdict ? " · " + verdict : "");
+      if (data.result?.error_message) element("remote-result").append(document.createTextNode("\n" + data.result.error_message));
+      if (judgeStatus === 6) element("remote-result").append(document.createTextNode("\n请检查输入输出格式和边界；平台未提供隐藏用例的具体输入。"));
+    }
+    async function pollRemote(generation, automatic = false) {
+      if (generation !== remoteGeneration || !remoteSubmission) return;
+      if (automatic && Date.now() - remoteStarted >= 120000) {
+        element("remote-result").append(document.createTextNode("\n自动刷新已停止，请手动刷新状态。"));
+        return;
+      }
+      clearTimeout(remoteTimer);
+      const controller = new AbortController(); remoteController = controller;
+      const deadline = setTimeout(() => controller.abort(), automatic ? Math.min(15000, Math.max(1,120000 - (Date.now()-remoteStarted))) : 15000);
+      try {
+        const data = await remoteCall("/api/remote/submissions/" + encodeURIComponent(remoteSubmission), {signal:controller.signal});
+        if (generation !== remoteGeneration) return;
+        showRemoteResult(data);
+        element("remote-refresh").disabled = false;
+        if (["submitting","judging"].includes(data.status)) {
+          if (Date.now() - remoteStarted < 120000) remoteTimer = setTimeout(() => pollRemote(generation, true), Math.min(10,Math.max(2,Number(data.next_poll_seconds)||2))*1000);
+          else element("remote-result").append(document.createTextNode("\n自动刷新已停止，请手动刷新状态。"));
+        }
+      } catch { if (generation === remoteGeneration) element("remote-result").textContent = "状态查询未完成，请手动刷新。"; }
+      finally { clearTimeout(deadline); }
+    }
+    element("remote-submit").addEventListener("click", async () => {
+      if (element("remote-submit").disabled) return;
+      const generation = ++remoteGeneration;
+      remoteController?.abort(); clearTimeout(remoteTimer);
+      remoteBusy = true; element("remote-confirm").checked = false; remoteControls();
+      const controller = new AbortController(); remoteController = controller;
+      remoteLogical ??= crypto.randomUUID();
+      const deadline = setTimeout(() => controller.abort(), 20000);
+      try {
+        const data = await remoteCall("/api/remote/submissions", {method:"POST", signal:controller.signal,
+          headers:{"Content-Type":"application/json"},body:JSON.stringify({exercise_id:activeExercise.id,
+            language:element("remote-language").value,code:editor.value,client_submission_id:remoteLogical,upload_confirmed:true})});
+        if (generation !== remoteGeneration) return;
+        remoteLogical = null; remoteSubmission = data.id; remoteStarted = Date.now(); showRemoteResult(data);
+        element("remote-refresh").disabled = !remoteSubmission;
+        if (remoteSubmission && ["submitting","judging"].includes(data.status)) remoteTimer = setTimeout(() => pollRemote(generation, true), Math.min(10,Math.max(2,Number(data.next_poll_seconds)||2))*1000);
+      } catch { if (generation === remoteGeneration) element("remote-result").textContent = "提交结果未确认；重试将沿用本次提交编号，请先重新确认上传。"; }
+      finally { clearTimeout(deadline); if (generation === remoteGeneration) {remoteBusy=false;remoteControls();} }
+    });
+    element("remote-language").addEventListener("change", () => { invalidateRemote(); renderRemote(); });
+    element("remote-token").addEventListener("input", () => {invalidateRemote();remoteControls();});
+    element("remote-confirm").addEventListener("change", remoteControls);
+    element("remote-logout").addEventListener("click", () => {element("remote-token").value="";invalidateRemote();});
+    element("remote-refresh").addEventListener("click", () => pollRemote(remoteGeneration));
+
     loadExercises();
   </script>
 </body>

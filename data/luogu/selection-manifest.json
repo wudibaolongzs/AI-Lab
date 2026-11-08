@@ -1,0 +1,2903 @@
+{
+  "snapshot_date": "2026-11-08",
+  "snapshot_url": "https://cdn.luogu.com.cn/problemset-open/latest.ndjson.gz",
+  "documentation_url": "https://docs.lgapi.cn/open/judge/",
+  "sha256_compressed": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+  "compressed_bytes": 28503323,
+  "uncompressed_bytes": 175044484,
+  "rows": 17833,
+  "types": {
+    "P": 16665,
+    "B": 1168
+  },
+  "raw_schema_fields": [
+    "background",
+    "description",
+    "difficulty",
+    "hint",
+    "inputFormat",
+    "limits",
+    "locale",
+    "outputFormat",
+    "pid",
+    "samples",
+    "tags",
+    "title",
+    "translations",
+    "type"
+  ],
+  "quotas": {
+    "输入输出": 30,
+    "条件分支": 30,
+    "循环": 40,
+    "数组": 50,
+    "字符串": 40,
+    "排序与查找": 35,
+    "模拟与数学": 35,
+    "搜索": 20,
+    "贪心": 20
+  },
+  "eligible_candidates_per_category": {
+    "输入输出": 93,
+    "条件分支": 169,
+    "循环": 232,
+    "数组": 145,
+    "字符串": 322,
+    "排序与查找": 257,
+    "模拟与数学": 1106,
+    "搜索": 158,
+    "贪心": 340
+  },
+  "selection_method": "Official tags match main category; difficulty 1 then 2; B2 beginner series then deep-foundations then numeric PID. Unique first eligible PID per category in quota order. Exclude tagged interaction/output-only/remote tasks and records without input/output/samples. No statement or samples republished.",
+  "selected": [
+    {
+      "pid": "B2001",
+      "title": "入门测试题目",
+      "main_category": "输入输出",
+      "official_tags": [
+        "模拟",
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2003",
+      "title": "输出第二个整数",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2004",
+      "title": "对齐输出",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2005",
+      "title": "字符三角形",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2006",
+      "title": "地球人口承载力估计",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2007",
+      "title": "A + B 问题",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2008",
+      "title": "计算 (a+b)×c 的值",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2009",
+      "title": "计算 (a+b)/c 的值",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2010",
+      "title": "带余除法",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2011",
+      "title": "计算分数的浮点数值",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2012",
+      "title": "甲流疫情死亡率",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2013",
+      "title": "温度表达转化",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2014",
+      "title": "与圆相关的计算",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2015",
+      "title": "计算并联电阻的阻值",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2016",
+      "title": "浮点数向零舍入",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2017",
+      "title": "打印 ASCII 码",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2018",
+      "title": "打印字符",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2019",
+      "title": "整型与布尔型的转换",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2020",
+      "title": "分糖果",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2021",
+      "title": "输出保留 3 位小数的浮点数",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2022",
+      "title": "输出保留 12 位小数的浮点数",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2023",
+      "title": "空格分隔输出",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2024",
+      "title": "输出浮点数",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2025",
+      "title": "输出字符菱形",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2026",
+      "title": "计算浮点数相除的余",
+      "main_category": "输入输出",
+      "official_tags": [
+        "Special Judge",
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2027",
+      "title": "计算球的体积",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2028",
+      "title": "反向输出一个三位数",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2029",
+      "title": "大象喝水",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2030",
+      "title": "计算线段长度",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2032",
+      "title": "等差数列末项计算",
+      "main_category": "输入输出",
+      "official_tags": [
+        "顺序结构"
+      ]
+    },
+    {
+      "pid": "B2035",
+      "title": "判断数正负",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2036",
+      "title": "输出绝对值",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2037",
+      "title": "奇偶数判断",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2038",
+      "title": "奇偶 ASCII 值判断",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2039",
+      "title": "整数大小比较",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2040",
+      "title": "判断是否为两位数",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2041",
+      "title": "收集瓶盖赢大奖",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2042",
+      "title": "判断一个数能否同时被 3 和 5 整除",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2043",
+      "title": "判断能否被 3，5，7 整除",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2044",
+      "title": "有一门课不及格的学生",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2045",
+      "title": "晶晶赴约会",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2046",
+      "title": "骑车与走路",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2047",
+      "title": "分段函数",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2048",
+      "title": "计算邮资",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2049",
+      "title": "最大数输出",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2050",
+      "title": "三角形判断",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2051",
+      "title": "点和正方形的关系",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2052",
+      "title": "简单计算器",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2053",
+      "title": "求一元二次方程",
+      "main_category": "条件分支",
+      "official_tags": [
+        "数学",
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2087",
+      "title": "与指定数字相同的数的个数",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构",
+        "循环结构",
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2130",
+      "title": "简单算术表达式求值",
+      "main_category": "条件分支",
+      "official_tags": [
+        "模拟",
+        "分支结构",
+        "函数与递归"
+      ]
+    },
+    {
+      "pid": "B2144",
+      "title": "阿克曼（Ackermann）函数",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构",
+        "函数与递归"
+      ]
+    },
+    {
+      "pid": "B2149",
+      "title": "求三角形面积",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B2150",
+      "title": "判断闰年",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "P1422",
+      "title": "小玉家的电费",
+      "main_category": "条件分支",
+      "official_tags": [
+        "分支结构"
+      ]
+    },
+    {
+      "pid": "B3649",
+      "title": "[语言月赛202208] 大小比较",
+      "main_category": "条件分支",
+      "official_tags": [
+        "2022",
+        "分支结构",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3657",
+      "title": "[语言月赛202209] 公园门票",
+      "main_category": "条件分支",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "分支结构",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3659",
+      "title": "[语言月赛202209] 课程QQ群",
+      "main_category": "条件分支",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "分支结构",
+        "循环结构",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3668",
+      "title": "[语言月赛202210] 应急食品",
+      "main_category": "条件分支",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "分支结构",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3669",
+      "title": "[语言月赛 202210] 购物节",
+      "main_category": "条件分支",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "分支结构",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B2054",
+      "title": "求平均年龄",
+      "main_category": "循环",
+      "official_tags": [
+        "Special Judge",
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2055",
+      "title": "均值",
+      "main_category": "循环",
+      "official_tags": [
+        "Special Judge",
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2056",
+      "title": "求整数的和与均值",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2057",
+      "title": "最高的分数",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2058",
+      "title": "奥运奖牌计数",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2059",
+      "title": "奇数求和",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2060",
+      "title": "满足条件的数累加",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2061",
+      "title": "整数的个数",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2062",
+      "title": "乘方计算",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2063",
+      "title": "人口增长问题",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2064",
+      "title": "斐波那契数列",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2065",
+      "title": "鸡尾酒疗法",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2066",
+      "title": "救援",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2067",
+      "title": "药房管理",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2068",
+      "title": "统计满足条件的 4 位数",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2069",
+      "title": "求分数序列和",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2070",
+      "title": "计算分数加减表达式的值",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2071",
+      "title": "余数相同问题",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2072",
+      "title": "分苹果",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2073",
+      "title": "求小数的某一位",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2074",
+      "title": "计算星期几",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2075",
+      "title": "幂的末尾",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2076",
+      "title": "球弹跳高度的计算",
+      "main_category": "循环",
+      "official_tags": [
+        "Special Judge",
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2077",
+      "title": "角谷猜想",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2078",
+      "title": "含 k 个 3 的数",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2079",
+      "title": "求出 e 的值",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2080",
+      "title": "计算多项式的值",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2081",
+      "title": "与 7 无关的数",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2082",
+      "title": "数字统计",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2083",
+      "title": "画矩形",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2085",
+      "title": "第 n 小的质数",
+      "main_category": "循环",
+      "official_tags": [
+        "素数判断",
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2086",
+      "title": "不定方程求解",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2088",
+      "title": "计算书费",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2091",
+      "title": "向量点积计算",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构",
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2151",
+      "title": "正常血压",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2152",
+      "title": "分离整数的各个数",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2153",
+      "title": "求阶乘的和",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2154",
+      "title": "数 1 的个数",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B2157",
+      "title": "短信计费",
+      "main_category": "循环",
+      "official_tags": [
+        "循环结构"
+      ]
+    },
+    {
+      "pid": "B3650",
+      "title": "[语言月赛 202208] 求和",
+      "main_category": "循环",
+      "official_tags": [
+        "2022",
+        "循环结构",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B2089",
+      "title": "数组逆序重存放",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2090",
+      "title": "年龄与疾病",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2092",
+      "title": "开关灯",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2093",
+      "title": "查找特定的值",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2094",
+      "title": "不与最大数相同的数字之和",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2095",
+      "title": "白细胞计数",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2096",
+      "title": "直方图",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2097",
+      "title": "最长平台",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2098",
+      "title": "整数去重",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2099",
+      "title": "矩阵交换行",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2100",
+      "title": "同行列对角线的格",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2101",
+      "title": "计算矩阵边缘元素之和",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2102",
+      "title": "计算鞍点",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2103",
+      "title": "图像相似度",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2104",
+      "title": "矩阵加法",
+      "main_category": "数组",
+      "official_tags": [
+        "矩阵运算",
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2106",
+      "title": "矩阵转置",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2107",
+      "title": "图像旋转",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B2108",
+      "title": "图像模糊处理",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B3639",
+      "title": "T2 点亮灯笼",
+      "main_category": "数组",
+      "official_tags": [
+        "数组"
+      ]
+    },
+    {
+      "pid": "B3652",
+      "title": "[语言月赛202208] 渡荆门送别",
+      "main_category": "数组",
+      "official_tags": [
+        "2022",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3653",
+      "title": "[语言月赛202208] 俊俏地鼠的远亲",
+      "main_category": "数组",
+      "official_tags": [
+        "2022",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3661",
+      "title": "[语言月赛 202209] 排排队",
+      "main_category": "数组",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3671",
+      "title": "[语言月赛202210] 配餐",
+      "main_category": "数组",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3673",
+      "title": "[语言月赛202210] 垃圾分类",
+      "main_category": "数组",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3678",
+      "title": "[语言月赛202211] Gold-Purple-Blue-Green-White",
+      "main_category": "数组",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3688",
+      "title": "[语言月赛202212] 旋转排列",
+      "main_category": "数组",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3701",
+      "title": "[语言月赛202301] 避雷针",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3722",
+      "title": "[语言月赛202303] Milk Sales S",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3723",
+      "title": "[语言月赛202303] Coin Selection G",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3745",
+      "title": "[语言月赛202304] 你的牌太多了",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3746",
+      "title": "[语言月赛202304] 洛谷评测机模拟器",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3765",
+      "title": "[语言月赛202305] 超链接",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3766",
+      "title": "[语言月赛202305] 排排队，做游戏",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3807",
+      "title": "[语言月赛 202307] 塔台超频",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "循环结构",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3808",
+      "title": "[语言月赛 202307] 署前街少年",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3817",
+      "title": "[语言月赛 202308] 小粉兔还会忘记考试吗",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3857",
+      "title": "[语言月赛 202309] 打水赛打的",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3875",
+      "title": "[信息与未来 2015] 夏令营小旗手",
+      "main_category": "数组",
+      "official_tags": [
+        "模拟",
+        "2015",
+        "江苏",
+        "数组",
+        "信息与未来"
+      ]
+    },
+    {
+      "pid": "B3890",
+      "title": "[语言月赛 202311] 表格处理",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3910",
+      "title": "[语言月赛 202312] 函数零点",
+      "main_category": "数组",
+      "official_tags": [
+        "2023",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3917",
+      "title": "[语言月赛 202401] 小跳蛙",
+      "main_category": "数组",
+      "official_tags": [
+        "2024",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3918",
+      "title": "[语言月赛 202401] 图像变换",
+      "main_category": "数组",
+      "official_tags": [
+        "2024",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3936",
+      "title": "[语言月赛 202402] 小朋友的身高",
+      "main_category": "数组",
+      "official_tags": [
+        "2024",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3937",
+      "title": "[语言月赛 202402] 翻转和反转",
+      "main_category": "数组",
+      "official_tags": [
+        "2024",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3957",
+      "title": "[GESP202403 三级] 完全平方数",
+      "main_category": "数组",
+      "official_tags": [
+        "2024",
+        "数组",
+        "GESP"
+      ]
+    },
+    {
+      "pid": "B3973",
+      "title": "[语言月赛 202405] 小 S 大战小 Q",
+      "main_category": "数组",
+      "official_tags": [
+        "2024",
+        "O2优化",
+        "循环结构",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3974",
+      "title": "[语言月赛 202405] 放行李",
+      "main_category": "数组",
+      "official_tags": [
+        "2024",
+        "O2优化",
+        "循环结构",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3987",
+      "title": "[语言月赛 202406] 朋友数列",
+      "main_category": "数组",
+      "official_tags": [
+        "2024",
+        "Special Judge",
+        "O2优化",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3996",
+      "title": "[洛谷 202406GESP 模拟 三级] 小洛的数字游戏",
+      "main_category": "数组",
+      "official_tags": [
+        "模拟",
+        "循环结构",
+        "数组"
+      ]
+    },
+    {
+      "pid": "B4011",
+      "title": "[语言月赛 202407] speech",
+      "main_category": "数组",
+      "official_tags": [
+        "2024",
+        "数组",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B2109",
+      "title": "统计数字字符个数",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2110",
+      "title": "找第一个只出现一次的字符",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2111",
+      "title": "基因相关性",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2112",
+      "title": "石头剪子布",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2113",
+      "title": "输出亲朋字符串",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2114",
+      "title": "配对碱基链",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2115",
+      "title": "密码翻译",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2116",
+      "title": "加密的病历单",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2117",
+      "title": "整理药名",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2118",
+      "title": "验证子串",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2119",
+      "title": "删除单词后缀",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2120",
+      "title": "单词的长度",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2121",
+      "title": "最长最短单词",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2122",
+      "title": "单词翻转",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2123",
+      "title": "字符串 p 型编码",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2124",
+      "title": "判断字符串是否为回文",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2125",
+      "title": "最高分数的学生姓名",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）",
+        "结构体"
+      ]
+    },
+    {
+      "pid": "B2126",
+      "title": "连续出现的字符",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2155",
+      "title": "合法 C 标识符",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "B2156",
+      "title": "最长单词 2",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串（入门）"
+      ]
+    },
+    {
+      "pid": "P1000",
+      "title": "超级玛丽游戏",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串",
+        "O2优化"
+      ]
+    },
+    {
+      "pid": "P1151",
+      "title": "子数整数",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串",
+        "搜索",
+        "枚举"
+      ]
+    },
+    {
+      "pid": "P1200",
+      "title": "[USACO1.1] Your Ride Is Here",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串",
+        "数学",
+        "USACO"
+      ]
+    },
+    {
+      "pid": "P1307",
+      "title": "[NOIP 2011 普及组] 数字反转",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "2011",
+        "NOIP 普及组"
+      ]
+    },
+    {
+      "pid": "P1319",
+      "title": "压缩技术",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P1320",
+      "title": "压缩技术（续集版）",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P1321",
+      "title": "单词覆盖还原",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P1554",
+      "title": "[USACO06DEC] 梦中的统计 Dream Counting B",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "数学",
+        "2006",
+        "USACO"
+      ]
+    },
+    {
+      "pid": "P1597",
+      "title": "语句解析",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串"
+      ]
+    },
+    {
+      "pid": "P1615",
+      "title": "西游记公司",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "数学",
+        "洛谷原创",
+        "进制"
+      ]
+    },
+    {
+      "pid": "P1739",
+      "title": "表达式括号匹配",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "线性数据结构",
+        "栈"
+      ]
+    },
+    {
+      "pid": "P1765",
+      "title": "手机",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "NOI 导刊",
+        "枚举"
+      ]
+    },
+    {
+      "pid": "P1914",
+      "title": "小书童——凯撒密码",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串"
+      ]
+    },
+    {
+      "pid": "P1980",
+      "title": "[NOIP 2013 普及组] 计数问题",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "2013",
+        "NOIP 普及组"
+      ]
+    },
+    {
+      "pid": "P2084",
+      "title": "进制转换",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "线性数据结构",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P2670",
+      "title": "[NOIP 2015 普及组] 扫雷游戏",
+      "main_category": "字符串",
+      "official_tags": [
+        "字符串",
+        "搜索",
+        "2015",
+        "NOIP 普及组",
+        "枚举"
+      ]
+    },
+    {
+      "pid": "B3663",
+      "title": "[语言月赛202209] Luogu Academic",
+      "main_category": "字符串",
+      "official_tags": [
+        "2022",
+        "字符串（入门）",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B3674",
+      "title": "[语言月赛202210] 标题修改",
+      "main_category": "字符串",
+      "official_tags": [
+        "2022",
+        "O2优化",
+        "字符串（入门）",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "P3741",
+      "title": "小果的键盘",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "搜索"
+      ]
+    },
+    {
+      "pid": "P3742",
+      "title": "umi的函数",
+      "main_category": "字符串",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "贪心",
+        "Special Judge",
+        "构造"
+      ]
+    },
+    {
+      "pid": "B2158",
+      "title": "谁考了第 k 名",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "排序",
+        "结构体"
+      ]
+    },
+    {
+      "pid": "P1152",
+      "title": "欢乐的跳",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "枚举",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1888",
+      "title": "三角函数",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "数学",
+        "排序",
+        "最大公约数 gcd"
+      ]
+    },
+    {
+      "pid": "P1897",
+      "title": "电梯里的尴尬",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "排序",
+        "队列"
+      ]
+    },
+    {
+      "pid": "B4289",
+      "title": "[蓝桥杯青少年组省赛 2022] 字母组合",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "2022",
+        "排序",
+        "蓝桥杯青少年组"
+      ]
+    },
+    {
+      "pid": "P4325",
+      "title": "[COCI 2006/2007 #1] Modulo",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "2006",
+        "枚举",
+        "排序",
+        "COCI（克罗地亚）"
+      ]
+    },
+    {
+      "pid": "P4414",
+      "title": "[COCI 2006/2007 #2] ABC",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "2006",
+        "排序",
+        "COCI（克罗地亚）"
+      ]
+    },
+    {
+      "pid": "B4468",
+      "title": "[山西编程未来星 2025] 符号选择 / opt",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "2025",
+        "O2优化",
+        "排序",
+        "山西",
+        "数组",
+        "科创活动",
+        "小学活动"
+      ]
+    },
+    {
+      "pid": "P6530",
+      "title": "[COCI 2015/2016 #1]  AKCIJA",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "贪心",
+        "2015",
+        "排序",
+        "COCI（克罗地亚）"
+      ]
+    },
+    {
+      "pid": "P7614",
+      "title": "[COCI 2011/2012 #2] NAJBOLJIH 5",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "2011",
+        "枚举",
+        "排序",
+        "COCI（克罗地亚）"
+      ]
+    },
+    {
+      "pid": "P11199",
+      "title": "[JOIG 2024] ダンス / Dance",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "贪心",
+        "2024",
+        "O2优化",
+        "排序",
+        "JOI（日本）"
+      ]
+    },
+    {
+      "pid": "P11445",
+      "title": "「ALFR Round 3」A 调皮的学生",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "洛谷原创",
+        "O2优化",
+        "排序",
+        "洛谷月赛"
+      ]
+    },
+    {
+      "pid": "P12860",
+      "title": "[NERC 2020 Online] Kate' s 2021 Celebration",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "2020",
+        "Special Judge",
+        "O2优化",
+        "排序",
+        "ICPC",
+        "NERC/NEERC",
+        "STL"
+      ]
+    },
+    {
+      "pid": "P14297",
+      "title": "[JOI2023 预选赛 R2] 年龄之差 / Age Difference",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "2022",
+        "排序",
+        "JOI（日本）"
+      ]
+    },
+    {
+      "pid": "P15399",
+      "title": "[NOISG 2026 Prelim] Area 2",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "排序",
+        "2026",
+        "NOISG（新加坡）"
+      ]
+    },
+    {
+      "pid": "B2160",
+      "title": "病人排队",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "排序",
+        "结构体"
+      ]
+    },
+    {
+      "pid": "B2166",
+      "title": "查找不重复元素出现的位置",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "二分"
+      ]
+    },
+    {
+      "pid": "B2167",
+      "title": "查找最后一个出现的位置",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "二分",
+        "STL"
+      ]
+    },
+    {
+      "pid": "P1271",
+      "title": "【深基9.例1】选举学生会",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "排序"
+      ]
+    },
+    {
+      "pid": "P2249",
+      "title": "【深基13.例1】查找",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "二分"
+      ]
+    },
+    {
+      "pid": "P1024",
+      "title": "[NOIP 2001 提高组] 一元三次方程求解",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "数学",
+        "2001",
+        "二分",
+        "NOIP 提高组",
+        "O2优化",
+        "枚举",
+        "分治"
+      ]
+    },
+    {
+      "pid": "P1051",
+      "title": "[NOIP 2005 提高组] 谁拿了最多奖学金",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "字符串",
+        "2005",
+        "NOIP 提高组",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1059",
+      "title": "[NOIP 2006 普及组] 明明的随机数",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "2006",
+        "NOIP 普及组",
+        "排序",
+        "STL"
+      ]
+    },
+    {
+      "pid": "P1068",
+      "title": "[NOIP 2009 普及组] 分数线划定",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "2009",
+        "NOIP 普及组",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1088",
+      "title": "[NOIP 2004 普及组] 火星人",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "搜索",
+        "数学",
+        "2004",
+        "NOIP 普及组",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1093",
+      "title": "[NOIP 2007 普及组] 奖学金",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "数学",
+        "2007",
+        "NOIP 普及组",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1094",
+      "title": "[NOIP 2007 普及组] 纪念品分组",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "贪心",
+        "2007",
+        "NOIP 普及组",
+        "排序",
+        "双指针 two-pointer"
+      ]
+    },
+    {
+      "pid": "P1097",
+      "title": "[NOIP 2007 提高组] 统计数字",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "2007",
+        "NOIP 提高组",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1102",
+      "title": "A-B 数对",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "数学",
+        "二分",
+        "离散化",
+        "排序",
+        "哈希 hashing",
+        "双指针 two-pointer",
+        "STL"
+      ]
+    },
+    {
+      "pid": "P1104",
+      "title": "生日",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1105",
+      "title": "平台",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "搜索",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1116",
+      "title": "车厢重组",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1138",
+      "title": "第 k 小整数",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "模拟",
+        "排序"
+      ]
+    },
+    {
+      "pid": "P1147",
+      "title": "连续正整数和",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "数学",
+        "二分",
+        "枚举",
+        "前缀和",
+        "双指针 two-pointer"
+      ]
+    },
+    {
+      "pid": "P1163",
+      "title": "银行贷款",
+      "main_category": "排序与查找",
+      "official_tags": [
+        "数学",
+        "二分"
+      ]
+    },
+    {
+      "pid": "P5703",
+      "title": "【深基2.例5】苹果采购",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "数学"
+      ]
+    },
+    {
+      "pid": "P5707",
+      "title": "【深基2.例12】上学迟到",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "数学"
+      ]
+    },
+    {
+      "pid": "P5709",
+      "title": "【深基2.习6】Apples Prologue / 苹果和虫子",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "数学"
+      ]
+    },
+    {
+      "pid": "P5710",
+      "title": "【深基3.例2】数的性质",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟"
+      ]
+    },
+    {
+      "pid": "P1001",
+      "title": "A+B Problem",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟"
+      ]
+    },
+    {
+      "pid": "P1035",
+      "title": "[NOIP 2002 普及组] 级数求和",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "数学",
+        "2002",
+        "NOIP 普及组"
+      ]
+    },
+    {
+      "pid": "P1046",
+      "title": "[NOIP 2005 普及组] 陶陶摘苹果",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "2005",
+        "NOIP 普及组"
+      ]
+    },
+    {
+      "pid": "P1047",
+      "title": "[NOIP 2005 普及组] 校门外的树",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "2005",
+        "NOIP 普及组"
+      ]
+    },
+    {
+      "pid": "P1089",
+      "title": "[NOIP 2004 提高组] 津津的储蓄计划",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "2004",
+        "NOIP 提高组",
+        "枚举"
+      ]
+    },
+    {
+      "pid": "P1150",
+      "title": "Peter 的烟",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "数学"
+      ]
+    },
+    {
+      "pid": "P1161",
+      "title": "开灯",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "进制"
+      ]
+    },
+    {
+      "pid": "P1179",
+      "title": "[NOIP 2010 普及组] 数字统计",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "2010",
+        "NOIP 普及组"
+      ]
+    },
+    {
+      "pid": "P1304",
+      "title": "哥德巴赫猜想",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "搜索",
+        "数学",
+        "素数判断"
+      ]
+    },
+    {
+      "pid": "P1317",
+      "title": "低洼地",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P1401",
+      "title": "[入门赛 #18] 禁止在 int 乘 int 时不开 long long",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "数学",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "P1420",
+      "title": "最长连号",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟"
+      ]
+    },
+    {
+      "pid": "P1421",
+      "title": "小玉买文具",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟"
+      ]
+    },
+    {
+      "pid": "P1425",
+      "title": "小鱼的游泳时间",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "数学",
+        "枚举"
+      ]
+    },
+    {
+      "pid": "P1426",
+      "title": "小鱼会有危险吗",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟"
+      ]
+    },
+    {
+      "pid": "P1428",
+      "title": "小鱼比可爱",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟"
+      ]
+    },
+    {
+      "pid": "P1534",
+      "title": "不高兴的津津（升级版）",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P1567",
+      "title": "统计天数",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟"
+      ]
+    },
+    {
+      "pid": "P1614",
+      "title": "爱与愁的心痛",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "贪心",
+        "洛谷原创",
+        "枚举",
+        "前缀和"
+      ]
+    },
+    {
+      "pid": "P1634",
+      "title": "禽兽的传染病",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "数学",
+        "递推",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P1697",
+      "title": "[USACO18JAN] Lifeguards B",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "2018",
+        "USACO",
+        "O2优化"
+      ]
+    },
+    {
+      "pid": "P1720",
+      "title": "月落乌啼算钱（斐波那契数列）",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "数学",
+        "递推",
+        "洛谷原创",
+        "Fibonacci 数列"
+      ]
+    },
+    {
+      "pid": "P1830",
+      "title": "轰炸III",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P1851",
+      "title": "好朋友",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "数学"
+      ]
+    },
+    {
+      "pid": "P1867",
+      "title": "【Mc生存】经验值",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P1876",
+      "title": "开灯",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "数学"
+      ]
+    },
+    {
+      "pid": "P1887",
+      "title": "乘积最大3",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "数学",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P1909",
+      "title": "[NOIP 2016 普及组] 买铅笔",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "2016",
+        "NOIP 普及组"
+      ]
+    },
+    {
+      "pid": "P2006",
+      "title": "赵神牛的游戏",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟"
+      ]
+    },
+    {
+      "pid": "P2192",
+      "title": "HXY玩卡片",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟"
+      ]
+    },
+    {
+      "pid": "P2345",
+      "title": "[USACO04OPEN] MooFest G",
+      "main_category": "模拟与数学",
+      "official_tags": [
+        "模拟",
+        "2004",
+        "USACO",
+        "枚举"
+      ]
+    },
+    {
+      "pid": "P2689",
+      "title": "东南西北",
+      "main_category": "搜索",
+      "official_tags": [
+        "模拟",
+        "搜索",
+        "洛谷原创"
+      ]
+    },
+    {
+      "pid": "P3717",
+      "title": "[AHOI2017初中组] cover",
+      "main_category": "搜索",
+      "official_tags": [
+        "模拟",
+        "搜索",
+        "2017",
+        "安徽",
+        "枚举",
+        "差分"
+      ]
+    },
+    {
+      "pid": "B2169",
+      "title": "树的深度优先遍历序列",
+      "main_category": "搜索",
+      "official_tags": [
+        "深度优先搜索 DFS",
+        "树的遍历"
+      ]
+    },
+    {
+      "pid": "B2172",
+      "title": "树的广度优先遍历序列",
+      "main_category": "搜索",
+      "official_tags": [
+        "广度优先搜索 BFS",
+        "树的遍历"
+      ]
+    },
+    {
+      "pid": "P4913",
+      "title": "【深基16.例3】二叉树深度",
+      "main_category": "搜索",
+      "official_tags": [
+        "搜索",
+        "广度优先搜索 BFS",
+        "深度优先搜索 DFS"
+      ]
+    },
+    {
+      "pid": "P5318",
+      "title": "【深基18.例3】查找文献",
+      "main_category": "搜索",
+      "official_tags": [
+        "搜索",
+        "图论",
+        "广度优先搜索 BFS",
+        "深度优先搜索 DFS",
+        "图遍历"
+      ]
+    },
+    {
+      "pid": "P1002",
+      "title": "[NOIP 2002 普及组] 过河卒",
+      "main_category": "搜索",
+      "official_tags": [
+        "动态规划 DP",
+        "递推",
+        "2002",
+        "NOIP 普及组",
+        "记忆化搜索"
+      ]
+    },
+    {
+      "pid": "P1030",
+      "title": "[NOIP 2001 普及组] 求先序排列",
+      "main_category": "搜索",
+      "official_tags": [
+        "字符串",
+        "树形数据结构",
+        "2001",
+        "递归",
+        "NOIP 普及组",
+        "深度优先搜索 DFS"
+      ]
+    },
+    {
+      "pid": "P1036",
+      "title": "[NOIP 2002 普及组] 选数",
+      "main_category": "搜索",
+      "official_tags": [
+        "搜索",
+        "2002",
+        "NOIP 普及组",
+        "枚举",
+        "深度优先搜索 DFS",
+        "剪枝",
+        "素数判断",
+        "状压 DP"
+      ]
+    },
+    {
+      "pid": "P1049",
+      "title": "[NOIP 2001 普及组] 装箱问题",
+      "main_category": "搜索",
+      "official_tags": [
+        "动态规划 DP",
+        "2001",
+        "递归",
+        "NOIP 普及组",
+        "深度优先搜索 DFS",
+        "背包 DP"
+      ]
+    },
+    {
+      "pid": "P1086",
+      "title": "[NOIP 2004 普及组] 花生采摘",
+      "main_category": "搜索",
+      "official_tags": [
+        "模拟",
+        "搜索",
+        "2004",
+        "NOIP 普及组"
+      ]
+    },
+    {
+      "pid": "P1087",
+      "title": "[NOIP 2004 普及组] FBI 树",
+      "main_category": "搜索",
+      "official_tags": [
+        "字符串",
+        "搜索",
+        "树形数据结构",
+        "2004",
+        "递归",
+        "NOIP 普及组"
+      ]
+    },
+    {
+      "pid": "P1101",
+      "title": "单词方阵",
+      "main_category": "搜索",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "搜索",
+        "枚举"
+      ]
+    },
+    {
+      "pid": "P1145",
+      "title": "[CERC 1995] 约瑟夫",
+      "main_category": "搜索",
+      "official_tags": [
+        "模拟",
+        "搜索",
+        "枚举",
+        "剪枝",
+        "ICPC",
+        "CERC"
+      ]
+    },
+    {
+      "pid": "P1146",
+      "title": "硬币翻转",
+      "main_category": "搜索",
+      "official_tags": [
+        "模拟",
+        "搜索",
+        "数学"
+      ]
+    },
+    {
+      "pid": "P1149",
+      "title": "[NOIP 2008 提高组] 火柴棒等式",
+      "main_category": "搜索",
+      "official_tags": [
+        "搜索",
+        "2008",
+        "NOIP 提高组",
+        "枚举"
+      ]
+    },
+    {
+      "pid": "P1157",
+      "title": "组合的输出",
+      "main_category": "搜索",
+      "official_tags": [
+        "搜索",
+        "递归",
+        "深度优先搜索 DFS",
+        "排列组合"
+      ]
+    },
+    {
+      "pid": "P1162",
+      "title": "填涂颜色",
+      "main_category": "搜索",
+      "official_tags": [
+        "搜索",
+        "洛谷原创",
+        "广度优先搜索 BFS",
+        "深度优先搜索 DFS",
+        "连通块",
+        "队列"
+      ]
+    },
+    {
+      "pid": "P1164",
+      "title": "小 A 点菜",
+      "main_category": "搜索",
+      "official_tags": [
+        "动态规划 DP",
+        "洛谷原创",
+        "记忆化搜索",
+        "背包 DP"
+      ]
+    },
+    {
+      "pid": "P1184",
+      "title": "高手之在一起",
+      "main_category": "搜索",
+      "official_tags": [
+        "模拟",
+        "搜索",
+        "洛谷原创",
+        "哈希 hashing",
+        "STL"
+      ]
+    },
+    {
+      "pid": "P1639",
+      "title": "[USACO18FEB] Teleportation B",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "2018",
+        "USACO",
+        "O2优化"
+      ]
+    },
+    {
+      "pid": "B4032",
+      "title": "[语言月赛 202409] 数字",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "2024",
+        "O2优化",
+        "枚举",
+        "循环结构",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "B4488",
+      "title": "[语言月赛 202602] 甜品食用",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "2026",
+        "分支结构",
+        "分类讨论",
+        "语言月赛"
+      ]
+    },
+    {
+      "pid": "P6832",
+      "title": "[Cnoi2020] 子弦",
+      "main_category": "贪心",
+      "official_tags": [
+        "字符串",
+        "贪心",
+        "2020",
+        "O2优化",
+        "洛谷月赛"
+      ]
+    },
+    {
+      "pid": "P7285",
+      "title": "「EZEC-5」修改数组",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "Special Judge",
+        "构造",
+        "洛谷月赛"
+      ]
+    },
+    {
+      "pid": "P7314",
+      "title": "[COCI 2018/2019 #3] Pismo",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "2018",
+        "COCI（克罗地亚）"
+      ]
+    },
+    {
+      "pid": "P8480",
+      "title": "「HGOI-1」PMTD",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "洛谷原创",
+        "O2优化",
+        "洛谷月赛"
+      ]
+    },
+    {
+      "pid": "P9044",
+      "title": "[PA 2021] Koszulki",
+      "main_category": "贪心",
+      "official_tags": [
+        "模拟",
+        "贪心",
+        "2021",
+        "PA（波兰）"
+      ]
+    },
+    {
+      "pid": "P9517",
+      "title": "drink",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "洛谷原创",
+        "O2优化"
+      ]
+    },
+    {
+      "pid": "P10606",
+      "title": "物理实验 (easy)",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "洛谷原创",
+        "O2优化",
+        "洛谷月赛"
+      ]
+    },
+    {
+      "pid": "P12192",
+      "title": "[NOISG 2025 Prelim] Train Or Bus",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "2025",
+        "NOISG（新加坡）"
+      ]
+    },
+    {
+      "pid": "P12870",
+      "title": "[蓝桥杯 2025 国 Python A] 铺设能源管道",
+      "main_category": "贪心",
+      "official_tags": [
+        "数学",
+        "贪心",
+        "2025",
+        "蓝桥杯国赛"
+      ]
+    },
+    {
+      "pid": "P13992",
+      "title": "【MX-X19-T1】「FeOI Round 4.5」五字神人",
+      "main_category": "贪心",
+      "official_tags": [
+        "字符串",
+        "贪心",
+        "O2优化",
+        "梦熊比赛"
+      ]
+    },
+    {
+      "pid": "P14056",
+      "title": "【MX-X21-T1】[IAMOI R5] 七休制",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "O2优化",
+        "梦熊比赛"
+      ]
+    },
+    {
+      "pid": "P14130",
+      "title": "【MX-X22-T1】「TPOI-4A」MEX Problem",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "O2优化",
+        "梦熊比赛"
+      ]
+    },
+    {
+      "pid": "P14887",
+      "title": "Cafeforces",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心"
+      ]
+    },
+    {
+      "pid": "P14953",
+      "title": "乒乓博弈",
+      "main_category": "贪心",
+      "official_tags": [
+        "数学",
+        "贪心",
+        "洛谷原创",
+        "洛谷月赛"
+      ]
+    },
+    {
+      "pid": "P15286",
+      "title": "「YLLOI-R3-T1」兰亭序",
+      "main_category": "贪心",
+      "official_tags": [
+        "贪心",
+        "洛谷原创",
+        "O2优化",
+        "洛谷月赛"
+      ]
+    },
+    {
+      "pid": "P16465",
+      "title": "[GKS 2013 Practice] Moist",
+      "main_category": "贪心",
+      "official_tags": [
+        "模拟",
+        "字符串",
+        "贪心",
+        "2013",
+        "Google Kick Start"
+      ]
+    },
+    {
+      "pid": "P17260",
+      "title": "[ICPC 2017 Urumqi R] The Difference",
+      "main_category": "贪心",
+      "official_tags": [
+        "数学",
+        "贪心",
+        "2017",
+        "ICPC"
+      ]
+    }
+  ]
+}

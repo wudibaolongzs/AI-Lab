@@ -21,7 +21,7 @@ class CatalogHTTPTests(unittest.TestCase):
         response=client.getresponse();value=json.loads(response.read());client.close()
         return response.status,value
     def test_public_pages_never_expose_private_material(self):
-        status,page=self.get("/api/catalog?page=1&page_size=12")
+        status,page=self.get("/api/catalog?mode=local&page=1&page_size=12")
         self.assertEqual(status,200);self.assertEqual(page["total"],28)
         self.assertEqual(len(page["items"]),12)
         for item in page["items"]:

@@ -74,7 +74,7 @@ class AppTests(unittest.TestCase):
         self.assertEqual(status, 200)
         exercises = json.loads(body)
         self.assertEqual([item["id"] for item in exercises[:8]], ["average", "sum", "count", "double_sum", "shifted_average", "total_with_fee", "pair_count", "average_with_zero"])
-        self.assertEqual(len(exercises), 28)
+        self.assertEqual(len(exercises), 328)
 
         expressions = ("sum(nums)", "len(nums)", "sum(nums)*2", "sum(nums)/len(nums)+2",
                        "sum(nums)+5", "len(nums)*2", "sum(nums)/(len(nums)+1)")

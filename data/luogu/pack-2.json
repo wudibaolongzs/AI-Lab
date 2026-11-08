@@ -1,0 +1,7060 @@
+{
+  "schema_version": 2,
+  "pack_kind": "remote",
+  "pack_id": "luogu-metadata-2",
+  "version": "2026-11-08",
+  "problems": [
+    {
+      "id": "luogu_B2089",
+      "version": "2026-11-08",
+      "title": "数组逆序重存放",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2089",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2089",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2090",
+      "version": "2026-11-08",
+      "title": "年龄与疾病",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2090",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2090",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2092",
+      "version": "2026-11-08",
+      "title": "开关灯",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2092",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2092",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2093",
+      "version": "2026-11-08",
+      "title": "查找特定的值",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2093",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2093",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2094",
+      "version": "2026-11-08",
+      "title": "不与最大数相同的数字之和",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2094",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2094",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2095",
+      "version": "2026-11-08",
+      "title": "白细胞计数",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2095",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2095",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2096",
+      "version": "2026-11-08",
+      "title": "直方图",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2096",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2096",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2097",
+      "version": "2026-11-08",
+      "title": "最长平台",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2097",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2097",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2098",
+      "version": "2026-11-08",
+      "title": "整数去重",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2098",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2098",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2099",
+      "version": "2026-11-08",
+      "title": "矩阵交换行",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2099",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2099",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2100",
+      "version": "2026-11-08",
+      "title": "同行列对角线的格",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2100",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2100",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2101",
+      "version": "2026-11-08",
+      "title": "计算矩阵边缘元素之和",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2101",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2101",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2102",
+      "version": "2026-11-08",
+      "title": "计算鞍点",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2102",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2102",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2103",
+      "version": "2026-11-08",
+      "title": "图像相似度",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2103",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2103",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2104",
+      "version": "2026-11-08",
+      "title": "矩阵加法",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "矩阵运算"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2104",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2104",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "矩阵运算",
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 矩阵运算, 数组"
+      }
+    },
+    {
+      "id": "luogu_B2106",
+      "version": "2026-11-08",
+      "title": "矩阵转置",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2106",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2106",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2107",
+      "version": "2026-11-08",
+      "title": "图像旋转",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2107",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2107",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B2108",
+      "version": "2026-11-08",
+      "title": "图像模糊处理",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2108",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2108",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B3639",
+      "version": "2026-11-08",
+      "title": "T2 点亮灯笼",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3639",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3639",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 数组"
+      }
+    },
+    {
+      "id": "luogu_B3652",
+      "version": "2026-11-08",
+      "title": "[语言月赛202208] 渡荆门送别",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2022",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3652",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3652",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2022",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 2022, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3653",
+      "version": "2026-11-08",
+      "title": "[语言月赛202208] 俊俏地鼠的远亲",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2022",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3653",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3653",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2022",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 2022, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3661",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202209] 排排队",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2022",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3661",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3661",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2022",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2022, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3671",
+      "version": "2026-11-08",
+      "title": "[语言月赛202210] 配餐",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2022",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3671",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3671",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2022",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 2022, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3673",
+      "version": "2026-11-08",
+      "title": "[语言月赛202210] 垃圾分类",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2022",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3673",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3673",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2022",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 2022, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3678",
+      "version": "2026-11-08",
+      "title": "[语言月赛202211] Gold-Purple-Blue-Green-White",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2022",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3678",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3678",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2022",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2022, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3688",
+      "version": "2026-11-08",
+      "title": "[语言月赛202212] 旋转排列",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2022",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3688",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3688",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2022",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2022, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3701",
+      "version": "2026-11-08",
+      "title": "[语言月赛202301] 避雷针",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3701",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3701",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3722",
+      "version": "2026-11-08",
+      "title": "[语言月赛202303] Milk Sales S",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3722",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3722",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3723",
+      "version": "2026-11-08",
+      "title": "[语言月赛202303] Coin Selection G",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3723",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3723",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3745",
+      "version": "2026-11-08",
+      "title": "[语言月赛202304] 你的牌太多了",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3745",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3745",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3746",
+      "version": "2026-11-08",
+      "title": "[语言月赛202304] 洛谷评测机模拟器",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3746",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3746",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3765",
+      "version": "2026-11-08",
+      "title": "[语言月赛202305] 超链接",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3765",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3765",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3766",
+      "version": "2026-11-08",
+      "title": "[语言月赛202305] 排排队，做游戏",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3766",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3766",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3807",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202307] 塔台超频",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "循环结构",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3807",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3807",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "循环结构",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 循环结构, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3808",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202307] 署前街少年",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3808",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3808",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3817",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202308] 小粉兔还会忘记考试吗",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3817",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3817",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144,
+            262144
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3857",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202309] 打水赛打的",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3857",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3857",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3875",
+      "version": "2026-11-08",
+      "title": "[信息与未来 2015] 夏令营小旗手",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "模拟",
+        "2015",
+        "江苏",
+        "信息与未来"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3875",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3875",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "模拟",
+          "2015",
+          "江苏",
+          "数组",
+          "信息与未来"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 2015, 江苏, 数组, 信息与未来"
+      }
+    },
+    {
+      "id": "luogu_B3890",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202311] 表格处理",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3890",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3890",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000,
+            3000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3910",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202312] 函数零点",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2023",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3910",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3910",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2023",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2023, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3917",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202401] 小跳蛙",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2024",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3917",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3917",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2024",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2024, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3918",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202401] 图像变换",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2024",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3918",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3918",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2024",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2024, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3936",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202402] 小朋友的身高",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2024",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3936",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3936",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2024",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2024, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3937",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202402] 翻转和反转",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2024",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3937",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3937",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2024",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2024, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3957",
+      "version": "2026-11-08",
+      "title": "[GESP202403 三级] 完全平方数",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2024",
+        "GESP"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3957",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3957",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2024",
+          "数组",
+          "GESP"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2024, 数组, GESP"
+      }
+    },
+    {
+      "id": "luogu_B3973",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202405] 小 S 大战小 Q",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2024",
+        "O2优化",
+        "循环结构",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3973",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3973",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2024",
+          "O2优化",
+          "循环结构",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2024, O2优化, 循环结构, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3974",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202405] 放行李",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2024",
+        "O2优化",
+        "循环结构",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3974",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3974",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2024",
+          "O2优化",
+          "循环结构",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2024, O2优化, 循环结构, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3987",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202406] 朋友数列",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2024",
+        "Special Judge",
+        "O2优化",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3987",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3987",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2024",
+          "Special Judge",
+          "O2优化",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2024, Special Judge, O2优化, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3996",
+      "version": "2026-11-08",
+      "title": "[洛谷 202406GESP 模拟 三级] 小洛的数字游戏",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "模拟",
+        "循环结构"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3996",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3996",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "模拟",
+          "循环结构",
+          "数组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 循环结构, 数组"
+      }
+    },
+    {
+      "id": "luogu_B4011",
+      "version": "2026-11-08",
+      "title": "[语言月赛 202407] speech",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习数组，以官方题面与评测结果为准。",
+      "tags": [
+        "数组",
+        "2024",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B4011",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B4011",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "数组",
+        "official_tags": [
+          "2024",
+          "数组",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2024, 数组, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B2109",
+      "version": "2026-11-08",
+      "title": "统计数字字符个数",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2109",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2109",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2110",
+      "version": "2026-11-08",
+      "title": "找第一个只出现一次的字符",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2110",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2110",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2111",
+      "version": "2026-11-08",
+      "title": "基因相关性",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2111",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2111",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2112",
+      "version": "2026-11-08",
+      "title": "石头剪子布",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2112",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2112",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2113",
+      "version": "2026-11-08",
+      "title": "输出亲朋字符串",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2113",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2113",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2114",
+      "version": "2026-11-08",
+      "title": "配对碱基链",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2114",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2114",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2115",
+      "version": "2026-11-08",
+      "title": "密码翻译",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2115",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2115",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2116",
+      "version": "2026-11-08",
+      "title": "加密的病历单",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2116",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2116",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2117",
+      "version": "2026-11-08",
+      "title": "整理药名",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2117",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2117",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2118",
+      "version": "2026-11-08",
+      "title": "验证子串",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2118",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2118",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2119",
+      "version": "2026-11-08",
+      "title": "删除单词后缀",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2119",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2119",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2120",
+      "version": "2026-11-08",
+      "title": "单词的长度",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2120",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2120",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2121",
+      "version": "2026-11-08",
+      "title": "最长最短单词",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2121",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2121",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2122",
+      "version": "2026-11-08",
+      "title": "单词翻转",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2122",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2122",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2123",
+      "version": "2026-11-08",
+      "title": "字符串 p 型编码",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2123",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2123",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2124",
+      "version": "2026-11-08",
+      "title": "判断字符串是否为回文",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2124",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2124",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2125",
+      "version": "2026-11-08",
+      "title": "最高分数的学生姓名",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）",
+        "结构体"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2125",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2125",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）",
+          "结构体"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）, 结构体"
+      }
+    },
+    {
+      "id": "luogu_B2126",
+      "version": "2026-11-08",
+      "title": "连续出现的字符",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2126",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2126",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2155",
+      "version": "2026-11-08",
+      "title": "合法 C 标识符",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2155",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2155",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_B2156",
+      "version": "2026-11-08",
+      "title": "最长单词 2",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "字符串（入门）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2156",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2156",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串（入门）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 字符串（入门）"
+      }
+    },
+    {
+      "id": "luogu_P1000",
+      "version": "2026-11-08",
+      "title": "超级玛丽游戏",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "O2优化"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1000",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1000",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串",
+          "O2优化"
+        ],
+        "limits": {
+          "time": [
+            1000
+          ],
+          "memory": [
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 字符串, O2优化"
+      }
+    },
+    {
+      "id": "luogu_P1151",
+      "version": "2026-11-08",
+      "title": "子数整数",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "搜索",
+        "枚举"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1151",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1151",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串",
+          "搜索",
+          "枚举"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 字符串, 搜索, 枚举"
+      }
+    },
+    {
+      "id": "luogu_P1200",
+      "version": "2026-11-08",
+      "title": "[USACO1.1] Your Ride Is Here",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "数学",
+        "USACO"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1200",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1200",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串",
+          "数学",
+          "USACO"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 字符串, 数学, USACO"
+      }
+    },
+    {
+      "id": "luogu_P1307",
+      "version": "2026-11-08",
+      "title": "[NOIP 2011 普及组] 数字反转",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "2011",
+        "NOIP 普及组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1307",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1307",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "2011",
+          "NOIP 普及组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 2011, NOIP 普及组"
+      }
+    },
+    {
+      "id": "luogu_P1319",
+      "version": "2026-11-08",
+      "title": "压缩技术",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "洛谷原创"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1319",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1319",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "洛谷原创"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 洛谷原创"
+      }
+    },
+    {
+      "id": "luogu_P1320",
+      "version": "2026-11-08",
+      "title": "压缩技术（续集版）",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "洛谷原创"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1320",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1320",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "洛谷原创"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 洛谷原创"
+      }
+    },
+    {
+      "id": "luogu_P1321",
+      "version": "2026-11-08",
+      "title": "单词覆盖还原",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "洛谷原创"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1321",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1321",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "洛谷原创"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 洛谷原创"
+      }
+    },
+    {
+      "id": "luogu_P1554",
+      "version": "2026-11-08",
+      "title": "[USACO06DEC] 梦中的统计 Dream Counting B",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "数学",
+        "2006",
+        "USACO"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1554",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1554",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "数学",
+          "2006",
+          "USACO"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 数学, 2006, USACO"
+      }
+    },
+    {
+      "id": "luogu_P1597",
+      "version": "2026-11-08",
+      "title": "语句解析",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1597",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1597",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串"
+      }
+    },
+    {
+      "id": "luogu_P1615",
+      "version": "2026-11-08",
+      "title": "西游记公司",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "数学",
+        "洛谷原创",
+        "进制"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1615",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1615",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "数学",
+          "洛谷原创",
+          "进制"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 数学, 洛谷原创, 进制"
+      }
+    },
+    {
+      "id": "luogu_P1739",
+      "version": "2026-11-08",
+      "title": "表达式括号匹配",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "线性数据结构",
+        "栈"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1739",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1739",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "线性数据结构",
+          "栈"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 线性数据结构, 栈"
+      }
+    },
+    {
+      "id": "luogu_P1765",
+      "version": "2026-11-08",
+      "title": "手机",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "NOI 导刊",
+        "枚举"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1765",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1765",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "NOI 导刊",
+          "枚举"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, NOI 导刊, 枚举"
+      }
+    },
+    {
+      "id": "luogu_P1914",
+      "version": "2026-11-08",
+      "title": "小书童——凯撒密码",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1914",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1914",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串"
+      }
+    },
+    {
+      "id": "luogu_P1980",
+      "version": "2026-11-08",
+      "title": "[NOIP 2013 普及组] 计数问题",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "2013",
+        "NOIP 普及组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1980",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1980",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "2013",
+          "NOIP 普及组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 2013, NOIP 普及组"
+      }
+    },
+    {
+      "id": "luogu_P2084",
+      "version": "2026-11-08",
+      "title": "进制转换",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "线性数据结构",
+        "洛谷原创"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P2084",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P2084",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "线性数据结构",
+          "洛谷原创"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 线性数据结构, 洛谷原创"
+      }
+    },
+    {
+      "id": "luogu_P2670",
+      "version": "2026-11-08",
+      "title": "[NOIP 2015 普及组] 扫雷游戏",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "搜索",
+        "2015",
+        "NOIP 普及组",
+        "枚举"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P2670",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P2670",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "字符串",
+          "搜索",
+          "2015",
+          "NOIP 普及组",
+          "枚举"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 字符串, 搜索, 2015, NOIP 普及组, 枚举"
+      }
+    },
+    {
+      "id": "luogu_B3663",
+      "version": "2026-11-08",
+      "title": "[语言月赛202209] Luogu Academic",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "2022",
+        "字符串（入门）",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3663",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3663",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "2022",
+          "字符串（入门）",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2022, 字符串（入门）, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_B3674",
+      "version": "2026-11-08",
+      "title": "[语言月赛202210] 标题修改",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "2022",
+        "O2优化",
+        "字符串（入门）",
+        "语言月赛"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B3674",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B3674",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "2022",
+          "O2优化",
+          "字符串（入门）",
+          "语言月赛"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 2022, O2优化, 字符串（入门）, 语言月赛"
+      }
+    },
+    {
+      "id": "luogu_P3741",
+      "version": "2026-11-08",
+      "title": "小果的键盘",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "搜索"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P3741",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P3741",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "搜索"
+        ],
+        "limits": {
+          "time": [
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400,
+            400
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 搜索"
+      }
+    },
+    {
+      "id": "luogu_P3742",
+      "version": "2026-11-08",
+      "title": "umi的函数",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习字符串，以官方题面与评测结果为准。",
+      "tags": [
+        "字符串",
+        "模拟",
+        "贪心",
+        "Special Judge",
+        "构造"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P3742",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P3742",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "字符串",
+        "official_tags": [
+          "模拟",
+          "字符串",
+          "贪心",
+          "Special Judge",
+          "构造"
+        ],
+        "limits": {
+          "time": [
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800,
+            800
+          ],
+          "memory": [
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072,
+            131072
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 字符串, 贪心, Special Judge, 构造"
+      }
+    },
+    {
+      "id": "luogu_B2158",
+      "version": "2026-11-08",
+      "title": "谁考了第 k 名",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "排序",
+        "结构体"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B2158",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B2158",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "排序",
+          "结构体"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 排序, 结构体"
+      }
+    },
+    {
+      "id": "luogu_P1152",
+      "version": "2026-11-08",
+      "title": "欢乐的跳",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "模拟",
+        "枚举",
+        "排序"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1152",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1152",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "模拟",
+          "枚举",
+          "排序"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 枚举, 排序"
+      }
+    },
+    {
+      "id": "luogu_P1888",
+      "version": "2026-11-08",
+      "title": "三角函数",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "数学",
+        "排序",
+        "最大公约数 gcd"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1888",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1888",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "数学",
+          "排序",
+          "最大公约数 gcd"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 数学, 排序, 最大公约数 gcd"
+      }
+    },
+    {
+      "id": "luogu_P1897",
+      "version": "2026-11-08",
+      "title": "电梯里的尴尬",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "模拟",
+        "排序",
+        "队列"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P1897",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P1897",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "模拟",
+          "排序",
+          "队列"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 排序, 队列"
+      }
+    },
+    {
+      "id": "luogu_B4289",
+      "version": "2026-11-08",
+      "title": "[蓝桥杯青少年组省赛 2022] 字母组合",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "2022",
+        "排序",
+        "蓝桥杯青少年组"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B4289",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B4289",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "2022",
+          "排序",
+          "蓝桥杯青少年组"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2022, 排序, 蓝桥杯青少年组"
+      }
+    },
+    {
+      "id": "luogu_P4325",
+      "version": "2026-11-08",
+      "title": "[COCI 2006/2007 #1] Modulo",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "2006",
+        "枚举",
+        "排序",
+        "COCI（克罗地亚）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P4325",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P4325",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "2006",
+          "枚举",
+          "排序",
+          "COCI（克罗地亚）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            32000,
+            32000,
+            32000,
+            32000,
+            32000,
+            32000,
+            32000,
+            32000,
+            32000,
+            32000
+          ]
+        },
+        "selection_evidence": "official tags: 2006, 枚举, 排序, COCI（克罗地亚）"
+      }
+    },
+    {
+      "id": "luogu_P4414",
+      "version": "2026-11-08",
+      "title": "[COCI 2006/2007 #2] ABC",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "模拟",
+        "2006",
+        "排序",
+        "COCI（克罗地亚）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P4414",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P4414",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "模拟",
+          "2006",
+          "排序",
+          "COCI（克罗地亚）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000,
+            128000
+          ]
+        },
+        "selection_evidence": "official tags: 模拟, 2006, 排序, COCI（克罗地亚）"
+      }
+    },
+    {
+      "id": "luogu_B4468",
+      "version": "2026-11-08",
+      "title": "[山西编程未来星 2025] 符号选择 / opt",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "2025",
+        "O2优化",
+        "排序",
+        "山西",
+        "数组",
+        "科创活动",
+        "小学活动"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/B4468",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "B4468",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "2025",
+          "O2优化",
+          "排序",
+          "山西",
+          "数组",
+          "科创活动",
+          "小学活动"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288,
+            524288
+          ]
+        },
+        "selection_evidence": "official tags: 2025, O2优化, 排序, 山西, 数组, 科创活动, 小学活动"
+      }
+    },
+    {
+      "id": "luogu_P6530",
+      "version": "2026-11-08",
+      "title": "[COCI 2015/2016 #1]  AKCIJA",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "贪心",
+        "2015",
+        "排序",
+        "COCI（克罗地亚）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P6530",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P6530",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "贪心",
+          "2015",
+          "排序",
+          "COCI（克罗地亚）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768
+          ]
+        },
+        "selection_evidence": "official tags: 贪心, 2015, 排序, COCI（克罗地亚）"
+      }
+    },
+    {
+      "id": "luogu_P7614",
+      "version": "2026-11-08",
+      "title": "[COCI 2011/2012 #2] NAJBOLJIH 5",
+      "description": "题面待授权同步。请通过官方题目链接阅读；本目录仅提供题号、标题与分类元数据。",
+      "learning_goal": "练习排序与查找，以官方题面与评测结果为准。",
+      "tags": [
+        "排序与查找",
+        "2011",
+        "枚举",
+        "排序",
+        "COCI（克罗地亚）"
+      ],
+      "difficulty": "easy",
+      "source": {
+        "name": "洛谷开放平台",
+        "url": "https://www.luogu.com.cn/problem/P7614",
+        "revision": "c6a8efff60afdd5c75ae359d7619d737a2201ab9118f0dab487f47aa75eff224",
+        "license": "授权待确认",
+        "attribution": "洛谷及原题作者；标题与题号来自官方开放导出。",
+        "adaptation": "仅收录题目元数据，未镜像题面、样例或测试数据。"
+      },
+      "signature": "",
+      "parameters": [],
+      "return_type": "stdout",
+      "starter_code": "import sys\n\ndef solve():\n    data = sys.stdin.buffer.read().split()\n    # 按官方题面解析输入并输出答案。\n    pass\n\nif __name__ == \"__main__\":\n    solve()\n",
+      "engine": "luogu_remote",
+      "remote": {
+        "pid": "P7614",
+        "languages": [
+          "python3/c",
+          "cxx/17/gcc"
+        ],
+        "language_caveat": "语言标识为应用配置；官方导出未提供逐题语言可用性，未声称全部题目已通过 Python 验证。",
+        "statement_available": false,
+        "content_authorized": false,
+        "difficulty_original": 1,
+        "main_category": "排序与查找",
+        "official_tags": [
+          "2011",
+          "枚举",
+          "排序",
+          "COCI（克罗地亚）"
+        ],
+        "limits": {
+          "time": [
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "memory": [
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768
+          ]
+        },
+        "selection_evidence": "official tags: 2011, 枚举, 排序, COCI（克罗地亚）"
+      }
+    }
+  ]
+}

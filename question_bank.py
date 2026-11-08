@@ -10,7 +10,7 @@ import re
 import sqlite3
 
 ROOT = Path(__file__).resolve().parent
-BUNDLED_PATHS = (ROOT / 'data/builtin.json', ROOT / 'data/exercism-foundations.json')
+BUNDLED_PATHS = (ROOT / 'data/builtin.json', ROOT / 'data/exercism-foundations.json', *(ROOT / 'data/luogu').glob('pack-*.json'))
 PUBLIC_FIELDS = ('id', 'version', 'title', 'description', 'learning_goal', 'tags',
                  'difficulty', 'source', 'signature', 'parameters', 'return_type',
                  'starter_code', 'engine')
@@ -202,6 +202,11 @@ def public_problem(spec):
     result = {key: copy.deepcopy(spec[key]) for key in PUBLIC_FIELDS}
     result['source'] = {key: copy.deepcopy(spec['source'][key]) for key in
                         ('name', 'url', 'revision', 'license', 'attribution', 'adaptation')}
+    if spec.get('engine') == 'luogu_remote':
+        result['remote'] = copy.deepcopy(spec['remote'])
+        result['has_transfer'] = False
+        result['capabilities'] = {'check': False, 'hints': False, 'transfer': False, 'remote': True}
+        return result
     result['has_transfer'] = bool(spec.get('transfer'))
     result['capabilities'] = {'check': True, 'hints': True, 'transfer': result['has_transfer']}
     return result
@@ -211,7 +216,7 @@ def public_exercises(db=None):
     return [public_problem(spec) for spec in _all(db)]
 
 
-def catalog(query='', tag='', difficulty='', source='', page=1, page_size=12, db=None):
+def catalog(query='', tag='', difficulty='', source='', page=1, page_size=12, db=None, mode='all', category=''):
     try:
         if type(page) is bool or type(page_size) is bool:
             raise ValueError()
@@ -220,7 +225,10 @@ def catalog(query='', tag='', difficulty='', source='', page=1, page_size=12, db
             raise ValueError()
     except (ValueError, TypeError, OverflowError) as exc:
         raise BankError('page must be positive and page_size must be between 1 and 100') from exc
-    items = public_exercises(db)
+    if mode not in ('all', 'local', 'remote'):
+        raise BankError('mode must be all, local or remote')
+    tag = category or tag
+    items = [item for item in public_exercises(db) if mode == 'all' or (item['engine'] == 'luogu_remote') == (mode == 'remote')]
     query = query.casefold().strip()
     items = [item for item in items if
              (not query or query in ' '.join([item['id'], item['title'], item['description'], *item['tags']]).casefold())
