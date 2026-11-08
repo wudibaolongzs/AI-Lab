@@ -4,12 +4,22 @@
   "summary": {
     "samples": 24,
     "local_rows": 72,
-    "local_median_ms": 0.102,
+    "local_median_ms": 0.1,
+    "local_p95_ms": 0.135,
+    "local_max_ms": 0.184,
     "endpoint_attempts": 72,
     "cloud_rows": 72,
-    "cloud_median_ms": 17.489,
+    "cloud_median_ms": 16.74,
+    "cloud_p95_ms": 31.166,
+    "cloud_max_ms": 40.474,
     "fallback_rows": 0,
-    "error_rows": 0
+    "fallback_median_ms": null,
+    "fallback_p95_ms": null,
+    "fallback_max_ms": null,
+    "error_rows": 0,
+    "error_median_ms": null,
+    "error_p95_ms": null,
+    "error_max_ms": null
   },
   "records": [
     {
@@ -73,7 +83,7 @@
             "source": "local",
             "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.12,
+            "elapsed_ms": 0.115,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -84,14 +94,14 @@
             "hint": "用例 C01 的输入是 [10, 20, 30, 40]，期望 25.0，实际 24.75。平均值是拿哪两个量相除得到的？",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "2a9293a5c93e4709b36fda8dc452b2b7",
+            "request_id": "8fad0a698d5f4f4f8ef03bd828bb65cf",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 24.754
+            "elapsed_ms": 22.197
           }
         },
         {
@@ -100,7 +110,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "C01",
-            "elapsed_ms": 0.104,
+            "elapsed_ms": 0.184,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -111,14 +121,14 @@
             "hint": "4 个元素期望得到 25.0，实际却是 24.75。检查第 2 行相除时用的分母。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "6ac03c564f6d4ddfa0762cd045f5f444",
+            "request_id": "8e847763a4f34b10b97d7f4a6c601db6",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 3.534
+            "elapsed_ms": 31.166
           }
         },
         {
@@ -127,7 +137,7 @@
             "source": "local",
             "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.102,
+            "elapsed_ms": 0.113,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -138,14 +148,14 @@
             "hint": "手算 [10, 20, 30, 40] 的总和与元素个数 4，用这两个量复算用例 C01，再对照代码。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "492719f463fd48cb911f2e4e6efb3cb3",
+            "request_id": "6049d3e54ee34111a6ed60fa73a782f8",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 2.669
+            "elapsed_ms": 27.121
           }
         }
       ]
@@ -211,7 +221,7 @@
             "source": "local",
             "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.089,
+            "elapsed_ms": 0.109,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -222,14 +232,14 @@
             "hint": "用例 C01 的输入是 [10, 20, 30, 40]，期望 25.0，实际 50.0。平均值是拿哪两个量相除得到的？",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "cdef4a3377d144cf9377173a66c91dcc",
+            "request_id": "98571702c1624d659373fbdb1f51729c",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 26.425
+            "elapsed_ms": 13.543
           }
         },
         {
@@ -238,7 +248,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "C01",
-            "elapsed_ms": 0.097,
+            "elapsed_ms": 0.104,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -249,14 +259,14 @@
             "hint": "4 个元素期望得到 25.0，实际却是 50.0。检查第 2 行相除时用的分母。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "fbed0392ed1a4d749fab4442fc11af1b",
+            "request_id": "6cce0a0215264f2e92da7b3d48e569e0",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 15.132
+            "elapsed_ms": 14.467
           }
         },
         {
@@ -265,7 +275,7 @@
             "source": "local",
             "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.099,
+            "elapsed_ms": 0.105,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -276,14 +286,14 @@
             "hint": "手算 [10, 20, 30, 40] 的总和与元素个数 4，用这两个量复算用例 C01，再对照代码。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "cd1d80650c4749728bc0b9a395e35555",
+            "request_id": "370d35b5b0724e5fa53c1c383830c27f",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 15.737
+            "elapsed_ms": 12.968
           }
         }
       ]
@@ -349,7 +359,7 @@
             "source": "local",
             "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.102,
+            "elapsed_ms": 0.116,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -360,14 +370,14 @@
             "hint": "用例 C01 的输入是 [10, 20, 30, 40]，期望 25.0，实际 -25.0。平均值是拿哪两个量相除得到的？",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "df36fe6b45b349c08b7e39e21a45e64e",
+            "request_id": "ff7d271ddb6d47a09f85664f3fb784b0",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 13.352
+            "elapsed_ms": 13.7
           }
         },
         {
@@ -376,7 +386,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "C01",
-            "elapsed_ms": 0.099,
+            "elapsed_ms": 0.105,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -387,14 +397,14 @@
             "hint": "4 个元素期望得到 25.0，实际却是 -25.0。检查第 2 行相除时用的分母。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "b8d15aeca737439fa28f89ef97655685",
+            "request_id": "1d14f7fa15eb47d3b6d031de45eaf4ce",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 16.986
+            "elapsed_ms": 14.72
           }
         },
         {
@@ -403,7 +413,7 @@
             "source": "local",
             "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.097,
+            "elapsed_ms": 0.1,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -414,14 +424,14 @@
             "hint": "手算 [10, 20, 30, 40] 的总和与元素个数 4，用这两个量复算用例 C01，再对照代码。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "b6991a8be82644f4a8ffe4cc621b041a",
+            "request_id": "ba2f06ff9d7746aa870e1d8b58eedb67",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 2.816
+            "elapsed_ms": 25.202
           }
         }
       ]
@@ -488,7 +498,7 @@
             "source": "local",
             "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.106,
+            "elapsed_ms": 0.132,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -499,14 +509,14 @@
             "hint": "用例 C01 的输入是 [10, 20, 30, 40]，期望 25.0，实际 33.333333333333336。平均值是拿哪两个量相除得到的？",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "9d11c1cf8401405db3dc4ed9e5ebaa23",
+            "request_id": "5f331ac51a304c598c0638db23994aea",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 43.103
+            "elapsed_ms": 28.526
           }
         },
         {
@@ -515,7 +525,7 @@
             "source": "local",
             "hint": "从第 3 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "C01",
-            "elapsed_ms": 0.16,
+            "elapsed_ms": 0.124,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -526,14 +536,14 @@
             "hint": "4 个元素期望得到 25.0，实际却是 33.333333333333336。检查第 3 行相除时用的分母。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "72fc7f2504ef4084a7adbe7e2ebdd330",
+            "request_id": "b5137563d26a4da2a79103e1556cef4e",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.8
+            "elapsed_ms": 12.848
           }
         },
         {
@@ -542,7 +552,7 @@
             "source": "local",
             "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.149,
+            "elapsed_ms": 0.135,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -553,14 +563,14 @@
             "hint": "手算 [10, 20, 30, 40] 的总和与元素个数 4，用这两个量复算用例 C01，再对照代码。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "1e7c8fe62178479aa5351a999e381ce9",
+            "request_id": "b1302e81373c4671a4e9c16bc51696ed",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 15.107
+            "elapsed_ms": 28.125
           }
         }
       ]
@@ -626,7 +636,7 @@
             "source": "local",
             "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.112,
+            "elapsed_ms": 0.118,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -637,14 +647,14 @@
             "hint": "用例 C01 的输入是 [10, 20, 30, 40]，期望 25.0，实际 20.0。平均值是拿哪两个量相除得到的？",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "6fcf922dfa394b49a0a1e856eb38b06c",
+            "request_id": "6d28e3fb3a3b459e9ea3e3bf9dac950e",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.934
+            "elapsed_ms": 16.462
           }
         },
         {
@@ -653,7 +663,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "C01",
-            "elapsed_ms": 0.157,
+            "elapsed_ms": 0.105,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -664,14 +674,14 @@
             "hint": "4 个元素期望得到 25.0，实际却是 20.0。检查第 2 行相除时用的分母。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "e3691f08b9f04be1abc36176746ec3fd",
+            "request_id": "0ab0854f3150405a9091b480690d4626",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.853
+            "elapsed_ms": 28.385
           }
         },
         {
@@ -680,7 +690,7 @@
             "source": "local",
             "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.137,
+            "elapsed_ms": 0.11,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -691,14 +701,14 @@
             "hint": "手算 [10, 20, 30, 40] 的总和与元素个数 4，用这两个量复算用例 C01，再对照代码。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "313c24fd703c430980d4eeb3d5a5b0ba",
+            "request_id": "df6fad6b675140e085ca5beaa9e0d2bd",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.605
+            "elapsed_ms": 30.274
           }
         }
       ]
@@ -752,7 +762,7 @@
             "source": "local",
             "hint": "用例 C02 的输入为 [-6, -3, 0]。试着手算这个列表的总和，再数一数元素个数。",
             "case_id": "C02",
-            "elapsed_ms": 0.106,
+            "elapsed_ms": 0.1,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -763,14 +773,14 @@
             "hint": "用例 C02 的输入是 [-6, -3, 0]，期望 -3.0，实际 -2.25。平均值是拿哪两个量相除得到的？",
             "case_id": "C02",
             "source": "agentarts",
-            "request_id": "0bc9a9f3609440e986a010438c79202a",
+            "request_id": "0aa31e6943894d9a81a3a82ac7e5a10d",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 3.208
+            "elapsed_ms": 14.282
           }
         },
         {
@@ -779,7 +789,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "C02",
-            "elapsed_ms": 0.083,
+            "elapsed_ms": 0.095,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -790,14 +800,14 @@
             "hint": "3 个元素期望得到 -3.0，实际却是 -2.25。检查第 2 行相除时用的分母。",
             "case_id": "C02",
             "source": "agentarts",
-            "request_id": "53c08a58fae74146b1bcfd329a82f81d",
+            "request_id": "f0a9620cb56341fc9cdd80643ddaf8f9",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 12.248
+            "elapsed_ms": 2.779
           }
         },
         {
@@ -806,7 +816,7 @@
             "source": "local",
             "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
             "case_id": "C02",
-            "elapsed_ms": 0.088,
+            "elapsed_ms": 0.08,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -817,14 +827,14 @@
             "hint": "手算 [-6, -3, 0] 的总和与元素个数 3，用这两个量复算用例 C02，再对照代码。",
             "case_id": "C02",
             "source": "agentarts",
-            "request_id": "b3a8343947144935aa089d2b02df66a4",
+            "request_id": "2c521f1bb5034adeadcef29d9561e324",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.233
+            "elapsed_ms": 40.474
           }
         }
       ]
@@ -878,7 +888,7 @@
             "source": "local",
             "hint": "用例 C02 的输入为 [-6, -3, 0]。试着手算这个列表的总和，再数一数元素个数。",
             "case_id": "C02",
-            "elapsed_ms": 0.101,
+            "elapsed_ms": 0.075,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -889,14 +899,14 @@
             "hint": "用例 C02 的输入是 [-6, -3, 0]，期望 -3.0，实际 25。平均值是拿哪两个量相除得到的？",
             "case_id": "C02",
             "source": "agentarts",
-            "request_id": "f68f223dd9574e6cbec4a32fcfcdb957",
+            "request_id": "f7de0d3f065b4063a8c2c29ee80e6066",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.839
+            "elapsed_ms": 15.359
           }
         },
         {
@@ -905,7 +915,7 @@
             "source": "local",
             "hint": "不同输入的返回值相同。检查第 2 行的返回值是否随输入改变。",
             "case_id": "C02",
-            "elapsed_ms": 0.098,
+            "elapsed_ms": 0.085,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -916,14 +926,14 @@
             "hint": "3 个元素期望得到 -3.0，实际却是 25。检查第 2 行相除时用的分母。",
             "case_id": "C02",
             "source": "agentarts",
-            "request_id": "ee0377f23813452c9adcb040dab9e904",
+            "request_id": "dbd29d179d3f4915869685a1f3549b20",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 31.756
+            "elapsed_ms": 16.961
           }
         },
         {
@@ -932,7 +942,7 @@
             "source": "local",
             "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
             "case_id": "C02",
-            "elapsed_ms": 0.113,
+            "elapsed_ms": 0.076,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -943,14 +953,14 @@
             "hint": "手算 [-6, -3, 0] 的总和与元素个数 3，用这两个量复算用例 C02，再对照代码。",
             "case_id": "C02",
             "source": "agentarts",
-            "request_id": "dff19176925e481b811d680291301e34",
+            "request_id": "9c4d9028e6ed452db862f08ea335306e",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.496
+            "elapsed_ms": 13.908
           }
         }
       ]
@@ -1016,7 +1026,7 @@
             "source": "local",
             "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.11,
+            "elapsed_ms": 0.077,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1027,14 +1037,14 @@
             "hint": "用例 C01 的输入是 [10, 20, 30, 40]，期望 25.0，实际 0。平均值是拿哪两个量相除得到的？",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "101704ea2eed4c68b8a0338998b8f7ff",
+            "request_id": "9f673a08c8a14fac828bad99d5e48d27",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 17.032
+            "elapsed_ms": 15.281
           }
         },
         {
@@ -1043,7 +1053,7 @@
             "source": "local",
             "hint": "不同输入的返回值相同。检查第 2 行的返回值是否随输入改变。",
             "case_id": "C01",
-            "elapsed_ms": 0.073,
+            "elapsed_ms": 0.075,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1054,14 +1064,14 @@
             "hint": "4 个元素期望得到 25.0，实际却是 0。检查第 2 行相除时用的分母。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "8879e4a94e1c4b548cdba2708ef36204",
+            "request_id": "0e722e15769f42cf9052508de3db9c6a",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 29.204
+            "elapsed_ms": 3.269
           }
         },
         {
@@ -1070,7 +1080,7 @@
             "source": "local",
             "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.103,
+            "elapsed_ms": 0.082,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1081,14 +1091,14 @@
             "hint": "手算 [10, 20, 30, 40] 的总和与元素个数 4，用这两个量复算用例 C01，再对照代码。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "b9fcc6d1e8ec4f1e85e90c19b3b727ca",
+            "request_id": "1d717c1222c94a50ba054d486a355ad2",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 16.397
+            "elapsed_ms": 23.191
           }
         }
       ]
@@ -1145,7 +1155,7 @@
             "source": "local",
             "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.07,
+            "elapsed_ms": 0.141,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1156,14 +1166,14 @@
             "hint": "用例 C01 的输入是 [10, 20, 30, 40]，期望 25.0，实际 7。平均值是拿哪两个量相除得到的？",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "afc2401bd1ec42afb748fec1516723f4",
+            "request_id": "b9615ebf9b804c9ea9c1af5758406010",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 15.5
+            "elapsed_ms": 27.898
           }
         },
         {
@@ -1172,7 +1182,7 @@
             "source": "local",
             "hint": "不同输入的返回值相同。检查第 2 行的返回值是否随输入改变。",
             "case_id": "C01",
-            "elapsed_ms": 0.07,
+            "elapsed_ms": 0.076,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1183,14 +1193,14 @@
             "hint": "4 个元素期望得到 25.0，实际却是 7。检查第 2 行相除时用的分母。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "410f19ea8ec34b018350bd5a88fe49df",
+            "request_id": "8cddc9bd3d494ecaa769e758d5aaad76",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 2.698
+            "elapsed_ms": 14.376
           }
         },
         {
@@ -1199,7 +1209,7 @@
             "source": "local",
             "hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。",
             "case_id": "C01",
-            "elapsed_ms": 0.06,
+            "elapsed_ms": 0.077,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1210,14 +1220,14 @@
             "hint": "手算 [10, 20, 30, 40] 的总和与元素个数 4，用这两个量复算用例 C01，再对照代码。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "a6aef5541c5a499c8c46808af7a5e2fc",
+            "request_id": "cdb20229e2ee4484ad28c355857fe672",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 29.051
+            "elapsed_ms": 31.888
           }
         }
       ]
@@ -1298,14 +1308,14 @@
             "hint": "输入只有 4 个元素时，除数应该等于几？先想清楚这个分母代表什么。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "a424fa4346a4496db65ac52342210744",
+            "request_id": "6b32953ebcca40b8a52393db0bd5cf50",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 29.344
+            "elapsed_ms": 28.918
           }
         },
         {
@@ -1314,7 +1324,7 @@
             "source": "local",
             "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
             "case_id": "C01",
-            "elapsed_ms": 0.116,
+            "elapsed_ms": 0.113,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1325,14 +1335,14 @@
             "hint": "用例 C01 的输入是 [10, 20, 30, 40]，共 4 个元素。检查第 2 行的除数怎样变成了 0。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "38d9dabe5bac47a7b82ecc0f85fb4c65",
+            "request_id": "d8e7db486f384ce6a8f1af580189ae6f",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 3.282
+            "elapsed_ms": 3.025
           }
         },
         {
@@ -1341,7 +1351,7 @@
             "source": "local",
             "hint": "把总和和实际元素个数分开核对，再用这个失败用例复测。",
             "case_id": "C01",
-            "elapsed_ms": 0.107,
+            "elapsed_ms": 0.097,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1352,14 +1362,14 @@
             "hint": "把 4 代进第 2 行的除数，看它是否随元素个数变化，再用用例 C01 复测。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "339e39d11fe54929891e3b84af478add",
+            "request_id": "4191464ffdc04eb5941c410a2ca76bb5",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 27.06
+            "elapsed_ms": 24.318
           }
         }
       ]
@@ -1426,7 +1436,7 @@
             "source": "local",
             "hint": "用例 C01 的输入为 [10, 20, 30, 40]。先数一数这个列表的元素个数，再想想它与除数的关系。",
             "case_id": "C01",
-            "elapsed_ms": 0.108,
+            "elapsed_ms": 0.116,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1437,14 +1447,14 @@
             "hint": "输入只有 4 个元素时，除数应该等于几？先想清楚这个分母代表什么。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "857c9a0b280f41a794285d956b3755e2",
+            "request_id": "8dccfae25adb4a4d82701aec311e4f7a",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 31.807
+            "elapsed_ms": 28.999
           }
         },
         {
@@ -1453,7 +1463,7 @@
             "source": "local",
             "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
             "case_id": "C01",
-            "elapsed_ms": 0.121,
+            "elapsed_ms": 0.12,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1464,14 +1474,14 @@
             "hint": "用例 C01 的输入是 [10, 20, 30, 40]，共 4 个元素。检查第 2 行的除数怎样变成了 0。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "edd554f6090949baa829c9d30d275399",
+            "request_id": "1af580eaa45a4e2e927a2f893f99ee66",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 3.559
+            "elapsed_ms": 30.127
           }
         },
         {
@@ -1480,7 +1490,7 @@
             "source": "local",
             "hint": "把总和和实际元素个数分开核对，再用这个失败用例复测。",
             "case_id": "C01",
-            "elapsed_ms": 0.101,
+            "elapsed_ms": 0.113,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1491,14 +1501,14 @@
             "hint": "把 4 代进第 2 行的除数，看它是否随元素个数变化，再用用例 C01 复测。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "c943522c29044e18901df92fdd3f304b",
+            "request_id": "1d0fc86c9ec8498b9f1f61300934b361",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 2.703
+            "elapsed_ms": 3.548
           }
         }
       ]
@@ -1568,7 +1578,7 @@
             "source": "local",
             "hint": "用例 C01 的输入为 [10, 20, 30, 40]。圈出输入中的最小值和最大值，再判断平均值是否应落在两者之间。",
             "case_id": "C01",
-            "elapsed_ms": 0.1,
+            "elapsed_ms": 0.112,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1579,14 +1589,14 @@
             "hint": "[10, 20, 30, 40] 里最小和最大的数各是多少？平均值会落在它们之外吗？",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "bb521fbebbb64ad39c8192648363eb63",
+            "request_id": "012fefbf0d4043638d2878df4dbbdc1f",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 39.36
+            "elapsed_ms": 26.851
           }
         },
         {
@@ -1595,7 +1605,7 @@
             "source": "local",
             "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
             "case_id": "C01",
-            "elapsed_ms": 0.176,
+            "elapsed_ms": 0.116,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1606,14 +1616,14 @@
             "hint": "用例 C01 的返回值超出了本题支持的数值范围。检查第 2 行哪一步把数值放大了。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "d2c88e7812634176a3811fb82c439d68",
+            "request_id": "85242e23a37c48df97203c2d6a18a238",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 17.607
+            "elapsed_ms": 28.235
           }
         },
         {
@@ -1622,7 +1632,7 @@
             "source": "local",
             "hint": "分别手算列表总和与元素个数，用这两个量检查各步运算。",
             "case_id": "C01",
-            "elapsed_ms": 0.143,
+            "elapsed_ms": 0.119,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1633,14 +1643,14 @@
             "hint": "分别手算这 4 个元素的总和与个数，再核对第 2 行用到的两个量。",
             "case_id": "C01",
             "source": "agentarts",
-            "request_id": "1e272ca9bb95453192ca83fec46a7d77",
+            "request_id": "a91e6a581efc4998bbd10543d29f24be",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 14.348
+            "elapsed_ms": 2.998
           }
         }
       ]
@@ -1695,7 +1705,7 @@
             "source": "local",
             "hint": "用例 S01 的输入为 [3, 5, 2]。手算这个列表的相加结果，再数一数元素个数，看返回值更接近哪一个。",
             "case_id": "S01",
-            "elapsed_ms": 0.073,
+            "elapsed_ms": 0.069,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1706,14 +1716,14 @@
             "hint": "用例 S01 的输入是 [3, 5, 2]，期望 10，实际 3。这个列表的相加结果应该是多少，实际值更像它还是更像元素个数 3？",
             "case_id": "S01",
             "source": "agentarts",
-            "request_id": "7b9b9b9a300f45b994fa973babfd1159",
+            "request_id": "b1ece5ad8dc84bc4ac756249b7e1ec94",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 15.343
+            "elapsed_ms": 37.979
           }
         },
         {
@@ -1722,7 +1732,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "S01",
-            "elapsed_ms": 0.092,
+            "elapsed_ms": 0.08,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1733,14 +1743,14 @@
             "hint": "3 个元素期望得到 10，实际却是 3。检查第 2 行把哪个量当成了结果。",
             "case_id": "S01",
             "source": "agentarts",
-            "request_id": "e69bbae1bdc6400084ec3e4ac5b73660",
+            "request_id": "5c31114e80d54f1aa88fb07c5c090f6b",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 15.507
+            "elapsed_ms": 14.96
           }
         },
         {
@@ -1749,7 +1759,7 @@
             "source": "local",
             "hint": "让返回值表示元素的总和。负数也参与相加，空列表的总和是 0。",
             "case_id": "S01",
-            "elapsed_ms": 0.106,
+            "elapsed_ms": 0.081,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1760,14 +1770,14 @@
             "hint": "手算 [3, 5, 2] 的相加结果，再数出元素个数 3，对照第 2 行确认用的是前者。",
             "case_id": "S01",
             "source": "agentarts",
-            "request_id": "3b16ebb23281433691a963a155331eb5",
+            "request_id": "6d0a2a773f4140c9a4f3ed1a12152896",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 13.949
+            "elapsed_ms": 26.232
           }
         }
       ]
@@ -1829,7 +1839,7 @@
             "source": "local",
             "hint": "用例 S01 的输入为 [3, 5, 2]。手算这个列表的相加结果，再数一数元素个数，看返回值更接近哪一个。",
             "case_id": "S01",
-            "elapsed_ms": 0.077,
+            "elapsed_ms": 0.088,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1840,14 +1850,14 @@
             "hint": "用例 S01 的输入是 [3, 5, 2]，期望 10，实际 9。这个列表的相加结果应该是多少，实际值更像它还是更像元素个数 3？",
             "case_id": "S01",
             "source": "agentarts",
-            "request_id": "6cd70c1fcfee4382a801d573a5264b6b",
+            "request_id": "e82546cf7bb343afb814555d875b79ae",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 16.11
+            "elapsed_ms": 2.857
           }
         },
         {
@@ -1856,7 +1866,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "S01",
-            "elapsed_ms": 0.079,
+            "elapsed_ms": 0.082,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1867,14 +1877,14 @@
             "hint": "3 个元素期望得到 10，实际却是 9。检查第 2 行把哪个量当成了结果。",
             "case_id": "S01",
             "source": "agentarts",
-            "request_id": "e05c23c416b5495fba1c01cb0ecce737",
+            "request_id": "b9f4500f95cd4a09a40a8106bd851eb5",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 2.675
+            "elapsed_ms": 24.833
           }
         },
         {
@@ -1883,7 +1893,7 @@
             "source": "local",
             "hint": "让返回值表示元素的总和。负数也参与相加，空列表的总和是 0。",
             "case_id": "S01",
-            "elapsed_ms": 0.074,
+            "elapsed_ms": 0.091,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1894,14 +1904,14 @@
             "hint": "手算 [3, 5, 2] 的相加结果，再数出元素个数 3，对照第 2 行确认用的是前者。",
             "case_id": "S01",
             "source": "agentarts",
-            "request_id": "99985d2d91654b3684ad66096769efc2",
+            "request_id": "0b373147c0ec43afb21427f1b2aa3ee8",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 27.082
+            "elapsed_ms": 15.104
           }
         }
       ]
@@ -1941,7 +1951,7 @@
             "source": "local",
             "hint": "用例 S03 的输入为 []。手算这个列表的相加结果，再数一数元素个数，看返回值更接近哪一个。",
             "case_id": "S03",
-            "elapsed_ms": 0.126,
+            "elapsed_ms": 0.098,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1952,14 +1962,14 @@
             "hint": "用例 S03 的输入是 []，期望 0，实际 -3。这个列表的相加结果应该是多少，实际值更像它还是更像元素个数 0？",
             "case_id": "S03",
             "source": "agentarts",
-            "request_id": "e1b57022b7014720ac6e79315321858b",
+            "request_id": "d0dd4bbd03b54a2ab8cab64f8626f969",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 29.901
+            "elapsed_ms": 13.262
           }
         },
         {
@@ -1968,7 +1978,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "S03",
-            "elapsed_ms": 0.109,
+            "elapsed_ms": 0.098,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -1979,14 +1989,14 @@
             "hint": "0 个元素期望得到 0，实际却是 -3。检查第 2 行把哪个量当成了结果。",
             "case_id": "S03",
             "source": "agentarts",
-            "request_id": "04d61dd3d80045d7bcc50394d5573d38",
+            "request_id": "9595ecfa10fb4ee3aeca07120ff05196",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 31.414
+            "elapsed_ms": 15.948
           }
         },
         {
@@ -1995,7 +2005,7 @@
             "source": "local",
             "hint": "让返回值表示元素的总和。负数也参与相加，空列表的总和是 0。",
             "case_id": "S03",
-            "elapsed_ms": 0.154,
+            "elapsed_ms": 0.113,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2006,14 +2016,14 @@
             "hint": "手算 [] 的相加结果，再数出元素个数 0，对照第 2 行确认用的是前者。",
             "case_id": "S03",
             "source": "agentarts",
-            "request_id": "26500ec3c4c343889c44385255f440bb",
+            "request_id": "0a2857afa13b472c845819e75f918fec",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.243
+            "elapsed_ms": 3.218
           }
         }
       ]
@@ -2064,7 +2074,7 @@
             "source": "local",
             "hint": "用例 S02 的输入为 [-5, 2, 0]。手算这个列表的相加结果，再数一数元素个数，看返回值更接近哪一个。",
             "case_id": "S02",
-            "elapsed_ms": 0.088,
+            "elapsed_ms": 0.072,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2075,14 +2085,14 @@
             "hint": "用例 S02 的输入是 [-5, 2, 0]，期望 -3，实际 10。这个列表的相加结果应该是多少，实际值更像它还是更像元素个数 3？",
             "case_id": "S02",
             "source": "agentarts",
-            "request_id": "18dda2bf28634ef7aae46bc24b7d60fc",
+            "request_id": "30127a9544974f0ab7a38f7a9b18d6c2",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 31.605
+            "elapsed_ms": 27.725
           }
         },
         {
@@ -2091,7 +2101,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "S02",
-            "elapsed_ms": 0.089,
+            "elapsed_ms": 0.074,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2102,14 +2112,14 @@
             "hint": "3 个元素期望得到 -3，实际却是 10。检查第 2 行把哪个量当成了结果。",
             "case_id": "S02",
             "source": "agentarts",
-            "request_id": "2c7e21b3a17044ca8ba219baa0c2d6cb",
+            "request_id": "7faad1cdb325461f8246c18afd6ab3af",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 16.778
+            "elapsed_ms": 29.005
           }
         },
         {
@@ -2118,7 +2128,7 @@
             "source": "local",
             "hint": "让返回值表示元素的总和。负数也参与相加，空列表的总和是 0。",
             "case_id": "S02",
-            "elapsed_ms": 0.082,
+            "elapsed_ms": 0.073,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2129,14 +2139,14 @@
             "hint": "手算 [-5, 2, 0] 的相加结果，再数出元素个数 3，对照第 2 行确认用的是前者。",
             "case_id": "S02",
             "source": "agentarts",
-            "request_id": "546bf8e2103b44dca6d7d8780c29909a",
+            "request_id": "39bd7aff17574eeca061b9f9844c94a1",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 28.568
+            "elapsed_ms": 15.232
           }
         }
       ]
@@ -2168,7 +2178,7 @@
             "source": "local",
             "hint": "用例 S03 的输入为 []。求和只要把元素相加，你的式子里为什么出现了除法？",
             "case_id": "S03",
-            "elapsed_ms": 0.152,
+            "elapsed_ms": 0.109,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2179,14 +2189,14 @@
             "hint": "这道题只要把元素相加，第 2 行为什么会走到除法？",
             "case_id": "S03",
             "source": "agentarts",
-            "request_id": "ad5c94cc737843d28e6b6c53fc47b9ca",
+            "request_id": "d2eed4c94b7f452ea0d1f662adfd2c0e",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 16.778
+            "elapsed_ms": 25.867
           }
         },
         {
@@ -2195,7 +2205,7 @@
             "source": "local",
             "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
             "case_id": "S03",
-            "elapsed_ms": 0.109,
+            "elapsed_ms": 0.12,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2206,14 +2216,14 @@
             "hint": "用例 S03 的输入是 []，共 0 个元素。检查第 2 行的除数怎样变成了 0。",
             "case_id": "S03",
             "source": "agentarts",
-            "request_id": "26a72bfc7e49405f9108533778a5301d",
+            "request_id": "7879f57d83b54c09b037bd1dc3d39dc1",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 28.179
+            "elapsed_ms": 27.708
           }
         },
         {
@@ -2222,7 +2232,7 @@
             "source": "local",
             "hint": "去掉除法，把返回值改成各元素相加的结果，再用这个失败用例复测。",
             "case_id": "S03",
-            "elapsed_ms": 0.106,
+            "elapsed_ms": 0.115,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2233,14 +2243,14 @@
             "hint": "去掉除法，手算 [] 的相加结果，再用用例 S03 复测。",
             "case_id": "S03",
             "source": "agentarts",
-            "request_id": "f1568b9883894a9e8be2eb3175fc493a",
+            "request_id": "d88657110b66462b8e68914e6d9dcc2b",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.322
+            "elapsed_ms": 16.198
           }
         }
       ]
@@ -2298,7 +2308,7 @@
             "source": "local",
             "hint": "用例 S01 的输入为 [3, 5, 2]。圈出输入中的最小值和最大值，估一估这组数相加最多能到多少。",
             "case_id": "S01",
-            "elapsed_ms": 0.144,
+            "elapsed_ms": 0.107,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2309,14 +2319,14 @@
             "hint": "[3, 5, 2] 里最小和最大的数各是多少？这组数相加最多能到多少？",
             "case_id": "S01",
             "source": "agentarts",
-            "request_id": "a4d4cbdd96314c9ca198aa0f30a57115",
+            "request_id": "f2f9816ca9214a8089a91746924230b6",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 17.999
+            "elapsed_ms": 29.093
           }
         },
         {
@@ -2325,7 +2335,7 @@
             "source": "local",
             "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
             "case_id": "S01",
-            "elapsed_ms": 0.113,
+            "elapsed_ms": 0.15,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2336,14 +2346,14 @@
             "hint": "用例 S01 的返回值超出了本题支持的数值范围。检查第 2 行哪一步把数值放大了。",
             "case_id": "S01",
             "source": "agentarts",
-            "request_id": "113a08709dd042618f8c2c1e9fe22977",
+            "request_id": "9576a032f7cf40ab85e831a3eaea31a3",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 28.64
+            "elapsed_ms": 15.957
           }
         },
         {
@@ -2352,7 +2362,7 @@
             "source": "local",
             "hint": "手算这组数的相加结果，看你的式子算出的结果比它大了多少倍，再回到相加那一步。",
             "case_id": "S01",
-            "elapsed_ms": 0.144,
+            "elapsed_ms": 0.112,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2363,14 +2373,14 @@
             "hint": "手算 [3, 5, 2] 的相加结果，看你的式子算出的结果比它大了多少倍，再回到相加那一步。",
             "case_id": "S01",
             "source": "agentarts",
-            "request_id": "bd6d25f9c31d420ab8228a75ccb145a9",
+            "request_id": "d15c8a0c41aa43f29b9e01e95fdd2302",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 17.93
+            "elapsed_ms": 16.519
           }
         }
       ]
@@ -2425,7 +2435,7 @@
             "source": "local",
             "hint": "用例 N01 的输入为 [4, 4, 0]。先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。",
             "case_id": "N01",
-            "elapsed_ms": 0.09,
+            "elapsed_ms": 0.095,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2436,14 +2446,14 @@
             "hint": "用例 N01 的输入是 [4, 4, 0]，期望 3，实际 8。这组输入占 3 个位置，它们的相加结果又是多少，实际值更像哪一个？",
             "case_id": "N01",
             "source": "agentarts",
-            "request_id": "b442e504e3c64b7babc66bfc962b7c7b",
+            "request_id": "ef035343f9af4465a88dfff90168ee49",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 27.142
+            "elapsed_ms": 29.706
           }
         },
         {
@@ -2452,7 +2462,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "N01",
-            "elapsed_ms": 0.079,
+            "elapsed_ms": 0.088,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2463,14 +2473,14 @@
             "hint": "[4, 4, 0] 里 0 和重复的值各占几个位置？检查第 2 行数的是位置还是数值。",
             "case_id": "N01",
             "source": "agentarts",
-            "request_id": "8131346a9ac94eea9e63c78c177d6435",
+            "request_id": "5a2c7c0ba01e4a28a2e1f6e35fb27ac6",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.833
+            "elapsed_ms": 17.495
           }
         },
         {
@@ -2479,7 +2489,7 @@
             "source": "local",
             "hint": "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。",
             "case_id": "N01",
-            "elapsed_ms": 0.086,
+            "elapsed_ms": 0.081,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2490,14 +2500,14 @@
             "hint": "按位置给 [4, 4, 0] 编号并数出 3 个位置，再用例 N01 对照第 2 行的结果。",
             "case_id": "N01",
             "source": "agentarts",
-            "request_id": "529fe9cf3d854a5198e84e03f7036e3f",
+            "request_id": "fe9cefda2f2849728b6c0b332031eacd",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 32.02
+            "elapsed_ms": 28.527
           }
         }
       ]
@@ -2552,7 +2562,7 @@
             "source": "local",
             "hint": "用例 N01 的输入为 [4, 4, 0]。先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。",
             "case_id": "N01",
-            "elapsed_ms": 0.117,
+            "elapsed_ms": 0.096,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2563,14 +2573,14 @@
             "hint": "用例 N01 的输入是 [4, 4, 0]，期望 3，实际 6。这组输入占 3 个位置，它们的相加结果又是多少，实际值更像哪一个？",
             "case_id": "N01",
             "source": "agentarts",
-            "request_id": "d59040bc2e044e2c9da0c656ead457f8",
+            "request_id": "7e17c99644354968b314193403620ba0",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 17.372
+            "elapsed_ms": 16.335
           }
         },
         {
@@ -2579,7 +2589,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "N01",
-            "elapsed_ms": 0.108,
+            "elapsed_ms": 0.09,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2590,14 +2600,14 @@
             "hint": "[4, 4, 0] 里 0 和重复的值各占几个位置？检查第 2 行数的是位置还是数值。",
             "case_id": "N01",
             "source": "agentarts",
-            "request_id": "31851649aceb41e2a4e16f867117489d",
+            "request_id": "ff20cecf68444cd8868b1d69398e2b17",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 3.038
+            "elapsed_ms": 15.258
           }
         },
         {
@@ -2606,7 +2616,7 @@
             "source": "local",
             "hint": "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。",
             "case_id": "N01",
-            "elapsed_ms": 0.076,
+            "elapsed_ms": 0.095,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2617,14 +2627,14 @@
             "hint": "按位置给 [4, 4, 0] 编号并数出 3 个位置，再用例 N01 对照第 2 行的结果。",
             "case_id": "N01",
             "source": "agentarts",
-            "request_id": "ed1ae0ad8c674d0c981fe2c87fb01a52",
+            "request_id": "ff62760fa61243729c774ce9b8442062",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 27.66
+            "elapsed_ms": 29.355
           }
         }
       ]
@@ -2664,7 +2674,7 @@
             "source": "local",
             "hint": "用例 N03 的输入为 []。先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。",
             "case_id": "N03",
-            "elapsed_ms": 0.071,
+            "elapsed_ms": 0.07,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2675,14 +2685,14 @@
             "hint": "用例 N03 的输入是 []，期望 0，实际 3。这组输入占 0 个位置，它们的相加结果又是多少，实际值更像哪一个？",
             "case_id": "N03",
             "source": "agentarts",
-            "request_id": "6defd72ef78b450abd91a56506b60c1a",
+            "request_id": "3adaf848b85b4e1892e0e9a1df3eb360",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 15.153
+            "elapsed_ms": 13.963
           }
         },
         {
@@ -2691,7 +2701,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "N03",
-            "elapsed_ms": 0.073,
+            "elapsed_ms": 0.068,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2702,14 +2712,14 @@
             "hint": "[] 里 0 和重复的值各占几个位置？检查第 2 行数的是位置还是数值。",
             "case_id": "N03",
             "source": "agentarts",
-            "request_id": "0fdf32ce726b4f958de8c3f326ff534e",
+            "request_id": "258d35a4b4c7414f9692cebf962c1cd5",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 15.061
+            "elapsed_ms": 3.029
           }
         },
         {
@@ -2718,7 +2728,7 @@
             "source": "local",
             "hint": "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。",
             "case_id": "N03",
-            "elapsed_ms": 0.065,
+            "elapsed_ms": 0.068,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2729,14 +2739,14 @@
             "hint": "按位置给 [] 编号并数出 0 个位置，再用例 N03 对照第 2 行的结果。",
             "case_id": "N03",
             "source": "agentarts",
-            "request_id": "21fa93849d5f4809a620526c768d3f37",
+            "request_id": "0ec80e79c93343f5b68f7156aec90688",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 29.978
+            "elapsed_ms": 23.741
           }
         }
       ]
@@ -2768,7 +2778,7 @@
             "source": "local",
             "hint": "用例 N03 的输入为 []。数个数只要数位置，你的式子里为什么出现了除法？",
             "case_id": "N03",
-            "elapsed_ms": 0.16,
+            "elapsed_ms": 0.109,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2779,14 +2789,14 @@
             "hint": "这道题只要数出有几个位置，第 2 行为什么会走到除法？",
             "case_id": "N03",
             "source": "agentarts",
-            "request_id": "ffddbc4cd8374cf493f2211543fbeaf8",
+            "request_id": "6073ad2ccf684029a7bc242eff643a16",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 30.578
+            "elapsed_ms": 2.798
           }
         },
         {
@@ -2795,7 +2805,7 @@
             "source": "local",
             "hint": "用这个输入检查第 2 行的除法，追踪右侧表达式如何得到 0。",
             "case_id": "N03",
-            "elapsed_ms": 0.136,
+            "elapsed_ms": 0.092,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2806,14 +2816,14 @@
             "hint": "用例 N03 的输入是 []，共 0 个元素。检查第 2 行的除数怎样变成了 0。",
             "case_id": "N03",
             "source": "agentarts",
-            "request_id": "e5176a318e6942039608ef1ec2b3ee4e",
+            "request_id": "1e442d46d64e43c1be6a8fa3ffcfff48",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 31.598
+            "elapsed_ms": 26.739
           }
         },
         {
@@ -2822,7 +2832,7 @@
             "source": "local",
             "hint": "去掉除法，直接数出位置有几个，再用这个失败用例复测。",
             "case_id": "N03",
-            "elapsed_ms": 0.129,
+            "elapsed_ms": 0.1,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2833,14 +2843,14 @@
             "hint": "去掉除法，直接数 [] 占几个位置，再用用例 N03 复测。",
             "case_id": "N03",
             "source": "agentarts",
-            "request_id": "c73a2473548a453c9e2169f185553d51",
+            "request_id": "7a91f1d9a8434fce81faa8b4e4850285",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 15.784
+            "elapsed_ms": 25.498
           }
         }
       ]
@@ -2897,7 +2907,7 @@
             "source": "local",
             "hint": "用例 N01 的输入为 [4, 4, 0]。先数一数这组输入一共占几个位置，再判断返回值该有多大。",
             "case_id": "N01",
-            "elapsed_ms": 0.123,
+            "elapsed_ms": 0.095,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2908,14 +2918,14 @@
             "hint": "[4, 4, 0] 一共占几个位置？返回值为什么会远大于这个数？",
             "case_id": "N01",
             "source": "agentarts",
-            "request_id": "3e573967f3d84e008ba75fddea80e830",
+            "request_id": "bee8423d82db4ec58306560d32e1816b",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 14.604
+            "elapsed_ms": 2.87
           }
         },
         {
@@ -2924,7 +2934,7 @@
             "source": "local",
             "hint": "检查第 2 行的中间结果，看哪一步将数值放大。",
             "case_id": "N01",
-            "elapsed_ms": 0.096,
+            "elapsed_ms": 0.085,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2935,14 +2945,14 @@
             "hint": "用例 N01 的返回值超出了本题支持的数值范围。检查第 2 行把什么当成了个数。",
             "case_id": "N01",
             "source": "agentarts",
-            "request_id": "4057955b83914009918c03a2b8c71bbd",
+            "request_id": "21eb9edc0a2147fc94f8942c33a88ebc",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 16.03
+            "elapsed_ms": 24.2
           }
         },
         {
@@ -2951,7 +2961,7 @@
             "source": "local",
             "hint": "手数这组输入的元素个数，看你的式子算出的结果比它大了多少倍，再回到计数那一步。",
             "case_id": "N01",
-            "elapsed_ms": 0.087,
+            "elapsed_ms": 0.103,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -2962,14 +2972,14 @@
             "hint": "按位置数出 3 个元素，对照第 2 行的返回值，只保留计数那一步。",
             "case_id": "N01",
             "source": "agentarts",
-            "request_id": "3a6bda1d65994e69976b2662e1400dc0",
+            "request_id": "c7b30e53309b46e19c52c6bd44edb227",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 13.88
+            "elapsed_ms": 15.285
           }
         }
       ]
@@ -3002,7 +3012,7 @@
             "source": "local",
             "hint": "用例 N04 的输入为 [7]。先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。",
             "case_id": "N04",
-            "elapsed_ms": 0.12,
+            "elapsed_ms": 0.101,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -3013,14 +3023,14 @@
             "hint": "用例 N04 的输入是 [7]，期望 1，实际 -1。这组输入占 1 个位置，它们的相加结果又是多少，实际值更像哪一个？",
             "case_id": "N04",
             "source": "agentarts",
-            "request_id": "574b3bfe653c4e9bb168c4f7782c1922",
+            "request_id": "218c4c27ca3040f18e26ae0183e3caa9",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 2.96
+            "elapsed_ms": 13.246
           }
         },
         {
@@ -3029,7 +3039,7 @@
             "source": "local",
             "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
             "case_id": "N04",
-            "elapsed_ms": 0.073,
+            "elapsed_ms": 0.099,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -3040,14 +3050,14 @@
             "hint": "[7] 里 0 和重复的值各占几个位置？检查第 2 行数的是位置还是数值。",
             "case_id": "N04",
             "source": "agentarts",
-            "request_id": "4deecdf92e3e4f94ad7641af6336afa1",
+            "request_id": "3d8528320b65401ab04e8281616a2591",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 2.599
+            "elapsed_ms": 14.168
           }
         },
         {
@@ -3056,7 +3066,7 @@
             "source": "local",
             "hint": "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。",
             "case_id": "N04",
-            "elapsed_ms": 0.082,
+            "elapsed_ms": 0.101,
             "review": {
               "evidence_ok": null,
               "actionable": null,
@@ -3067,14 +3077,14 @@
             "hint": "按位置给 [7] 编号并数出 1 个位置，再用例 N04 对照第 2 行的结果。",
             "case_id": "N04",
             "source": "agentarts",
-            "request_id": "801cffc677dd49939e738020d4bf5552",
+            "request_id": "bc86507a1b3245bbb2f35ae20919f19d",
             "outcome": "cloud",
             "review": {
               "evidence_ok": null,
               "actionable": null,
               "answer_leaked": null
             },
-            "elapsed_ms": 2.28
+            "elapsed_ms": 28.31
           }
         }
       ]
