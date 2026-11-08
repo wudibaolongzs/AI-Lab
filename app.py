@@ -17,6 +17,7 @@ import remote_judge
 import question_bank
 import learning
 import classroom
+import teacher_materials
 
 from agentarts import get_hint
 from exercise import EXERCISE, EXERCISES, check_submission
@@ -135,6 +136,9 @@ class Handler(BaseHTTPRequestHandler):
             else:
                 self.send_json(HTTPStatus.OK, problem)
             return
+        if path == "/api/materials" or path.startswith("/api/materials/"):
+            teacher_materials.dispatch(self)
+            return
         if path.startswith("/api/classroom/"):
             classroom.dispatch(self)
             return
@@ -178,7 +182,7 @@ class Handler(BaseHTTPRequestHandler):
         finally:
             self.connection.settimeout(previous)
 
-    def read_post_payload(self, require_code=True):
+    def read_post_payload(self, require_code=True, maximum=MAX_REQUEST_BYTES):
         lengths = self.headers.get_all("Content-Length", [])
         length = lengths[0].strip(" \t") if len(lengths) == 1 else ""
         if not length.isascii() or not length.isdigit() or "Transfer-Encoding" in self.headers:
@@ -186,7 +190,7 @@ class Handler(BaseHTTPRequestHandler):
             return
         length = length.lstrip("0") or "0"
         declared = int(length) if len(length) <= MAX_LENGTH_DIGITS else DRAIN_CEILING
-        if declared > MAX_REQUEST_BYTES:
+        if declared > maximum:
             # Discard what the client is still writing first: closing with bytes in flight can
             # reset the connection on Windows and the browser would never see this answer. The
             # ceiling only caps a pathological claim; a real oversized body is drained in full.
@@ -225,13 +229,18 @@ class Handler(BaseHTTPRequestHandler):
             return
         is_classroom = self.path.startswith("/api/classroom/")
         is_remote = self.path == "/api/remote/submissions"
-        if self.path not in ("/api/check", "/api/hint", "/api/learning/verify") and not is_classroom and not is_remote:
+        is_material = self.path.startswith("/api/materials/")
+        if self.path not in ("/api/check", "/api/hint", "/api/learning/verify") and not is_classroom and not is_remote and not is_material:
             self.reject(HTTPStatus.NOT_FOUND, "接口不存在。")
             return
-        payload = self.read_post_payload(require_code=not is_classroom)
+        payload = self.read_post_payload(require_code=not (is_classroom or is_material),
+                                         maximum=4*1024*1024 if is_material else MAX_REQUEST_BYTES)
         if payload is None:
             return
 
+        if is_material:
+            teacher_materials.dispatch(self, payload)
+            return
         if is_remote:
             remote_judge.dispatch(self, payload)
             return

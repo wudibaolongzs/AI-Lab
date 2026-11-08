@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>课堂工作台</title><style>body{font:16px system-ui;max-width:900px;margin:40px auto;padding:0 20px;background:#f4f7fa;color:#183044}section,article{background:white;padding:20px;margin:16px 0;border-radius:12px}input,textarea,select,button{font:inherit;padding:10px;margin:5px;max-width:90%}textarea{display:block;width:90%}button{cursor:pointer}label{display:block}small{color:#526576}</style><h1>课堂工作台</h1><p>教师发布任务并回复求助；学生查看本班任务与自己的回复。</p><section id="login"><label>身份 <select id="role"><option value="teacher">教师</option><option value="student">学生</option></select></label><label>专属凭证 <input id="credential" type="password" autocomplete="off"></label><button id="connect">进入课堂</button><small>凭证仅保留在本页内存中，刷新或退出即清除。</small></section><p id="status" role="status"></p><main id="workspace" hidden><button id="refresh">刷新</button><button id="logout">退出</button><section id="publish"><h2>发布任务</h2><label>练习 ID <input id="exercise" placeholder="average"></label><label>标题 <input id="title" maxlength="160"></label><label>截止时间（选填） <input id="due" maxlength="80"></label><button id="create">发布</button></section><section id="ask" hidden><h2>向教师求助</h2><p>以下为主动提交的自述，不包含源码，也不作为云端调用证明。</p><label>练习 ID <input id="ask-exercise" value="average" maxlength="80"></label><label>提交编号 <input id="ask-submission" maxlength="100" placeholder="例如 本次提交1"></label><label>遇到的问题 <textarea id="ask-question" maxlength="1000"></textarea></label><label>相关提示（选填） <textarea id="ask-hint" maxlength="240"></textarea></label><button id="ask-send">发送求助</button></section><section><h2>本班任务</h2><div id="tasks"></div></section><section><h2>求助与回复</h2><small>仅展示实际求助和回复数量，不评价学生掌握程度。</small><p id="counts"></p><div id="queue"></div></section></main><script>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>课堂工作台</title><style>body{font:16px system-ui;max-width:900px;margin:40px auto;padding:0 20px;background:#f4f7fa;color:#183044}section,article{background:white;padding:20px;margin:16px 0;border-radius:12px}input,textarea,select,button{font:inherit;padding:10px;margin:5px;max-width:90%}textarea{display:block;width:90%}button{cursor:pointer}label{display:block}small{color:#526576}</style><h1>课堂工作台</h1><p>教师发布任务并回复求助；学生查看本班任务与自己的回复。</p><section id="login"><label>身份 <select id="role"><option value="teacher">教师</option><option value="student">学生</option></select></label><label>专属凭证 <input id="credential" type="password" autocomplete="off"></label><button id="connect">进入课堂</button><small>凭证仅保留在本页内存中，刷新或退出即清除。</small></section><p id="status" role="status"></p><main id="workspace" hidden><button id="refresh">刷新</button><button id="logout">退出</button><section id="materials" hidden><h2>教材录题助手</h2><p>粘贴文字或拍照识别为私人草稿。识别文本只供编辑，不会执行；不会自动生成答案或发布任务。</p><p id="mat-availability"></p><div id="mat-list"></div><button id="mat-new">新建草稿</button><label>教材标题 <input id="mat-title" maxlength="160"></label><label>来源与授权说明 <textarea id="mat-source" maxlength="1000"></textarea></label><label><input type="checkbox" id="mat-rights">我确认有权处理这些教材内容</label><label>教材文字 <textarea id="mat-text" rows="8" maxlength="20000"></textarea></label><label>本地 UTF-8 TXT（最多 80 KiB） <input id="mat-txt" type="file" accept=".txt,text/plain"></label><button id="mat-submit-text">文字转草稿</button><label>拍照或选择 JPEG / PNG（最多 2 MiB） <input id="mat-photo" type="file" accept="image/jpeg,image/png" capture="environment"></label><label><input id="mat-upload" type="checkbox">同意将本次图片发送百度 OCR，可能产生费用</label><button id="mat-submit-photo" disabled>识别图片</button><p>题包 JSON 模板尚不完整：请人工填写函数、参考实现、测试期望值、三层提示及来源授权；校验通过后再核对导出。字段说明见 项目文件 docs/question-bank.md。</p><label>题包 JSON <textarea id="mat-pack" rows="16" spellcheck="false"></textarea></label><button id="mat-save">保存草稿</button><button id="mat-validate">校验题包</button><label><input id="mat-review" type="checkbox">已人工核对题意、参考实现、测试、提示及授权</label><button id="mat-export" disabled>导出 JSON</button><p id="mat-message" role="status"></p></section><section id="publish"><h2>发布任务</h2><label>练习 ID <input id="exercise" placeholder="average"></label><label>标题 <input id="title" maxlength="160"></label><label>截止时间（选填） <input id="due" maxlength="80"></label><button id="create">发布</button></section><section id="ask" hidden><h2>向教师求助</h2><p>以下为主动提交的自述，不包含源码，也不作为云端调用证明。</p><label>练习 ID <input id="ask-exercise" value="average" maxlength="80"></label><label>提交编号 <input id="ask-submission" maxlength="100" placeholder="例如 本次提交1"></label><label>遇到的问题 <textarea id="ask-question" maxlength="1000"></textarea></label><label>相关提示（选填） <textarea id="ask-hint" maxlength="240"></textarea></label><button id="ask-send">发送求助</button></section><section><h2>本班任务</h2><div id="tasks"></div></section><section><h2>求助与回复</h2><small>仅展示实际求助和回复数量，不评价学生掌握程度。</small><p id="counts"></p><div id="queue"></div></section></main><script>
 'use strict';
 let token = '', activeRole = '', generation = 0;
 const $ = id => document.getElementById(id);
@@ -25,6 +25,7 @@ async function refresh(s = session()) {
     $('workspace').hidden = false; $('login').hidden = true;
     $('publish').hidden = s.role !== 'teacher';
     $('ask').hidden = s.role !== 'student';
+    if(s.role === 'teacher') matList(s);
     $('tasks').replaceChildren();
     d.tasks.forEach(t => text($('tasks'), 'p', t.title + ' · ' + t.exercise_id + (t.due ? ' · 截止 ' + t.due : '')));
     $('queue').replaceChildren();
@@ -52,6 +53,7 @@ async function refresh(s = session()) {
   } catch (e) { if (current(s)) $('status').textContent = e.message; }
 }
 function clearPrivateView() {
+  matClear();
   $('workspace').hidden = true; $('login').hidden = false;
   $('tasks').replaceChildren(); $('queue').replaceChildren(); $('counts').textContent = '';
   $('exercise').value = ''; $('title').value = ''; $('due').value = '';
@@ -86,4 +88,118 @@ $('ask-send').onclick = async () => {
   } catch (e) { if (current(s)) $('status').textContent = e.message; }
   finally { if (current(s)) $('ask-send').disabled = false; }
 };
+
+let matId = '', matRevision = 0, matBusy = false, matValid = false, ocrEnabled = false;
+const matButtons = ['mat-submit-text','mat-submit-photo','mat-save','mat-validate','mat-export'];
+const matContext = () => ({s:session(), revision:matRevision});
+const matCurrent = c => current(c.s) && c.s.role === 'teacher' && c.revision === matRevision;
+function matControls() {
+  matButtons.forEach(id => $(id).disabled = matBusy);
+  $('mat-submit-photo').disabled = matBusy || !ocrEnabled;
+  $('mat-export').disabled = matBusy || !matId || !matValid || !$('mat-review').checked;
+}
+function matInvalidate() { matRevision++; matValid=false; $('mat-review').checked=false; matControls(); }
+function matClear() {
+  matRevision++; matId=''; matBusy=false; matValid=false; ocrEnabled=false;
+  ['mat-title','mat-text','mat-source','mat-pack','mat-photo','mat-txt'].forEach(id=>$(id).value='');
+  ['mat-rights','mat-upload','mat-review'].forEach(id=>$(id).checked=false);
+  $('mat-list').replaceChildren(); $('mat-message').textContent=''; $('mat-availability').textContent='';
+  $('materials').hidden=true; matControls();
+}
+async function matApi(s,path='',body) {
+  const r=await fetch('/api/materials'+path,{method:body?'POST':'GET',
+    headers:{'X-Classroom-Token':s.token,...(body?{'Content-Type':'application/json'}:{})},
+    ...(body?{body:JSON.stringify(body)}:{})});
+  const d=await r.json(); if(!r.ok) throw Error(d.error||'教材请求失败'); return d;
+}
+function matTemplate() {
+  return {schema_version:1,pack_id:'teacher-material',version:'1.0.0',problems:[{
+    id:'teacher_problem',version:'1.0.0',title:$('mat-title').value,
+    description:$('mat-text').value,learning_goal:'',tags:[],difficulty:'easy',
+    source:{name:$('mat-source').value,url:'',revision:'',license:'',attribution:'',adaptation:''},
+    signature:'def solve(value):',parameters:[{name:'value',type:'integer'}],return_type:'integer',
+    starter_code:'',reference_code:'',cases:[],hints:['','',''],engine:'bounded_v1'}]};
+}
+function matShow(d) {
+  $('mat-upload').checked=false; $('mat-photo').value='';
+  matId=d.id; $('mat-title').value=d.title||''; $('mat-text').value=d.text||'';
+  $('mat-source').value=d.source_note||'';
+  $('mat-pack').value=JSON.stringify(d.pack||matTemplate(),null,2);
+  matValid=false; $('mat-review').checked=false; matControls();
+}
+async function matList(s=session()) {
+  try {
+    const d=await matApi(s);
+    if(!current(s)||s.role!=='teacher')return;
+    ocrEnabled=d.ocr_enabled===true; $('materials').hidden=false;
+    $('mat-availability').textContent=ocrEnabled?'百度 OCR 可用，每班每日最多 20 次。':'图片识别未配置；可粘贴文字或读取 TXT。';
+    $('mat-list').replaceChildren();
+    (d.drafts||[]).forEach(draft=>{
+      const b=text($('mat-list'),'button',(draft.title||'未命名')+' · '+(draft.status||draft.state||'draft'));
+      b.onclick=async()=>{
+        matRevision++; const c=matContext();
+        try { const d=await matApi(s,'/'+encodeURIComponent(draft.id)); if(matCurrent(c))matShow(d); }
+        catch(e){if(matCurrent(c))$('mat-message').textContent=e.message;}
+      };
+    }); matControls();
+  }catch(e){if(current(s)&&s.role==='teacher')$('mat-message').textContent=e.message;}
+}
+async function matRun(action) {
+  if(matBusy||activeRole!=='teacher'||!token)return;
+  const c=matContext(); matBusy=true; matControls();
+  try{await action(c);}
+  catch(e){if(matCurrent(c))$('mat-message').textContent=e.message;}
+  finally{if(current(c.s)){matBusy=false;matControls();}}
+}
+function matFields() {
+  if(!$('mat-rights').checked||!$('mat-source').value.trim())throw Error('请填写来源授权说明并确认处理权利');
+  return {title:$('mat-title').value,text:$('mat-text').value,source_note:$('mat-source').value,rights_confirmed:true};
+}
+$('mat-submit-text').onclick=()=>matRun(async c=>{
+  const d=await matApi(c.s,'/text',matFields());
+  if(matCurrent(c)){matShow(d);$('mat-message').textContent='草稿已创建，请人工补充题包';await matList(c.s);}
+});
+$('mat-txt').onchange=async()=>{
+  matInvalidate(); const c=matContext(), f=$('mat-txt').files[0]; if(!f)return;
+  try{
+    if(f.size>80*1024||!f.name.toLowerCase().endsWith('.txt'))throw Error('请选择不超过 80 KiB 的 UTF-8 TXT');
+    const buf=await f.arrayBuffer(); const value=new TextDecoder('utf-8',{fatal:true}).decode(buf);
+    if(matCurrent(c)){$('mat-text').value=value;matInvalidate();}
+  }catch(e){if(matCurrent(c))$('mat-message').textContent=e.message;}
+};
+$('mat-submit-photo').onclick=()=>matRun(async c=>{
+  const fields=matFields(),f=$('mat-photo').files[0];
+  if(!ocrEnabled)throw Error('图片识别未配置');
+  if(!$('mat-upload').checked)throw Error('请明确同意发送本次图片到百度 OCR');
+  if(!f||!['image/jpeg','image/png'].includes(f.type)||f.size>2*1024*1024)throw Error('请选择不超过 2 MiB 的 JPEG 或 PNG');
+  const bytes=new Uint8Array(await f.arrayBuffer());
+  if(!matCurrent(c))return;
+  let binary=''; for(let start=0;start<bytes.length;start+=8192)binary+=String.fromCharCode(...bytes.subarray(start,start+8192));
+  const d=await matApi(c.s,'/ocr',{title:fields.title,source_note:fields.source_note,rights_confirmed:true,upload_confirmed:true,image:btoa(binary)});
+  if(matCurrent(c)){matShow(d);$('mat-upload').checked=false;$('mat-photo').value='';$('mat-message').textContent='识别完成，请逐字核对';await matList(c.s);}
+});
+async function matSave(c) {
+  if(!matId)throw Error('请先创建或选择草稿');
+  const pack=$('mat-pack').value.trim()?JSON.parse($('mat-pack').value):null;
+  await matApi(c.s,'/save',{id:matId,title:$('mat-title').value,text:$('mat-text').value,source_note:$('mat-source').value,pack});
+}
+$('mat-save').onclick=()=>matRun(async c=>{await matSave(c);if(matCurrent(c)){$('mat-message').textContent='已保存';await matList(c.s);}});
+$('mat-validate').onclick=()=>matRun(async c=>{
+  await matSave(c);if(!matCurrent(c))return;
+  const d=await matApi(c.s,'/validate',{id:matId});
+  if(matCurrent(c)){matValid=d.valid===true||d.ok===true; $('mat-message').textContent=matValid?'校验通过，请人工核对后导出':JSON.stringify(d);matControls();}
+});
+$('mat-export').onclick=()=>matRun(async c=>{
+  if(!matId||!matValid||!$('mat-review').checked)throw Error('请先通过校验并完成人工核对');
+  const d=await matApi(c.s,'/export',{id:matId,review_confirmed:true});
+  if(!matCurrent(c))return;
+  const url=URL.createObjectURL(new Blob([JSON.stringify(d.pack,null,2)],{type:'application/json'}));
+  const a=document.createElement('a');a.href=url;a.download='material-pack.json';a.click();URL.revokeObjectURL(url);
+  $('mat-message').textContent='已导出题包，尚未发布';
+});
+$('mat-new').onclick=()=>{matInvalidate();matId='';['mat-title','mat-text','mat-source','mat-pack','mat-photo','mat-txt'].forEach(id=>$(id).value='');['mat-rights','mat-upload'].forEach(id=>$(id).checked=false);$('mat-message').textContent='';};
+['mat-title','mat-text','mat-source','mat-pack','mat-photo','mat-rights','mat-upload'].forEach(id=>$(id).addEventListener('input',matInvalidate));
+$('mat-photo').addEventListener('input',()=>{ $('mat-upload').checked=false; });
+$('mat-review').onchange=matControls;
+
 </script></html>

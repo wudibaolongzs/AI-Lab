@@ -6,6 +6,6 @@ module.exports = defineConfig({
   webServer: {
     command: 'python -B app.py --port 8020',
     url: 'http://127.0.0.1:8020', reuseExistingServer: false,
-    env: { AI_PROVIDER: 'agentarts', AGENTARTS_API_KEY: '', TENCENT_API_KEY: '', DEEPSEEK_API_KEY: '' }
+    env: { BAIDU_OCR_ENABLED: '0', AI_PROVIDER: 'agentarts', AGENTARTS_API_KEY: '', TENCENT_API_KEY: '', DEEPSEEK_API_KEY: '' }
   }
 });
