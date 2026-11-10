@@ -31,5 +31,14 @@ JSON 结构为 `{"classes":{"班级ID":{"teacher_token":"操作员生成的随�
 
 验证：`python -m unittest discover -s tests -p test_classroom.py -v`，覆盖禁用、无效凭证、角色隔离、班级及学生隔离、持久记录、幂等、长度和来源校验。
 
+本机端到端验收（临时凭证与临时数据库，不打印任何 token，验证角色隔离、跨班拒绝、幂等和重启后记录仍在）：
+
+```bat
+cd /d F:\GPT\华为ict
+python -B tools\verify_classroom.py --json evals\classroom-acceptance-20261110.json
+```
+
+该脚本证明代码和本机存储可用，不等于真实班级试用。组织真人试用前的凭证分发、观察表与放行要求见 [小规模试用方案](pilot/README.md)。
+
 
 教师资料与拍照录题已提供独立待审核草稿区，仍使用本文件的教师凭证与课堂数据库。配置百度OCR、支持格式与审核导出流程见 [录题指南](baidu-materials.md)。

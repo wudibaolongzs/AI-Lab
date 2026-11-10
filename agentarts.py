@@ -7,6 +7,7 @@ import os
 import re
 import socket
 import time
+from datetime import datetime, timezone
 from http.client import HTTPException
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
@@ -210,7 +211,8 @@ def get_hint(exercise_id, result, level):
                     reason = status
                 reply.update(fallback_reason=reason)
                 reply.setdefault("execution_id", None)
-                _LOG.info(json.dumps({"request_id": request_id, "source": reply["source"],
+                _LOG.info(json.dumps({"ts": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                    "request_id": request_id, "source": reply["source"],
                     "elapsed_ms": round((time.monotonic() - start) * 1000),
                     "fallback_reason": reason, "execution_id": reply["execution_id"],
                     "cache_hit": status == "cached"}))
@@ -260,6 +262,7 @@ def get_hint(exercise_id, result, level):
     reply["fallback_reason"] = reason
     reply["execution_id"] = execution_id
     _LOG.info(json.dumps({
+        "ts": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "request_id": request_id, "source": reply["source"],
         "elapsed_ms": round((time.monotonic() - start) * 1000),
         "fallback_reason": reason, "execution_id": execution_id,
