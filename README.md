@@ -47,7 +47,7 @@ python -B -m unittest discover -s tests -v
 | 24 样本 × 3 级配对评测 | 已实现 | 本地 72 条已复核 | 已采集：72 次调用命中 67、回退 5、错误 0 | 助手初筛完成，待队员签字 |
 | 其余 5 道 AI-Lab 教学题与洛谷题 | 未接入云端 | 仅本地提示 | 未验收 | 未验收 |
 
-真实报告见 [配对评测](evals/paired-results.json)、[逐条验收](evals/agentarts-acceptance-20261110.json)、[网页验收](evals/agentarts-web-20261110.json)。2026-11-10 复验报告见 [三题三级与 4/4](evals/agentarts-web-rerun-20261110.json)、[异常回退](evals/agentarts-fallback-rerun-20261110.json)：9 个位置全部命中 AgentArts、三题均 4/4、切题丢弃生效、错误 Key 回退到本地规则。67 条云端提示的助手初筛结果为 `evidence_ok 46/67`、`actionable 51/67`、`answer_leaked 0/67`；该初筛不是人工复核签字，提交材料前须由队员逐条确认。5 次回退均为工作流节点失败 `AgentArts.102056`，不是超时或本地错误，回退路径按设计生效。
+真实报告见 [配对评测](evals/paired-results.json)、[逐条验收](evals/agentarts-acceptance-20261110.json)、[网页验收](evals/agentarts-web-20261110.json)。2026-11-10 复验报告见 [三题三级与 4/4](evals/agentarts-web-rerun-20261110.json)、[异常回退](evals/agentarts-fallback-rerun-20261110.json)：9 个位置全部命中 AgentArts、三题均 4/4、切题丢弃生效、错误 Key 回退到本地规则。67 条云端提示的助手初筛结果为 `evidence_ok 46/67`、`actionable 51/67`、`answer_leaked 0/67`；该初筛不是人工复核签字，提交材料前须由队员逐条确认。5 次回退均为工作流节点失败 `AgentArts.102056`，不是超时或本地错误，回退路径按设计生效。质量缺口的逐条清单与修订方向见 [提示质量缺口](evals/prompt-quality-gaps.md)，102056 的 5 条执行编号与排查步骤见 [失败排查](docs/agentarts-102056-triage.md)。`evidence_json` 已附带 `code_shape`，但**需在控制台更新提示词并重新发布后**重采 72 对才能证明质量改善。
 
 ### 用 .env 保存本地配置
 
@@ -60,8 +60,8 @@ python -B -m unittest discover -s tests -v
 三道题在学生点开某一级提示时都会调用 AgentArts。测试结果由本地执行器计算，云端只接收失败用例和本地诊断。配置缺失、调用失败或输出校验失败时，页面显示同一级「本地规则」提示。默认三道题都走云端；如果账号只发布了一道题的工作流，可设 `AGENTARTS_EXERCISES=average` 把范围收窄到单题，此时请求体回到不带 `exercise_id` 的三项形式。
 
 1. 在 AgentArts 的「开发中心 → 智能体管理 → 工作流」新建 `AI-Lab 平均值辅导`。开始节点配置必填项 `exercise_title`（字符串）、`evidence_json`（字符串）、`hint_level`（整数）和 `exercise_id`（字符串，取值 `average`、`sum` 或 `count`）。默认 `query` 保持可选且不绑定。`evidence_json` 包含 `cases`（失败用例数组）和 `diagnosis`（本地诊断对象）。默认三道题都走云端，请求体因此总带 `exercise_id`；若把 `AGENTARTS_EXERCISES` 收窄为单题，客户端不再发送该字段，请求体回到上面三项。
-2. 添加「诊断」大模型节点，关闭节点流式输出，选择 JSON 格式并定义字符串字段 `diagnostic_summary`、`case_id`。在提示词中引用开始节点的 `exercise_title` 和 `evidence_json`。可使用提示词「从输入中的第一个失败用例总结实际结果和期望结果的差异。只引用该用例的 ID。证据不足时指出要验证的假设。只输出含 diagnostic_summary 和 case_id 的 JSON。」
-3. 添加「教学提示」大模型节点，关闭节点流式输出，选择 JSON 格式并定义字符串字段 `hint`。引用诊断输出和开始节点的 `hint_level`。可使用提示词「围绕 diagnostic_summary 和 case_id 写一句中文提示。第 1 级提问相关概念，第 2 级指出可以检查的位置，第 3 级提出可执行的排查思路。只在证据给出行号时提及行号。保留学生的修复步骤，避免给出完整代码或可直接粘贴的答案。只输出含 hint 的 JSON。」结束节点将输出参数 `hint`、`case_id` 分别绑定到教学节点和诊断节点的同名字段。
+2. 添加「诊断」大模型节点，关闭节点流式输出，选择 JSON 格式并定义字符串字段 `diagnostic_summary`、`case_id`。在提示词中引用开始节点的 `exercise_title` 和 `evidence_json`。可使用提示词「从 evidence_json 的第一个失败用例总结实际结果与期望结果的差异，只引用该用例的 ID。code_shape 是学生实现的结构事实：has_loop 为 false 时不得描述循环、遍历、迭代或累加过程；returns_constant 为 true 时指出返回值未随输入变化；不得推断变量名或代码原文。证据不足时指出要验证的假设。只输出含 diagnostic_summary 和 case_id 的 JSON。」
+3. 添加「教学提示」大模型节点，关闭节点流式输出，选择 JSON 格式并定义字符串字段 `hint`。引用诊断输出和开始节点的 `hint_level`。可使用提示词「只依据 diagnostic_summary、case_id、hint_level 和 evidence_json.code_shape 写一句中文提示。has_loop 为 false 时不得建议检查循环、遍历或累加变量；returns_constant 为 true 时指出返回值没有随输入变化。第 1 级提问相关概念，第 2 级指出证据中真实存在的量或返回表达式，第 3 级提出可执行的排查与复验步骤。只在证据给出行号时提及行号。保留学生的修复步骤，避免给出完整代码或可直接粘贴的答案。只输出含 hint 的 JSON。」结束节点将输出参数 `hint`、`case_id` 分别绑定到教学节点和诊断节点的同名字段。
 4. 试运行时设置题目为 `计算列表平均值`，等级为 `1`，证据可用下方样例。确认结束节点输出 `case_id` 为 `C01` 且 `hint` 是一句中文。提交版本并部署至实例，使用 API Key 入站认证，开启日志和调用链。从控制台复制完整 HTTPS 调用路径及运行时 API Key。API 调用需要可用的 MaaS 模型或自有模型，请使用账号已有的可调用额度。 [工作流 API 调用](https://support.huaweicloud.com/api-agentarts/agentarts_07_0047.html) · [大模型输出字段](https://support.huaweicloud.com/agentarts_faq/agentarts_09_0023.html) · [结束节点](https://support.huaweicloud.com/lowcode-agentarts/end_node.html)
 
 ```json
@@ -115,7 +115,7 @@ python -B tools/probe_agentarts.py --url http://127.0.0.1:8931/runtimes/ai-lab-a
 
 队伍信息见 [项目信息](docs/team.md)，采用 [MIT](LICENSE)。进展与待办见 [整改记录](docs/remediation-status.md)。python app.py 不读取 .env，需要配置时使用 tools/start.py。
 
-真实验收的采集口径：前端等待提示的上限已从 18 秒调到 65 秒，与服务端可配置的 `AI_TIMEOUT`（默认 8 秒、验收时 60 秒）对齐；`evals.run` 新增 `--timeout`，采集真实云端时应大于服务端 `AI_TIMEOUT`。探针在读取 `.env` 后会重新计算超时，不再使用导入时的默认 8 秒。
+真实验收的采集口径：前端等待提示的上限为 65 秒，服务端 `AI_TIMEOUT` 默认 8 秒、本机验收配置已设为 60 秒；`evals.run` 的 `--timeout` 应大于服务端 `AI_TIMEOUT`。探针在读取 `.env` 后会重新计算超时，不再使用导入时的默认 8 秒。等待期间页面显示“云端辅导通常需要 5–30 秒”，超时或节点失败时显示对应回退原因与请求编号。
 
 ## 访问、监控与真实试用状态（2026-11-10）
 

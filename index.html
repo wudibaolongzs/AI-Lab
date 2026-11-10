@@ -353,6 +353,7 @@
         <section class="hints" id="hints" aria-labelledby="hints-heading" hidden>
           <h3 id="hints-heading">分步提示</h3>
           <ol class="hint-list" id="hint-list" aria-live="polite" aria-relevant="additions"></ol>
+          <p class="muted" id="hint-wait" hidden>正在获取提示：云端辅导通常需要 5–30 秒，请保持页面打开。</p>
           <div class="hint-actions">
             <button class="secondary" id="reveal" type="button">查看第 1 步提示</button>
             <span class="muted" id="hint-count"></span>
@@ -839,6 +840,7 @@
       } else {
         revealButton.textContent = revealed === total ? "提示已全部展开" : `查看第 ${revealed + 1} 步提示`;
       }
+      element("hint-wait").hidden = !pendingHint;
       revealButton.disabled = Boolean(pendingHint) || revealed === total;
     }
 
@@ -890,6 +892,7 @@
         busy: "云端正在处理其他请求，使用本地提示",
         rate_limited: "已达本轮云端调用限额，使用本地提示",
         circuit_open: "云端服务暂时不可用，使用本地提示",
+        workflow_failed: "云端辅导暂不可用，已使用本地提示",
         invalid_response: "云端响应格式无法解析",
         invalid_output: "云端提示未通过字段或内容检查",
         request_failed: "提示请求未完成，使用本次判题的本地提示",

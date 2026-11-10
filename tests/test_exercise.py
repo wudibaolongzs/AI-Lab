@@ -1,6 +1,19 @@
 import unittest
 
 
+class ExerciseShapeTests(unittest.TestCase):
+    def test_starter_shapes_are_described_without_source_text(self):
+        from exercise import EXERCISES, check_submission
+
+        for exercise_id, uses_sum, uses_len in (("sum", False, True), ("count", True, False)):
+            shape = check_submission(EXERCISES[exercise_id]["starter_code"], exercise_id)["code_shape"]
+            self.assertFalse(shape["has_loop"])
+            self.assertEqual(shape["uses_sum"], uses_sum)
+            self.assertEqual(shape["uses_len"], uses_len)
+            self.assertTrue(shape["returns_call"])
+            self.assertNotIn("nums", str(shape))
+
+
 class AverageExerciseTests(unittest.TestCase):
     def test_constant_result_hint_asks_to_compare_inputs(self):
         from exercise import check_submission

@@ -68,7 +68,7 @@ def payload_for(exercise_id, level, timeout_hint=None):
     failed = [case for case in result["cases"] if case["status"] != "passed"]
     inputs = {
         "exercise_title": EXERCISES[exercise_id]["title"],
-        "evidence_json": json.dumps({"cases": failed, "diagnosis": result["diagnosis"]}, ensure_ascii=False),
+        "evidence_json": json.dumps(agentarts.evidence_payload(result), ensure_ascii=False),
         "hint_level": level,
     }
     cloud = agentarts._cloud_exercises()

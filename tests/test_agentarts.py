@@ -155,6 +155,16 @@ class AgentArtsHintTests(unittest.TestCase):
             for exercise_id in ("average", "sum", "count"):
                 self.assertEqual(get_hint(exercise_id, self.result, 1)["source"], "local")
         open_stream.assert_not_called()
+
+    @patch("agentarts._OPENER.open")
+    def test_evidence_includes_structural_facts_without_source(self, open_stream):
+        open_stream.return_value = self.stream("检查分母用的是哪个量。")
+        get_hint("average", self.result, 1)
+        inputs = json.loads(open_stream.call_args.args[0].data)["inputs"]
+        evidence = json.loads(inputs["evidence_json"])
+        self.assertFalse(evidence["code_shape"]["has_loop"])
+        self.assertNotIn("def average", inputs["evidence_json"])
+
     def test_refresh_timeout_picks_up_a_late_env_value(self):
         import agentarts
         original = agentarts._TIMEOUT

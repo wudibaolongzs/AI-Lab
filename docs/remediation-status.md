@@ -71,3 +71,15 @@ DeepSeek复核表：evals/deepseek-review.csv，144个位置等待人工确认�
 真实报告：`evals/paired-results.json`（67 条云端提示）、`evals/agentarts-acceptance-20261110.json`（9 条 API 证据）、`evals/agentarts-web-20261110.json`（网页 9 条 + 三题 4/4）。5 次回退均为 `workflow_failed` / `AgentArts.102056`，不是超时，也不是本地错误。
 
 仍未放行：队员人工复核签字；`AgentArts.102056` 根因复核；其余 5 道教学题接入云端；真实服务器部署与 HTTPS 验收。
+## 提示质量与稳定性增量（2026-11-10）
+
+- 判题结果新增 `code_shape`：`has_loop`、`uses_sum`、`uses_len`、`returns_constant`、`returns_name`、`returns_call`、`statements`、`assignments`，不含变量名、数值或源码；`evidence_json` 自动携带，工作流开始节点无需新增字段，探针同步使用同一份证据。
+- 诊断与教学提示词模板收紧：`has_loop=false` 时禁止描述循环、遍历、迭代或累加过程；`returns_constant=true` 时直接指出返回值未随输入变化。模板已更新到 README 与 AgentArts 手册，**需在控制台重新发布后才生效**。
+- 21 条证据不一致、16 条不可操作的云端提示已逐条列出，含问题分类与修订方向：`evals/prompt-quality-gaps.md`。
+- `AgentArts.102056` 的 5 条失败已保存 execution_id、失败节点与耗时，排查步骤见 [102056 排查](agentarts-102056-triage.md)。根因仍需账号登录控制台确认。
+- 前端新增 `workflow_failed` 文案“云端辅导暂不可用，已使用本地提示”，保留请求编号；等待期间显示“云端辅导通常需要 5–30 秒”。浏览器回归新增对应两条。
+- 本机 `.env` 的 `AI_TIMEOUT` 改为 60 秒，前端等待上限 65 秒；默认代码值仍为 8 秒，避免未配置时长时间阻塞。
+- 回归稳定性：Python 227 项连续 5 轮全部通过，未复现间歇失败；浏览器测试改为单 worker 运行，减少文件级并行带来的端口与资源抖动。
+- 外部服务范围另列：`docs/external-services-acceptance.md` 区分“已收录、模拟通过、真实验证”，洛谷与百度 OCR 真实调用仍为 0 次。
+
+本轮没有新增真实云端调用；提示质量改善需控制台发布后重采 72 对才能证明。

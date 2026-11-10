@@ -170,6 +170,25 @@ def evaluate_case(statements, nums):
     return evaluate_expression(statements[-1].value, values, nums)
 
 
+def code_shape(statements):
+    """Structural facts for the cloud prompt; no names, values or source text."""
+    nodes = [node for statement in statements for node in ast.walk(statement)]
+    calls = {node.func.id for node in nodes
+             if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)}
+    final = statements[-1].value
+    return {
+        "statements": len(statements),
+        "assignments": max(0, len(statements) - 1),
+        "uses_sum": "sum" in calls,
+        "uses_len": "len" in calls,
+        "returns_constant": isinstance(final, ast.Constant),
+        "returns_name": isinstance(final, ast.Name),
+        "returns_call": isinstance(final, ast.Call),
+        "has_loop": any(isinstance(node, (ast.For, ast.While, ast.ListComp, ast.GeneratorExp))
+                        for node in nodes),
+    }
+
+
 def feedback(diagnosis, case, exercise_id="average"):
     reference = f"用例 {case['id']} 的输入为 {case['input']}。"
     # Syntax and unsupported-construct diagnoses have no case-level sentence of their own,
@@ -195,6 +214,7 @@ def check_submission(code: str, exercise_id: str = "average") -> dict:
     except SubmissionError as error:
         result["diagnosis"] = error.diagnosis()
         return result
+    result["code_shape"] = code_shape(statements)
 
     for case_id, nums, expected in cases:
         case = {"id": case_id, "input": list(nums), "expected": expected, "actual": None}

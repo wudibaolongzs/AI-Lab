@@ -80,3 +80,31 @@ test('switching exercise aborts stale hint', async ({ page }) => {
   await page.locator('#exercise-select').selectOption('average');
   await expect(page.locator('#hint-list li')).toHaveCount(0);
 });
+
+test('workflow failure explains the local fallback and keeps the request id', async ({ page }) => {
+  await page.route('**/api/hint', route => route.fulfill({ json: {
+    source: 'local', hint: '用例 C01 的输入为 [10, 20, 30, 40]。', case_id: 'C01',
+    request_id: 'wf-fixture', fallback_reason: 'workflow_failed'
+  } }));
+  await page.locator('#run').click();
+  await page.locator('#reveal').click();
+  await expect(page.locator('#hint-list li')).toHaveCount(1);
+  await expect(page.locator('#hint-list')).toContainText('云端辅导暂不可用，已使用本地提示');
+  await expect(page.locator('#hint-list')).toContainText('请求编号 wf-fixture');
+});
+
+test('waiting guidance is visible until the hint arrives', async ({ page }) => {
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  await page.route('**/api/hint', async route => {
+    await gate;
+    await route.fulfill({ json: { source: 'agentarts', hint: '等待后返回的提示。', case_id: 'C01', request_id: 'wait-fixture' } });
+  });
+  await page.locator('#run').click();
+  await page.locator('#reveal').click();
+  await expect(page.locator('#hint-wait')).toBeVisible();
+  await expect(page.locator('#hint-wait')).toContainText('5–30 秒');
+  release();
+  await expect(page.locator('#hint-wait')).toBeHidden();
+  await expect(page.locator('#hint-list li')).toHaveCount(1);
+});

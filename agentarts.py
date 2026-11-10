@@ -169,11 +169,21 @@ def _invoke(url, api_key, request_id, title, evidence, level, exercise_id=None):
         return _workflow_result(response, deadline)
 
 
+def evidence_payload(result):
+    """Failure evidence plus structural facts; never the student's source text."""
+    evidence = {"cases": [case for case in result["cases"] if case["status"] != "passed"],
+                "diagnosis": result["diagnosis"]}
+    if isinstance(result.get("code_shape"), dict):
+        evidence["code_shape"] = result["code_shape"]
+    return evidence
+
+
 def get_hint(exercise_id, result, level):
     """Select a hint for an already validated failing submission."""
     start = time.monotonic()
     request_id = uuid4().hex
     failed = [case for case in result["cases"] if case["status"] != "passed"]
+    evidence = evidence_payload(result)
     reply = {
         "hint": result["hints"][level - 1], "case_id": failed[0]["id"],
         "source": "local", "request_id": request_id,
@@ -201,7 +211,7 @@ def get_hint(exercise_id, result, level):
         if os.environ.get("AI_HINT_PROTECTION", "0").strip() == "1":
             guard = hint_guard.GUARD
             key = hint_guard.cache_key(provider, model, url, api_key, exercise_id,
-                                       {"cases": failed, "diagnosis": result["diagnosis"]}, level)
+                                       evidence, level)
             status, cached = guard.begin(key)
             if status != "allowed":
                 if status == "cached":
@@ -221,14 +231,14 @@ def get_hint(exercise_id, result, level):
             if provider == "tencent":
                 fields, execution_id = invoke_tencent(
                     _OPENER, url, api_key, model, request_id, EXERCISES[exercise_id]["title"],
-                    {"cases": failed, "diagnosis": result["diagnosis"]}, level, exercise_id, _TIMEOUT)
+                    evidence, level, exercise_id, _TIMEOUT)
             elif provider == "deepseek":
                 fields, execution_id = invoke_deepseek(
                     _OPENER, url, api_key, model, request_id, EXERCISES[exercise_id]["title"],
-                    {"cases": failed, "diagnosis": result["diagnosis"]}, level, exercise_id, _TIMEOUT)
+                    evidence, level, exercise_id, _TIMEOUT)
             else:
                 fields, execution_id = _invoke(url, api_key, request_id, EXERCISES[exercise_id]["title"],
-                                           {"cases": failed, "diagnosis": result["diagnosis"]}, level,
+                                           evidence, level,
                                            exercise_id if len(cloud) > 1 else None)
             hint = fields.get("hint") if isinstance(fields, dict) else None
             case_id = fields.get("case_id") if isinstance(fields, dict) else None

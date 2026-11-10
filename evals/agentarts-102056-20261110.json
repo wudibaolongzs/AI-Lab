@@ -1,0 +1,53 @@
+{
+  "kind": "agentarts_102056_triage",
+  "date": "2026-11-10",
+  "source_report": "evals/paired-results.json",
+  "note": "72 次真实调用中的 5 次工作流节点失败；仅记录脱敏标识，不含模型输出或凭据。",
+  "failures": [
+    {
+      "sample_id": "SU3",
+      "level": 1,
+      "request_id": "1747780aca5c4e54baf2a3eee55639f8",
+      "execution_id": "5bf3f5b8-f651-404c-b35b-56f3c6c1f89c",
+      "failed_node_id": "node_llm",
+      "cloud_error_code": "AgentArts.102056",
+      "elapsed_ms": 2422
+    },
+    {
+      "sample_id": "SU3",
+      "level": 2,
+      "request_id": "83418772f4704a049296b1b73b457707",
+      "execution_id": "4258af38-3cc5-41b9-8659-e97db856b5b3",
+      "failed_node_id": "node_llm",
+      "cloud_error_code": "AgentArts.102056",
+      "elapsed_ms": 1297
+    },
+    {
+      "sample_id": "CO2",
+      "level": 2,
+      "request_id": "7be5f8939859496dbc3aebe2f5c998fa",
+      "execution_id": "737c96c1-7d8f-4698-93c6-c3fb707d3fc2",
+      "failed_node_id": "node_1794225680834",
+      "cloud_error_code": "AgentArts.102056",
+      "elapsed_ms": 8531
+    },
+    {
+      "sample_id": "CO3",
+      "level": 2,
+      "request_id": "65536fd4884b4da9aaf0f9a14c6d6866",
+      "execution_id": "64bb50b6-7ed1-49c1-be5a-411e45ec3f14",
+      "failed_node_id": "node_llm",
+      "cloud_error_code": "AgentArts.102056",
+      "elapsed_ms": 1938
+    },
+    {
+      "sample_id": "CO3",
+      "level": 3,
+      "request_id": "4f4c68abbc1746609564b1db32ca8139",
+      "execution_id": "fddab09f-e0e4-45bd-a8d1-1283c908665e",
+      "failed_node_id": "node_llm",
+      "cloud_error_code": "AgentArts.102056",
+      "elapsed_ms": 5016
+    }
+  ]
+}
