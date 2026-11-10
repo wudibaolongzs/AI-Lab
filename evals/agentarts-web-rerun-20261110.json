@@ -1,0 +1,134 @@
+{
+  "kind": "real_agentarts_web_rerun",
+  "date": "2026-11-10T13:49:33.205Z",
+  "base": "http://127.0.0.1:8031",
+  "rows": [
+    {
+      "exercise": "average",
+      "level": 1,
+      "ui_source": "AgentArts",
+      "ui_elapsed_ms": 19007,
+      "source": "agentarts",
+      "hint": "想一想：计算平均值时，分母所代表的“元素个数”与当前相除所用的数量是否对应同一概念？",
+      "case_id": "C01",
+      "request_id": "20835fa3b15c49c28c6aa04c464f6da6",
+      "execution_id": "0201c818-36d4-452a-bff3-2a8e81f7c29d",
+      "fallback_reason": null
+    },
+    {
+      "exercise": "average",
+      "level": 2,
+      "ui_source": "AgentArts",
+      "ui_elapsed_ms": 19101,
+      "source": "agentarts",
+      "hint": "请核查计算平均值时使用的分母变量是否与有效元素个数一致，并检查计数是否包含不应计入的元素。",
+      "case_id": "C01",
+      "request_id": "f865aa2a26a2430ba2210af113c69794",
+      "execution_id": "c68d1720-e7ca-4c57-9b73-c4558616ff23",
+      "fallback_reason": null
+    },
+    {
+      "exercise": "average",
+      "level": 3,
+      "ui_source": "AgentArts",
+      "ui_elapsed_ms": 19556,
+      "source": "agentarts",
+      "hint": "请核查计算过程中的变量使用与运算步骤，明确根因后调整相应实现方向，并重新运行测试验证结果。",
+      "case_id": "C01",
+      "request_id": "f78be9ef7be1420db60494bf37ca3265",
+      "execution_id": "4ffc4055-db0f-46fa-b03d-70e8864ecf89",
+      "fallback_reason": null
+    },
+    {
+      "exercise": "sum",
+      "level": 1,
+      "ui_source": "AgentArts",
+      "ui_elapsed_ms": 9955,
+      "source": "agentarts",
+      "hint": "思考一下：累计求和与直接返回某个元素有何本质区别？你的函数是否真正遍历并累加了所有元素？",
+      "case_id": "S01",
+      "request_id": "0a3a9eb9803442f4895d49d699deeb0f",
+      "execution_id": "a130ffec-e82d-4bd9-8fb6-a129db85c81f",
+      "fallback_reason": null
+    },
+    {
+      "exercise": "sum",
+      "level": 2,
+      "ui_source": "AgentArts",
+      "ui_elapsed_ms": 13114,
+      "source": "agentarts",
+      "hint": "请核查循环中累加变量是否在每次迭代正确更新，以及返回前是否完成全部元素的处理。",
+      "case_id": "S01",
+      "request_id": "728adac1d6b9412e958c3389aab8b0ab",
+      "execution_id": "a042c525-8608-4dd5-af25-fd19a0632427",
+      "fallback_reason": null
+    },
+    {
+      "exercise": "sum",
+      "level": 3,
+      "ui_source": "AgentArts",
+      "ui_elapsed_ms": 6513,
+      "source": "agentarts",
+      "hint": "建议从返回值计算逻辑入手，检查是否漏掉了应累加或应处理的情况，修正后请重新运行测试验证。",
+      "case_id": "S01",
+      "request_id": "fd6d61499f7445e58ad66cf1cef0b76e",
+      "execution_id": "c44eb8e8-4e8e-4c72-ae38-c3653479b0d6",
+      "fallback_reason": null
+    },
+    {
+      "exercise": "count",
+      "level": 1,
+      "ui_source": "AgentArts",
+      "ui_elapsed_ms": 23247,
+      "source": "agentarts",
+      "hint": "在计数满足条件的元素时，你的实现如何区分“应计入”和“不应计入”的情况？",
+      "case_id": "N01",
+      "request_id": "1834aec6059646aeb91f54b2a7f43d04",
+      "execution_id": "77661d24-c937-4912-ad3d-24e9a0eae4f6",
+      "fallback_reason": null
+    },
+    {
+      "exercise": "count",
+      "level": 2,
+      "ui_source": "AgentArts",
+      "ui_elapsed_ms": 4180,
+      "source": "agentarts",
+      "hint": "请核查循环中计数变量的初始值及每次更新时机，确认是否因重复累加导致结果偏离预期。",
+      "case_id": "N01",
+      "request_id": "3052fca948814bf6ab533a4526a4eaa7",
+      "execution_id": "ff5a0f79-b3b2-4acf-8cf0-6003018f8720",
+      "fallback_reason": null
+    },
+    {
+      "exercise": "count",
+      "level": 3,
+      "ui_source": "AgentArts",
+      "ui_elapsed_ms": 7108,
+      "source": "agentarts",
+      "hint": "建议重点检查元素遍历与计数条件的边界处理，确认是否存在重复统计或条件判断偏差；调整后请重新运行全部用例验证结果。",
+      "case_id": "N01",
+      "request_id": "6d446b47d29343c0913846a5ebc4595d",
+      "execution_id": "33561edb-7a59-46fc-b556-dcc306bc6fdb",
+      "fallback_reason": null
+    }
+  ],
+  "runs": [
+    {
+      "exercise": "average",
+      "result": "提交 #2 · 4/4 个用例通过"
+    },
+    {
+      "exercise": "sum",
+      "result": "提交 #2 · 4/4 个用例通过"
+    },
+    {
+      "exercise": "count",
+      "result": "提交 #2 · 4/4 个用例通过"
+    }
+  ],
+  "stale_discard": {
+    "hints_hidden": true,
+    "stale_items": 0
+  },
+  "page_errors": []
+}

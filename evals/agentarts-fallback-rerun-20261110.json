@@ -1,0 +1,10 @@
+{
+  "kind": "real_agentarts_fallback",
+  "date": "2026-11-10T13:52:13.250Z",
+  "http_status": 200,
+  "source": "local",
+  "fallback_reason": "http_error",
+  "request_id": "0d69a2684ac0464db00f02bfd5581d3f",
+  "ui_source": "本地规则",
+  "ui_text": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。本地规则云端返回接口错误，请检查所选服务的认证、模型和地址请求编号 0d69a2684ac0464db00f02bfd5581d3f有帮助太模糊接近答案可能错误"
+}

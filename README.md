@@ -47,7 +47,7 @@ python -B -m unittest discover -s tests -v
 | 24 样本 × 3 级配对评测 | 已实现 | 本地 72 条已复核 | 已采集：72 次调用命中 67、回退 5、错误 0 | 助手初筛完成，待队员签字 |
 | 其余 5 道 AI-Lab 教学题与洛谷题 | 未接入云端 | 仅本地提示 | 未验收 | 未验收 |
 
-真实报告见 [配对评测](evals/paired-results.json)、[逐条验收](evals/agentarts-acceptance-20261110.json)、[网页验收](evals/agentarts-web-20261110.json)。67 条云端提示的助手初筛结果为 `evidence_ok 46/67`、`actionable 51/67`、`answer_leaked 0/67`；该初筛不是人工复核签字，提交材料前须由队员逐条确认。5 次回退均为工作流节点失败 `AgentArts.102056`，不是超时或本地错误，回退路径按设计生效。
+真实报告见 [配对评测](evals/paired-results.json)、[逐条验收](evals/agentarts-acceptance-20261110.json)、[网页验收](evals/agentarts-web-20261110.json)。2026-11-10 复验报告见 [三题三级与 4/4](evals/agentarts-web-rerun-20261110.json)、[异常回退](evals/agentarts-fallback-rerun-20261110.json)：9 个位置全部命中 AgentArts、三题均 4/4、切题丢弃生效、错误 Key 回退到本地规则。67 条云端提示的助手初筛结果为 `evidence_ok 46/67`、`actionable 51/67`、`answer_leaked 0/67`；该初筛不是人工复核签字，提交材料前须由队员逐条确认。5 次回退均为工作流节点失败 `AgentArts.102056`，不是超时或本地错误，回退路径按设计生效。
 
 ### 用 .env 保存本地配置
 
