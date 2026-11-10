@@ -198,6 +198,75 @@
       .shortcut { display: none; }
     }
     @media (prefers-reduced-transparency: reduce) { .card, .masthead { background: var(--paper); backdrop-filter: none; -webkit-backdrop-filter: none; } }
+
+    /* Glass-morphism encouragement layer: cheer card plus two cartoon study buddies. */
+    :root {
+      --glass-bg: linear-gradient(150deg, #ffffffeb, #e8f0ffe0);
+      --glass-border: #ffffffd9;
+
+      --glass-shadow: 0 24px 60px #16335c24, inset 0 1px 0 #ffffffcc;
+      --glass-halo: #7fb0ff33;
+    }
+    :root[data-theme="dark"] {
+      --glass-bg: linear-gradient(150deg, #242c3bf0, #191f2beb);
+      --glass-border: #4a5568;
+
+      --glass-shadow: 0 24px 60px #00000059, inset 0 1px 0 #ffffff1f;
+      --glass-halo: #82b8ff2e;
+    }
+    .cheer {
+      position: fixed; z-index: 60; top: 92px; left: 50%; width: min(420px, calc(100% - 32px));
+      padding: 16px 46px 18px 18px; border-radius: 24px; transform: translateX(-50%);
+      border: 1px solid var(--glass-border); background: var(--glass-bg);
+      box-shadow: var(--glass-shadow); backdrop-filter: blur(26px) saturate(170%);
+      -webkit-backdrop-filter: blur(26px) saturate(170%);
+      animation: cheer-in .46s cubic-bezier(.16,.9,.28,1.16) both;
+    }
+    .cheer::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+      background: radial-gradient(circle at 10% 0, var(--glass-halo), transparent 62%);
+    }
+    .cheer-emoji { font-size: 36px; line-height: 1; margin-bottom: 4px; animation: cheer-pop 1.6s ease-in-out infinite; }
+    .cheer-title { margin: 0 0 4px; font-weight: 750; font-size: 17px; letter-spacing: -.02em; }
+    .cheer-body { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.7; }
+    .cheer-close {
+      position: absolute; z-index: 1; top: 10px; right: 10px; width: 32px; height: 32px;
+      border: 1px solid #ffffff; border-radius: 99px; background: #ffffffd9;
+      color: #3d4657; font-size: 17px; font-weight: 700; line-height: 1;
+    }
+    .cheer-close:hover { background: var(--accent); color: #ffffff; }
+    [data-theme="dark"] .cheer-close { background: #ffffff1f; border-color: #ffffff33; color: var(--ink); }
+    [data-theme="dark"] .cheer-close:hover { background: var(--accent); color: #0b1220; }
+    @keyframes cheer-in { from { opacity: 0; transform: translate(-50%, -14px) scale(.94); } to { opacity: 1; transform: translate(-50%, 0); } }
+    @keyframes cheer-pop { 0%, 100% { transform: scale(1) rotate(-4deg); } 50% { transform: scale(1.12) rotate(4deg); } }
+
+    .mascot { position: fixed; z-index: 20; bottom: 16px; width: 150px; display: none; pointer-events: none; }
+    .mascot--left { left: 14px; }
+    .mascot--right { right: 14px; }
+    .mascot svg { display: block; width: 100%; height: auto; filter: drop-shadow(0 16px 26px #1c335015); animation: mascot-float 4.6s ease-in-out infinite; }
+    .mascot--right svg { animation-delay: -2.3s; }
+    .mascot-bubble {
+      position: relative; width: max-content; max-width: 100%; margin: 0 0 6px 6px; padding: 7px 12px;
+      border-radius: 14px; border: 1px solid var(--glass-border); background: var(--glass-bg);
+      box-shadow: 0 10px 24px #16335c14; backdrop-filter: blur(18px) saturate(150%);
+      -webkit-backdrop-filter: blur(18px) saturate(150%);
+      color: var(--accent); font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
+    }
+    .mascot--right .mascot-bubble { margin-left: auto; margin-right: 6px; }
+    body.celebrating .mascot svg { animation: mascot-cheer .92s ease-in-out 3; }
+    @keyframes mascot-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    @keyframes mascot-cheer {
+      0%, 100% { transform: translateY(0) scale(1) rotate(0); }
+      30% { transform: translateY(-16px) scale(1.06) rotate(-3deg); }
+      60% { transform: translateY(-3px) scale(1.02) rotate(3deg); }
+    }
+    @media (min-width: 1180px) {
+      .mascot { display: block; }
+      .wrap { width: min(1200px, calc(100% - 376px)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cheer, .cheer-emoji, .mascot svg, body.celebrating .mascot svg { animation: none; }
+    }
   </style>
 </head>
 <body>
@@ -318,6 +387,86 @@
     <footer>智学工坊 AI-Lab · Python 基础练习原型</footer>
   </main>
 
+  <aside class="mascot mascot--left" aria-hidden="true">
+    <p class="mascot-bubble">加油，慢慢来！</p>
+    <svg viewBox="0 0 132 176" role="img" aria-label="为你加油的卡通同学">
+      <defs>
+        <linearGradient id="mascot-shirt-a" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#8fc0ff"/><stop offset="1" stop-color="#4f8ef7"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="66" cy="166" rx="38" ry="6" fill="#1b2f4d" opacity=".13"/>
+      <rect x="53" y="132" width="11" height="30" rx="5.5" fill="#31415f"/>
+      <rect x="68" y="132" width="11" height="30" rx="5.5" fill="#31415f"/>
+      <rect x="49" y="156" width="17" height="8" rx="4" fill="#f2f5fb"/>
+      <rect x="66" y="156" width="17" height="8" rx="4" fill="#eef2f8"/>
+      <path d="M40 138c0-24 9-46 26-46s26 22 26 46z" fill="url(#mascot-shirt-a)"/>
+      <path d="M55 92h22l-11 13z" fill="#ffffff" opacity=".9"/>
+      <rect x="59" y="76" width="14" height="14" rx="7" fill="#f6c6a3"/>
+      <path d="M41 112c-12 1-19-6-22-17" fill="none" stroke="#5d99f9" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="19" cy="87" r="11" fill="#ffd9ba"/>
+      <path d="M13 82h12M13 88h12" stroke="#f0b591" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M91 114c10 3 15 10 16 19" fill="none" stroke="#5d99f9" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="108" cy="136" r="9" fill="#ffd9ba"/>
+      <circle cx="66" cy="52" r="27" fill="#ffd9ba"/>
+      <path d="M39 52a27 27 0 0 1 54 0c0-16-10-27-27-27S39 36 39 52z" fill="#33405f"/>
+      <path d="M41 50c-2 10 0 18 4 24l-8-4z" fill="#33405f"/>
+      <path d="M91 50c2 10 0 18-4 24l8-4z" fill="#33405f"/>
+      <path d="M45 43c7-9 20-11 31-5 5 3 8 7 10 11-10-7-23-9-33-4z" fill="#33405f"/>
+      <ellipse cx="56" cy="55" rx="3.1" ry="3.7" fill="#28324a"/>
+      <ellipse cx="78" cy="55" rx="3.1" ry="3.7" fill="#28324a"/>
+      <circle cx="57" cy="53.6" r="1.1" fill="#fff"/><circle cx="79" cy="53.6" r="1.1" fill="#fff"/>
+      <circle cx="47" cy="64" r="5" fill="#ff9db0" opacity=".5"/>
+      <circle cx="87" cy="64" r="5" fill="#ff9db0" opacity=".5"/>
+      <path d="M59 65c4 5 11 5 15 0" fill="none" stroke="#28324a" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M24 62l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffce4d"/>
+      <path d="M104 84l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#7fc7ff"/>
+    </svg>
+  </aside>
+
+  <aside class="mascot mascot--right" aria-hidden="true">
+    <p class="mascot-bubble">你可以的！</p>
+    <svg viewBox="0 0 132 176" role="img" aria-label="为你打气的卡通同学">
+      <defs>
+        <linearGradient id="mascot-shirt-b" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffcf8f"/><stop offset="1" stop-color="#f59a4b"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="66" cy="166" rx="38" ry="6" fill="#1b2f4d" opacity=".13"/>
+      <rect x="53" y="132" width="11" height="30" rx="5.5" fill="#31415f"/>
+      <rect x="68" y="132" width="11" height="30" rx="5.5" fill="#31415f"/>
+      <rect x="49" y="156" width="17" height="8" rx="4" fill="#f2f5fb"/>
+      <rect x="66" y="156" width="17" height="8" rx="4" fill="#eef2f8"/>
+      <path d="M40 138c0-24 9-46 26-46s26 22 26 46z" fill="url(#mascot-shirt-b)"/>
+      <path d="M55 92h22l-11 13z" fill="#ffffff" opacity=".9"/>
+      <rect x="59" y="76" width="14" height="14" rx="7" fill="#f6c6a3"/>
+      <path d="M42 112c-11 6-13 18-8 27" fill="none" stroke="#f7a45e" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="37" cy="142" r="9" fill="#ffd9ba"/>
+      <path d="M90 108c12-3 18-12 20-24" fill="none" stroke="#f7a45e" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="112" cy="78" r="11" fill="#ffd9ba"/>
+      <path d="M106 73h12M106 79h12" stroke="#f0b591" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="66" cy="52" r="27" fill="#ffd9ba"/>
+      <path d="M39 52c0-16 12-27 27-27s27 11 27 27c-6-8-13-11-19-9-3-5-8-6-12-2-8-4-16-1-23 11z" fill="#333d52"/>
+      <circle cx="55" cy="55" r="7.4" fill="#ffffff" opacity=".55" stroke="#28324a" stroke-width="2"/>
+      <circle cx="79" cy="55" r="7.4" fill="#ffffff" opacity=".55" stroke="#28324a" stroke-width="2"/>
+      <path d="M62.4 55h9.2" stroke="#28324a" stroke-width="2"/>
+      <circle cx="55" cy="56" r="2.6" fill="#28324a"/><circle cx="79" cy="56" r="2.6" fill="#28324a"/>
+      <circle cx="55.9" cy="55" r=".9" fill="#fff"/><circle cx="79.9" cy="55" r=".9" fill="#fff"/>
+      <path d="M60 67c4 4 10 4 14 0" fill="none" stroke="#28324a" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="46" cy="65" r="4.4" fill="#ff9db0" opacity=".45"/>
+      <circle cx="86" cy="65" r="4.4" fill="#ff9db0" opacity=".45"/>
+      <path d="M104 52l1.8 4.6 4.6 1.8-4.6 1.8-1.8 4.6-1.8-4.6-4.6-1.8 4.6-1.8z" fill="#ffce4d"/>
+      <path d="M22 84l1.5 3.8 3.8 1.5-3.8 1.5-1.5 3.8-1.5-3.8-3.8-1.5 3.8-1.5z" fill="#7fc7ff"/>
+    </svg>
+  </aside>
+
+  <div class="cheer" id="cheer" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <button class="cheer-close" id="cheer-close" type="button" aria-label="关闭鼓励提示">×</button>
+    <div class="cheer-emoji" id="cheer-emoji" aria-hidden="true">🎉</div>
+    <p class="cheer-title" id="cheer-title"></p>
+    <p class="cheer-body" id="cheer-body"></p>
+  </div>
+
   <script>
     const themeToggle = document.getElementById("theme-toggle");
     function updateThemeControl() {
@@ -363,6 +512,142 @@
     let learningCode = null;
     let learningReady = false;
     const feedbackChoices = ["有帮助", "太模糊", "接近答案", "可能错误"];
+
+    const cheerPanel = element("cheer");
+    const cheerContent = {
+      "first-pass": ["🎉", "这一题通过了！", "思路已经跑通，去变式题再验证一次。"],
+      "persist": ["💪", "坚持有回报", "多次尝试后终于通过，这就是编程的节奏。"],
+      "streak-3": ["🔥", "连续学习 3 天", "稳定的练习比一次冲刺更有效。"],
+      "streak-7": ["🏆", "连续学习 7 天", "一周不断线，习惯已经形成。"],
+      "streak-14": ["🌟", "连续学习 14 天", "两周坚持，进步正在累积。"],
+      "focus": ["⏰", "专注练习 15 分钟", "起身活动一下，再回来继续下一题。"],
+    };
+    const motivationStorage = "ai-lab.v1.motivation";
+    let cheerTimer = null;
+    let lastCheerAt = 0;
+    let lastActivityAt = 0;
+
+    function dayKey(date = new Date()) {
+      return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"),
+        String(date.getDate()).padStart(2, "0")].join("-");
+    }
+
+    function readMotivation() {
+      let raw = {};
+      try { raw = JSON.parse(window.localStorage.getItem(motivationStorage) || "{}"); } catch { raw = {}; }
+      const today = dayKey();
+      const days = (Array.isArray(raw?.days) ? raw.days : [])
+        .filter(day => typeof day === "string" && /^\d{4}-\d{2}-\d{2}$/.test(day)).slice(-120);
+      const prompts = raw?.prompts && typeof raw.prompts === "object" && !Array.isArray(raw.prompts) ? raw.prompts : {};
+      const focusDay = typeof raw?.focusDay === "string" ? raw.focusDay : today;
+      return {
+        days,
+        prompts,
+        focusDay,
+        focusSeconds: focusDay === today && Number.isFinite(raw?.focusSeconds)
+          ? Math.max(0, Math.min(raw.focusSeconds, 86400)) : 0,
+      };
+    }
+
+    function writeMotivation(state) {
+      try { window.localStorage.setItem(motivationStorage, JSON.stringify(state)); } catch {}
+    }
+
+    function streakDays(days) {
+      const seen = new Set(days);
+      const cursor = new Date();
+      if (!seen.has(dayKey(cursor))) cursor.setDate(cursor.getDate() - 1);
+      let streak = 0;
+      while (streak < 120 && seen.has(dayKey(cursor))) {
+        streak += 1;
+        cursor.setDate(cursor.getDate() - 1);
+      }
+      return streak;
+    }
+
+    function markPrompt(state, key) {
+      if (Object.hasOwn(state.prompts, key)) return false;
+      state.prompts[key] = dayKey();
+      return true;
+    }
+
+    function prunePrompts(state) {
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - 30);
+      const limit = dayKey(cutoff);
+      for (const [key, value] of Object.entries(state.prompts)) {
+        if (typeof value !== "string" || value < limit) delete state.prompts[key];
+      }
+    }
+
+    function cheer(kind) {
+      const content = cheerContent[kind];
+      if (!content) return;
+      element("cheer-emoji").textContent = content[0];
+      element("cheer-title").textContent = content[1];
+      element("cheer-body").textContent = content[2];
+      cheerPanel.hidden = false;
+      clearTimeout(cheerTimer);
+      cheerTimer = setTimeout(hideCheer, 6000);
+      lastCheerAt = Date.now();
+      document.body.classList.remove("celebrating");
+      void document.body.offsetWidth;
+      document.body.classList.add("celebrating");
+      setTimeout(() => document.body.classList.remove("celebrating"), 2900);
+    }
+
+    function hideCheer() {
+      clearTimeout(cheerTimer);
+      cheerTimer = null;
+      cheerPanel.hidden = true;
+    }
+
+    function maybeStreak(state, streak) {
+      const level = streak >= 14 ? 14 : streak >= 7 ? 7 : streak >= 3 ? 3 : 0;
+      if (!level || Date.now() - lastCheerAt < 8000) return;
+      if (!markPrompt(state, `streak-${level}`)) return;
+      setTimeout(() => cheer(`streak-${level}`), 1400);
+    }
+
+    function recordStudy(firstPass, attempts) {
+      const state = readMotivation();
+      const today = dayKey();
+      if (!state.days.includes(today)) state.days = [...state.days, today].slice(-120);
+      prunePrompts(state);
+      if (firstPass) cheer("first-pass");
+      else if (attempts >= 3 && markPrompt(state, `persist:${today}`)) cheer("persist");
+      maybeStreak(state, streakDays(state.days));
+      writeMotivation(state);
+    }
+
+    function noteActivity() {
+      const state = readMotivation();
+      const today = dayKey();
+      if (state.focusDay !== today) {
+        state.focusDay = today;
+        state.focusSeconds = 0;
+      }
+      const now = Date.now();
+      if (lastActivityAt && now - lastActivityAt <= 300000) {
+        state.focusSeconds = Math.min(state.focusSeconds + (now - lastActivityAt) / 1000, 86400);
+      }
+      lastActivityAt = now;
+      if (state.focusSeconds >= 900 && markPrompt(state, `focus:${today}`)) {
+        state.focusSeconds = 0;
+        cheer("focus");
+      }
+      writeMotivation(state);
+    }
+
+    function greetReturn() {
+      const state = readMotivation();
+      const streak = streakDays(state.days);
+      if (!state.days.includes(dayKey()) || streak < 3) return;
+      maybeStreak(state, streak);
+      writeMotivation(state);
+    }
+
+    element("cheer-close").addEventListener("click", hideCheer);
 
 
     function make(tag, className, value) {
@@ -568,7 +853,7 @@
       const controller = new AbortController();
       pendingHint = controller;
       updateRevealControl();
-      const deadline = setTimeout(() => controller.abort(), 18000);
+      const deadline = setTimeout(() => controller.abort(), 65000);
       try {
         const result = await request("/api/hint", {
           method: "POST",
@@ -589,6 +874,7 @@
       }
       if (pendingHint !== controller) return;
       pendingHint = null;
+      noteActivity();
 
       const item = make("li", "", hint);
       item.append(make("span", "tag", ({agentarts: "AgentArts", tencent: "腾讯云", deepseek: "DeepSeek", local: "本地规则"})[source]));
@@ -694,6 +980,7 @@
       learningController?.abort();
       const controller = new AbortController();
       learningController = controller;
+      noteActivity();
       const id = activeExercise.id, code = learningCode;
       const explanation = element("learning-explanation").value;
       element("learning-submit").disabled = true;
@@ -738,6 +1025,7 @@
       const { id } = activeExercise;
       const code = editor.value;
       running = true;
+      noteActivity();
       element("import-records").disabled = true;
       exerciseSelect.disabled = true;
       editor.disabled = true;
@@ -756,6 +1044,7 @@
         const state = exerciseState(id, true);
         const number = (state.attempts[0]?.number ?? 0) + 1;
         const { status, passed, total } = result;
+        const firstPass = status === "passed" && state.passed !== true;
         state.attempts.unshift({ number, status, passed, total, time: new Date().toISOString() });
         state.attempts.length = Math.min(state.attempts.length, 5);
         state.passed ||= status === "passed";
@@ -769,6 +1058,7 @@
         renderAttempts(state.attempts);
         updateProgress();
         if (status === "passed") openLearning(id, code);
+        if (status !== "invalid") recordStudy(firstPass, number);
       } catch (error) {
         resultLabel.textContent = "本次测试未完成";
         showError(error instanceof TypeError ? "连接中断，请确认本地服务正在运行后重试。" : error.message);
@@ -1015,6 +1305,7 @@
       const generation = ++remoteGeneration;
       remoteController?.abort(); clearTimeout(remoteTimer);
       remoteBusy = true; element("remote-confirm").checked = false; remoteControls();
+      noteActivity();
       const controller = new AbortController(); remoteController = controller;
       remoteLogical ??= crypto.randomUUID();
       const deadline = setTimeout(() => controller.abort(), 20000);
@@ -1035,6 +1326,7 @@
     element("remote-logout").addEventListener("click", () => {element("remote-token").value="";invalidateRemote();});
     element("remote-refresh").addEventListener("click", () => pollRemote(remoteGeneration));
 
+    greetReturn();
     loadExercises();
   </script>
 </body>
