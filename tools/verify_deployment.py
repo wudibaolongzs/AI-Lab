@@ -95,15 +95,14 @@ def redirect_check(parts, results, timeout):
 
 def unauthenticated_checks(parts, results, timeout):
     probes = [
-        ("未登录访问首页", "GET", "/", None),
-        ("未登录访问题库", "GET", "/api/exercises", None),
-        ("未登录提交判题", "POST", "/api/check", json.dumps({"code": "x"})),
-        ("未登录请求提示", "POST", "/api/hint", json.dumps({"exercise_id": "average", "code": "x", "level": 1})),
+        ("未登录访问首页", "GET", "/"),
+        ("未登录访问题库", "GET", "/api/exercises"),
+        ("未登录提交判题", "POST", "/api/check"),
+        ("未登录请求提示", "POST", "/api/hint"),
     ]
-    headers = {"Content-Type": "application/json"}
-    for name, method, path, body in probes:
+    for name, method, path in probes:
         try:
-            response = call(parts, method, path, headers if body else None, body, timeout)
+            response = call(parts, method, path, timeout=timeout)
             results.append(check(name, "PASS" if response["status"] == 401 else "FAIL",
                                  f"HTTP {response['status']}（期望 401）"))
         except OSError as error:

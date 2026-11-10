@@ -33,6 +33,9 @@ class Entry(BaseHTTPRequestHandler):
                          if self.path == "/" else b'[{"id":"average"}]')
 
     def do_POST(self):
+        length = int(self.headers.get("Content-Length") or 0)
+        if length:
+            self.rfile.read(length)
         self.send_response(200 if self.authenticated() else 401)
         self.send_header("Content-Type", "application/json")
         self.end_headers()
