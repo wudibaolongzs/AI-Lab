@@ -1,0 +1,202 @@
+{
+  "kind": "real_agentarts_diagnostic",
+  "date": "2026-11-10",
+  "elapsed_ms": 11187,
+  "events": [
+    {
+      "event": "workflow_started",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "start_time"
+      ]
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_llm",
+      "node_name": "诊断",
+      "node_type": "LLM"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_1794225680834",
+      "node_name": "教学提示",
+      "node_type": "LLM"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_end",
+      "node_name": "结束",
+      "node_type": "End"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_end",
+      "node_name": "结束",
+      "node_type": "End"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_end",
+      "node_name": "结束",
+      "node_type": "End"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "summary",
+        "node_id",
+        "node_type",
+        "node_name",
+        "is_finished",
+        "workflow_id",
+        "workflow_name",
+        "createdTime",
+        "enable_history"
+      ],
+      "node_id": "node_end",
+      "node_name": "结束",
+      "node_type": "End"
+    },
+    {
+      "event": "workflow_finished",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "status",
+        "outputs",
+        "metadata",
+        "start_time",
+        "end_time",
+        "execution_id"
+      ],
+      "status": {
+        "code": 1,
+        "desc": "succeeded"
+      },
+      "execution_id": "d23ef7fc-87a6-4b10-a6c3-28b4df528bac",
+      "output_keys": [
+        "responseContent",
+        "user_fields"
+      ],
+      "user_fields": {
+        "hint": "先核对平均值公式：总和应除以实际参与求和的有效元素个数，并检查求和变量是否正确初始化、是否漏加或多加元素。同时复核该用例期望值0是否写错：[10,20,40]的均值应为25。别急着改代码，先定位分母和累加范围。",
+        "case_id": "C01"
+      }
+    },
+    {
+      "event": "end",
+      "keys": [
+        "event",
+        "createdTime"
+      ],
+      "data_keys": []
+    }
+  ],
+  "reply": {
+    "hint": "先核对平均值公式：总和应除以实际参与求和的有效元素个数，并检查求和变量是否正确初始化、是否漏加或多加元素。同时复核该用例期望值0是否写错：[10,20,40]的均值应为25。别急着改代码，先定位分母和累加范围。",
+    "case_id": "C01",
+    "source": "agentarts",
+    "request_id": "923ff672d7b5422aa119289c727ed609",
+    "fallback_reason": null,
+    "execution_id": "d23ef7fc-87a6-4b10-a6c3-28b4df528bac"
+  },
+  "passed": true,
+  "quality_review": {
+    "reviewer": "assistant-assisted inspection, not human scoring",
+    "passed": false,
+    "reason": "Hint fabricated an incorrect list and expected result; technical success alone is insufficient."
+  }
+}

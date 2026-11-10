@@ -1,0 +1,192 @@
+{
+  "kind": "real_agentarts_acceptance",
+  "date": "2026-11-10 21:09",
+  "runtime": "agent-arts-e3f37c13f413457fa08696abc3d3b7b6",
+  "provider": "agentarts",
+  "note": "真实运行时调用；网页来源标记与本地判题 4/4 另行验证。采集时关闭进程内频率保护（AI_HINT_PROTECTION=0），避免采样自身触发 rate_limited。",
+  "rows": [
+    {
+      "exercise": "average",
+      "exercise_title": "计算列表平均值",
+      "level": 1,
+      "http_status": 200,
+      "elapsed_ms": 32922,
+      "source": "agentarts",
+      "hint": "计算平均值时，分母应该由什么决定？想想元素个数在求平均过程中扮演的角色。",
+      "case_id": "C01",
+      "request_id": "655d98d1f9d94076ac4ebcf0f6eaaf17",
+      "execution_id": "c364a060-f4d6-4693-9030-87807c1178d9",
+      "fallback_reason": null,
+      "failed_case_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "case_id_matches_failed": true,
+      "local_hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。"
+    },
+    {
+      "exercise": "average",
+      "exercise_title": "计算列表平均值",
+      "level": 2,
+      "http_status": 200,
+      "elapsed_ms": 5219,
+      "source": "agentarts",
+      "hint": "请核查计算平均值时所用的分母变量是如何取得和更新的，确认它表示的是元素总数还是其他计数。",
+      "case_id": "C01",
+      "request_id": "b1d355631b23436090fe72b40e43fe56",
+      "execution_id": "b445e72f-88bb-4451-a5cf-413e13cd8fee",
+      "fallback_reason": null,
+      "failed_case_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "case_id_matches_failed": true,
+      "local_hint": "从第 3 行的返回表达式开始，回查参与计算的变量。"
+    },
+    {
+      "exercise": "average",
+      "exercise_title": "计算列表平均值",
+      "level": 3,
+      "http_status": 200,
+      "elapsed_ms": 7750,
+      "source": "agentarts",
+      "hint": "建议检查平均值计算中的除数是否误用了元素个数减一，应改为元素总数，并重新运行测试确认。",
+      "case_id": "C01",
+      "request_id": "f69890365e174a98a7356e2b2d7b723a",
+      "execution_id": "0bb890d6-e3f1-4d94-9ed7-ab3d8f7cc923",
+      "fallback_reason": null,
+      "failed_case_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04"
+      ],
+      "case_id_matches_failed": true,
+      "local_hint": "把分子和分母分别写在纸上，确认分子等于列表总和、分母等于实际元素个数。"
+    },
+    {
+      "exercise": "sum",
+      "exercise_title": "计算列表总和",
+      "level": 1,
+      "http_status": 200,
+      "elapsed_ms": 4532,
+      "source": "agentarts",
+      "hint": "在遍历元素时，你的逻辑是否确保每个元素都被纳入累加过程？",
+      "case_id": "S01",
+      "request_id": "71c59b0a366e4186a1c545db0cfa8942",
+      "execution_id": "99c7a72f-2144-492b-8e2c-22d71c28380c",
+      "fallback_reason": null,
+      "failed_case_ids": [
+        "S01",
+        "S02",
+        "S04"
+      ],
+      "case_id_matches_failed": true,
+      "local_hint": "用例 S01 的输入为 [3, 5, 2]。手算这个列表的相加结果，再数一数元素个数，看返回值更接近哪一个。"
+    },
+    {
+      "exercise": "sum",
+      "exercise_title": "计算列表总和",
+      "level": 2,
+      "http_status": 200,
+      "elapsed_ms": 4687,
+      "source": "agentarts",
+      "hint": "请核查与返回值相关的变量赋值及计算步骤，确认每一步是否按预期更新，然后重新测试。",
+      "case_id": "S01",
+      "request_id": "2f8df5d27423467fa10a956fb2d91797",
+      "execution_id": "8d65ee11-bec7-42fb-8cdc-52167db26c1e",
+      "fallback_reason": null,
+      "failed_case_ids": [
+        "S01",
+        "S02",
+        "S04"
+      ],
+      "case_id_matches_failed": true,
+      "local_hint": "从第 2 行的返回表达式开始，回查参与计算的变量。"
+    },
+    {
+      "exercise": "sum",
+      "exercise_title": "计算列表总和",
+      "level": 3,
+      "http_status": 200,
+      "elapsed_ms": 11094,
+      "source": "agentarts",
+      "hint": "建议核查计算逻辑中的累加与循环更新步骤，确认每步都符合题意，修改后重新运行测试验证。",
+      "case_id": "S01",
+      "request_id": "6193927beb0742d984ac285dcb2a5b28",
+      "execution_id": "9f97a38c-44bb-48be-8cd0-d71e7a5012d7",
+      "fallback_reason": null,
+      "failed_case_ids": [
+        "S01",
+        "S02",
+        "S04"
+      ],
+      "case_id_matches_failed": true,
+      "local_hint": "让返回值表示元素的总和。负数也参与相加，空列表的总和是 0。"
+    },
+    {
+      "exercise": "count",
+      "exercise_title": "计算列表元素个数",
+      "level": 1,
+      "http_status": 200,
+      "elapsed_ms": 6078,
+      "source": "agentarts",
+      "hint": "你能说明题目要求的计算结果应经过哪些概念步骤得到，并思考返回逻辑是否与这些步骤一致吗？",
+      "case_id": "N01",
+      "request_id": "07301e614f614249b4fabbf77ef0c491",
+      "execution_id": "e4364b5b-760e-4793-953e-a952183247b2",
+      "fallback_reason": null,
+      "failed_case_ids": [
+        "N01",
+        "N02",
+        "N04"
+      ],
+      "case_id_matches_failed": true,
+      "local_hint": "用例 N01 的输入为 [4, 4, 0]。先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。"
+    },
+    {
+      "exercise": "count",
+      "exercise_title": "计算列表元素个数",
+      "level": 2,
+      "http_status": 200,
+      "elapsed_ms": 9219,
+      "source": "agentarts",
+      "hint": "请核查参与最终结果计算的关键变量及其更新或累加步骤，确认每一步逻辑是否与题目要求一致。",
+      "case_id": "N01",
+      "request_id": "1a69b716a01a42e29fbe7ea6bb48b93d",
+      "execution_id": "e9d09f7b-06da-4c2f-a73e-cb1ef7b09167",
+      "fallback_reason": null,
+      "failed_case_ids": [
+        "N01",
+        "N02",
+        "N04"
+      ],
+      "case_id_matches_failed": true,
+      "local_hint": "从第 2 行的返回表达式开始，回查参与计算的变量。"
+    },
+    {
+      "exercise": "count",
+      "exercise_title": "计算列表元素个数",
+      "level": 3,
+      "http_status": 200,
+      "elapsed_ms": 3484,
+      "source": "agentarts",
+      "hint": "建议检查计算逻辑中累加或分支条件是否被重复执行，修正后重新运行测试验证结果。",
+      "case_id": "N01",
+      "request_id": "4b56f45eefe34ade84be65463ff774f8",
+      "execution_id": "05bc3f4a-fb79-4091-866d-cef565b03d73",
+      "fallback_reason": null,
+      "failed_case_ids": [
+        "N01",
+        "N02",
+        "N04"
+      ],
+      "case_id_matches_failed": true,
+      "local_hint": "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-10",
+  "kind": "blocked_local_network_attempt",
+  "exercise_id": "average",
+  "level": 1,
+  "transport": {
+    "attempts": 1,
+    "error_type": "URLError"
+  },
+  "elapsed_ms": 844,
+  "reply": {
+    "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+    "case_id": "C01",
+    "source": "local",
+    "request_id": "bf0aa3d91a26475ea09ca8811e58aa20",
+    "fallback_reason": "connection_error",
+    "execution_id": null
+  },
+  "passed": false,
+  "scope": "One real API call only; not a paired evaluation or teaching-effect study.",
+  "network_diagnosis": {
+    "restricted_socket_error": 10013,
+    "unrestricted_tls": "TLSv1.3",
+    "http_response_received": false,
+    "workflow_execution_confirmed": false
+  }
+}

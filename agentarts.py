@@ -33,6 +33,15 @@ def _configured_timeout(raw=None):
 
 
 _TIMEOUT = _configured_timeout()
+
+
+def refresh_timeout():
+    """Re-read AI_TIMEOUT after a late .env load and return the effective seconds."""
+    global _TIMEOUT
+    _TIMEOUT = _configured_timeout()
+    return _TIMEOUT
+
+
 _MAX_STREAM_BYTES = 128 * 1024
 _MAX_HINT_LENGTH = 240  # one sentence is enough to point at the next check
 _EXECUTION_ID = re.compile(r"[A-Za-z0-9_.:-]{1,100}")
@@ -45,6 +54,20 @@ class InvalidEndpoint(ValueError):
     """Raised when the configured workflow URL cannot be called safely."""
 
 
+class WorkflowFailure(Exception):
+    """Cloud execution failed; keep only bounded, non-content identifiers."""
+
+    def __init__(self, code=None, node_id=None, execution_id=None):
+        super().__init__("workflow execution failed")
+        def identifier(value):
+            if isinstance(value, int) and not isinstance(value, bool):
+                value = str(value)
+            return value if isinstance(value, str) and _EXECUTION_ID.fullmatch(value) else None
+        self.code = identifier(code)
+        self.node_id = identifier(node_id)
+        self.execution_id = identifier(execution_id)
+
+
 class _NoRedirect(HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         return None
@@ -55,6 +78,7 @@ _OPENER = build_opener(_NoRedirect)
 
 def _workflow_result(response, deadline):
     remaining = _MAX_STREAM_BYTES
+    failure = None
     while remaining > 0:
         line = response.readline(remaining + 1)
         if time.monotonic() >= deadline:
@@ -65,8 +89,14 @@ def _workflow_result(response, deadline):
         if not line.startswith(b"data:"):
             continue
         event = json.loads(line[5:])
-        if not isinstance(event, dict) or event.get("event") in ("error", "exception", "end"):
+        if not isinstance(event, dict) or event.get("event") == "end":
             break
+        if event.get("event") in ("error", "exception"):
+            error_data = event.get("data")
+            error_data = error_data if isinstance(error_data, dict) else {}
+            failure = WorkflowFailure(error_data.get("error_code", error_data.get("code")),
+                                      error_data.get("node_id"), error_data.get("execution_id"))
+            continue
         if event.get("event") != "workflow_finished":
             continue
         data = event.get("data")
@@ -74,6 +104,11 @@ def _workflow_result(response, deadline):
             break
         status = data.get("status")
         outputs = data.get("outputs")
+        if failure is not None or (isinstance(status, dict) and status.get("desc") == "failed"):
+            failure = WorkflowFailure(failure.code if failure else data.get("error_code"),
+                                      failure.node_id if failure else None,
+                                      data.get("execution_id"))
+            raise failure
         if (
             isinstance(status, dict) and status.get("code") == 1
             and status.get("desc") == "succeeded" and isinstance(outputs, dict)
@@ -83,6 +118,8 @@ def _workflow_result(response, deadline):
                 execution_id = None
             return outputs.get("user_fields"), execution_id
         break
+    if failure is not None:
+        raise failure
     return None, None
 
 
@@ -114,6 +151,9 @@ def _invoke(url, api_key, request_id, title, evidence, level, exercise_id=None):
     }
     if exercise_id is not None:
         inputs["exercise_id"] = exercise_id
+    query = os.environ.get("AGENTARTS_QUERY", "").strip()
+    if query:
+        inputs["query"] = query
     body = {"inputs": inputs}
     request = Request(url, json.dumps(body, ensure_ascii=False).encode("utf-8"), headers={
         "Authorization": f"Bearer {api_key}",
@@ -196,6 +236,10 @@ def get_hint(exercise_id, result, level):
                 reason = None
             else:
                 reason = "invalid_output"
+        except WorkflowFailure as error:
+            reason = "workflow_failed"
+            execution_id = error.execution_id
+            reply.update(cloud_error_code=error.code, failed_node_id=error.node_id)
         except HTTPError as error:
             error.close()
             reason = "http_error"
@@ -219,5 +263,6 @@ def get_hint(exercise_id, result, level):
         "request_id": request_id, "source": reply["source"],
         "elapsed_ms": round((time.monotonic() - start) * 1000),
         "fallback_reason": reason, "execution_id": execution_id,
+        "cloud_error_code": reply.get("cloud_error_code"), "failed_node_id": reply.get("failed_node_id"),
     }))
     return reply

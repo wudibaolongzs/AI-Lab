@@ -21,8 +21,8 @@ def elapsed_ms(start):
     return round((perf_counter() - start) * 1000, 3)
 
 
-def request_hint(port, code, level, exercise_id="average"):
-    connection = http.client.HTTPConnection("127.0.0.1", port, timeout=15)
+def request_hint(port, code, level, exercise_id="average", timeout=15):
+    connection = http.client.HTTPConnection("127.0.0.1", port, timeout=timeout)
     body = json.dumps({"exercise_id": exercise_id, "code": code, "level": level})
     start = perf_counter()
     try:
@@ -51,7 +51,7 @@ def request_hint(port, code, level, exercise_id="average"):
     return outcome
 
 
-def collect(samples, port):
+def collect(samples, port, timeout=15):
     records = []
     for sample in samples:
         exercise_id = sample.get("exercise", "average")
@@ -76,7 +76,7 @@ def collect(samples, port):
                           "review": REVIEW.copy()},
             }
             if port is not None:
-                row["endpoint"] = request_hint(port, sample["code"], level, exercise_id)
+                row["endpoint"] = request_hint(port, sample["code"], level, exercise_id, timeout)
             levels.append(row)
         records.append({
             "sample_id": sample["id"], "exercise": exercise_id,
@@ -120,16 +120,20 @@ def main():
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--samples", type=Path, default=SAMPLES_PATH, help="Independent sample set; defaults to the original 24 samples.")
     parser.add_argument("--compare-port", type=int, help="Also call the local /api/hint endpoint.")
+    parser.add_argument("--timeout", type=float, default=15.0,
+                        help="Per-request wait for the hint endpoint; raise it above the backend AI_TIMEOUT.")
     parser.add_argument("--note", help="Provenance written to the report, e.g. that the endpoint is a mock.")
     args = parser.parse_args()
     if args.compare_port is not None and not 1 <= args.compare_port <= 65535:
         parser.error("--compare-port must be 1–65535")
+    if not 0.5 <= args.timeout <= 300:
+        parser.error("--timeout must be 0.5–300 seconds")
     if args.note and args.compare_port is None:
         parser.error("--note 只在配对采集时使用")
     samples = json.loads(args.samples.read_text(encoding="utf-8"))
     if not isinstance(samples, list) or not samples:
         parser.error("sample set must be a non-empty array")
-    records = collect(samples, args.compare_port)
+    records = collect(samples, args.compare_port, args.timeout)
     report = {
         "mode": "endpoint-comparison" if args.compare_port is not None else "local-only",
         "note": args.note or "未标注来源",

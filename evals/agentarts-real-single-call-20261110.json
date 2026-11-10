@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-10",
+  "kind": "real_agentarts_single_call",
+  "exercise_id": "average",
+  "level": 1,
+  "transport": {
+    "attempts": 1,
+    "http_status": 200,
+    "content_type": "text/event-stream; charset=utf-8"
+  },
+  "elapsed_ms": 1828,
+  "reply": {
+    "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+    "case_id": "C01",
+    "source": "local",
+    "request_id": "482fe5f509e34e79acb5e42774b58cd7",
+    "fallback_reason": "invalid_output",
+    "execution_id": null
+  },
+  "passed": false,
+  "scope": "Single authorized API request; no retries; not a full evaluation."
+}

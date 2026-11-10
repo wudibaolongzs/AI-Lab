@@ -9,6 +9,14 @@ from exercise import EXERCISE, EXERCISES, check_submission
 
 
 class AgentArtsHintTests(unittest.TestCase):
+    @patch("agentarts._OPENER.open")
+    def test_conversational_query_is_opt_in(self, open_stream):
+        open_stream.return_value = self.stream("Check the mean definition.")
+        with patch.dict("os.environ", {"AGENTARTS_QUERY": "Evidence-based hint"}):
+            get_hint("average", self.result, 1)
+        self.assertEqual(json.loads(open_stream.call_args.args[0].data)["inputs"]["query"],
+                         "Evidence-based hint")
+
     def test_missing_config_explains_local_fallback_without_exposing_secrets(self):
         result = check_submission(EXERCISE["starter_code"])
         with patch.dict("os.environ", {"AGENTARTS_API_KEY": "", "AGENTARTS_WORKFLOW_URL": ""}):
@@ -147,3 +155,12 @@ class AgentArtsHintTests(unittest.TestCase):
             for exercise_id in ("average", "sum", "count"):
                 self.assertEqual(get_hint(exercise_id, self.result, 1)["source"], "local")
         open_stream.assert_not_called()
+    def test_refresh_timeout_picks_up_a_late_env_value(self):
+        import agentarts
+        original = agentarts._TIMEOUT
+        self.addCleanup(setattr, agentarts, "_TIMEOUT", original)
+        with patch.dict("os.environ", {"AI_TIMEOUT": "30"}):
+            self.assertEqual(agentarts.refresh_timeout(), 30.0)
+            self.assertEqual(agentarts._TIMEOUT, 30.0)
+        with patch.dict("os.environ", {"AI_TIMEOUT": "999"}):
+            self.assertEqual(agentarts.refresh_timeout(), 8.0)

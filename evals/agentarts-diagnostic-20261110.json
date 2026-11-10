@@ -1,0 +1,211 @@
+{
+  "kind": "real_agentarts_diagnostic",
+  "date": "2026-11-10",
+  "elapsed_ms": 7703,
+  "events": [
+    {
+      "event": "workflow_started",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "start_time"
+      ]
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_llm",
+      "node_name": "诊断",
+      "node_type": "LLM"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_1794225680834",
+      "node_name": "教学提示",
+      "node_type": "LLM"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_end",
+      "node_name": "结束",
+      "node_type": "End"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_end",
+      "node_name": "结束",
+      "node_type": "End"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "reasoning_content",
+        "index",
+        "node_id",
+        "node_type",
+        "node_name",
+        "workflow_id",
+        "workflow_name",
+        "createdTime"
+      ],
+      "node_id": "node_end",
+      "node_name": "结束",
+      "node_type": "End"
+    },
+    {
+      "event": "message",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "text",
+        "summary",
+        "node_id",
+        "node_type",
+        "node_name",
+        "is_finished",
+        "workflow_id",
+        "workflow_name",
+        "createdTime",
+        "enable_history"
+      ],
+      "node_id": "node_end",
+      "node_name": "结束",
+      "node_type": "End"
+    },
+    {
+      "event": "workflow_finished",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "status",
+        "outputs",
+        "metadata",
+        "start_time",
+        "end_time",
+        "execution_id"
+      ],
+      "status": {
+        "code": 1,
+        "desc": "succeeded"
+      },
+      "execution_id": "be143b3b-82a6-441b-8561-7a89bb4ecf21",
+      "output_keys": [
+        "responseContent",
+        "user_fields"
+      ],
+      "user_fields": {
+        "hint": "想一想：平均值表示把总量平均分给多少个对象，那么分母应当对应其中的哪一数量？",
+        "case_id": "C01"
+      }
+    },
+    {
+      "event": "end",
+      "keys": [
+        "event",
+        "createdTime"
+      ],
+      "data_keys": []
+    }
+  ],
+  "reply": {
+    "hint": "想一想：平均值表示把总量平均分给多少个对象，那么分母应当对应其中的哪一数量？",
+    "case_id": "C01",
+    "source": "agentarts",
+    "request_id": "f681e05725874980b3b2f35f129c6fdb",
+    "fallback_reason": null,
+    "execution_id": "be143b3b-82a6-441b-8561-7a89bb4ecf21"
+  },
+  "passed": true,
+  "acceptance_scope": "average exercise, level 1, one real API response; not all exercises or paired evaluation",
+  "quality_review": {
+    "reviewer": "assistant-assisted inspection, not human scoring",
+    "passed": true,
+    "evidence_consistent": true,
+    "conceptual_question": true,
+    "fabricated_numeric_example": false,
+    "complete_solution_leak": false
+  },
+  "local_corrected_submission": {
+    "status": "passed",
+    "passed_cases": 4,
+    "total_cases": 4
+  }
+}

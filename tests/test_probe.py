@@ -26,6 +26,11 @@ def deadline():
 
 
 class ProbeTests(unittest.TestCase):
+    def test_conversational_query_matches_production_configuration(self):
+        with patch.dict("os.environ", {"AGENTARTS_QUERY": "Evidence-based hint"}):
+            body, _, _ = probe.payload_for("average", 1)
+        self.assertEqual(body["inputs"]["query"], "Evidence-based hint")
+
     def describe(self, events):
         out = io.StringIO()
         with redirect_stdout(out):

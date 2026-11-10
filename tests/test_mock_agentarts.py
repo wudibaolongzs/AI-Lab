@@ -11,7 +11,7 @@ from pathlib import Path
 import time
 import unittest
 
-from agentarts import _SOLUTION, _workflow_result
+from agentarts import WorkflowFailure, _SOLUTION, _workflow_result
 from exercise import EXERCISES, check_submission
 from tools.mock_agentarts import ANSWER_LEAK, _validate, build_events, build_hint
 
@@ -44,7 +44,11 @@ class MockRuntimeContractTests(unittest.TestCase):
         for mode in ("waiting", "error-event"):
             with self.subTest(mode=mode):
                 events = build_events(mode, "mock-exec-0002", "C01", self.summary, self.hint)
-                self.assertEqual(parse(events), (None, None))
+                if mode == "error-event":
+                    with self.assertRaises(WorkflowFailure):
+                        parse(events)
+                else:
+                    self.assertEqual(parse(events), (None, None))
 
     def test_answer_leaking_run_is_still_rejected_by_the_client(self):
         events = build_events("leak-answer", "mock-exec-0003", "C01", self.summary, self.hint)

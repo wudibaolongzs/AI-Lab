@@ -1,0 +1,90 @@
+{
+  "kind": "real_agentarts_web",
+  "date": "2026-11-10T13:12:38.517Z",
+  "base": "http://127.0.0.1:8031",
+  "rows": [
+    {
+      "exercise": "average",
+      "level": 1,
+      "source": "AgentArts",
+      "elapsed_ms": 6171,
+      "text": "计算平均值时，你认为除数为什么应当与参与运算的元素个数相对应？AgentArts请求编号 49d5544d4568427c8bc9f3aace3ff9c7有帮助太模糊接近答案可能错误"
+    },
+    {
+      "exercise": "average",
+      "level": 2,
+      "source": "AgentArts",
+      "elapsed_ms": 10158,
+      "text": "请核查求平均时所用的分母变量是否与统计口径一致，并逐步检查累加与除法的计算步骤。AgentArts请求编号 87972cec3b9845ac9050b8f8d06b2bc4有帮助太模糊接近答案可能错误"
+    },
+    {
+      "exercise": "average",
+      "level": 3,
+      "source": "AgentArts",
+      "elapsed_ms": 18929,
+      "text": "建议核查平均值计算时分母是否应取元素个数而非其他数量，修正后重新运行测试验证。AgentArts请求编号 e64e0d2c49924e8e85082ff17c7f1566有帮助太模糊接近答案可能错误"
+    },
+    {
+      "exercise": "average",
+      "level": 0,
+      "source": "local-grader",
+      "result": "提交 #2 · 4/4 个用例通过"
+    },
+    {
+      "exercise": "sum",
+      "level": 1,
+      "source": "AgentArts",
+      "elapsed_ms": 24867,
+      "text": "处理多个元素时，你的算法如何逐步合并或累积每个元素的结果？AgentArts请求编号 27add498646143ea89281de67bc50f4e有帮助太模糊接近答案可能错误"
+    },
+    {
+      "exercise": "sum",
+      "level": 2,
+      "source": "AgentArts",
+      "elapsed_ms": 7528,
+      "text": "请核查累加变量在遍历每个元素时是否持续更新，并确认返回的是累加后的结果而非首个元素；可逐步检查求和循环的执行过程。AgentArts请求编号 28796a39fbb0432e8c5b5bac6db308e5有帮助太模糊接近答案可能错误"
+    },
+    {
+      "exercise": "sum",
+      "level": 3,
+      "source": "AgentArts",
+      "elapsed_ms": 32153,
+      "text": "建议检查累加逻辑是否遗漏元素或初始化、更新有误，修正后重新运行测试验证。AgentArts请求编号 f7451104cddc419b9e669155ca0ff74b有帮助太模糊接近答案可能错误"
+    },
+    {
+      "exercise": "sum",
+      "level": 0,
+      "source": "local-grader",
+      "result": "提交 #2 · 4/4 个用例通过"
+    },
+    {
+      "exercise": "count",
+      "level": 1,
+      "source": "AgentArts",
+      "elapsed_ms": 5685,
+      "text": "当数据中出现零或重复元素时，题目对有效组合的边界定义是什么？AgentArts请求编号 0554041b61b54f04a5d2046d2e5835ef有帮助太模糊接近答案可能错误"
+    },
+    {
+      "exercise": "count",
+      "level": 2,
+      "source": "AgentArts",
+      "elapsed_ms": 13422,
+      "text": "请核查累计变量在循环中的更新时机与条件，确认是否发生重复累加，或未按题意逐项处理输入。AgentArts请求编号 51df4b9ffff847e795a4afb682743659有帮助太模糊接近答案可能错误"
+    },
+    {
+      "exercise": "count",
+      "level": 3,
+      "source": "AgentArts",
+      "elapsed_ms": 5832,
+      "text": "请根据失败用例核查计算逻辑中可能影响结果的分支或边界条件，明确修复方向后重新测试。AgentArts请求编号 2a7535e55f4f4ce9a8d2b769bcb9698a有帮助太模糊接近答案可能错误"
+    },
+    {
+      "exercise": "count",
+      "level": 0,
+      "source": "local-grader",
+      "result": "提交 #2 · 4/4 个用例通过"
+    }
+  ],
+  "switch_clears_hints": true,
+  "page_errors": []
+}

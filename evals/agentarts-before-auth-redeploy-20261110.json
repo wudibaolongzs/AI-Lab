@@ -1,0 +1,94 @@
+{
+  "kind": "real_agentarts_diagnostic",
+  "date": "2026-11-10",
+  "elapsed_ms": 1562,
+  "events": [
+    {
+      "event": "workflow_started",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "start_time"
+      ]
+    },
+    {
+      "event": "error",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "node_id",
+        "node_type",
+        "node_name",
+        "code",
+        "message",
+        "workflow_id",
+        "workflow_name",
+        "error_msg",
+        "error_reason",
+        "error_suggestion",
+        "error_code"
+      ],
+      "node_id": "node_llm",
+      "node_name": "诊断",
+      "node_type": "LLM",
+      "code": 100025,
+      "message": "执行报错，错误码：100025，错误信息：Model request error: the return model is {'error': {'code': 'ModelArts.81002', 'message': 'Failed to get the authorization header.', 'param': None, 'type': 'BadRequest'}, 'error_code': 'ModelArts.81002', 'error_msg': 'Failed to get the authorization header.', 'span_id': 'cec9dc0b373e47c2800303da2a25cde8'}，请参考产品文档解决或联系系统管理员。",
+      "error_code": "AgentArts.100025",
+      "error_msg": "Model request failed",
+      "error_reason": "Network exception, timeout, or interface error occurred when requesting the LLM service",
+      "error_suggestion": "Please check network connection, API quota, and server status [节点: 诊断; 执行报错，错误码：100025，错误信息：Model request error: the return model is {'error': {'code': 'ModelArts.81002', 'message': 'Failed to get the authorization header.', 'param': None, 'type': 'BadRequest'}, 'error_code': 'ModelArts.81002', 'error_msg': 'Failed to get the authorization header.', 'span_id': 'cec9dc0b373e47c2800303da2a25cde8'}，请参考产品文档解决或联系系统管理员。]"
+    },
+    {
+      "event": "workflow_finished",
+      "keys": [
+        "event",
+        "data",
+        "createdTime"
+      ],
+      "data_keys": [
+        "status",
+        "error_code",
+        "error_message",
+        "outputs",
+        "start_time",
+        "end_time",
+        "execution_id"
+      ],
+      "status": {
+        "code": 2,
+        "desc": "failed"
+      },
+      "execution_id": "16669702-52da-4927-8cce-a4b2858243db",
+      "error_code": 100025,
+      "error_message": "执行报错，错误码：100025，错误信息：Model request error: the return model is {'error': {'code': 'ModelArts.81002', 'message': 'Failed to get the authorization header.', 'param': None, 'type': 'BadRequest'}, 'error_code': 'ModelArts.81002', 'error_msg': 'Failed to get the authorization header.', 'span_id': 'cec9dc0b373e47c2800303da2a25cde8'}，请参考产品文档解决或联系系统管理员。",
+      "output_keys": [
+        "responseContent"
+      ]
+    },
+    {
+      "event": "end",
+      "keys": [
+        "event",
+        "createdTime"
+      ],
+      "data_keys": []
+    }
+  ],
+  "reply": {
+    "hint": "用例 C01 的输入为 [10, 20, 30, 40]。试着手算这个列表的总和，再数一数元素个数。",
+    "case_id": "C01",
+    "source": "local",
+    "request_id": "5d46c139be90434eb7b9b42c9c91f69b",
+    "cloud_error_code": "AgentArts.100025",
+    "failed_node_id": "node_llm",
+    "fallback_reason": "workflow_failed",
+    "execution_id": "16669702-52da-4927-8cce-a4b2858243db"
+  },
+  "passed": false
+}

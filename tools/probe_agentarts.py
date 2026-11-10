@@ -74,6 +74,9 @@ def payload_for(exercise_id, level, timeout_hint=None):
     cloud = agentarts._cloud_exercises()
     if len(cloud) > 1:
         inputs["exercise_id"] = exercise_id
+    query = os.environ.get("AGENTARTS_QUERY", "").strip()
+    if query:
+        inputs["query"] = query
     return {"inputs": inputs}, result, failed
 
 
@@ -280,6 +283,7 @@ def main():
     except (ValueError, OSError) as error:
         say("FAIL", f".env 读取失败：{error}", "修正 .env 后重试；已存在的环境变量优先。")
         return 2
+    agentarts.refresh_timeout()
 
     url = (args.url or os.environ.get("AGENTARTS_WORKFLOW_URL", "")).strip()
     api_key = os.environ.get("AGENTARTS_API_KEY", "").strip()
