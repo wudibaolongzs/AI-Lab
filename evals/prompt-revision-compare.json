@@ -1,0 +1,55 @@
+{
+  "compared_positions": 66,
+  "only_in_before": [
+    [
+      "SU6",
+      2
+    ]
+  ],
+  "only_in_after": [
+    [
+      "CO2",
+      2
+    ],
+    [
+      "CO3",
+      2
+    ],
+    [
+      "CO3",
+      3
+    ],
+    [
+      "SU3",
+      1
+    ],
+    [
+      "SU3",
+      2
+    ]
+  ],
+  "summary": {
+    "evidence_ok": {
+      "fixed": 0,
+      "regressed": 0,
+      "still_failed": 0,
+      "unreviewed": 66,
+      "passed": 0
+    },
+    "actionable": {
+      "fixed": 0,
+      "regressed": 0,
+      "still_failed": 0,
+      "unreviewed": 66,
+      "passed": 0
+    },
+    "answer_leaked": {
+      "fixed": 0,
+      "regressed": 0,
+      "still_failed": 0,
+      "unreviewed": 66,
+      "passed": 0
+    }
+  },
+  "entries": []
+}
