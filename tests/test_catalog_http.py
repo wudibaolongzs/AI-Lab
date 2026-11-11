@@ -34,6 +34,18 @@ class CatalogHTTPTests(unittest.TestCase):
             self.assertEqual(self.get("/api/catalog?"+query)[0],400)
         status,page=self.get("/api/catalog?query=not-a-real-problem")
         self.assertEqual(status,200);self.assertEqual(page["items"],[])
+    def test_catalog_options_cover_reference_bank(self):
+        status,options=self.get("/api/catalog/options")
+        self.assertEqual(status,200)
+        for tag in ("二进制","前缀"):
+            self.assertIn(tag,options["tags"])
+        self.assertIn("本地导入题库",options["sources"])
+        self.assertEqual(options["languages"],["python","cpp"])
+        from urllib.parse import urlencode
+        status,page=self.get("/api/catalog?"+urlencode({"mode":"reference","tag":"前缀","language":"cpp","page":1,"page_size":12}))
+        self.assertEqual(status,200);self.assertGreater(page["total"],0)
+        for item in page["items"]:
+            self.assertIn("前缀",item["tags"]);self.assertEqual(item["language"],"cpp")
     def test_non_transfer_problem_is_explicit(self):
         import question_bank
         problem=next(p for p in question_bank.public_exercises() if not p["has_transfer"])

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "SU3",
+    "exercise": "sum",
+    "category": "offset",
+    "case_id": "S03",
+    "diagnosis_kind": "wrong_result",
+    "focus": "用元素个数补偏，空列表时错位",
+    "code": "def list_sum(nums):\n    return sum(nums) + len(nums) - 3\n"
+  },
+  {
+    "id": "CO2",
+    "exercise": "count",
+    "category": "offset",
+    "case_id": "N01",
+    "diagnosis_kind": "wrong_result",
+    "focus": "元素个数被翻倍",
+    "code": "def list_count(nums):\n    return len(nums) * 2\n"
+  },
+  {
+    "id": "CO3",
+    "exercise": "count",
+    "category": "hardcode",
+    "case_id": "N03",
+    "diagnosis_kind": "wrong_result",
+    "focus": "返回固定的 3，恰好通过两个三元素用例",
+    "code": "def list_count(nums):\n    return 3\n"
+  }
+]

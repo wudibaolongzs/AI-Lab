@@ -27,7 +27,7 @@ class LuoguBankTests(unittest.TestCase):
     def test_registry_modes(self):
         with tempfile.TemporaryDirectory() as tmp:
             db = Path(tmp) / 'bank.db'
-            self.assertEqual(bank.catalog(db=db)['total'], 328)
+            self.assertEqual(bank.catalog(db=db)['total'], 628)
             self.assertEqual(bank.catalog(db=db, mode='local')['total'], 28)
             self.assertEqual(bank.catalog(db=db, mode='remote')['total'], 300)
             self.assertEqual(bank.get_problem(bank.catalog(db=db, mode='remote')['items'][0]['id'], db)['engine'], 'luogu_remote')
@@ -59,4 +59,4 @@ class LuoguBankTests(unittest.TestCase):
             path.write_text(json.dumps(pack), encoding='utf8')
             self.assertEqual(luogu_bank.import_pack(path, db)['imported'], 2)
             with self.assertRaises(bank.BankError): luogu_bank.import_pack(path, db)
-            self.assertEqual(bank.catalog(db=db)['total'], 330)
+            self.assertEqual(bank.catalog(db=db)['total'], 630)

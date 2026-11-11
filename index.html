@@ -267,6 +267,25 @@
     @media (prefers-reduced-motion: reduce) {
       .cheer, .cheer-emoji, .mascot svg, body.celebrating .mascot svg { animation: none; }
     }
+    .catalog { margin-bottom: 24px; padding: clamp(14px, 3vw, 24px); }
+    .catalog-filters, .catalog-grid { display: grid; gap: 10px; }
+    .catalog-filters { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
+    .catalog-grid { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); align-items: start; }
+    .catalog input, .catalog select {
+      min-width: 0; min-height: 44px; padding: 8px 10px; color: var(--ink);
+      background: var(--surface); border: 1px solid var(--line); border-radius: 12px; font: inherit;
+    }
+    .catalog input:focus-visible, .catalog summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .catalog-tile { display: grid; gap: 10px; min-width: 0; padding: 14px; overflow-wrap: anywhere; }
+    .catalog-tile p, .catalog-tile pre { margin: 0; }
+    .catalog-tile summary { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; padding: 8px 12px; border-radius: 10px; background: var(--soft); color: var(--accent); cursor: pointer; font-weight: 600; }
+    .catalog-tile summary::after { content: "+"; }
+    .catalog-tile details[open] > summary::after { content: "−"; }
+    .catalog-detail { display: grid; gap: 10px; padding-top: 10px; }
+    .catalog-detail pre { min-width: 0; overflow-x: auto; padding: 10px; background: var(--soft); border-radius: 10px; }
+    .catalog-pagination, .catalog-pagination label { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .catalog-pagination { margin-top: 16px; }
+    .catalog-pagination button { min-height: 44px; }
   </style>
 </head>
 <body>
@@ -291,18 +310,25 @@
       <p>运行测试，观察实际值与期望值的差异，再按需打开分步提示。</p>
     </section>
 
-    <section class="card history" aria-labelledby="catalog-heading" style="margin:0 0 24px;padding:20px">
+    <section class="card history catalog" aria-labelledby="catalog-heading">
       <h2 id="catalog-heading">练习题库</h2>
-      <div class="exercise-picker">
+      <div class="catalog-filters">
         <input id="catalog-query" aria-label="搜索题目" placeholder="搜索题目或知识点" maxlength="100">
         <select id="catalog-tag" aria-label="知识点"><option value="">全部知识点</option></select>
         <select id="catalog-difficulty" aria-label="难度"><option value="">全部难度</option><option value="easy">基础</option><option value="medium">进阶</option></select>
-        <select id="catalog-mode" aria-label="练习模式"><option value="all">全部模式</option><option value="local">本地练习</option><option value="remote">洛谷远程判题</option></select>
-        <select id="catalog-source" aria-label="题目来源"><option value="">全部来源</option></select>
+        <select id="catalog-mode" aria-label="练习模式"><option value="all">全部模式</option><option value="local">本地练习</option><option value="remote">洛谷远程判题</option><option value="reference">资料练习</option></select>
+        <select id="catalog-language" aria-label="编程语言"><option value="">全部语言</option><option value="python">Python</option><option value="cpp">C++</option></select>
+        <select id="catalog-source" aria-label="题目来源"><option value="">全部来源</option><option>本地导入题库</option></select>
       </div>
       <p id="catalog-status" class="muted" role="status"></p>
-      <div id="catalog-items" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:12px"></div>
-      <div class="editor-actions"><button class="secondary" id="catalog-prev">上一页</button><span id="catalog-page"></span><button class="secondary" id="catalog-next">下一页</button></div>
+      <div id="catalog-items" class="catalog-grid"></div>
+      <nav class="catalog-pagination" aria-label="题库分页">
+        <label>每页 <select id="catalog-size"><option>12</option><option>24</option><option>48</option></select> 道</label>
+        <button type="button" class="secondary" id="catalog-prev" disabled>上一页</button>
+        <label>页码 <select id="catalog-jump" disabled></select></label>
+        <button type="button" class="secondary" id="catalog-next" disabled>下一页</button>
+        <span id="catalog-page" class="muted"></span>
+      </nav>
     </section>
     <div class="lab">
       <section class="card editor-card" aria-labelledby="editor-heading">
@@ -787,9 +813,15 @@
         exerciseSelect.disabled = false;
         editor.disabled = false;
         runButton.disabled = false;
-        for (const [id, values] of [["catalog-tag", exercises.flatMap(e => e.tags || [])], ["catalog-source", exercises.map(e => e.source?.name).filter(Boolean)]]) {
+        let options = {tags: exercises.flatMap(e => e.tags || []), sources: exercises.map(e => e.source?.name).filter(Boolean), languages: ["python"]};
+        try { options = await request("/api/catalog/options"); } catch {}
+        for (const [id, values] of [["catalog-tag", options.tags], ["catalog-source", options.sources], ["catalog-language", options.languages]]) {
           const select = element(id);
-          select.replaceChildren(select.options[0], ...[...new Set(values)].sort().map(value => { const o = make("option", "", value); o.value = value; return o; }));
+          const unique = [...new Set(values)];
+          unique.sort(id === "catalog-language" ? (a, b) => (a === "python" ? -1 : b === "python" ? 1 : 0) : undefined);
+          select.replaceChildren(select.options[0], ...unique.map(value => {
+            const o = make("option", "", id === "catalog-language" ? (value === "cpp" ? "C++" : "Python") : value); o.value = value; return o;
+          }));
         }
         loadCatalog();
       } catch {
@@ -1148,14 +1180,30 @@
     let catalogPage = 1, catalogGeneration = 0;
     async function loadCatalog() {
       const generation = ++catalogGeneration;
+      const jump = element("catalog-jump");
+      for (const id of ["catalog-prev", "catalog-next", "catalog-jump"]) element(id).disabled = true;
       const query = new URLSearchParams({query: element("catalog-query").value, tag: element("catalog-tag").value,
-        difficulty: element("catalog-difficulty").value, mode: element("catalog-mode").value, source: element("catalog-source").value, page: String(catalogPage), page_size: "12"});
+        difficulty: element("catalog-difficulty").value, mode: element("catalog-mode").value, language: element("catalog-language").value, source: element("catalog-source").value, page: String(catalogPage), page_size: element("catalog-size").value});
       try {
         const data = await request("/api/catalog?" + query);
         if (generation !== catalogGeneration) return;
         element("catalog-items").replaceChildren(...data.items.map(problem => {
-          const card = make("article", "case");
+          const card = make("article", "case catalog-tile");
           card.append(make("strong", "", problem.title), make("p", "muted", (problem.tags || []).join(" / ") + " · " + problem.source.name));
+          card.append(make("p", "muted", problem.languages.map(language => language === "cpp" ? "C++" : "Python").join(" / ")));
+          if (problem.engine === "reference") {
+            const details = make("details");
+            const hints = make("details");
+            hints.append(make("summary", "", "查看提示"));
+            for (const hint of problem.hints) hints.append(make("p", "", hint));
+            const code = make("pre", "", problem.starter_code);
+            const body = make("div", "catalog-detail");
+            body.append(make("p", "", problem.description),
+              make("p", "muted", "请在本地开发环境运行，暂不支持在线判题。"), code, hints);
+            details.append(make("summary", "", "查看题目"), body);
+            card.append(details);
+            return card;
+          }
           const button = make("button", "secondary", "开始练习"); button.type = "button";
           button.addEventListener("click", () => {
             if (running) { showError("测试完成后可切换题目"); return; }
@@ -1165,16 +1213,21 @@
           card.append(button); return card;
         }));
         element("catalog-status").textContent = "共 " + data.total + " 道题";
-        element("catalog-page").textContent = "第 " + data.page + " 页";
+        const pages = Math.ceil(data.total / data.page_size);
+        jump.replaceChildren(...Array.from({length: pages}, (_, i) => make("option", "", String(i + 1))));
+        jump.value = String(data.page);
+        jump.disabled = pages < 2;
+        element("catalog-page").textContent = pages ? "共 " + pages + " 页" : "没有匹配题目";
         element("catalog-prev").disabled = data.page <= 1;
         element("catalog-next").disabled = data.page * data.page_size >= data.total;
       } catch (error) { if (generation === catalogGeneration) element("catalog-status").textContent = error.message; }
     }
-    for (const id of ["catalog-query", "catalog-tag", "catalog-source", "catalog-difficulty", "catalog-mode"]) {
+    for (const id of ["catalog-query", "catalog-tag", "catalog-source", "catalog-difficulty", "catalog-mode", "catalog-language", "catalog-size"]) {
       element(id).addEventListener(id === "catalog-query" ? "input" : "change", () => { catalogPage = 1; loadCatalog(); });
     }
     element("catalog-prev").addEventListener("click", () => { if (catalogPage > 1) { catalogPage--; loadCatalog(); } });
     element("catalog-next").addEventListener("click", () => { catalogPage++; loadCatalog(); });
+    element("catalog-jump").addEventListener("change", event => { catalogPage = Number(event.target.value); loadCatalog(); });
     reloadButton.addEventListener("click", loadExercises);
     exerciseSelect.addEventListener("change", () => {
       const exercise = exercises.find(({ id }) => id === exerciseSelect.value);

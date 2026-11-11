@@ -1,6 +1,6 @@
 # 洛谷目录范围与来源
 
-当前发布的是 300 题的**元数据目录**，分成 3 个各 100 题的 schema_version 2 remote 包。原有 28 道本地题保持独立，总目录为 328 道。洛谷条目展示“题面待授权同步”，通过官方链接阅读；不提供本地判题、提示或迁移题。
+当前发布的是 300 题的**元数据目录**，分成 3 个各 100 题的 schema_version 2 remote 包。原有 28 道本地题保持独立，另有 300 道资料练习题（150 对，Python/C++ 各 150），总目录为 628 道。洛谷条目展示“题面待授权同步”，通过官方链接阅读；不提供本地判题、提示或迁移题。资料题只展示题面、起始代码和提示，也不提供在线判题。
 
 官方文档：https://docs.lgapi.cn/open/judge/ 。该页明确列出官方导出 https://cdn.luogu.com.cn/problemset-open/latest.ndjson.gz 。2026-11-08 读取，gzip SHA256、压缩/解压大小、记录数、原始字段、每题分类依据和冻结 PID 详见 `data/luogu/selection-manifest.json`。请求不使用 Cookie、平台账号或非官方抓取。读取上限为压缩 64 MiB、解压 256 MiB、单行 2 MiB。
 

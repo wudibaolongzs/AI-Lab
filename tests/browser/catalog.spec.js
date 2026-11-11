@@ -1,5 +1,46 @@
 
 const {test,expect}=require('@playwright/test');
+test('imported practice catalog separates Python and C++', async ({page}) => {
+  await page.goto('/');
+  await page.locator('#catalog-mode').selectOption('reference');
+  const language = page.getByLabel('编程语言');
+  const cards = page.locator('#catalog-items article');
+  await language.selectOption('cpp');
+  await expect(page.locator('#catalog-status')).toHaveText('共 150 道题');
+  await expect(cards.first()).toContainText('C++');
+  await cards.first().getByText('查看题目', {exact: true}).click();
+  await expect(cards.first().locator('pre')).toContainText('std::string');
+  await language.selectOption('python');
+  await expect(cards.first()).toContainText('Python');
+  await expect(page.locator('#catalog-status')).toHaveText('共 150 道题');
+  await page.locator('#catalog-size').selectOption('48');
+  await expect(cards).toHaveCount(48);
+  await expect(page.locator('#catalog-page')).toHaveText('共 4 页');
+  await page.locator('#catalog-jump').selectOption('4');
+  await expect(cards).toHaveCount(6);
+  await expect(page.locator('#catalog-next')).toBeDisabled();
+  await page.setViewportSize({width: 390, height: 844});
+  await cards.first().getByText('查看题目', {exact: true}).click();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+  await language.selectOption('cpp');
+  await expect(page.locator('#catalog-jump')).toHaveValue('1');
+  await expect(cards).toHaveCount(48);
+});
+test('catalog tag options come from the unified catalog', async ({page}) => {
+  await page.goto('/');
+  await expect(page.locator('#exercise-select')).toBeEnabled();
+  const tag = page.getByLabel('知识点');
+  await expect(tag.locator('option[value="二进制"]')).toHaveCount(1);
+  await expect(tag.locator('option[value="前缀"]')).toHaveCount(1);
+  await page.locator('#catalog-mode').selectOption('reference');
+  await tag.selectOption('前缀');
+  await page.getByLabel('编程语言').selectOption('cpp');
+  await page.locator('#catalog-source').selectOption('本地导入题库');
+  await expect(page.locator('#catalog-status')).toHaveText('共 6 道题');
+  await expect(page.locator('#catalog-page')).toHaveText('共 1 页');
+  await expect(page.locator('#catalog-items article')).toHaveCount(6);
+  await expect(page.locator('#catalog-items article').first()).toContainText('C++');
+});
 test('catalog filters source, pages and preserves current draft',async({page})=>{
   await page.goto('/');
   await expect(page.locator('#exercise-select')).toBeEnabled();

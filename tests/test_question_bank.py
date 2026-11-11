@@ -1,5 +1,6 @@
 import copy
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -73,6 +74,33 @@ class BankTests(unittest.TestCase):
         spec = fixture()['problems'][0]
         spec['source']['reference_code'] = 'secret'
         self.assertNotIn('reference_code', bank.public_problem(spec)['source'])
+
+    def test_reference_bank_path_is_configurable(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'reference.json'
+            path.write_text(json.dumps([{
+                'id': 'bank-ext-001', 'title': '外部题', 'description': '外部题面',
+                'tags': ['外部标签'], 'language': 'cpp', 'source': {'name': '外部题库'},
+                'hints': [], 'starter_code': '', 'difficulty': 'medium', 'engine': 'reference',
+            }], ensure_ascii=False), encoding='utf-8')
+            with patch.dict(os.environ, {'AI_REFERENCE_BANK': str(path)}):
+                options = bank.catalog_options()
+                self.assertIn('外部标签', options['tags'])
+                self.assertIn('外部题库', options['sources'])
+                self.assertEqual(bank.catalog(mode='reference')['total'], 1)
+
+    def test_catalog_options_come_from_the_whole_catalog(self):
+        options = bank.catalog_options()
+        for tag in ('二进制', '前缀'):
+            self.assertIn(tag, options['tags'])
+        self.assertIn('本地导入题库', options['sources'])
+        self.assertEqual(options['languages'], ['python', 'cpp'])
+        combined = bank.catalog(tag='前缀', language='cpp', mode='reference', page_size=100)
+        self.assertGreater(combined['total'], 0)
+        self.assertTrue(all('前缀' in item['tags'] and item['language'] == 'cpp' for item in combined['items']))
+        paged = bank.catalog(tag='前缀', language='cpp', mode='reference', page=2, page_size=5)
+        self.assertEqual(paged['page_size'], 5)
+        self.assertEqual(len(paged['items']), max(0, paged['total'] - 5))
 
     def test_collision_rolls_back_entire_pack_and_reads_refresh(self):
         self.write(fixture())

@@ -40,6 +40,9 @@ def request_hint(port, code, level, exercise_id="average", timeout=15):
             ):
                 raise ValueError("invalid hint response")
             outcome = {key: data[key] for key in ("hint", "case_id", "source", "request_id")}
+            for key in ("fallback_reason", "execution_id", "cloud_error_code", "failed_node_id"):
+                if data.get(key):
+                    outcome[key] = data[key]
             outcome["outcome"] = "cloud" if data["source"] in ("agentarts", "tencent", "deepseek") else "fallback"
             if outcome["outcome"] == "cloud":
                 outcome["review"] = REVIEW.copy()

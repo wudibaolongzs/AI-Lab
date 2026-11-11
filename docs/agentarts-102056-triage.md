@@ -31,6 +31,46 @@
 5. 仅修改与错误直接相关的一项配置，重新发布后只复测 1 次，保存修复前后 `execution_id` 与错误详情。
 6. 若 5 次记录的节点输入都含相同的证据结构（例如失败用例的 `actual` 为 `null`），再考虑数据侧问题；不要先改提示词掩盖报错。
 
+## 失败样本小批复测（不重采 72 对）
+
+失败样本已固定为 [agentarts-102056-retest-samples.json](../evals/agentarts-102056-retest-samples.json)：`SU3`、`CO2`、`CO3` 三个样本、9 个提示位置，其中 5 个位置在 2026-11-10 失败。本地侧 9/9 已通过并提供对照报告 [agentarts-102056-retest-local.json](../evals/agentarts-102056-retest-local.json)。
+
+前置条件：服务以 AgentArts 配置启动、进程可出网、`AI_TIMEOUT=60`，并临时关闭提示频率保护；不要在受限沙箱或不可出网的后台进程中执行。命令：
+
+```powershell
+python -B -m evals.run --samples evals/agentarts-102056-retest-samples.json --compare-port 8001 --output evals/agentarts-102056-retest-20261111.json --timeout 70 --note "102056 小批复测；真实云端；3 样本 9 位置"
+```
+
+判定标准：
+
+- 9 个位置全部 `outcome=cloud` 且 `fallback_rows=0`，才能判定失败样本已恢复；
+- 仍有 `workflow_failed` 时，记录新的 `execution_id`、失败节点和耗时，不要先改提示词掩盖报错；
+- 小批复测只覆盖失败样本，不能替代 24 样本 / 72 对的完整重采。
+
+复测完成后用以下命令判定，不需要手工数 9 行：
+
+```powershell
+python -B tools/check_retest.py evals/agentarts-102056-retest-20261111.json --json evals/agentarts-102056-retest-check.json
+```
+
+退出码 0 才表示 9 个位置全部 `outcome=cloud`；非 0 时把缺失或失败位置填入下表。复测报告现在保留 `fallback_reason`、`execution_id`、`cloud_error_code`、`failed_node_id` 等结构化字段，仍不记录模型原始输出。
+
+| 复测日期 | execution_id | 失败节点 | 耗时 ms | 错误码 | 是否与上次同一节点 | 结果 |
+| --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | |
+
+## 改善确认后的完整重采
+
+控制台替换提示词并重新发布后，需重采同样的 24 样本 / 72 对，再与修订前报告比较：
+
+```powershell
+python -B -m evals.run --compare-port 8001 --output evals/paired-results-after-20261111.json --timeout 70 --note "修订后重采；工作流版本与采集日期"
+python -B tools/compare_paired.py evals/paired-results.json evals/paired-results-after-20261111.json --json evals/prompt-revision-compare.json
+python -B -m evals.score evals/paired-results-after-20261111.json --against evals/local-baseline.json --require-complete
+```
+
+`compare_paired.py` 只比较已复核的云端位置，重采后仍须由队员逐条填写 `evidence_ok`、`actionable`、`answer_leaked`；没有人工签字前，修订效果只能标为「待人工复核」。
+
 ## 修复前后证据模板
 
 | 项目 | 修复前 | 修复后 |

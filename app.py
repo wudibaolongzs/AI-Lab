@@ -80,7 +80,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def log_request(self, code="-", size="-"):
         path = self.path.partition("?")[0]
-        route = path if path in {"/", "/healthz", "/api/exercise", "/api/exercises", "/api/check", "/api/hint"} else "unknown"
+        route = path if path in {"/", "/healthz", "/api/exercise", "/api/exercises", "/api/check", "/api/hint", "/api/catalog", "/api/catalog/options"} else "unknown"
         method = self.command if self.command in {"GET", "POST", "HEAD", "OPTIONS"} else "other"
         logging.getLogger("ict.access").info(json.dumps({"event": "access", "method": method, "route": route, "status": int(code) if isinstance(code, int) or str(code).isdigit() else 0}, separators=(",", ":")))
 
@@ -114,10 +114,16 @@ class Handler(BaseHTTPRequestHandler):
         if path.startswith("/api/remote/"):
             remote_judge.dispatch(self)
             return
+        if path == "/api/catalog/options":
+            try:
+                self.send_json(HTTPStatus.OK, question_bank.catalog_options())
+            except (ValueError, OSError):
+                self.reject(HTTPStatus.INTERNAL_SERVER_ERROR, "题库目录读取失败。")
+            return
         if path == "/api/catalog":
             try:
                 query = parse_qs(self.path.partition("?")[2], keep_blank_values=True)
-                allowed = {"query", "tag", "difficulty", "source", "page", "page_size", "mode"}
+                allowed = {"query", "tag", "difficulty", "source", "page", "page_size", "mode", "language"}
                 if set(query) - allowed or any(len(v) != 1 for v in query.values()):
                     raise ValueError("Invalid catalog query")
                 options = {k: v[0] for k, v in query.items()}
@@ -131,10 +137,12 @@ class Handler(BaseHTTPRequestHandler):
         if path.startswith("/api/problems/"):
             problem_id = path.removeprefix("/api/problems/")
             problem = next((p for p in question_bank.public_exercises() if p["id"] == problem_id), None)
+            if problem is None and problem_id.startswith("bank-"):
+                problem = next((p for p in question_bank.reference_problems() if p["id"] == problem_id), None)
             if problem is None:
                 self.reject(HTTPStatus.NOT_FOUND, "题目不存在。")
             else:
-                self.send_json(HTTPStatus.OK, problem)
+                self.send_json(HTTPStatus.OK, dict(problem, languages=question_bank.languages_for(problem)))
             return
         if path == "/api/materials" or path.startswith("/api/materials/"):
             teacher_materials.dispatch(self)

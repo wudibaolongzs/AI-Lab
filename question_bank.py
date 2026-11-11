@@ -216,7 +216,30 @@ def public_exercises(db=None):
     return [public_problem(spec) for spec in _all(db)]
 
 
-def catalog(query='', tag='', difficulty='', source='', page=1, page_size=12, db=None, mode='all', category=''):
+def reference_problems():
+    path = Path(os.environ.get('AI_REFERENCE_BANK') or ROOT / 'data/local-reference-bank.json')
+    if not path.exists():
+        return []
+    return json.loads(path.read_text(encoding='utf-8'))
+
+
+def languages_for(item):
+    if item.get('engine') == 'luogu_remote':
+        return ['python', 'cpp']
+    return [item['language']] if item.get('language') else ['python']
+
+
+def catalog_options(db=None):
+    exercises = public_exercises(db)
+    references = reference_problems()
+    tags = sorted({tag for item in exercises + references for tag in item['tags']})
+    sources = sorted({item['source']['name'] for item in exercises + references})
+    has_cpp = any(item['engine'] == 'luogu_remote' for item in exercises) or \
+        any(item['language'] == 'cpp' for item in references)
+    return {'tags': tags, 'sources': sources, 'languages': ['python', 'cpp'] if has_cpp else ['python']}
+
+
+def catalog(query='', tag='', difficulty='', source='', page=1, page_size=12, db=None, mode='all', category='', language=''):
     try:
         if type(page) is bool or type(page_size) is bool:
             raise ValueError()
@@ -225,14 +248,23 @@ def catalog(query='', tag='', difficulty='', source='', page=1, page_size=12, db
             raise ValueError()
     except (ValueError, TypeError, OverflowError) as exc:
         raise BankError('page must be positive and page_size must be between 1 and 100') from exc
-    if mode not in ('all', 'local', 'remote'):
-        raise BankError('mode must be all, local or remote')
+    if mode not in ('all', 'local', 'remote', 'reference'):
+        raise BankError('invalid catalog mode')
+    if language not in ('', 'python', 'cpp'):
+        raise BankError('invalid catalog language')
     tag = category or tag
     items = [item for item in public_exercises(db) if mode == 'all' or (item['engine'] == 'luogu_remote') == (mode == 'remote')]
+    if mode == 'reference':
+        items = []
+    for item in items:
+        item['languages'] = languages_for(item)
+    if mode in ('all', 'reference'):
+        items.extend(dict(item, languages=languages_for(item)) for item in reference_problems())
     query = query.casefold().strip()
     items = [item for item in items if
              (not query or query in ' '.join([item['id'], item['title'], item['description'], *item['tags']]).casefold())
              and (not tag or tag in item['tags'])
+             and (not language or language in item['languages'])
              and (not difficulty or difficulty == item['difficulty'])
              and (not source or source == item['source']['name'])]
     return {'items': items[(page-1)*page_size:page*page_size], 'total': len(items), 'page': page, 'page_size': page_size}
