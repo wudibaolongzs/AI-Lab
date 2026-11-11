@@ -1,0 +1,560 @@
+{
+  "compared_positions": 66,
+  "only_in_before": [
+    [
+      "SU6",
+      2
+    ]
+  ],
+  "only_in_after": [
+    [
+      "CO2",
+      2
+    ],
+    [
+      "CO3",
+      2
+    ],
+    [
+      "CO3",
+      3
+    ],
+    [
+      "SU3",
+      1
+    ],
+    [
+      "SU3",
+      2
+    ]
+  ],
+  "summary": {
+    "evidence_ok": {
+      "fixed": 14,
+      "regressed": 13,
+      "still_failed": 7,
+      "unreviewed": 0,
+      "passed": 32
+    },
+    "actionable": {
+      "fixed": 14,
+      "regressed": 13,
+      "still_failed": 2,
+      "unreviewed": 0,
+      "passed": 37
+    },
+    "answer_leaked": {
+      "fixed": 0,
+      "regressed": 0,
+      "still_failed": 0,
+      "unreviewed": 0,
+      "passed": 66
+    }
+  },
+  "entries": [
+    {
+      "sample_id": "CO1",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "CO1",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "CO1",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "CO1",
+      "level": 3,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "CO2",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "CO2",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "CO2",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "CO3",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "CO3",
+      "level": 1,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "CO4",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "CO5",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "CO6",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "D01",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "D01",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "D02",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "D02",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "D02",
+      "level": 2,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "D02",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "D03",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "D03",
+      "level": 1,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "D03",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "D03",
+      "level": 2,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "D03",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "D03",
+      "level": 3,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "H01",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": false,
+      "after": false,
+      "change": "still_failed"
+    },
+    {
+      "sample_id": "H01",
+      "level": 1,
+      "field": "actionable",
+      "before": false,
+      "after": false,
+      "change": "still_failed"
+    },
+    {
+      "sample_id": "H01",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": false,
+      "after": false,
+      "change": "still_failed"
+    },
+    {
+      "sample_id": "H02",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "H02",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "H02",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "H03",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "H03",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": false,
+      "after": false,
+      "change": "still_failed"
+    },
+    {
+      "sample_id": "H03",
+      "level": 2,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "H03",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "H03",
+      "level": 3,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "N01",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "N01",
+      "level": 1,
+      "field": "actionable",
+      "before": false,
+      "after": false,
+      "change": "still_failed"
+    },
+    {
+      "sample_id": "N01",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "N01",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": false,
+      "after": false,
+      "change": "still_failed"
+    },
+    {
+      "sample_id": "N01",
+      "level": 3,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "N02",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "N02",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "N02",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "R01",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "R01",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "R03",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "R03",
+      "level": 3,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "SU1",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "SU1",
+      "level": 1,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "SU1",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": false,
+      "after": false,
+      "change": "still_failed"
+    },
+    {
+      "sample_id": "SU1",
+      "level": 2,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "SU1",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": false,
+      "after": false,
+      "change": "still_failed"
+    },
+    {
+      "sample_id": "SU1",
+      "level": 3,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "SU2",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "SU2",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "SU2",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "SU4",
+      "level": 1,
+      "field": "evidence_ok",
+      "before": false,
+      "after": false,
+      "change": "still_failed"
+    },
+    {
+      "sample_id": "SU4",
+      "level": 1,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "SU4",
+      "level": 2,
+      "field": "evidence_ok",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "SU4",
+      "level": 3,
+      "field": "evidence_ok",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "SU4",
+      "level": 3,
+      "field": "actionable",
+      "before": false,
+      "after": true,
+      "change": "fixed"
+    },
+    {
+      "sample_id": "SU6",
+      "level": 1,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    },
+    {
+      "sample_id": "SU6",
+      "level": 3,
+      "field": "actionable",
+      "before": true,
+      "after": false,
+      "change": "regressed"
+    }
+  ]
+}

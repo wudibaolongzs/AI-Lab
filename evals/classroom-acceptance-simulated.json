@@ -1,0 +1,72 @@
+{
+  "kind": "classroom_acceptance",
+  "date": "2026-11-11T10:34:39+00:00",
+  "checks": [
+    {
+      "name": "学生初始可读",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "教师发布任务",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "学生收到任务",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "学生提交求助",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "求助幂等",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "同班学生互不可见",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "教师看到待回复",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "跨班回复被拒绝",
+      "verdict": "PASS",
+      "detail": "HTTP 404（期望 404）"
+    },
+    {
+      "name": "学生不能访问教师接口",
+      "verdict": "PASS",
+      "detail": "HTTP 403（期望 403）"
+    },
+    {
+      "name": "无效凭证被拒绝",
+      "verdict": "PASS",
+      "detail": "HTTP 401（期望 401）"
+    },
+    {
+      "name": "教师回复本班求助",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "学生看到回复",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "重启后记录仍在",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    }
+  ],
+  "failed": 0
+}

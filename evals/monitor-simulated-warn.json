@@ -1,0 +1,40 @@
+{
+  "calls": 72,
+  "cloud_calls": 71,
+  "fallback_calls": 1,
+  "cloud_rate": 0.986,
+  "fallback_rate": 0.014,
+  "fallback_reasons": {
+    "workflow_failed": 1
+  },
+  "sources": {
+    "agentarts": 71,
+    "local": 1
+  },
+  "latency_all": {
+    "count": 72,
+    "p50_ms": 6958.7,
+    "p95_ms": 26683.8,
+    "max_ms": 55122.9
+  },
+  "latency_cloud": {
+    "count": 71,
+    "p50_ms": 6920.2,
+    "p95_ms": 26683.8,
+    "max_ms": 55122.9
+  },
+  "latency_fallback": {
+    "count": 1,
+    "p50_ms": 16955.0,
+    "p95_ms": 16955.0,
+    "max_ms": 16955.0
+  },
+  "calls_per_day": {
+    "2026-11-11": 72
+  },
+  "budget_per_day": 60,
+  "budget_exceeded": [
+    "2026-11-11"
+  ],
+  "undated_rows_skipped": 0
+}

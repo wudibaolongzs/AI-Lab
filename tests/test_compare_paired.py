@@ -18,7 +18,23 @@ def report(rows):
     return {"records": list(records.values())}
 
 
+def leaked_report(sample, leaked):
+    return {"records": [{"sample_id": sample, "levels": [{
+        "level": 1,
+        "endpoint": {"outcome": "cloud", "review": {
+            "evidence_ok": True, "actionable": True, "answer_leaked": leaked}}}]}]}
+
+
 class ComparePairedTests(unittest.TestCase):
+    def test_answer_leaked_false_is_not_a_failure(self):
+        same = compare(leaked_report("N01", False), leaked_report("N01", False))
+        self.assertEqual(same["summary"]["answer_leaked"]["passed"], 1)
+        self.assertEqual(same["summary"]["answer_leaked"]["still_failed"], 0)
+        fixed = compare(leaked_report("N01", True), leaked_report("N01", False))
+        self.assertEqual(fixed["summary"]["answer_leaked"]["fixed"], 1)
+        regressed = compare(leaked_report("N01", False), leaked_report("N01", True))
+        self.assertEqual(regressed["summary"]["answer_leaked"]["regressed"], 1)
+
     def test_fixed_regressed_and_still_failed_are_separated(self):
         before = report([("N01", 1, False, False), ("N02", 1, True, True),
                          ("N03", 1, False, True)])

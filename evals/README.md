@@ -78,6 +78,13 @@ python -B -m evals.score evals/local-baseline.json evals/paired-results.json --j
 - 两版都没有队员复核签字；把 `review` 写满并用 `evals.score --require-complete` 通过之前，不得宣称提示质量改善。
 - 用 `tools/start.py` 启动后采集时，请显式设置 `AI_HINT_PROTECTION=0`，否则 60 秒 6 次的限制会让采样自身触发 `rate_limited`。
 
+### 2026-11-11 模拟复核（非人工签字）
+
+- 复核表 [after-20261111-review.csv](after-20261111-review.csv) 的云端 71 行由助手按评分规则初筛；本地 72 行复用 `local-baseline.json` 的已复核分。
+- 导入生成 [paired-results-after-20261111-ai-reviewed.json](paired-results-after-20261111-ai-reviewed.json)，`evals.score --require-complete` 通过：云端 `evidence_ok 49/71`、`actionable 55/71`、`answer_leaked 0/71`。
+- 对比见 [prompt-revision-compare-ai.json](prompt-revision-compare-ai.json)：`evidence_ok` 修复 14 / 回归 13 / 仍失败 7，模拟初筛**不显示改善**。
+- 以上只能标为「模拟初筛」，不是队员签字；人工复核仍需逐条填写 `true` / `false` 并重新跑 `--require-complete`。
+
 ## 腾讯云采集
 
 采集器同时支持 `source=tencent`，将其记为云端调用并保留原始来源。腾讯报告单独命名为 `tencent-paired-results.json`，写清实际模型、日期和版本，不与 AgentArts 或模拟报告混合；通用评分规则相同，腾讯结果不能用作华为云真实链路证据。配置见 [腾讯云说明](../docs/tencent-setup.md)。

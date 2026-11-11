@@ -1,0 +1,33 @@
+{
+  "kind": "database_restore_simulation",
+  "date": "2026-11-11",
+  "checks": [
+    {
+      "name": "写入任务、求助与回复",
+      "verdict": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "备份数据库",
+      "verdict": "PASS",
+      "detail": "24576 字节"
+    },
+    {
+      "name": "删除后记录为空",
+      "verdict": "PASS",
+      "detail": "HTTP 200，任务 []"
+    },
+    {
+      "name": "恢复后教师队列",
+      "verdict": "PASS",
+      "detail": "HTTP 200，{'tasks': 1, 'help_requests': 1, 'unanswered': 0}"
+    },
+    {
+      "name": "恢复后学生看到回复",
+      "verdict": "PASS",
+      "detail": "HTTP 200，回复 ['恢复演练回复']"
+    }
+  ],
+  "failed": 0,
+  "note": "本机 SQLite 备份、删除、恢复演练；真实服务器验收仍需在目标主机重复一次。"
+}

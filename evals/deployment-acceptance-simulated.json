@@ -1,0 +1,61 @@
+{
+  "kind": "deployment_acceptance",
+  "date": "2026-11-11T10:38:52+00:00",
+  "target": "http://127.0.0.1:62001",
+  "results": [
+    {
+      "name": "TLS 证书",
+      "verdict": "SKIP",
+      "detail": "本机 HTTP 演练不检查证书"
+    },
+    {
+      "name": "HTTP 跳转 HTTPS",
+      "verdict": "SKIP",
+      "detail": "本机 HTTP 演练不检查跳转"
+    },
+    {
+      "name": "未登录访问首页",
+      "verdict": "PASS",
+      "detail": "HTTP 401（期望 401）"
+    },
+    {
+      "name": "未登录访问题库",
+      "verdict": "PASS",
+      "detail": "HTTP 401（期望 401）"
+    },
+    {
+      "name": "未登录提交判题",
+      "verdict": "PASS",
+      "detail": "HTTP 401（期望 401）"
+    },
+    {
+      "name": "未登录请求提示",
+      "verdict": "PASS",
+      "detail": "HTTP 401（期望 401）"
+    },
+    {
+      "name": "伪造转发身份头",
+      "verdict": "PASS",
+      "detail": "HTTP 401（期望 401）"
+    },
+    {
+      "name": "健康检查不对外",
+      "verdict": "PASS",
+      "detail": "HTTP 403（期望 403）"
+    },
+    {
+      "name": "登录后首页",
+      "verdict": "PASS",
+      "detail": "HTTP 200，页面标记存在"
+    },
+    {
+      "name": "登录后题库",
+      "verdict": "PASS",
+      "detail": "HTTP 200，题目数 328"
+    }
+  ],
+  "failed": 0,
+  "warned": 0,
+  "note": "本机 Python 代理模拟 nginx Basic Auth、healthz 拒绝与转发；未验证真实 DNS、证书、重启与主机防火墙。",
+  "simulated": true
+}

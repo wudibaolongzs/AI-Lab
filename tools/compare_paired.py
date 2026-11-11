@@ -25,6 +25,12 @@ def cloud_reviews(report):
     return rows
 
 
+def good_verdict(field, value):
+    if value is None:
+        return None
+    return not value if field == "answer_leaked" else value
+
+
 def compare(before, after):
     old = cloud_reviews(before)
     new = cloud_reviews(after)
@@ -34,8 +40,10 @@ def compare(before, after):
     entries = []
     for key in keys:
         for field in FIELDS:
-            previous = old[key].get(field)
-            current = new[key].get(field)
+            raw_previous = old[key].get(field)
+            raw_current = new[key].get(field)
+            previous = good_verdict(field, raw_previous)
+            current = good_verdict(field, raw_current)
             if current is None:
                 change = "unreviewed"
             elif current is True and previous is False:
@@ -51,8 +59,8 @@ def compare(before, after):
             summary[field][change] += 1
             if change in ("fixed", "regressed", "still_failed"):
                 entries.append({"sample_id": key[0], "level": key[1],
-                                "field": field, "before": previous,
-                                "after": current, "change": change})
+                                "field": field, "before": raw_previous,
+                                "after": raw_current, "change": change})
     return {
         "compared_positions": len(keys),
         "only_in_before": sorted(set(old) - set(new)),

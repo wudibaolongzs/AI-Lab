@@ -1,0 +1,89 @@
+{
+  "kind": "wait_experience_simulation",
+  "date": "2026-11-11",
+  "configuration": {
+    "provider": "agentarts-mock",
+    "ai_timeout_s": 5,
+    "hint_protection": "1",
+    "window_s": 60,
+    "max_calls": 6,
+    "mock_delay_s": 1.0
+  },
+  "frontend_copy": {
+    "rate_limited": "已达本轮云端调用限额，使用本地提示",
+    "workflow_failed": "云端辅导暂不可用，已使用本地提示"
+  },
+  "rows": [
+    {
+      "sample_id": "N01",
+      "level": 1,
+      "source": "agentarts",
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "elapsed_ms": 106.181
+    },
+    {
+      "sample_id": "N01",
+      "level": 2,
+      "source": "agentarts",
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "elapsed_ms": 120.123
+    },
+    {
+      "sample_id": "N01",
+      "level": 3,
+      "source": "agentarts",
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "elapsed_ms": 94.328
+    },
+    {
+      "sample_id": "N02",
+      "level": 1,
+      "source": "agentarts",
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "elapsed_ms": 81.781
+    },
+    {
+      "sample_id": "N02",
+      "level": 2,
+      "source": "agentarts",
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "elapsed_ms": 119.347
+    },
+    {
+      "sample_id": "N02",
+      "level": 3,
+      "source": "agentarts",
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "elapsed_ms": 121.751
+    },
+    {
+      "sample_id": "N03",
+      "level": 1,
+      "source": "local",
+      "outcome": "fallback",
+      "fallback_reason": "rate_limited",
+      "elapsed_ms": 75.779
+    },
+    {
+      "sample_id": "N03",
+      "level": 2,
+      "source": "local",
+      "outcome": "fallback",
+      "fallback_reason": "rate_limited",
+      "elapsed_ms": 73.858
+    }
+  ],
+  "summary": {
+    "attempts": 8,
+    "cloud_rows": 6,
+    "rate_limited_rows": 2,
+    "local_fallback_rows": 2
+  },
+  "note": "本机模拟运行时验证限流与回退路径；等待耗时来自 mock，不代表真实云端延迟。真实云端等待基线为 71 次采集的中位 6.92 秒 / P95 26.68 秒 / 最长 55.12 秒。"
+}

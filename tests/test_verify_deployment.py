@@ -29,8 +29,14 @@ class Entry(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.end_headers()
-        self.wfile.write(b'<title>\xe6\x99\xba\xe5\xad\xa6\xe5\xb7\xa5\xe5\x9d\x8a</title>'
-                         if self.path == "/" else b'[{"id":"average"}]')
+        if self.path == "/":
+            body = b'<title>\xe6\x99\xba\xe5\xad\xa6\xe5\xb7\xa5\xe5\x9d\x8a</title>'
+        elif self.path == "/api/exercises":
+            body = json.dumps([{"id": f"ex-{index}", "title": "题目" * 20}
+                               for index in range(300)], ensure_ascii=False).encode("utf-8")
+        else:
+            body = b'[{"id":"average"}]'
+        self.wfile.write(body)
 
     def do_POST(self):
         length = int(self.headers.get("Content-Length") or 0)
@@ -65,6 +71,7 @@ class DeploymentAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["failed"], 0, report)
         verdicts = {item["name"]: item["verdict"] for item in report["results"]}
         self.assertEqual(verdicts["登录后首页"], "PASS")
+        self.assertEqual(verdicts["登录后题库"], "PASS")
 
     def test_wrong_password_is_reported_as_failure(self):
         report = run(self.url, user=USER, password="wrong")

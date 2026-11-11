@@ -46,7 +46,7 @@ def call(parts, method="GET", path="/", headers=None, body=None, timeout=15):
     try:
         connection.request(method, path, body=body, headers=headers or {})
         response = connection.getresponse()
-        payload = response.read(4096)
+        payload = response.read(4 * 1024 * 1024)
         return {
             "status": response.status,
             "location": response.getheader("Location") or "",
