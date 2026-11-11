@@ -1,0 +1,386 @@
+{
+  "mode": "endpoint-comparison",
+  "note": "102056 失败样本小批复测；真实云端 AgentArts；3 样本 9 位置；同进程采集；2026-11-11",
+  "summary": {
+    "samples": 3,
+    "local_rows": 9,
+    "local_median_ms": 24.084,
+    "local_p95_ms": 25.813,
+    "local_max_ms": 25.813,
+    "endpoint_attempts": 9,
+    "cloud_rows": 9,
+    "cloud_median_ms": 9009.925,
+    "cloud_p95_ms": 21652.528,
+    "cloud_max_ms": 21652.528,
+    "fallback_rows": 0,
+    "fallback_median_ms": null,
+    "fallback_p95_ms": null,
+    "fallback_max_ms": null,
+    "error_rows": 0,
+    "error_median_ms": null,
+    "error_p95_ms": null,
+    "error_max_ms": null
+  },
+  "records": [
+    {
+      "sample_id": "SU3",
+      "exercise": "sum",
+      "category": "offset",
+      "focus": "用元素个数补偏，空列表时错位",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 S03 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "S03",
+          "input": [],
+          "expected": 0,
+          "actual": -3,
+          "status": "failed"
+        },
+        {
+          "id": "S04",
+          "input": [
+            7
+          ],
+          "expected": 7,
+          "actual": 5,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 S03 的输入为 []。手算这个列表的相加结果，再数一数元素个数，看返回值更接近哪一个。",
+            "case_id": "S03",
+            "elapsed_ms": 24.449,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "当输入为空时，函数返回值的语义应如何界定，当前逻辑是否把空输入当作普通情况处理？",
+            "case_id": "S03",
+            "source": "agentarts",
+            "request_id": "eb77fa5793e84811bf5b3ad17101306f",
+            "execution_id": "4348c6ec-34ab-44ec-8cdb-1b4ee55f1ee9",
+            "outcome": "cloud",
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            },
+            "elapsed_ms": 19288.055
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "S03",
+            "elapsed_ms": 24.084,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "请核查空输入时返回值所依赖的变量和分支逻辑，确认是否在计算前正确识别并处理空输入的情况。",
+            "case_id": "S03",
+            "source": "agentarts",
+            "request_id": "f95b7d981bbf4b41bc8ff6bfc61779d1",
+            "execution_id": "b78166ab-1621-40ae-9b3c-031b44008d90",
+            "outcome": "cloud",
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            },
+            "elapsed_ms": 9698.593
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "让返回值表示元素的总和。负数也参与相加，空列表的总和是 0。",
+            "case_id": "S03",
+            "elapsed_ms": 23.308,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "建议检查函数对空输入的边界处理及初始累加值是否合理，针对空输入补充或调整判断，并重新运行测试验证。",
+            "case_id": "S03",
+            "source": "agentarts",
+            "request_id": "0065e2398b444e76b031a1c00fc6c50a",
+            "execution_id": "14fe5a1b-93bb-4009-92d1-c7393f3350c5",
+            "outcome": "cloud",
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            },
+            "elapsed_ms": 5497.944
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "CO2",
+      "exercise": "count",
+      "category": "offset",
+      "focus": "元素个数被翻倍",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 N01 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "N01",
+          "input": [
+            4,
+            4,
+            0
+          ],
+          "expected": 3,
+          "actual": 6,
+          "status": "failed"
+        },
+        {
+          "id": "N02",
+          "input": [
+            -5,
+            2,
+            0
+          ],
+          "expected": 3,
+          "actual": 6,
+          "status": "failed"
+        },
+        {
+          "id": "N04",
+          "input": [
+            7
+          ],
+          "expected": 1,
+          "actual": 2,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 N01 的输入为 [4, 4, 0]。先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。",
+            "case_id": "N01",
+            "elapsed_ms": 25.43,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "在统计满足条件的元素或次数时，你是否把同一对象或同一步骤重复累加了？",
+            "case_id": "N01",
+            "source": "agentarts",
+            "request_id": "7e1f14c11f1e47bfb48aa3e126b24bd0",
+            "execution_id": "72bb46e1-1161-4c50-8668-37b3c8ecd402",
+            "outcome": "cloud",
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            },
+            "elapsed_ms": 7935.42
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "N01",
+            "elapsed_ms": 23.591,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "请核查计数变量在循环中的更新位置与累加次数，确认同一条件是否被重复计入，并逐步检查返回值形成过程。",
+            "case_id": "N01",
+            "source": "agentarts",
+            "request_id": "1b16db96285b40b888443992a05ec585",
+            "execution_id": "7a59d095-a531-4c5a-bc07-a6ad35558b78",
+            "outcome": "cloud",
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            },
+            "elapsed_ms": 21652.528
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。",
+            "case_id": "N01",
+            "elapsed_ms": 25.813,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "建议核查返回值统计是否对同一情况重复计数，修正计数逻辑后重新测试。",
+            "case_id": "N01",
+            "source": "agentarts",
+            "request_id": "412149b505f2404f97f0722c9e9a159f",
+            "execution_id": "b09c887a-6e5f-42b4-b786-e9f9ec225987",
+            "outcome": "cloud",
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            },
+            "elapsed_ms": 5856.799
+          }
+        }
+      ]
+    },
+    {
+      "sample_id": "CO3",
+      "exercise": "count",
+      "category": "hardcode",
+      "focus": "返回固定的 3，恰好通过两个三元素用例",
+      "diagnosis": {
+        "kind": "wrong_result",
+        "message": "用例 N03 的返回值与预期不同。",
+        "line": 2
+      },
+      "failed_cases": [
+        {
+          "id": "N03",
+          "input": [],
+          "expected": 0,
+          "actual": 3,
+          "status": "failed"
+        },
+        {
+          "id": "N04",
+          "input": [
+            7
+          ],
+          "expected": 1,
+          "actual": 3,
+          "status": "failed"
+        }
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "local": {
+            "source": "local",
+            "hint": "用例 N03 的输入为 []。先数一数这个列表的元素个数，再算出它的相加结果，看返回值更接近哪一个。",
+            "case_id": "N03",
+            "elapsed_ms": 24.955,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "请思考：当输入为空时，结果应由输入规模与计算逻辑共同决定，而不是依赖固定返回值，对吗？",
+            "case_id": "N03",
+            "source": "agentarts",
+            "request_id": "c50e1b1cc69e4c6c80ad0e1e3145d0ac",
+            "execution_id": "79cd5e06-15a1-4d55-99fc-1261011c7eb3",
+            "outcome": "cloud",
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            },
+            "elapsed_ms": 9009.925
+          }
+        },
+        {
+          "level": 2,
+          "local": {
+            "source": "local",
+            "hint": "从第 2 行的返回表达式开始，回查参与计算的变量。",
+            "case_id": "N03",
+            "elapsed_ms": 22.62,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "请核查空输入场景下的分支判断与相关变量计算，确认返回值是否未经过处理而直接取了常量。",
+            "case_id": "N03",
+            "source": "agentarts",
+            "request_id": "adcec4cacbea4cedb001619ea75e37f4",
+            "execution_id": "5f4c8eea-e681-40f7-ac39-174802da694c",
+            "outcome": "cloud",
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            },
+            "elapsed_ms": 10647.971
+          }
+        },
+        {
+          "level": 3,
+          "local": {
+            "source": "local",
+            "hint": "让返回值表示元素个数。相同的值分别计数，0 也占一个位置。",
+            "case_id": "N03",
+            "elapsed_ms": 23.179,
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            }
+          },
+          "endpoint": {
+            "hint": "请检查代码是否未根据输入条件分支计算而直接返回固定结果，建议补全条件处理逻辑后重新测试。",
+            "case_id": "N03",
+            "source": "agentarts",
+            "request_id": "e97d430a97f84188b7b6e8cd3eeadf31",
+            "execution_id": "3d2413c6-1232-4c47-8e7c-4e24da99d457",
+            "outcome": "cloud",
+            "review": {
+              "evidence_ok": null,
+              "actionable": null,
+              "answer_leaked": null
+            },
+            "elapsed_ms": 7101.666
+          }
+        }
+      ]
+    }
+  ]
+}

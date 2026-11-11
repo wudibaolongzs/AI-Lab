@@ -1,0 +1,103 @@
+{
+  "rows": [
+    {
+      "sample_id": "SU3",
+      "level": 1,
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "execution_id": "4348c6ec-34ab-44ec-8cdb-1b4ee55f1ee9",
+      "cloud_error_code": null,
+      "failed_node_id": null,
+      "elapsed_ms": 19288.055
+    },
+    {
+      "sample_id": "SU3",
+      "level": 2,
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "execution_id": "b78166ab-1621-40ae-9b3c-031b44008d90",
+      "cloud_error_code": null,
+      "failed_node_id": null,
+      "elapsed_ms": 9698.593
+    },
+    {
+      "sample_id": "SU3",
+      "level": 3,
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "execution_id": "14fe5a1b-93bb-4009-92d1-c7393f3350c5",
+      "cloud_error_code": null,
+      "failed_node_id": null,
+      "elapsed_ms": 5497.944
+    },
+    {
+      "sample_id": "CO2",
+      "level": 1,
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "execution_id": "72bb46e1-1161-4c50-8668-37b3c8ecd402",
+      "cloud_error_code": null,
+      "failed_node_id": null,
+      "elapsed_ms": 7935.42
+    },
+    {
+      "sample_id": "CO2",
+      "level": 2,
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "execution_id": "7a59d095-a531-4c5a-bc07-a6ad35558b78",
+      "cloud_error_code": null,
+      "failed_node_id": null,
+      "elapsed_ms": 21652.528
+    },
+    {
+      "sample_id": "CO2",
+      "level": 3,
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "execution_id": "b09c887a-6e5f-42b4-b786-e9f9ec225987",
+      "cloud_error_code": null,
+      "failed_node_id": null,
+      "elapsed_ms": 5856.799
+    },
+    {
+      "sample_id": "CO3",
+      "level": 1,
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "execution_id": "79cd5e06-15a1-4d55-99fc-1261011c7eb3",
+      "cloud_error_code": null,
+      "failed_node_id": null,
+      "elapsed_ms": 9009.925
+    },
+    {
+      "sample_id": "CO3",
+      "level": 2,
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "execution_id": "5f4c8eea-e681-40f7-ac39-174802da694c",
+      "cloud_error_code": null,
+      "failed_node_id": null,
+      "elapsed_ms": 10647.971
+    },
+    {
+      "sample_id": "CO3",
+      "level": 3,
+      "outcome": "cloud",
+      "fallback_reason": null,
+      "execution_id": "3d2413c6-1232-4c47-8e7c-4e24da99d457",
+      "cloud_error_code": null,
+      "failed_node_id": null,
+      "elapsed_ms": 7101.666
+    }
+  ],
+  "summary": {
+    "expected": 9,
+    "rows": 9,
+    "missing": [],
+    "cloud": 9,
+    "fallback": 0,
+    "error": 0,
+    "passed": true
+  }
+}
