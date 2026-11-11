@@ -90,6 +90,7 @@ python -B tools/check_retest.py evals/agentarts-102056-retest-20261111.json --js
 - 新增 1 次 `workflow_failed`：SU6 L2，`node_llm`，execution_id `c1e455ea-d3ff-4072-9746-e507914f08e0`，耗时 16955 ms，错误码 `AgentArts.102056`。说明该错误仍偶发，根因未确认。
 - 72 条云端提示中未检出「循环/遍历/迭代/累加」措辞（9 位置复测时 CO2 三级仍有）；工作流提示词版本未记录，是否已发布修订版仍需控制台确认。
 - 最长 55123 ms 接近 60 秒 `AI_TIMEOUT`，采集与前端超时余量偏小。
+- 另有一份同日限流版报告 [paired-results-after-20261111-rate-limited.json](../evals/paired-results-after-20261111-rate-limited.json)：5 云端 / 66 `rate_limited` / 1 `workflow_failed`。该次采集运行时开启了提示保护（60 秒窗口最多 6 次、并发 2），入口拒绝占多数，不作为质量样本，待复核 77 条。两份报告均未记录工作流版本，需控制台补记。
 
 ## 改善确认后的完整重采
 

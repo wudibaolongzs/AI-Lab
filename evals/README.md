@@ -63,6 +63,21 @@ python -B -m evals.score evals/local-baseline.json evals/paired-results.json --j
 - 采集时服务端使用 `AI_TIMEOUT=60` 并关闭进程内频率保护（`AI_HINT_PROTECTION=0`），否则 60 秒 6 次的限制会让采样自身触发 `rate_limited`。产品默认仍是 8 秒与保护开启。
 - 网页侧 9 个位置（三题三级）另见 [agentarts-web-20261110.json](agentarts-web-20261110.json)，全部标记 AgentArts，三题正确写法均 4/4；API 侧 9 条见 [agentarts-acceptance-20261110.json](agentarts-acceptance-20261110.json)。
 
+## AgentArts 修订后重采（2026-11-11）
+
+同一轮修订后采集产生两份报告，原因是采集时的频率保护配置不同：
+
+| 报告 | 云端 | 回退 | 错误 | 采集配置 | 待复核 |
+| --- | --- | --- | --- | --- | --- |
+| [paired-results-after-20261111.json](paired-results-after-20261111.json)（有效版） | 71 | 1 次 `workflow_failed` | 0 | 同进程顺序采集；`AI_HINT_PROTECTION=0`；`AI_TIMEOUT=60`；客户端 70 秒 | 143（72 本地 + 71 云端） |
+| [paired-results-after-20261111-rate-limited.json](paired-results-after-20261111-rate-limited.json) | 5 | 67 次（66 `rate_limited` + 1 `workflow_failed`） | 0 | 运行时启用提示保护：60 秒窗口最多 6 次、并发 2 | 77（72 本地 + 5 云端） |
+
+- 两份报告的工作流版本均未记录，需在控制台补记发布版本后再写入验收材料。
+- 限流版不是质量样本：66 次在入口即被拒绝（回退耗时约 74 ms），不能用于 `evidence_ok` / `actionable` 统计。
+- 有效版中 2026-11-10 的 5 个失败位置全部恢复，新增 SU6 L2 仍为 `AgentArts.102056`（execution_id 见 102056 清单）。
+- 两版都没有队员复核签字；把 `review` 写满并用 `evals.score --require-complete` 通过之前，不得宣称提示质量改善。
+- 用 `tools/start.py` 启动后采集时，请显式设置 `AI_HINT_PROTECTION=0`，否则 60 秒 6 次的限制会让采样自身触发 `rate_limited`。
+
 ## 腾讯云采集
 
 采集器同时支持 `source=tencent`，将其记为云端调用并保留原始来源。腾讯报告单独命名为 `tencent-paired-results.json`，写清实际模型、日期和版本，不与 AgentArts 或模拟报告混合；通用评分规则相同，腾讯结果不能用作华为云真实链路证据。配置见 [腾讯云说明](../docs/tencent-setup.md)。

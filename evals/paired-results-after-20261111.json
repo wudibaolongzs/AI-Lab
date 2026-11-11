@@ -1,6 +1,6 @@
 {
   "mode": "endpoint-comparison",
-  "note": "修订后重采；真实云端 AgentArts；24 样本 72 位置；同进程采集；2026-11-11",
+  "note": "修订后重采（有效版）；真实云端 AgentArts；24 样本 72 位置；同进程顺序采集、无人工间隔；AI_HINT_PROTECTION=0、AI_TIMEOUT=60、客户端 70 秒；工作流版本未记录；2026-11-11",
   "summary": {
     "samples": 24,
     "local_rows": 72,
